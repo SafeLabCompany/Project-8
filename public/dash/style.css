@@ -1,0 +1,39 @@
+body {
+  background-color: #f9fafb;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+}
+
+#user-area {
+  display: flex;
+  flex-direction: column;
+  background-color: #2b3b92;
+  align-items: center;
+  height: 400px;
+  width: 120px;
+  color: white;
+  margin-right: 10px;
+}
+
+#user-img {
+  margin-top: 10px;
+}
+
+#user-chamar {
+  justify-self: flex-end;
+}
+
+#area-dashboard {
+  margin-left: 10px;
+  padding: 10px;
+}
+
+.card-kpi {
+  display: flex;
+  text-align: center;
+  background-color: #2b3b92;
+  width: 235px;
+  height: 100px;
+  align-items: center;
+}
