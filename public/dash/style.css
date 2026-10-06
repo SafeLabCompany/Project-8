@@ -29,11 +29,22 @@ body {
   padding: 10px;
 }
 
+#area-kpi {
+  display: flex;
+  flex-direction: row;
+  
+}
+
 .card-kpi {
   display: flex;
+  margin-left: 10px;
+  flex-direction: column;
   text-align: center;
   background-color: #2b3b92;
   width: 235px;
   height: 100px;
-  align-items: center;
+  border-radius: 15px;
+  justify-content: space-between;
+  color: white;
+  padding: 20px;
 }
