@@ -10,10 +10,16 @@ body {
   flex-direction: column;
   background-color: #2b3b92;
   align-items: center;
-  height: 400px;
-  width: 120px;
+  height: 700px;
+  width: 200px;
   color: white;
   margin-right: 10px;
+}
+
+#button-user {
+  line-height: 70px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
 }
 
 #user-img {
