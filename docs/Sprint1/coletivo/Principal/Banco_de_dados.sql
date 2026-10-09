@@ -5,8 +5,7 @@ USE projetoPI_1ccok;
 CREATE TABLE empresa (
 id INT PRIMARY KEY AUTO_INCREMENT,
 cnpj CHAR(14) NOT NULL,
-nome VARCHAR(50) NOT NULL,
-email VARCHAR(60)
+nome VARCHAR(50) NOT NULL
 );
 
 -- Tabela do Funcionário
@@ -23,14 +22,14 @@ data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP
 -- Tabela do Sensor - para localizarmos cada sensor
 CREATE TABLE sensor (
 id INT PRIMARY KEY AUTO_INCREMENT,
-modelo VARCHAR(20), 
-local_instalacao VARCHAR(50) 
+modelo VARCHAR(20),
+local_instalacao VARCHAR(50)
 );
 
--- Tabela de Vacina 
+-- Tabela de Vacina
 CREATE TABLE vacina (
 id INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(50) NOT NULL, 
+nome VARCHAR(50) NOT NULL,
 lote VARCHAR(30) NOT NULL,
 onde_esta_guardada VARCHAR(50)
 );
@@ -38,7 +37,7 @@ onde_esta_guardada VARCHAR(50)
 -- Tabela das temperaturas
 CREATE TABLE monit_temperatura (
 id INT PRIMARY KEY AUTO_INCREMENT,
-nome_geladeira VARCHAR(50) NOT NULL, 
+nome_geladeira VARCHAR(50) NOT NULL,
 temperatura DECIMAL(4, 1),
 data_hora DATETIME DEFAULT CURRENT_TIMESTAMP
 );
@@ -67,13 +66,13 @@ INSERT INTO vacina (nome, lote, onde_esta_guardada) VALUES
 INSERT INTO monit_temperatura (nome_geladeira, temperatura) VALUES
 ('Geladeira 1 - Clínica Vacina Bem', 4.5),
 ('Geladeira 1 - Clínica Vacina Bem', 1.0),
-('Freezer A - Hospital Imuniza', 9.8); 
+('Freezer A - Hospital Imuniza', 9.8);
 
 -- Ele avalia cada temperatura gravada e alerta se a vacina corre perigo
-SELECT 
+SELECT
     nome_geladeira AS 'Equipamento e Local',
     data_hora AS 'Data/hora da leitura',
-    CASE 
+    CASE
         WHEN temperatura < 2.0 THEN CONCAT('ALERTA: Temperatura muito baixa - ', temperatura, 'ºC')
         WHEN temperatura > 8.0 THEN CONCAT('ALERTA CRÍTICO: Temperatura Elevada - ', temperatura, 'ºC')
         ELSE CONCAT('Normal: Temperatura comum - ', temperatura, 'ºC')
