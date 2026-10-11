@@ -5,6 +5,11 @@ body {
   display: flex;
 }
 
+#page-container{
+  display: flex;
+  flex-direction: column;
+}
+
 #user-area {
   display: flex;
   flex-direction: column;
@@ -121,4 +126,11 @@ background-color: pink;
   justify-content: space-between;
   color: rgb(0, 0, 0);
   padding: 20px;
+}
+
+
+
+
+#footer {
+  
 }
