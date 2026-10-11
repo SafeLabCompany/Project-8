@@ -33,6 +33,8 @@ body {
 #area-dashboard {
   margin-left: 10px;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 #area-kpi {
@@ -81,6 +83,30 @@ background-color: pink;
   justify-content: space-between;
   color: white;
   padding: 20px;
+}
+
+.dash-grafico {
+  margin-top: 15px;
+  background-color: #b3c9e6;
+  width: 470px;
+  border: #b5b5b5 solid 1.5px;
+}
+
+.dash-text {
+  
+}
+
+.dash-title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: auto;
+  background-color: #d7d7d7;
+  padding: 10px;
+}
+
+.dash-select {
+  margin-left: 10px;
 }
 
 .card-kpi3 {

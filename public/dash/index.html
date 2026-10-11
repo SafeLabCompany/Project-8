@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <title>Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -74,11 +75,25 @@
           0
         </span>
       </div>
-
     </div>
 
-    <div id="dash">
-
+    <div id="area-grafico">
+      <div class="dash-grafico">
+        <div class="dash-title">
+          <span class="dash-text">
+            Historico de temperaturas do refrigerador
+          </span>
+          <div class="dash-select">
+            <select id="">
+              <option>1</option>
+            </select>
+            <select id="">
+              <option>Últimas 24 horas</option>
+            </select>
+          </div>
+        </div>
+        <canvas id="historico-temp"></canvas>
+      </div>
     </div>
   </div>
 
