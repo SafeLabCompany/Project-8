@@ -24,6 +24,7 @@ body {
 
 #user-area {
   display: flex;
+  border-radius: 10px;
   flex-direction: column;
   background-color: #2b3b92;
   align-items: center;
@@ -165,4 +166,5 @@ background-color: pink;
 
 #footer-lower{
   text-align: center;
+  margin-top: 2.5rem;
 }
