@@ -1,13 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 body {
+  width: 100%;
   background-color: #f9fafb;
   margin: 0px;
+  width: auto;
   padding: 0px;
   display: flex;
 }
 
 #page-container{
+  width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+#main-dash{
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
 }
 
 #user-area {
@@ -128,9 +140,29 @@ background-color: pink;
   padding: 20px;
 }
 
-
-
-
 #footer {
-  
+  background: #fafafa;
+  width: auto;
+  padding: 3vh;
+  flex-direction: column;
+  font-size: large;
+}
+
+#footer-upper{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-content: center;
+}
+
+#footer-logo{
+  margin-right: 50%;
+}
+
+#footer-logo img{
+  width: 8vh;
+}
+
+#footer-lower{
+  text-align: center;
 }
