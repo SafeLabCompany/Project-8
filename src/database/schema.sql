@@ -25,7 +25,8 @@ CONSTRAINT pkFkEmpresaIdFuncionario PRIMARY KEY (id_funcionario, fk_empresa)
 );
 
 CREATE TABLE unidade (
-id_unidade INT,
+id_unidade INT, 
+nome varchar(60) NOT NULL,
 cep CHAR(8) NOT NULL,
 numero_endereco INT NOT NULL,
 fk_empresa INT NOT NULL,
