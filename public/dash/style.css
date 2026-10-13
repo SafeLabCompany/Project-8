@@ -57,6 +57,11 @@ body {
   width: 100%;
 }
 
+#area-grafico {
+  display: flex;
+  flex-direction: row;
+}
+
 #area-kpi {
   display: flex;
   flex-direction: row;
@@ -118,6 +123,7 @@ body {
   background-color: whitesmoke;
   width: 470px;
   border: #000000 solid 1.5px;
+  margin: 20px;
 }
 
 .dash-text {

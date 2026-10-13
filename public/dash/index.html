@@ -95,6 +95,20 @@
               </div>
               <canvas id="historico-temp"></canvas>
             </div>
+
+            <div class="dash-grafico">
+              <div class="dash-title">
+                <span class="dash-text">
+                  Média de temperaturas dos refrigeradores
+                </span>
+                <div class="dash-select">
+                  <select id="">
+                    <option>Últimas 24 horas</option>
+                  </select>
+                </div>
+              </div>
+              <canvas id="media_refrigeradores"></canvas>
+            </div>
           </div>
         </div>
       </div>
@@ -191,6 +205,49 @@
               title: {
                 display: true,
                 text: "Horario",
+              },
+            },
+            y: {
+              min: 0,
+              max: 10,
+              title: {
+                display: true,
+                text: "Temperatura(°C)",
+              },
+            },
+          },
+        },
+      },
+    );
+
+    var media_refrigeradores = new Chart(
+      document.getElementById("media_refrigeradores").getContext("2d"),
+      {
+        type: "bar",
+        data: {
+          labels: ["Refrigerador 1", "Refrigerador 2", "Refrigerador 3", "Refrigerador 4", "Refrigerador 5"],
+          datasets: [
+            {
+              label: "temperatura",
+              borderColor: "#558acb",
+              backgroundColor: "cyan",
+              borderWidth: 2,
+              data: [2, 2, 4, 3, 6],
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            legend: {
+              position: "bottom",
+              align: "center",
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: "Refrigeradores",
               },
             },
             y: {
