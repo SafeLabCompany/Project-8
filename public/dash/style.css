@@ -80,6 +80,13 @@ body {
   gap: 15%;
 }
 
+.card-body{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
 .kpi1 {
   margin-left: 10%;
   background-color: #ff0000;
@@ -92,22 +99,18 @@ body {
 
 .kpi3 {
   margin-left: 2%;
-  margin-right: 10%;
   background-color: #fdcc02;
   justify-content: space-between;
   color: rgb(0, 0, 0);
 }
 
-#kpi_1 {
-display: flex;
-align-items: center;
-gap: 20px;
-justify-content: center;
-margin-right: 200px;
-flex-direction: row;
-margin-left: 40px;
-width: 60%;
-background-color: pink;
+.kpi4 {
+  margin-left: 2%;
+  margin-right: 10%;
+  background-color: #036b04;
+  font-size: xx-large;
+  justify-content: space-evenly;
+  color: white;
 }
 
 .dash-grafico {
@@ -132,22 +135,6 @@ background-color: pink;
 
 .dash-select {
   margin-left: 10px;
-}
-
-
-.card-kpi4 {
-  display: flex;
-  margin-left: 10px;
-  flex-direction: column;
-  text-align: center;
-  background-color: #036b04;
-  width: 25%;
-  height: 100px;
-  border-radius: 15px;
-  font-size: xx-large;
-  justify-content: space-evenly;
-  color: white;
-  padding: 20px;
 }
 
 #select_unidade{
