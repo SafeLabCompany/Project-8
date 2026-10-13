@@ -53,24 +53,28 @@ body {
   padding: 10px;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 #area-kpi {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
   
 }
 
 .card-kpi1 {
   display: flex;
-  margin-left: 10px;
   flex-direction: column;
   text-align: center;
   background-color: #ff0000;
-  width: 235px;
+  width: 25%;
   height: 100px;
   border-radius: 15px;
   justify-content: space-between;
+  align-items: center;
   color: white;
   padding: 20px;
 }
@@ -79,11 +83,11 @@ body {
 display: flex;
 align-items: center;
 gap: 20px;
-justify-content: space-between;
+justify-content: center;
 margin-right: 200px;
 flex-direction: row;
 margin-left: 40px;
-width: 40px;
+width: 60%;
 background-color: pink;
 }
 
@@ -95,7 +99,7 @@ background-color: pink;
   flex-direction: column;
   text-align: center;
   background-color: #2b3b91;
-  width: 235px;
+  width: 25%;
   height: 100px;
   border-radius: 15px;
   justify-content: space-between;
@@ -133,12 +137,33 @@ background-color: pink;
   flex-direction: column;
   text-align: center;
   background-color: #fdcc02;
-  width: 235px;
+  width: 25%;
   height: 100px;
   border-radius: 15px;
   justify-content: space-between;
   color: rgb(0, 0, 0);
   padding: 20px;
+}
+
+.card-kpi4 {
+  display: flex;
+  margin-left: 10px;
+  flex-direction: column;
+  text-align: center;
+  background-color: #036b04;
+  width: 25%;
+  height: 100px;
+  border-radius: 15px;
+  font-size: xx-large;
+  justify-content: space-evenly;
+  color: white;
+  padding: 20px;
+}
+
+#select_unidade{
+  height: 100%;
+  width: 50%;
+
 }
 
 #footer {
