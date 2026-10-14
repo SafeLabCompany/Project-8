@@ -1,0 +1,35 @@
+#main-area {
+  display: flex;
+  width: 85%;
+  flex-direction: column;
+  height: 1000px;
+}
+
+#table{
+  border-spacing: 0px;
+  height: 100%; 
+  width: 100%; 
+  overflow: auto;
+  font-size: xx-large;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+thead {
+  background-color: grey;
+}
+
+th, td {
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.crit {
+  background-color: red;
+}
