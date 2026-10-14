@@ -1,41 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="config.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="config.css">
   <title>Dashboard</title>
 </head>
+
 <body>
   <div id="page-container">
     <div id="main-dash">
       <div id="user-area">
         <div id="user-img">
-          <img src="../assets/userIcon.png">
+          <img src="../assets/userIcon.svg">
         </div>
-        Olá, <span id="user-name">usuário</span>
-        <br>
+        <h2>Olá, <span id="user-name">usuário</span></h2>
+
         <div id="button-user">
-        <span id="user-dash">Dashboard</span>
-        <br>
-        <span id="user-alertas">Alertas</span>
-        <br>
-        <span id="user-registros">Registros</span>
-        <br>
-        <span id="user-call">Chamado</span>
-        <br>
-        <span id="user-config">Configurações</span>
-        <br><br>
-        <span id="user-logout">Logout</span>
+          <div class="btn-href">
+            <a href="dashboard.html">
+              <h2>Dashboard</h2>
+            </a>
+          </div>
+          <div class="btn-href">
+            <a href="alertas.html">
+              <h2>Alerta</h2>
+            </a>
+          </div>
+          <div class="btn-href">
+            <a href="suporte.html">
+              <h2>Chamado</h2>
+            </a>
+          </div>
+          <div class="btn-href-active">
+            <h2>Configurações</h2>
+          </div>
+
+          <div id="user-logout">
+            Logout
+          </div>
         </div>
       </div>
-    </div>
 
-    <div id="config">
-      
-    </div>
+      <div id="config">
 
-  </div>
+      </div>
+
+    </div>
 </body>
+
 </html>

@@ -31,7 +31,8 @@ body {
 */
 
 #user-area {
-  border: 3px solid #0a1060;  
+  box-sizing: border-box;
+  box-shadow:inset 0px 0px 0px 10px #0a1060;
   display: flex;
   border-radius: 10px;
   flex-direction: column;

@@ -10,7 +10,9 @@
 }
 
 #table{
+  border: 1px solid #bbb;
   border-spacing: 0px;
+  border-collapse: collapse;
   height: 100%; 
   width: 100%; 
   overflow: auto;
@@ -31,9 +33,23 @@ thead {
 
 th, td {
   padding: 20px;
-  border: 1px solid black;
+  border-bottom: 1px solid #bbb;
 }
 
-.crit {
-  background-color: red;
+.badge {
+  display: inline-block;
+  min-width: 200px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 18px;
+}
+
+.badge--critical {
+  background-color: #ff5252;
+  color: #b3001b;
+}
+
+.badge--low {
+  background-color: #ffe000;
+  color: #d9a900;
 }
