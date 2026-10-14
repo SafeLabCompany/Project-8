@@ -16,30 +16,47 @@
         <div id="user-img">
           <img src="../assets/userIcon.png">
         </div>
-        Olá, <span id="user-name">usuário</span>
-        <br>
+        <h2>Olá, <span id="user-name">usuário</span></h2>
+
         <div id="button-user">
-          <span id="user-dash">
-            <a href="dashboard.html">Dashboard</a>
-          </span>
+          <div class="btn-href">
+            <a href="dashboard.html">
+              <h2>Dashboard</h2>
+            </a>
+          </div>
           <br>
-          <span id="user-alertas">
-            <a href="alertas.html">Alertas </a>
-          </span>
+
+          <div class="btn-href-active">
+            <h2>Alerta</h2>
+          </div>
           <br>
-          <span id="user-registros">Registros</span>
+
+          <div class="btn-href">
+            <a href="suporte.html">
+              <h2>Chamado</h2>
+            </a>
+          </div>
           <br>
-          <span id="user-call">Chamado</span>
-          <br>
-          <span id="user-config">Configurações</span>
+
+          <div class="btn-href">
+            <a href="config.html">
+              <h2>Configurações</h2>
+            </a>
+          </div>
+
           <br><br>
-          <span id="user-logout">Logout</span>
+
+          <div id="user-logout">
+            Logout
+          </div>
         </div>
       </div>
 
       <div id="main-area">
-        <img src="../assets/notification.png" width="50px">
-        <img src="../assets/userIcon.png" width="50px">
+        <div id="user-icon">
+          <img src="../assets/notification.png" width="30px">
+          <img src="../assets/userIcon.png" width="30px">
+        </div>
         <div id="table">
           <table>
             <thead>
@@ -201,50 +218,37 @@
       </div>
     </div>
     <footer id="footer">
-        <div id="footer-upper">
-          <div
-            id="footer-logo"
-            style="
+      <div id="footer-upper">
+        <div id="footer-logo" style="
               display: flex;
               font-size: 2rem;
               align-items: center;
               width: 50%;
-            "
-          >
-            <img
-              src="../assets/safelab.svg"
-              alt="icone da logo"
-              style="width: 4rem; margin-right: -12px"
-            />
-            <div
-              style="word-spacing: -10px; font-family: &quot;Montserrat&quot;"
-            >
-              <span style="font-weight: lighter; letter-spacing: -3px"
-                >Safe</span
-              >
-              <span style="font-weight: bold; letter-spacing: -4px">Lab</span>
-            </div>
+            ">
+          <img src="../assets/safelab.svg" alt="icone da logo" style="width: 4rem; margin-right: -12px" />
+          <div style="word-spacing: -10px; font-family: &quot;Montserrat&quot;">
+            <span style="font-weight: lighter; letter-spacing: -3px">Safe</span>
+            <span style="font-weight: bold; letter-spacing: -4px">Lab</span>
           </div>
-          <div
-            style="
+        </div>
+        <div style="
               display: grid;
               align-items: center;
               font-size: 1.4rem;
               width: 25%;
               justify-items: center;
               grid-template-columns: 1fr 1fr;
-            "
-          >
-            <span>Contato</span>
-            <span>Sobre nós</span>
-          </div>
+            ">
+          <span>Contato</span>
+          <span>Sobre nós</span>
         </div>
-        <hr style="height: 2px; background-color: #333" />
+      </div>
+      <hr style="height: 2px; background-color: #333" />
 
-        <div id="footer-lower">
-          © SafeLab - 2026 - Todos os direitos reservados.
-        </div>
-      </footer> 
+      <div id="footer-lower">
+        © SafeLab - 2026 - Todos os direitos reservados.
+      </div>
+    </footer>
 </body>
 
 </html>
