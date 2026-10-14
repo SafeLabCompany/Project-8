@@ -24,15 +24,17 @@
 }
 
 .imagem_safelab{
-    align-self: flex-end;
     position: absolute;
-    height: 30vw;
-    width: 30vw;
+    right: 3.5vw;
+    top: 2.4vw;
+    width: clamp(120px, 30vw, 400px);
+    aspect-ratio: 1 / 1;
+    height: 28vw;
+    width: 28vw;;
+    object-fit: cover;
     border-radius: 50%;
+    border: 2px solid #415a77;
     z-index: 100;
-    right: 0vw;
-    border: 2px solid;
-    border-color: #415a77;
 }
 
 .fim{
@@ -71,7 +73,7 @@
 .frases{
     display: flex;
     flex-direction: column;
-    bottom: 3.2vw;
+    bottom: 2.2vw;
     left: 32vw;
     position: relative;
     font-family: sans-serif;
