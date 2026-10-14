@@ -3,209 +3,157 @@
   margin: 0;
   box-sizing: border-box;
 }
-.secao3{
+
+.secao3 {
     display: flex;
     background-color: #111f2e;
     min-height: 180vh;
     flex-direction: column;
     color: white;
     text-align: left;
-    
-    .aviso{
+
+    .aviso {
         width: 100%;
         color: rgba(255, 255, 255, 0.582);
         display: flex;
         padding-top: 5vh;
-          padding-left: 5vw; 
-        padding-right: 50%; 
+        padding-left: 5vw;
+        padding-right: 50%;
         font-size: 1.25rem;
     }
 
-    .aviso2{
+    .aviso2 {
         padding-top: 10vh;
-        padding-left: 65vw;  
+        padding-left: 65vw;
         display: flex;
-       font-size: 2.2rem;
+        font-size: 2.2rem;
     }
 
-    .Cards{
+    .Cards {
         padding-top: 10rem;
         display: flex;
         min-height: 30rem;
         justify-content: space-evenly;
-        width:100%;
+        width: 100%;
 
         .MonitoramentoManual,
-  .VariacoesTermicas,
-  .PerdasECustos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: black;
-    background-color: white;
-    border-radius: 1.9rem;  /* era 30px */
-    width: 25rem;
+        .VariacoesTermicas,
+        .PerdasECustos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: black;
+            background-color: white;
+            border-radius: 1.9rem;
+            width: 25rem;
 
-    h2 {
-      padding-top: 1rem;
-      font-size: 3rem;
-      text-align: center;
-      font-weight: 100;
-    }
+            h2 {
+                padding-top: 1rem;
+                font-size: 3rem;
+                text-align: center;
+                font-weight: 100;
+            }
 
-    p {
-      text-align: center;
-      font-size: 2rem;
-      padding: 2rem 1rem 0 1rem;
-    }
-  }
-}
-     @media (min-width: 1600px) {
-  html {
-    font-size: 20px;
-  }
+            p {
+                text-align: center;
+                font-size: 2rem;
+                padding: 2rem 1rem 0 1rem;
+            }
+        }
+    }   /* fecha .Cards */
 
-
-}
-
-
-
-
-.Solucao{
-    display: flex;
-    flex-direction: column;
-    
-
-    h2{
-        font-size: 3rem;
-        padding-top: 12rem;
-        text-align: center;
-    }
-
-    h3{
-        font-size: 1.9rem;
-        padding-top: 3rem;
-        padding-bottom: 5rem;
-        text-align: center;
-    }
-
-
-    .CardsEtapas{
-        
-        display: flex; 
-         text-align: center; 
-           width: 100%; 
-           
-
-    }
-
-    .fundoCardFodase{
-        margin-top: 1rem;
-        margin-left: 6rem;
-        display: flex;
-        background-color:#558acb;
-        width:7rem ;
-        height: 7.5rem;
-        align-items: center;
-        justify-content: center;
-        border-radius: 15px;
-        
-         box-shadow:
-     0.6rem 0.6rem 0 #3e66a8,     /* 1ª camada fantasma */
-    1.2rem 1.2rem 0 #2a4673;  
-          
-    }
-    
-    .SensorTempetura,.ColetaDosDados,
-    .BancoDaddos,.Processamento,.DashboardSafeLab,
-    .AlertaResponsavel{
-        width: 100%;
-        
+    .Solucao {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
 
-        
-        h2{
-            margin-top: -9rem;
-            font-size: 1.5rem;
-            margin-bottom: .5rem;
+        h2 {
+            font-size: 3rem;
+            padding-top: 12rem;
+            text-align: center;
         }
 
-    }
-
-
-
-   @media (max-width: 1400px) { 
-
-.Solucao{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    h2{
-        font-size: 3rem;
-        padding-top: 12rem;
-        text-align: center;
-    }
-
-    h3{
-        font-size: 1.9rem;
-        padding-top: 3rem;
-        padding-bottom: 5rem;
-        text-align: center;
-    }
-
-
-    .CardsEtapas{
-        
-        display: flex; 
-         text-align: center; 
-           width: 100%; 
-           
-
-    }
-
-    .fundoCardFodase{
-        margin-top: 1rem;
-       
-        display: flex;
-        background-color:#558acb;
-        width:1rem ;
-        height: 7.5rem;
-        align-items: center;
-        justify-content: center;
-        border-radius: 15px;
-       
-        
-         box-shadow:
-     0.6rem 0.6rem 0 #3e66a8,     /* 1ª camada fantasma */
-    1.2rem 1.2rem 0 #2a4673;  
-          
-    }
-    
-    .SensorTempetura,.ColetaDosDados,
-    .BancoDaddos,.Processamento,.DashboardSafeLab,
-    .AlertaResponsavel{
-        width: 100%;
-        
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-
-        
-        h2{
-            margin-top: -9rem;
-            font-size: 1.5rem; 
-            margin-bottom: .5rem;
+        h3 {
+            font-size: 1.9rem;
+            padding-top: 3rem;
+            padding-bottom: 5rem;
+            text-align: center;
         }
 
+        .CardsEtapas {
+            display: flex;
+            text-align: center;
+            width: 100%;
+            position: relative;
+
+           &::before {
+        content: "";
+        position: absolute;
+        top: 4.75rem;
+        left: 4rem;
+        right: 4rem;
+        height: 3px;
+        background-color: white;
     }
 
-   }
 
+        }
+
+        .fundoCardFodase {
+          position: relative;
+          z-index: 1;
+            margin-top: 1rem;
+            margin-left: 6rem;
+            display: flex;
+            background-color: #558acb;
+            width: 7rem;
+            height: 7.5rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            box-shadow:
+                0.6rem 0.6rem 0 #3e66a8,
+                1.2rem 1.2rem 0 #2a4673;
+        }
+
+        .SensorTemperatura,
+        .ColetaDosDados,
+        .BancoDados,
+        .Processamento,
+        .DashboardSafeLab,
+        .AlertaResponsavel {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            h2 {
+                margin-top: -9rem;
+                font-size: 1.5rem;
+                margin-bottom: .5rem;
+            }
+        }
+    }   /* fecha .Solucao */
+
+}   /* fecha .secao3 */
+
+.IconeDosCards { height: 3.1rem; }
+.SolucaoIcones { height: 5.6rem; }
+
+
+/* ===== MEDIA QUERIES: sempre por último, fora de tudo ===== */
+
+/* Full HD */
+@media (min-width: 1600px) {
+    html { font-size: 20px; }
+     .secao3 .Solucao .fundoCardFodase {
+        margin-left: 4rem;   /* era 6rem, aumente até alinhar */
+    }
 }
 
-}
-
+/* Notebook */
+@media (max-width: 1400px) {
+    html { font-size: 14px; }
+     .secao3 .Solucao .fundoCardFodase {
+        margin-left: 4rem;   /* era 6rem, aumente até alinhar */
+    }
 }
