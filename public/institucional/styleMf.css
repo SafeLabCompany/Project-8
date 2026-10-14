@@ -19,14 +19,18 @@
     margin-top: -4vw;
 }
 
+.container{
+    position: relative;
+}
+
 .imagem_safelab{
     align-self: flex-end;
-    height: 26vw;
-    width: 26vw;
-    border-radius: 50%;
     position: absolute;
+    height: 30vw;
+    width: 30vw;
+    border-radius: 50%;
     z-index: 100;
-    right: 13vw;
+    right: 0vw;
     border: 2px solid;
     border-color: #415a77;
 }
@@ -68,7 +72,7 @@
     display: flex;
     flex-direction: column;
     bottom: 3.2vw;
-    left: 34vw;
+    left: 32vw;
     position: relative;
     font-family: sans-serif;
     width: 45%;
