@@ -24,6 +24,7 @@ body {
   display: flex;
   flex-direction: row;
   margin: 10px;
+  width: fit-content;
 }
 
 /*
@@ -102,6 +103,19 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+#container-esquerdo{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#container-direito{
+  display: flex;
+  width: 20%;
+  justify-content: center;
+  
 }
 
 #area-kpi {
