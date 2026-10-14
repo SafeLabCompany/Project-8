@@ -7,28 +7,34 @@
     justify-content: space-evenly;
     flex-direction: column;
     min-height: 81vh;
-    margin-right: 280px;
-    margin-left: 100px;
+    margin-right: 10vw;
+    margin-left: 6vw;
 }
 
 .primeira_frase{
     font-family: "League Spartan", sans-serif;
-    font-size: 50px;
+    font-size: clamp(28px, 4vw, 50px);
     font-weight: bold;
-    margin-left: 30px;
-    margin-top: -75px;
+    margin-left: 3vw;
+    margin-top: -4vw;
+}
+
+.container{
+    position: relative;
 }
 
 .imagem_safelab{
-    align-self: flex-end;
-    height: 400px;
-    width: 400px;
-    border-radius: 50%;
     position: absolute;
+    right: 3.5vw;
+    top: 2.4vw;
+    width: clamp(120px, 30vw, 400px);
+    aspect-ratio: 1 / 1;
+    height: 28vw;
+    width: 28vw;;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #415a77;
     z-index: 100;
-    right: 180px;
-    border: 2px solid;
-    border-color: #415a77;
 }
 
 .fim{
@@ -38,13 +44,13 @@
 
 .ultima_frase{
     font-family: "League Spartan", sans-serif;
-    font-size: 37px;
+    font-size: clamp(54px, calc(3vw + 30px), 67px);
     font-weight: bold;
-    margin-right: 200px;
+    margin-right: 14vw;
     position: relative;
     z-index: 100;
-    top: 50px;
-    right: 10px;
+    top: 4vw;
+    left: 12vw;
 }
 
 .fundo{
@@ -67,12 +73,12 @@
 .frases{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    bottom: 2.2vw;
+    left: 32vw;
     position: relative;
-    left: 520px;
-    bottom: 50px;
     font-family: sans-serif;
-    font-size: 22px;
+    width: 45%;
+    font-size: clamp(16px, 1.6vw, 22px);
 }
 .seringa{
     border-radius: 50%;
@@ -106,9 +112,8 @@
     text-align: start;
     padding-bottom: 20px;
     color: white;
-    width: 480px;
-    height: 25px;
-    margin-left: -30px;
+    height: 2vw;
+    margin-left: -2vw;
     box-shadow: 0px 6px 12px 3px rgba(0, 0, 0, 0.70);
 }
 .p2{
@@ -117,9 +122,8 @@
     text-align: start;
     padding-bottom: 20px;
     color: white;
-    width: 430px;
-    height: 30px;
-     margin-left: -60px;
+    height: 2vw;
+     margin-left: -4vw;
      box-shadow: 0px 6px 12px 3px rgba(0, 0, 0, 0.70);
 }
 .p3{
@@ -128,9 +132,8 @@
     text-align: start;
     padding-bottom: 20px;
     color: white;
-    width: 430px;
-    height: 30px;
-    margin-left: -90px;
+    height: 2vw;
+    margin-left: -6vw;
     box-shadow: 0px 6px 12px 3px rgba(0, 0, 0, 0.70);
 }
 .p4{
@@ -139,9 +142,8 @@
     text-align: start;
     padding-bottom: 20px;
     color: white;
-    width: 430px;
-    height: 30px;
-    margin-left: -60px;
+    height: 2vw;
+    margin-left: -4vw;
     box-shadow: 0px 6px 12px 3px rgba(0, 0, 0, 0.70);
 }
 .p5{
@@ -150,8 +152,7 @@
     text-align: start;
     padding-bottom: 20px;
     color: white;
-    width: 480px;
-    height: 30px;
-    margin-left: -30px;
+    height: 2vw;
+    margin-left: -2vw;
     box-shadow: 0px 6px 12px 3px rgba(0, 0, 0, 0.70);
 }
