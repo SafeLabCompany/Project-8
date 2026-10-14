@@ -52,8 +52,15 @@ body {
   margin-left: 10px;
   padding: 10px;
   display: flex;
+  width: 100%;
   flex-direction: column;
   width: 100%;
+}
+
+#area-grafico {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 #area-kpi {
@@ -65,56 +72,91 @@ body {
   
 }
 
-.card-kpi1 {
+.card {
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-color: #ff0000;
-  width: 25%;
+  width: 40%;
   height: 100px;
   border-radius: 15px;
   justify-content: space-between;
   align-items: center;
   color: white;
   padding: 20px;
+  gap: 15%;
 }
 
-#kpi_1 {
-display: flex;
-align-items: center;
-gap: 20px;
-justify-content: center;
-margin-right: 200px;
-flex-direction: row;
-margin-left: 40px;
-width: 60%;
-background-color: pink;
-}
-
-
-
-.card-kpi2 {
+.card-body{
   display: flex;
-  margin-left: 10px;
-  flex-direction: column;
   text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.kpi1 {
+  margin-left: 10%;
+  background-color: #ff0000;
+}
+
+.kpi2 {
+  margin-left: 2%;
   background-color: #2b3b91;
-  width: 25%;
-  height: 100px;
-  border-radius: 15px;
+}
+
+.kpi3 {
+  margin-left: 2%;
+  background-color: #fdcc02;
   justify-content: space-between;
+  color: rgb(0, 0, 0);
+}
+
+.kpi4 {
+  margin-left: 2%;
+  margin-right: 10%;
+  background-color: #036b04;
+  font-size: xx-large;
+  justify-content: space-evenly;
   color: white;
-  padding: 20px;
 }
 
 .dash-grafico {
   margin-top: 15px;
-  background-color: #b3c9e6;
-  width: 470px;
-  border: #b5b5b5 solid 1.5px;
+  background-color: whitesmoke;
+  width: 570px;
+  height: 350px;
+  border: #000000 solid 1.5px;
+  margin: 20px;
 }
 
-.dash-text {
+.dash-alertas {
+  border: #000000 solid 1.5px;
+  width: 300px;
+  height: 584px;
+  margin-top: 15px;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+}
+
+#img_ultimos_alertas {
+  margin-right: 20px;
+}
+
+.text-alertas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+}
+
+.card-alerta{
+  border: #b5b5b5 solid 1.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
   
 }
 
@@ -129,35 +171,6 @@ background-color: pink;
 
 .dash-select {
   margin-left: 10px;
-}
-
-.card-kpi3 {
-  display: flex;
-  margin-left: 10px;
-  flex-direction: column;
-  text-align: center;
-  background-color: #fdcc02;
-  width: 25%;
-  height: 100px;
-  border-radius: 15px;
-  justify-content: space-between;
-  color: rgb(0, 0, 0);
-  padding: 20px;
-}
-
-.card-kpi4 {
-  display: flex;
-  margin-left: 10px;
-  flex-direction: column;
-  text-align: center;
-  background-color: #036b04;
-  width: 25%;
-  height: 100px;
-  border-radius: 15px;
-  font-size: xx-large;
-  justify-content: space-evenly;
-  color: white;
-  padding: 20px;
 }
 
 #select_unidade{
@@ -192,4 +205,87 @@ background-color: pink;
 #footer-lower{
   text-align: center;
   margin-top: 2.5rem;
+}
+
+#area-suporte{
+  width:1700px;
+  height:700px;
+  border-radius: 15px;
+  background-color: whitesmoke;
+}
+
+#barra-superior{
+  display: flex;
+  height: 50px;
+  flex-direction: column;
+  justify-content: center;
+  font-family: sans-serif;
+  font-size: x-large;
+  border-radius: 15px;
+  background-color: #a09b9b;
+}
+
+#texto-suporte{
+  display: flex;
+  margin-left: 50px;
+  
+}
+
+#campos-input{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: large;
+  margin-left: 260px;
+  
+}
+
+#slct_categoria{
+ width: 1107px;
+ height: 37px;
+ border-radius: 15px;
+ border-color: #2b3b92;
+}
+
+#ipt_nome{
+  width: 1100px;
+  height: 30px;
+  border-radius: 15px;
+  border-color: #2b3b92;
+}
+
+#ipt_email{
+  width: 1100px;
+  height: 30px;
+  border-radius: 15px;
+  border-color: #2b3b92;
+}
+
+#ipt_assunto{
+  width: 1100px;
+  height: 30px;
+  border-radius: 15px;
+  border-color: #2b3b92;
+}
+
+#ipt_descricao{
+  width: 1100px;
+  height: 100px;
+  border-radius: 15px;
+  border-color: #2b3b92;
+}
+
+#botao-div{
+  display: flex;
+  justify-content: center;
+  font-size: large;
+}
+
+#abrir_chamado{
+  width: 300px;
+  height: 50px;
+  background-color: #2b3b92;
+  color: white;
+  border-radius: 20px;
+  
 }
