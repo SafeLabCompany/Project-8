@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="config.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="alert.css">
   <title>Dashboard</title>
 </head>
+
 <body>
   <div id="page-container">
     <div id="main-dash">
@@ -17,25 +19,232 @@
         Olá, <span id="user-name">usuário</span>
         <br>
         <div id="button-user">
-        <span id="user-dash">Dashboard</span>
-        <br>
-        <span id="user-alertas">Alertas</span>
-        <br>
-        <span id="user-registros">Registros</span>
-        <br>
-        <span id="user-call">Chamado</span>
-        <br>
-        <span id="user-config">Configurações</span>
-        <br><br>
-        <span id="user-logout">Logout</span>
+          <span id="user-dash">
+            <a href="dashboard.html">Dashboard</a>
+          </span>
+          <br>
+          <span id="user-alertas">
+            <a href="alertas.html">Alertas </a>
+          </span>
+          <br>
+          <span id="user-registros">Registros</span>
+          <br>
+          <span id="user-call">Chamado</span>
+          <br>
+          <span id="user-config">Configurações</span>
+          <br><br>
+          <span id="user-logout">Logout</span>
+        </div>
+      </div>
+
+      <div id="main-area">
+        <img src="../assets/notification.png" width="50px">
+        <img src="../assets/userIcon.png" width="50px">
+        <div id="table">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Refrigerador</th>
+                <th scope="col">Temperatura registrada</th>
+                <th scope="col">Tipo de alerta</th>
+                <th scope="col">Data e hora</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td class="crit">Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td class="crit">Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td class="crit">Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td class="crit">Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
+    <footer id="footer">
+        <div id="footer-upper">
+          <div
+            id="footer-logo"
+            style="
+              display: flex;
+              font-size: 2rem;
+              align-items: center;
+              width: 50%;
+            "
+          >
+            <img
+              src="../assets/safelab.svg"
+              alt="icone da logo"
+              style="width: 4rem; margin-right: -12px"
+            />
+            <div
+              style="word-spacing: -10px; font-family: &quot;Montserrat&quot;"
+            >
+              <span style="font-weight: lighter; letter-spacing: -3px"
+                >Safe</span
+              >
+              <span style="font-weight: bold; letter-spacing: -4px">Lab</span>
+            </div>
+          </div>
+          <div
+            style="
+              display: grid;
+              align-items: center;
+              font-size: 1.4rem;
+              width: 25%;
+              justify-items: center;
+              grid-template-columns: 1fr 1fr;
+            "
+          >
+            <span>Contato</span>
+            <span>Sobre nós</span>
+          </div>
+        </div>
+        <hr style="height: 2px; background-color: #333" />
 
-    <div id="config">
-      
-    </div>
-
-  </div>
+        <div id="footer-lower">
+          © SafeLab - 2026 - Todos os direitos reservados.
+        </div>
+      </footer> 
 </body>
+
 </html>
