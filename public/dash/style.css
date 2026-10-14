@@ -24,6 +24,7 @@ body {
   display: flex;
   flex-direction: row;
   margin: 10px;
+  width: fit-content;
 }
 
 /*
@@ -102,6 +103,23 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+#container-esquerdo{
+  display: flex;
+  flex-direction: column;
+}
+
+#graficos-esquerdo{
+  display: flex;
+  flex-direction: row;
+}
+
+#container-direito{
+  display: flex;
+  width: 20%;
+  justify-content: center;
+  
 }
 
 #area-kpi {
@@ -328,4 +346,37 @@ a {
   background-color: #2b3b92;
   color: white;
   border-radius: 20px;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+thead {
+  background-color: grey;
+}
+
+th, td {
+  padding: 20px;
+  border-bottom: 1px solid #bbb;
+}
+
+.badge {
+  display: inline-block;
+  min-width: 200px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 18px;
+}
+
+.badge--critical {
+  background-color: #ff5252;
+  color: #b3001b;
+}
+
+.badge--low {
+  background-color: #ffe000;
+  color: #d9a900;
 }

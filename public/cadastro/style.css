@@ -7,7 +7,7 @@
 .PaginaCadastro{
     display: flex;
     
-    height: 100vh;
+    height: 45.62rem;
 
     
 
@@ -33,7 +33,7 @@
     .AreaDoCadastro{
         flex-shrink: 0;
         width: 24rem;
-        margin-top:5rem ;
+        /* margin-top:5rem ; */
         display: flex;
         justify-content: start;
         align-items: center;

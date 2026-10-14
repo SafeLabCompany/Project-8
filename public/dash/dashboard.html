@@ -84,6 +84,8 @@
         </div>
 
         <div id="area-grafico">
+          <div id="container-esquerdo">
+            <div id="graficos-esquerdo">
           <div class="dash-grafico">
             <div class="dash-title">
               <span class="dash-text">
@@ -114,6 +116,56 @@
             </div>
             <canvas id="media_refrigeradores"></canvas>
           </div>
+        </div>
+
+          <div id="table">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Refrigerador</th>
+                <th scope="col">Temperatura registrada</th>
+                <th scope="col">Tipo de alerta</th>
+                <th scope="col">Data e hora</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td><span class="badge badge--critical">Temperatura Crítica</span></td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+               <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td> <span class="badge badge--low"> Abaixo do recomendado </span> </td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td> <span class="badge badge--critical"> Sem registro </span> </td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td class="crit">Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              <tr>
+                <th scope="row">Refrigerador 4</th>
+                <td>10,0ºC</td>
+                <td>Temperatura Crítica</td>
+                <td>27/07/2026 09:41</td>
+              </tr>
+              
+            </tbody>
+          </table>
+          </div>
+          </div>
+
+          <div id="container-direito">
           <div class="dash-alertas">
             <div class="dash-title">
               <span class="dash-select"> Últimos alertas </span>
@@ -170,6 +222,7 @@
               21/07/2026
             </div>
           </div>
+          </div>
         </div>
       </div>
     </div>
@@ -214,7 +267,7 @@
     {
       type: "line",
       data: {
-        labels: ["00:01", "00:05", "00:10", "00:20", "00:30", "00:40"],
+        labels: ["00:01", "00:02", "00:03", "00:04", "00:05", "00:06"],
         datasets: [
           {
             label: "temperatura",
