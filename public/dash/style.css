@@ -269,7 +269,9 @@ a {
 #area-suporte{
   width:1700px;
   height:700px;
-  border-radius: 15px;
+  border-radius: 5px;
+  border: solid 1px;
+  border-color: #b5b5b5;
   background-color: whitesmoke;
 }
 
@@ -280,8 +282,10 @@ a {
   justify-content: center;
   font-family: sans-serif;
   font-size: x-large;
-  border-radius: 15px;
-  background-color: #a09b9b;
+  border-radius: 1px;
+  border: solid 1px;
+  border-color: #a09b9b;
+  background-color: #d7d7d7;
 }
 
 #texto-suporte{
@@ -302,35 +306,35 @@ a {
 #slct_categoria{
  width: 1107px;
  height: 37px;
- border-radius: 15px;
+ border-radius: 5px;
  border-color: #2b3b92;
 }
 
 #ipt_nome{
   width: 1100px;
   height: 30px;
-  border-radius: 15px;
+  border-radius: 5px;
   border-color: #2b3b92;
 }
 
 #ipt_email{
   width: 1100px;
   height: 30px;
-  border-radius: 15px;
+  border-radius: 5px;
   border-color: #2b3b92;
 }
 
 #ipt_assunto{
   width: 1100px;
   height: 30px;
-  border-radius: 15px;
+  border-radius: 5px;
   border-color: #2b3b92;
 }
 
 #ipt_descricao{
   width: 1100px;
   height: 100px;
-  border-radius: 15px;
+  border-radius: 5px;
   border-color: #2b3b92;
 }
 
@@ -345,7 +349,7 @@ a {
   height: 50px;
   background-color: #2b3b92;
   color: white;
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 table{
