@@ -389,3 +389,8 @@ th, td {
   display: flex;
   justify-content: flex-end;
 }
+
+#config{
+  width:1500px;
+  height:700px;
+}
