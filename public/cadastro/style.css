@@ -14,7 +14,7 @@
     .CadastroImagem{
         flex: 1;
         display: flex;
-        background-image: url(../assets/BackgroundImgCadastro1.png);
+        background-image: url(../assets/cadastro/BackgroundImgCadastro1.png);
         justify-content: center ;
         align-items: center;
     background-size: cover;
