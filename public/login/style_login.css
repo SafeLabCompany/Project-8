@@ -4,9 +4,9 @@
   box-sizing: border-box;
 }
 
-/* ------- */
-/* HEADER */
-/* ----- */
+/* -------- */
+/*  HEADER  */
+/* -------- */
 
 header{
     position: sticky;
@@ -56,6 +56,10 @@ header{
     transform: scale(1.25);
     /* font-size: 1.25rem; */
 }
+
+/* ---------- */
+/* FIM HEADER */
+/* ---------- */
 
 .menu_navegacao{
     font-weight: bold;
@@ -181,3 +185,13 @@ header{
 
     }
 }
+
+/* -------- */
+/*  Footer  */
+/* -------- */
+
+
+
+/* ------------ */
+/*  Fim Footer  */
+/* ------------ */
