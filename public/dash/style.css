@@ -380,3 +380,8 @@ th, td {
   background-color: #ffe000;
   color: #d9a900;
 }
+
+#header-dashboard{
+  display: flex;
+  justify-content: flex-end;
+}
