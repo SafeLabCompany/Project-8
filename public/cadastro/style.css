@@ -4,6 +4,63 @@
   box-sizing: border-box;
 }
 
+ /* -------- */
+/*  HEADER  */
+/* -------- */
+
+header{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    min-height: 4rem;
+    /* background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px); */
+    background-color: #f8f9fa;
+}
+
+.section_header{
+    display: flex;
+    align-items: center;
+}
+
+.texto_logo{
+    display: flex;
+    align-items: center;
+
+    font-family: 'Montserrat';
+    font-size: 2rem;
+}
+
+.link_header{
+    display: inline-block;
+
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.link_header:hover{
+    /* background-color: #2b3b92;
+    border-color: #2b3b92;
+    border-style: solid;
+    border-width: 0.5rem;
+    border-radius: 2rem;
+    color: #f8f9fa; */
+
+    text-decoration: underline;
+    transform: scale(1.25);
+    /* font-size: 1.25rem; */
+}
+
+/* ---------- */
+/* FIM HEADER */
+/* ---------- */
+
 .PaginaCadastro {
   display: flex;
 
@@ -40,10 +97,11 @@
     flex-direction: column;
     text-align: center;
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 3rem;
-    }
+        h2{
+            margin-top: 6rem;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
 
     h3 {
       margin-bottom: 2rem;
@@ -98,7 +156,7 @@
 
   .PaginaCadastro {
     display: flex;
-    height: 100vh;
+   height: 44rem;
 
 
     .AreaDoCadastro {
@@ -111,10 +169,11 @@
       flex-direction: column;
       text-align: center;
 
-      h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-      }
+        h2{
+            margin-top: 1rem;
+            font-size: 2rem;
+             margin-bottom: 1rem; 
+        }
 
       h3 {
         margin-bottom: 1rem;
