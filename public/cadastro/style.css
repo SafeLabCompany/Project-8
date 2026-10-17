@@ -61,37 +61,41 @@ header{
 /* FIM HEADER */
 /* ---------- */
 
-.PaginaCadastro{
+.PaginaCadastro {
+  display: flex;
+
+  height: 45.62rem;
+
+
+
+  .CadastroImagem {
+    flex: 1;
     display: flex;
-    height: 90vh;
-    .CadastroImagem{
-        flex: 1;
-        display: flex;
-        background-image: url(../assets/BackgroundImgCadastro1.png);
-        justify-content: center ;
-        align-items: center;
+    background-image: url(../assets/cadastro/BackgroundImgCadastro1.png);
+    justify-content: center;
+    align-items: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-        
-    }
 
-    
-    .Logotipo{
-       width: 17rem;
-       height: auto;
-    }
-    
+  }
 
-    .AreaDoCadastro{
-        flex-shrink: 0;
-        width: 24rem;
-        /* margin-top:5rem ; */
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
+
+  .Logotipo {
+    width: 17rem;
+    height: auto;
+  }
+
+
+  .AreaDoCadastro {
+    flex-shrink: 0;
+    width: 24rem;
+    /* margin-top:5rem ; */
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
 
         h2{
             margin-top: 6rem;
@@ -99,68 +103,71 @@ header{
             margin-bottom: 3rem;
         }
 
-        h3{
-            margin-bottom: 2rem;
-        }
-
-        .ButtonCadastrar{
-            
-            text-align: center;
-            
-            width: 11rem;
-            font-size: 1.2rem;
-            border-radius: 5rem;
-            padding-top: .5rem;
-            padding-bottom: .5rem;
-            background-color:#2b3b92;
-            border-style: solid;
-           color: white;
-        }
-
-        .ButtonEntrar{
-             text-align: center;
-           
-            width: 8rem;
-            border-radius: 5rem;
-            padding-top: .7rem;
-            padding-bottom: .7rem;
-            background-color:#2b3b92;
-            border-style: solid;
-            color: white;
-        }
-
-        .LocalDeInsert{
-            border-radius: 1rem;
-            height: 2rem;
-            width: 15rem;
-            border-style: solid;
-        }
-
-
+    h3 {
+      margin-bottom: 2rem;
     }
+
+    .ButtonCadastrar {
+
+      text-align: center;
+
+      width: 11rem;
+      font-size: 1.2rem;
+      border-radius: 5rem;
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+      background-color: #2b3b92;
+      border-style: solid;
+      color: white;
+    }
+
+    .ButtonEntrar {
+      text-align: center;
+
+      width: 8rem;
+      border-radius: 5rem;
+      padding-top: .7rem;
+      padding-bottom: .7rem;
+      background-color: #2b3b92;
+      border-style: solid;
+      color: white;
+    }
+
+    .LocalDeInsert {
+      border-radius: 1rem;
+      height: 2rem;
+      width: 15rem;
+      border-style: solid;
+    }
+
+
+  }
 
 
 
 }
 
- 
+
 /* Para tela de notebook */
-  @media (max-width: 1400px) {
-    html { font-size: 14px; }
-    .PaginaCadastro{
+@media (max-width: 1400px) {
+  html {
+    font-size: 14px;
+  }
+
+  .PaginaCadastro {
     display: flex;
    height: 44rem;
 
-   
-    .AreaDoCadastro{
-        flex-shrink: 0;
-        width: 24rem;
-        
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
+
+    .AreaDoCadastro {
+      flex-shrink: 0;
+      width: 24rem;
+
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
 
         h2{
             margin-top: 1rem;
@@ -168,14 +175,14 @@ header{
              margin-bottom: 1rem; 
         }
 
-        h3{
-            margin-bottom: 1rem;
-        }
+      h3 {
+        margin-bottom: 1rem;
+      }
 
-       
 
-       
-    }
+
 
     }
+
+  }
 }

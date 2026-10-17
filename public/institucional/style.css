@@ -1,0 +1,447 @@
+/* ----------- */
+/* IMPORTAÇÕES */
+/* ----------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* --------------- */
+/* CLASSES GLOBAIS */
+/* --------------- */
+
+html:has(:target) {
+    scroll-behavior: smooth;
+}
+
+*{
+    color: #1c1c1c;
+}
+
+body{
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+section {
+    scroll-margin-top: 4rem;
+}
+
+/* ------- */
+/* HEADER */
+/* ----- */
+
+header{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    min-height: 4rem;
+    /* background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px); */
+    background-color: #f8f9fa;
+}
+
+.section_header{
+    display: flex;
+    align-items: center;
+}
+
+.texto_logo{
+    display: flex;
+    align-items: center;
+
+    font-family: 'Montserrat';
+    font-size: 2rem;
+}
+
+.link_header{
+    display: inline-block;
+
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.link_header:hover{
+    /* background-color: #2b3b92;
+    border-color: #2b3b92;
+    border-style: solid;
+    border-width: 0.5rem;
+    border-radius: 2rem;
+    color: #f8f9fa; */
+
+    text-decoration: underline;
+    transform: scale(1.25);
+    /* font-size: 1.25rem; */
+}
+
+.menu_navegacao{
+    font-weight: bold;
+}
+
+/* --------- */
+/* Sessao 1 */
+/* ------- */
+
+.conteiner_inicial_home{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+    max-width: 100%;
+    height: 37rem;
+}
+
+/* LADO DIREITO */
+
+.lado_direito{
+    background-color: #e7e7e7;
+
+    width: 41.25%;
+    height: 37rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.textura_ondas{
+    width: 100%;
+    height: 100%;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 15%, rgba(0, 0, 0, 0.6) 100%);
+
+    position: relative;
+    z-index: 1;
+}
+
+.texto_lado_direito{
+    z-index: 2;
+    position: absolute;
+
+    text-align: center;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.descricao_direito{
+    margin-top: 2rem;
+
+    font-size: 1.5rem;
+}
+
+.button_cadastro{
+    width: 22rem;
+    height: 7rem;
+
+    border-width: 2.5rem;
+    background-color: #2b3b92;
+    border-color: #2b3b92;
+    border-style: solid;
+    border-radius: 4rem;
+
+    color: #e7e7e7;
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-weight: bolder;
+    font-size: 2.5rem;
+
+    cursor: pointer;
+}
+
+
+.link{
+    display: inline-block;
+
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.link:hover{
+    text-decoration: underline;
+}
+
+/* LADO ESQUERDO */
+
+.lado_esquerdo{
+    background-color: #e7e7e7;
+    width: 58%;
+    height: 37rem;
+}
+
+.conteiner_imagens {
+    position: relative;
+    width: 30rem;
+    height: 30rem;
+}
+
+.conteiner_imagens img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Imagem azul do fundo */
+.imagem_asterisco {
+    z-index: 2;
+    transform: rotate(22deg);
+
+    left: 10.75rem;
+}
+
+/* Mão segurando a ampola */
+.imagem_mao {
+    z-index: 3;
+
+    top: 7rem;
+    left: 6rem;
+}
+
+/* Textura de pontos */
+.imagem_pontos {
+    z-index: 1;
+
+    top: 11rem;
+    left: 2rem;
+}
+
+/* ---------------- */
+/* PARTE DO VENTURA */
+/* ---------------- */
+
+.conteiner_final_home{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    padding-left: 3rem;
+    padding-right: 3rem;
+
+    max-width: 100%;
+    height: 40rem;
+}
+
+.caixa_texto{
+    display: flex;
+    height: 3rem;
+    width: 30rem;
+    margin: 1rem;
+
+    align-items: center;
+
+    background-color: #2b3b92;
+
+    border-color: #2b3b92;
+    border-style: solid;
+    border-radius: 2rem;
+    box-shadow: -0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.35);
+}
+
+.lista_caixas_texto{
+    position: relative;
+    z-index: 1;
+    bottom: -1rem;
+}
+
+.lista_caixas_texto .caixa_texto:nth-child(1),
+.lista_caixas_texto .caixa_texto:nth-child(5){ margin-left: 4rem; }
+
+.lista_caixas_texto .caixa_texto:nth-child(2),
+.lista_caixas_texto .caixa_texto:nth-child(4){ margin-left: 2.5rem; }
+
+.lista_caixas_texto .caixa_texto:nth-child(3){ margin-left: 1rem; }
+
+.conteiner_fachada{
+    position: relative;
+    z-index: 2;
+    margin-left: -10rem;
+}
+
+.caixa_img{
+    background-color: #1c1c1c;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    margin: 0.5rem;
+}
+
+/* ------------- */
+/* PARTE DO ENZO */
+/* ------------- */
+
+.secao3 {
+    display: flex;
+    background-color: #111f2e;
+    min-height: 180vh;
+    flex-direction: column;
+    color: #f8f9fa;
+    text-align: left;
+
+    .aviso {
+        color: #a0aab6;
+        display: flex;
+        padding-top: 5vh;
+        padding-left: 5vw;
+        padding-right: 50%;
+        font-size: 1.25rem;
+    }
+
+    .aviso2 {
+        color: #f8f9fa;
+        padding-top: 10vh;
+        padding-left: 65vw;
+        display: flex;
+        font-size: 2.2rem;
+    }
+
+    .Cards {
+        padding-top: 10rem;
+        display: flex;
+        min-height: 30rem;
+        justify-content: space-evenly;
+        width: 100%;
+
+        .MonitoramentoManual,
+        .VariacoesTermicas,
+        .PerdasECustos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: black;
+            background-color: #f8f9fa;
+            border-radius: 1.9rem;
+            width: 25rem;
+
+            h2 {
+                padding-top: 1rem;
+                font-size: 3rem;
+                text-align: center;
+                font-weight: 100;
+            }
+
+            p {
+                text-align: center;
+                font-size: 2rem;
+                padding: 2rem 1rem 0 1rem;
+            }
+        }
+    }   /* fecha .Cards */
+
+    .Solucao {
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            font-size: 3rem;
+            padding-top: 12rem;
+            text-align: center;
+            color: #f8f9fa;
+        }
+
+        h3 {
+            font-size: 1.9rem;
+            padding-top: 3rem;
+            padding-bottom: 5rem;
+            text-align: center;
+            color: #f8f9fa;
+        }
+
+        .CardsEtapas {
+            display: flex;
+            text-align: center;
+            width: 100%;
+            position: relative;
+
+           &::before {
+        content: "";
+        position: absolute;
+        top: 4.75rem;
+        left: 4rem;
+        right: 4rem;
+        height: 3px;
+        background-color: #f8f9fa;
+    }
+
+
+        }
+
+        .fundoCardFodase {
+          position: relative;
+          z-index: 1;
+            margin-top: 1rem;
+            margin-left: 6rem;
+            display: flex;
+            background-color: #558acb;
+            width: 7rem;
+            height: 7.5rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            box-shadow:
+                0.6rem 0.6rem 0 #3e66a8,
+                1.2rem 1.2rem 0 #2a4673;
+        }
+
+        .SensorTemperatura,
+        .ColetaDosDados,
+        .BancoDados,
+        .Processamento,
+        .DashboardSafeLab,
+        .AlertaResponsavel {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            h2 {
+                margin-top: -9rem;
+                font-size: 1.5rem;
+                margin-bottom: .5rem;
+            }
+        }
+    }   /* fecha .Solucao */
+
+}   /* fecha .secao3 */
+
+.IconeDosCards { height: 3.1rem; }
+.SolucaoIcones { height: 5.6rem; }
+
+
+/* ===== MEDIA QUERIES: resolvendo problemas de responsividade ===== */
+
+/* Full HD */
+@media (min-width: 1600px) {
+    html { font-size: 20px; }
+     .secao3 .Solucao .fundoCardFodase {
+        margin-left: 4rem;
+    }
+}
+
+/* Notebook */
+@media (max-width: 1400px) {
+    html { font-size: 14px; }
+     .secao3 .Solucao .fundoCardFodase {
+        margin-left: 4rem;
+    }
+}
+
+/* --------- */
+/* SIMULADOR */
+/* --------- */
+
+.divisoria_onda{
+    width: 100%;
+}
