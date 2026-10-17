@@ -38,8 +38,8 @@
               <h2>Configurações</h2>
             </a>
           </div>
-          <div id="user-logout">
-            Logout
+          <div id="user-logout" class="btn-href">
+            <h2>Logout</h2>
           </div>
         </div>
       </div>
@@ -48,30 +48,46 @@
           <img src="../assets/dash/notification.png" width="30px">
           <img src="../assets/dash/userIcon.png" width="30px">
         </div>
-      <div id="area-suporte">
-        <div id="barra-superior">
-          <span id="texto-suporte">Suporte Digital</span>
-        </div>
-        <br>
-        <div id="campos-input">
-          Categorias de chamado: <br>
-          <select name="" id="slct_categoria">
-            <option value="">Ninguem decidiu</option>
-          </select> <br><br>
-          Nome completo: <br>
-          <input type="text" id="ipt_nome"> <br><br>
-          E-mail: <br>
-          <input type="text" id="ipt_email"> <br><br>
-          Assunto: <br>
-          <input type="text" id="ipt_assunto"> <br><br>
-          Descrição: <br>
-          <input type="text" id="ipt_descricao"> <br><br>
-        </div>
-        <div id="botao-div">
-          <button id="abrir_chamado">Abrir Chamado</button>
+        <div id="area-suporte">
+          <div id="barra-superior">
+            <span id="texto-suporte">Suporte Digital</span>
+          </div>
+          <div id="campos-input">
+
+            <div class="campo-object">
+              Categorias de chamado:
+              <select id="slct_categoria" class="ipt-suporte"">
+                <option value="">Ninguem decidiu</option>
+              </select>
+            </div>
+
+            <div class=" campo-object">
+                Nome completo:
+                <input type="text" id="ipt_nome" class="ipt-suporte">
+            </div>
+
+            <div class="campo-object">
+              E-mail:
+              <input type="text" id="ipt_email" class="ipt-suporte">
+            </div>
+
+            <div class="campo-object">
+              Assunto:
+              <input type="text" id="ipt_assunto" class="ipt-suporte">
+            </div>
+
+            <div class="campo-object">
+              Descrição:
+              <textarea type="text" id="ipt_descricao" class="ipt-suporte">
+              </textarea>
+            </div>
+
+          </div>
+          <div id="botao-div">
+            <button id="abrir_chamado">Abrir Chamado</button>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </body>

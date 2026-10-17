@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="alert.css">
   <title>Dashboard</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -36,8 +37,8 @@
               <h2>Configurações</h2>
             </a>
           </div>
-          <div id="user-logout">
-            Logout
+          <div id="user-logout" class="btn-href">
+            <h2>Logout</h2>
           </div>
         </div>
       </div>
@@ -90,142 +91,143 @@
         <div id="area-grafico">
           <div id="container-esquerdo">
             <div id="graficos-esquerdo">
-          <div class="dash-grafico">
-            <div class="dash-title">
-              <span class="dash-text">
-                Historico de temperaturas do refrigerador
-              </span>
-              <div class="dash-select">
-                <select id="">
-                  <option>1</option>
-                </select>
-                <select id="">
-                  <option>Últimas 24 horas</option>
-                </select>
+              <div class="dash-grafico">
+                <div class="dash-title">
+                  <span class="dash-text">
+                    Historico de temperaturas do refrigerador
+                  </span>
+                  <div class="dash-select">
+                    <select id="">
+                      <option>1</option>
+                    </select>
+                    <select id="">
+                      <option>Últimas 24 horas</option>
+                    </select>
+                  </div>
+                </div>
+                <canvas id="historico-temp"></canvas>
+              </div>
+
+              <div class="dash-grafico">
+                <div class="dash-title">
+                  <span class="dash-text">
+                    Média de temperaturas dos refrigeradores
+                  </span>
+                  <div class="dash-select">
+                    <select id="">
+                      <option>Últimas 24 horas</option>
+                    </select>
+                  </div>
+                </div>
+                <canvas id="media_refrigeradores"></canvas>
               </div>
             </div>
-            <canvas id="historico-temp"></canvas>
-          </div>
 
-          <div class="dash-grafico">
-            <div class="dash-title">
-              <span class="dash-text">
-                Média de temperaturas dos refrigeradores
-              </span>
-              <div class="dash-select">
-                <select id="">
-                  <option>Últimas 24 horas</option>
-                </select>
-              </div>
+            <div id="table">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Refrigerador</th>
+                    <th scope="col">Temperatura registrada</th>
+                    <th scope="col">Tipo de alerta</th>
+                    <th scope="col">Data e hora</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Refrigerador 4</th>
+                    <td>10,0ºC</td>
+                    <td><span class="badge badge--critical">Temperatura Crítica</span></td>
+                    <td>27/07/2026 09:41</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Refrigerador 4</th>
+                    <td>10,0ºC</td>
+                    <td> <span class="badge badge--low"> Abaixo do recomendado </span> </td>
+                    <td>27/07/2026 09:41</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Refrigerador 4</th>
+                    <td>10,0ºC</td>
+                    <td> <span class="badge badge--critical"> Sem registro </span> </td>
+                    <td>27/07/2026 09:41</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Refrigerador 4</th>
+                    <td>10,0ºC</td>
+                    <td class="crit">Temperatura Crítica</td>
+                    <td>27/07/2026 09:41</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Refrigerador 4</th>
+                    <td>10,0ºC</td>
+                    <td>Temperatura Crítica</td>
+                    <td>27/07/2026 09:41</td>
+                  </tr>
+
+                </tbody>
+              </table>
             </div>
-            <canvas id="media_refrigeradores"></canvas>
-          </div>
-        </div>
-
-          <div id="table">
-          <table>
-            <thead>
-              <tr>
-                <th scope="col">Refrigerador</th>
-                <th scope="col">Temperatura registrada</th>
-                <th scope="col">Tipo de alerta</th>
-                <th scope="col">Data e hora</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Refrigerador 4</th>
-                <td>10,0ºC</td>
-                <td><span class="badge badge--critical">Temperatura Crítica</span></td>
-                <td>27/07/2026 09:41</td>
-              </tr>
-               <tr>
-                <th scope="row">Refrigerador 4</th>
-                <td>10,0ºC</td>
-                <td> <span class="badge badge--low"> Abaixo do recomendado </span> </td>
-                <td>27/07/2026 09:41</td>
-              </tr>
-              <tr>
-                <th scope="row">Refrigerador 4</th>
-                <td>10,0ºC</td>
-                <td> <span class="badge badge--critical"> Sem registro </span> </td>
-                <td>27/07/2026 09:41</td>
-              </tr>
-              <tr>
-                <th scope="row">Refrigerador 4</th>
-                <td>10,0ºC</td>
-                <td class="crit">Temperatura Crítica</td>
-                <td>27/07/2026 09:41</td>
-              </tr>
-              <tr>
-                <th scope="row">Refrigerador 4</th>
-                <td>10,0ºC</td>
-                <td>Temperatura Crítica</td>
-                <td>27/07/2026 09:41</td>
-              </tr>
-              
-            </tbody>
-          </table>
-          </div>
           </div>
 
           <div id="container-direito">
-          <div class="dash-alertas">
-            <div class="dash-title">
-              <span class="dash-select"> Últimos alertas </span>
-            </div>
-            <div class="card-alerta">
-              <img id="img_ultimos_alertas" width="40px" src="../assets/dash/alerta_vermelho-removebg-preview.png" alt="" />
-              <div class="text-alertas">
-                Temperatura acima do limite!
+            <div class="dash-alertas">
+              <div class="dash-title">
+                <span class="dash-select"> Últimos alertas </span>
+              </div>
+              <div class="card-alerta">
+                <img id="img_ultimos_alertas" width="40px" src="../assets/dash/alerta_vermelho-removebg-preview.png"
+                  alt="" />
+                <div class="text-alertas">
+                  Temperatura acima do limite!
+                  <br>
+                  <br>
+                  21/07/2026
+                </div>
+              </div>
+              <div class="card-alerta">
+                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
+                Temperatura acima da faixa!
+                <br>
+                <br>
+                21/07/2026
+              </div>
+              <div class="card-alerta">
+                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
+                Temperatura abaixo da faixa!
+                <br>
+                <br>
+                21/07/2026
+              </div>
+              <div class="card-alerta">
+                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
+                Temperatura abaixo da faixa!
+                <br>
+                <br>
+                21/07/2026
+              </div>
+              <div class="card-alerta">
+                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
+                Temperatura acima da faixa!
+                <br>
+                <br>
+                21/07/2026
+              </div>
+              <div class="card-alerta">
+                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
+                Temperatura acima da faixa!
+                <br>
+                <br>
+                21/07/2026
+              </div>
+              <div class="card-alerta">
+                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
+                Temperatura acima da faixa
                 <br>
                 <br>
                 21/07/2026
               </div>
             </div>
-            <div class="card-alerta">
-              <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-              Temperatura acima da faixa!
-              <br>
-              <br>
-              21/07/2026
-            </div>
-            <div class="card-alerta">
-              <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-              Temperatura abaixo da faixa!
-              <br>
-              <br>
-              21/07/2026
-            </div>
-            <div class="card-alerta">
-              <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-              Temperatura abaixo da faixa!
-              <br>
-              <br>
-              21/07/2026
-            </div>
-            <div class="card-alerta">
-              <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-              Temperatura acima da faixa!
-              <br>
-              <br>
-              21/07/2026
-            </div>
-            <div class="card-alerta">
-              <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-              Temperatura acima da faixa!
-              <br>
-              <br>
-              21/07/2026
-            </div>
-            <div class="card-alerta">
-              <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-              Temperatura acima da faixa
-              <br>
-              <br>
-              21/07/2026
-            </div>
-          </div>
           </div>
         </div>
       </div>
