@@ -96,7 +96,7 @@ header {
 .PaginaCad {
     display: flex;
 
-    height: 40rem;
+    height: 41rem;
     width: 100%;
 
 
@@ -110,6 +110,7 @@ header {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+        height: 100%;
 
     }
 
