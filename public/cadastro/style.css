@@ -1,89 +1,184 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+/* ----------- */
+/* IMPORTAÇÕES */
+/* ----------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* --------------- */
+/* CLASSES GLOBAIS */
+/* --------------- */
+
+html:has(:target) {
+    scroll-behavior: smooth;
 }
 
-.PaginaCadastro {
-  display: flex;
+* {
+    color: #1c1c1c;
+}
 
-  height: 45.62rem;
+body {
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
 
+section {
+    scroll-margin-top: 4rem;
+}
 
+/* ------- */
+/* HEADER */
+/* ----- */
 
-  .CadastroImagem {
-    flex: 1;
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
     display: flex;
-    background-image: url(../assets/cadastro/BackgroundImgCadastro1.png);
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    justify-content: space-between;
+    flex-direction: row;
 
-  }
+    min-height: 4rem;
+    /* background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px); */
+    background-color: #f8f9fa;
+}
 
-
-  .Logotipo {
-    width: 17rem;
-    height: auto;
-  }
-
-
-  .AreaDoCadastro {
-    flex-shrink: 0;
-    width: 24rem;
-    /* margin-top:5rem ; */
+.section_header {
     display: flex;
-    justify-content: start;
     align-items: center;
-    flex-direction: column;
-    text-align: center;
+}
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 3rem;
+.texto_logo {
+    display: flex;
+    align-items: center;
+
+    font-family: 'Montserrat';
+    font-size: 2rem;
+}
+
+.link_header {
+    display: inline-block;
+
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.link_header:hover {
+    /* background-color: #2b3b92;
+    border-color: #2b3b92;
+    border-style: solid;
+    border-width: 0.5rem;
+    border-radius: 2rem;
+    color: #f8f9fa; */
+
+    text-decoration: underline;
+    transform: scale(1.25);
+    /* font-size: 1.25rem; */
+}
+
+.menu_navegacao {
+    font-weight: bold;
+}
+
+/* ---------- */
+/* FIM HEADER */
+/* ---------- */
+
+.menu_navegacao {
+    font-weight: bold;
+}
+
+.PaginaCad {
+    display: flex;
+
+    height: 40rem;
+    width: 100%;
+
+
+
+    .CadImagem {
+        flex: 1;
+        display: flex;
+        background-image: url(../assets/cadastro/BackgroundImgCadastro1.png);
+        justify-content: center;
+        align-items: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
     }
 
-    h3 {
-      margin-bottom: 2rem;
-    }
 
-    .ButtonCadastrar {
-
-      text-align: center;
-
-      width: 11rem;
-      font-size: 1.2rem;
-      border-radius: 5rem;
-      padding-top: .5rem;
-      padding-bottom: .5rem;
-      background-color: #2b3b92;
-      border-style: solid;
-      color: white;
-    }
-
-    .ButtonEntrar {
-      text-align: center;
-
-      width: 8rem;
-      border-radius: 5rem;
-      padding-top: .7rem;
-      padding-bottom: .7rem;
-      background-color: #2b3b92;
-      border-style: solid;
-      color: white;
-    }
-
-    .LocalDeInsert {
-      border-radius: 1rem;
-      height: 2rem;
-      width: 15rem;
-      border-style: solid;
+    .Logotipo {
+        width: 17rem;
+        height: auto;
     }
 
 
-  }
+    .AreaDoCad {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 20rem;
+        align-items: center;
+        height: 100%;
+
+        .DivCad {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: .5rem;
+        }
+
+        h3 {
+            margin-bottom: .2rem;
+        }
+
+        .ButtonCad {
+
+            text-align: center;
+
+            width: 11rem;
+            font-size: 1.2rem;
+            border-radius: 5rem;
+            height: 3rem;
+            background-color: #2b3b92;
+            border-style: solid;
+            color: #f8f9fa;
+        }
+
+        .ButtonFazerLogin {
+            text-align: center;
+
+            font-size: 1rem;
+            border-radius: 5rem;
+            text-decoration: none;
+            background-color: #2b3b92;
+            border-width: .8rem;
+            border-color: #2b3b92;
+            border-style: solid;
+            color: #f8f9fa;
+        }
+
+        .LocalDeInsert {
+            border-radius: 1rem;
+            height: 2rem;
+            width: 15rem;
+            border-style: solid;
+        }
+
+
+    }
 
 
 
@@ -92,38 +187,38 @@
 
 /* Para tela de notebook */
 @media (max-width: 1400px) {
-  html {
-    font-size: 14px;
-  }
-
-  .PaginaCadastro {
-    display: flex;
-    height: 100vh;
-
-
-    .AreaDoCadastro {
-      flex-shrink: 0;
-      width: 24rem;
-
-      display: flex;
-      justify-content: start;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-
-      h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-      }
-
-      h3 {
-        margin-bottom: 1rem;
-      }
-
-
-
-
+    html {
+        font-size: 14px;
     }
 
-  }
+    .PaginaCad {
+        display: flex;
+        height: 100vh;
+
+
+        .AreaDoCad {
+            flex-shrink: 0;
+            width: 24rem;
+
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                margin-bottom: 1rem;
+            }
+
+
+
+
+        }
+
+    }
 }

@@ -1,40 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safelab</title>
+  <link rel="icon" type="image/png" href="../assets/institucional/safelab_recortada.svg">
   <link rel="stylesheet" href="style.css">
-  <title>Document</title>
 </head>
 
 <body>
 
-  <section id="PaginaCadastro" class="PaginaCadastro">
-    <div class="CadastroImagem">
+  <!-- -------- -->
+  <!--  HEADER  -->
+  <!-- -------- -->
+
+  <header>
+    <div class="section_header">
+      <img style="width: 1.25rem; margin-left: 1rem; margin-right: 1rem;"
+        src="../assets/institucional/safelab_recortada.svg" alt="logo">
+      <div class="texto_logo">
+        <span style="font-weight: 200; letter-spacing: -0.1rem;">Safe</span>
+        <span style="font-weight: bold; margin-left: -0.1rem;">Lab</span>
+      </div>
+    </div>
+
+    <div class="section_header">
+      <nav class="menu_navegacao">
+        <div style="word-spacing: 1rem;">
+          <a style="color: #2b3b92;" href="../institucional/index.html#home" class="link_header">Inicio</a>
+          <a style="color: #2b3b92;" href="../institucional/index.html#about" class="link_header">Sobre</a>
+          <a style="color: #2b3b92;" href="../institucional/index.html#simulator" class="link_header">Simulador</a>
+        </div>
+      </nav>
+    </div>
+
+    <div style="margin-right: 1rem;" class="section_header">
+      <nav class="menu_navegacao">
+        <div style="word-spacing: 1rem;">
+          <a href="../login/login.html" class="link_header">Login</a>
+          <a href="../cadastro/cad.html" class="link_header">Cadastro</a>
+        </div>
+      </nav>
+  </header>
+
+  <!--  ----------  -->
+  <!--  Fim HEADER  -->
+  <!--  ----------  -->
+
+  <section id="PaginaCad" class="PaginaCad">
+    <div class="CadImagem">
       <img class="Logotipo" src="../assets/cadastro/ImagemCentralCadastro.png" alt="">
     </div>
     <!-- <div class="LogoTipoEmpresa">
             <img class="Logotipo" src="../assets/cadastro/ImagemCentralCadastro.png" alt="">
         </div> -->
 
-    <div class="AreaDoCadastro">
-      <h2>Faça seu cadastro:</h2><br>
+    <div class="AreaDoCad">
+      <h2>Faça seu cadastro:</h2>
       <h3>Nome:<br>
         <input class="LocalDeInsert" type="text" id="ipt_CadastroNome">
-      </h3><br>
+      </h3>
 
       <h3>Email: <br> <input class="LocalDeInsert" type="text" id="ipt_CadastroEmail"></h3>
       <h3>Cpf: <br> <input class="LocalDeInsert" type="text" id="ipt_CadastroCpf"></h3>
       <h3>Senha: <br> <input class="LocalDeInsert" type="text" id="ipt_CadastroSenha"></h3>
       <h3>Confirmar Senha: <br> <input class="LocalDeInsert" type="text" id="ipt_CadastroConfirmarSenha"></h3><br>
 
-      <button class="ButtonCadastrar" onclick="Cadastrar()">Cadastrar</button><br>
-      <h3 style="font-weight: bold; font-size: 1.5rem;">Já possui conta?</h3>
-      <button class="ButtonEntrar" onclick="Entrar()">Entrar!</button>
+      <button class="ButtonCad" onclick="Cadastrar()">Cadastrar</button><br>
+
+      <div class="DivCad" style="margin-bottom: 2rem;">
+        <h3 style="font-weight: bold; font-size: 1.5rem;">Ainda não tem conta?</h3>
+        <a href="../login/login.html" class="ButtonFazerLogin">Fazer Login</a>
+      </div>
 
     </div>
   </section>
+
+  <!-- -------- -->
+  <!--  Footer  -->
+  <!-- -------- -->
+
+  <footer style="padding: 1.5rem; background-color: #f8f9fa;">
+
+    <!-- ------------- -->
+    <!-- Parte de Cima -->
+    <!-- ------------- -->
+
+    <div style="display: flex; justify-content: space-between;">
+      <div style="display: flex; align-items: center;">
+        <img style="width: 1.25rem; margin-left: 1rem; margin-right: 0.5rem;"
+          src="../assets/institucional/safelab_recortada.svg" alt="logo">
+        <div style="display: flex; align-items: center; font-family: 'Montserrat'; font-size: 2rem;">
+          <span style="font-weight: 200; letter-spacing: -0.1rem;">Safe</span>
+          <span style="font-weight: bold; margin-left: -0.1rem;">Lab</span>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center;">
+        <nav>
+          <div style="word-spacing: 1rem;">
+            <a href="../institucional/index.html#home"
+              style="display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Início</a>
+            <a onclick="contato_popup.showModal()"
+              style="display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Contato</a>
+            <a onclick="sobre_nos_popup.showModal()"
+              style="display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Sobre-Nós</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ------ -->
+    <!-- POPUPS -->
+    <!-- ------ -->
+
+    <dialog id="contato_popup">
+      <h2>Olá!</h2>
+      <p>Este é um pop-up simples.</p>
+      <button onclick="contato_popup.close()">Fechar</button>
+    </dialog>
+
+    <dialog id="sobre_nos_popup">
+      <h2>Olá!</h2>
+      <p>Este é um pop-up simples.</p>
+      <button onclick="sobre_nos_popup.close()">Fechar</button>
+    </dialog>
+
+    <!-- -------------- -->
+    <!-- Parte de Baixo -->
+    <!-- -------------- -->
+
+    <div>
+      <hr style="height: 0.2rem; background-color: #1c1c1c;">
+
+      <span style="margin-top: 1.5rem; display: flex; justify-content: center;"> © SafeLab - 2026 - Todos os
+        direitos reservados.</span>
+    </div>
+  </footer>
+
+  <!-- ------------ -->
+  <!--  Fim Footer  -->
+  <!-- ------------ -->
 
   <script>
     function Cadastrar() {
