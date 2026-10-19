@@ -12,8 +12,8 @@
 <body>
     <header>
         <div class="section_header">
-            <img style="width: 1.25rem; margin-left: 1rem; margin-right: 1rem;" src="../assets/institucional/safelab_recortada.svg"
-                alt="logo">
+            <img style="width: 1.25rem; margin-left: 1rem; margin-right: 1rem;"
+                src="../assets/institucional/safelab_recortada.svg" alt="logo">
             <div class="texto_logo">
                 <span style="font-weight: 200; letter-spacing: -0.1rem;">Safe</span>
                 <span style="font-weight: bold; margin-left: -0.1rem;">Lab</span>
@@ -43,7 +43,8 @@
         <div class="conteiner_inicial_home">
             <div class="lado_esquerdo">
                 <div class="conteiner_imagens">
-                    <img style="width: 24rem;" class="imagem_asterisco" src="../assets/institucional/asterisco.svg" alt="Asterisco">
+                    <img style="width: 24rem;" class="imagem_asterisco" src="../assets/institucional/asterisco.svg"
+                        alt="Asterisco">
                     <img class="imagem_mao" src="../assets/institucional/ampola.png" alt="Mão segurando ampola">
                     <img style="width: 35rem;" class="imagem_pontos" src="../assets/institucional/padrao-pontos.svg"
                         alt="Textura de pontos">
@@ -66,10 +67,10 @@
 
                     <div>
                         <nav>
-                            <a href="../cadastro/index.html" class="button_cadastro">Cadastre-se</a>
+                            <a href="../cadastro/cad.html" class="button_cadastro">Cadastre-se</a>
                         </nav>
                         <nav style="margin-top: 4rem;">
-                            <a href="../login/index.html" style="color: #2b3b92; font-size: 1.5rem;" class="link">
+                            <a href="../login/login.html" style="color: #2b3b92; font-size: 1.5rem;" class="link">
                                 Já possui cadastro?
                             </a>
                         </nav>
@@ -80,7 +81,8 @@
 
         <nav>
             <a href="#conteiner_final_home">
-                <img style="width: 4rem; height: 4rem; position: relative; left: 50%; bottom: 1.5rem;" src="../assets/institucional/setas_baixo.png" alt="Setas baixo">
+                <img style="width: 4rem; height: 4rem; position: relative; left: 50%; bottom: 1.5rem;"
+                    src="../assets/institucional/setas_baixo.png" alt="Setas baixo">
             </a>
         </nav>
 
@@ -123,7 +125,8 @@
                 </div>
 
                 <div class="conteiner_fachada">
-                    <img style="width: 23rem; height: 23rem; border-radius: 50%; overflow: hidden; border-color: #2b3b92; border-width: 0.20rem; border-style: solid;" src="../assets/institucional/fachada.png" alt="">
+                    <img style="width: 23rem; height: 23rem; border-radius: 50%; overflow: hidden; border-color: #2b3b92; border-width: 0.20rem; border-style: solid;"
+                        src="../assets/institucional/fachada.png" alt="">
                 </div>
             </div>
 
@@ -132,7 +135,8 @@
             </div>
         </div>
 
-        <img style="width: 100%; position: relative; bottom: -1rem; margin-top: -3rem;" src="../assets/institucional/ondas.svg" alt="">
+        <img style="width: 100%; position: relative; bottom: -1rem; margin-top: -3rem;"
+            src="../assets/institucional/ondas.svg" alt="">
 
     </section>
 
@@ -240,8 +244,61 @@
         </section>
     </section>
 
-    <section id="simulator" class="simulador_sessao">
-        <img style="transform: rotate(180deg); width: 100%; position: relative; bottom: 1rem;" src="../assets/institucional/ondas.svg" alt="">
+    <section id="Simulador_sec" class="simulador_sessao">
+        <div class="container_principal_simulador">
+            <img style="transform: rotate(180deg); width: 100%; position: relative; bottom: 1rem;"
+                src="../assets/institucional/ondas.svg" alt="">
+
+            <div id="simulator">
+                <br><br><br>
+            </div>
+
+            <div style="display: flex; justify-content: center; align-items: center; margin-top: 4rem;">
+                <div class="container_simulador" style="align-self: center;">
+                    <h1>Calculadora de Estoque de Vacinas</h1>
+                    <h2>Configuração Inicial</h2>
+
+                    <div class="caixa_pai">
+
+                        <div class="vaccine-card">
+                            <div class="card-header">Informações do Estoque</div>
+                            <div class="card-body">
+                                <div class="field-group">
+                                    <label>Selecione uma vacina:</label>
+                                    <select id="slc_vacina" onchange="verificar_outro()">
+                                        <option value="selecione" selected>Selecione...</option>
+                                        <option value="influenza">Influenza</option>
+                                        <option value="pentavalente">Pentavalente</option>
+                                        <option value="poliomielite">Poliomielite</option>
+                                        <option value="pneumococica">Pneumocócica 10-Valente</option>
+                                        <option value="triplice">Tríplice Viral</option>
+                                        <option value="bcg">BCG</option>
+                                        <option value="outro">Outro</option>
+                                    </select>
+                                </div>
+
+                                <div id="div_outro_1" class="field-group">
+                                </div>
+
+                                <div id="div_outro_2" class="field-group">
+                                </div>
+
+                                <div class="field-group">
+                                    <label>Quantidade Atual:</label>
+                                    <input type="number" id="ipt_qnt" placeholder="Ex: 10">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="result-box">
+                            <div id="div_resultado" class="result-totals">
+                            </div>
+                        </div>`
+                    </div>
+                    <button onclick="valor_vacinas()" class="btn-primary btn-calc">Calcular Perdas</button>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer style="padding: 1.5rem; background-color: #f8f9fa;">
@@ -305,7 +362,91 @@
 </body>
 
 <script>
+    function verificar_outro() {
+        if (slc_vacina.value === 'outro') {
+            div_outro_1.innerHTML = `<label>Informe o nome:</label>
+                <input type="text" id="ipt_nome_outro" placeholder='Ex: Hepatite B'>`
 
+            div_outro_2.innerHTML = `<label>Informe o valor unitário:</label>
+                <input type="number" id="ipt_valor_outro" placeholder='(R$)'>`
+        } else {
+            div_outro_1.innerHTML = ''
+            div_outro_2.innerHTML = ''
+        }
+    }
+
+    function valor_vacinas() {
+
+        // definindo o valor de cada tipo de vacina:
+        let valor_medio = 0
+        let nome = slc_vacina.value
+
+        if (nome == "influenza") {
+
+            valor_medio = 45
+
+        } else if (nome == "pentavalente") {
+
+            valor_medio = 170
+
+        } else if (nome == "poliomielite") {
+
+            valor_medio = 225
+
+        } else if (nome == "pneumococica") {
+
+            valor_medio = 475
+
+        } else if (nome == "triplice") {
+
+            valor_medio = 130
+
+        } else if (nome == "bcg") {
+
+            valor_medio = 65
+
+        } else if (nome == "outro") {
+
+            valor_medio = Number(ipt_valor_outro.value)
+
+        }
+
+        // Realizando os calculos de acordo com as informações passadas:
+
+        let quantidade = Number(ipt_qnt.value)
+        let percentual_perda = 41.4
+
+        if (nome == 'outro') {
+            nome = ipt_nome_outro.value
+        }
+
+        if (nome == 'selecione') {
+            div_resultado.innerHTML = '<b style="color: red">Selecione uma opção valida.</b>'
+        } else if (quantidade <= 0) {
+            div_resultado.innerHTML = '<b style="color: red">Insira um valor maior que 0 na quantidade.</b>'
+        } else if (nome == '') {
+            div_resultado.innerHTML = '<b style="color: red">Insira o nome da vacina desejada.</b>'
+        } else if (valor_medio <= 0) {
+            div_resultado.innerHTML = '<b style="color: red">Insira um valor de vacina maior do que 0.</b>'
+        } else if (String(quantidade).includes('.')) {
+            div_resultado.innerHTML = '<b style="color: red">Insira uma quantidade inteira.</b>'
+        } else {
+            let qnt_vacinas_perdidas = quantidade * (percentual_perda / 100)
+            let qnt_reais_perdidos = qnt_vacinas_perdidas * valor_medio
+
+            let reais_antes_perda = quantidade * valor_medio
+
+            div_resultado.innerHTML = `
+                        Para o estoque de ${quantidade} doses da Vacina ${nome}. <br>
+                        Foi usado o valor de ${reais_antes_perda.toFixed(2)} reais na compra das vacinas. <br>
+                        <br>
+                        Caso ocorra uma quebra de cadeia fria neste momento: <br>
+                        O total de vacinas que poderá ser perdido é de até <b>${qnt_vacinas_perdidas.toFixed(0)} doses </b> (41%). <br>
+                        Que representará ${qnt_reais_perdidos.toFixed(2)} reais da compra. <br>
+                        <br>
+                        Sobrando apenas <b>${(quantidade - qnt_vacinas_perdidas).toFixed(0)} vacinas</b> no estoque.`;
+        }
+    }
 </script>
 
 </html>
