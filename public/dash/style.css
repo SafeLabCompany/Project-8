@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-*{
+* {
   font-family: "Open Sans", sans-serif;
 }
 
@@ -14,13 +14,13 @@ body {
   display: flex;
 }
 
-#page-container{
+#page-container {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-#main-dash{
+#main-dash {
   display: flex;
   flex-direction: row;
   margin: 10px;
@@ -33,23 +33,23 @@ body {
 
 #user-area {
   box-sizing: border-box;
-  box-shadow:inset 0px 0px 0px 10px #0a1060;
+  box-shadow: inset 0px 0px 0px 10px #0a1060;
   display: flex;
   border-radius: 10px;
   flex-direction: column;
   background-color: #2b3b92;
-  min-height: 70vh;
-  height: auto;
+  height: fit-content;
   width: 12vw;
   color: white;
   margin-right: 10px;
 }
 
-#user-area h2, #user-img{
+#user-area h2,
+#user-img {
   align-self: center;
 }
 
-#user-welcome{
+#user-welcome {
   font-size: 15px;
 }
 
@@ -62,7 +62,7 @@ a {
   margin-top: 10px;
 }
 
-.btn-href{
+.btn-href {
   display: block;
   padding: 22px 10px;
   margin-top: 10px;
@@ -70,8 +70,8 @@ a {
   text-align: center;
 }
 
-.btn-href-active{
-  padding-top: 10px;
+.btn-href-active {
+  padding-top: 22px;
   font-size: 16px;
   text-align: center;
   background-color: #061157;
@@ -86,6 +86,14 @@ a {
   justify-self: flex-end;
 }
 
+#user-logout {
+  background-color: #ff5252;
+  height: fit-content;
+  margin: 2rem;
+  padding: 1px 12px;
+  border-radius: 50px;
+}
+
 /*
   Dashboard area
 */
@@ -94,9 +102,7 @@ a {
   margin-left: 10px;
   padding: 10px;
   display: flex;
-  width: 100%;
   flex-direction: column;
-  width: 100%;
 }
 
 #area-grafico {
@@ -105,21 +111,21 @@ a {
   justify-content: space-around;
 }
 
-#container-esquerdo{
+#container-esquerdo {
   display: flex;
   flex-direction: column;
 }
 
-#graficos-esquerdo{
+#graficos-esquerdo {
   display: flex;
   flex-direction: row;
 }
 
-#container-direito{
+#container-direito {
   display: flex;
   width: 20%;
   justify-content: center;
-  
+
 }
 
 #area-kpi {
@@ -128,7 +134,7 @@ a {
   width: 100%;
   justify-content: center;
   align-items: center;
-  
+
 }
 
 .card {
@@ -145,7 +151,7 @@ a {
   gap: 15%;
 }
 
-.card-body{
+.card-body {
   display: flex;
   text-align: center;
   justify-content: center;
@@ -201,7 +207,7 @@ a {
   margin-right: 20px;
 }
 
-.text-alertas{
+.text-alertas {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -209,14 +215,14 @@ a {
   width: 100%;
 }
 
-.card-alerta{
+.card-alerta {
   border: #b5b5b5 solid 1.5px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(255, 255, 255);
   padding: 10px;
-  
+
 }
 
 .dash-title {
@@ -232,7 +238,7 @@ a {
   margin-left: 10px;
 }
 
-#select_unidade{
+#select_unidade {
   height: 100%;
   width: 50%;
 
@@ -246,105 +252,84 @@ a {
   font-size: large;
 }
 
-#footer-upper{
+#footer-upper {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
   align-content: center;
 }
 
-#footer-logo{
+#footer-logo {
   margin-right: 50%;
 }
 
-#footer-logo img{
+#footer-logo img {
   width: 8vh;
 }
 
-#footer-lower{
+#footer-lower {
   text-align: center;
   margin-top: 2.5rem;
 }
 
-#area-suporte{
-  width:1700px;
-  height:700px;
+#area-suporte {
+  width: 85vw;
+  height: 700px;
   border-radius: 5px;
   border: solid 1px;
   border-color: #b5b5b5;
   background-color: whitesmoke;
 }
 
-#barra-superior{
+#barra-superior {
   display: flex;
-  height: 50px;
-  flex-direction: column;
+  min-height: 1vh;
+  height: 8vh;
+  align-items: center;
   justify-content: center;
-  font-family: sans-serif;
   font-size: x-large;
-  border-radius: 1px;
+  font-weight: bolder;
   border: solid 1px;
   border-color: #a09b9b;
   background-color: #d7d7d7;
 }
 
-#texto-suporte{
+#campos-input {
+  max-width: 90%;
   display: flex;
-  margin-left: 50px;
-  
-}
-
-#campos-input{
-  display: flex;
+  gap: 2vh;
+  margin-left: 3rem;
+  margin-top: 1.5rem;
   flex-direction: column;
   justify-content: space-between;
   font-size: large;
-  margin-left: 260px;
-  
 }
 
-#slct_categoria{
- width: 1107px;
- height: 37px;
- border-radius: 5px;
- border-color: #2b3b92;
+.campo-object {
+
+  display: flex;
+  flex-direction: column;
 }
 
-#ipt_nome{
-  width: 1100px;
-  height: 30px;
+.ipt-suporte {
   border-radius: 5px;
   border-color: #2b3b92;
+  height: 2rem;
 }
 
-#ipt_email{
-  width: 1100px;
-  height: 30px;
-  border-radius: 5px;
-  border-color: #2b3b92;
+#ipt_descricao {
+  min-height: 3rem;
+  height: 5rem;
 }
 
-#ipt_assunto{
-  width: 1100px;
-  height: 30px;
-  border-radius: 5px;
-  border-color: #2b3b92;
-}
-
-#ipt_descricao{
-  width: 1100px;
-  height: 100px;
-  border-radius: 5px;
-  border-color: #2b3b92;
-}
-
-#botao-div{
+#botao-div {
   display: flex;
   justify-content: center;
   font-size: large;
+  margin-top: 5vh;
 }
 
-#abrir_chamado{
+#abrir_chamado {
   width: 300px;
   height: 50px;
   background-color: #2b3b92;
@@ -352,45 +337,12 @@ a {
   border-radius: 5px;
 }
 
-table{
-  width: 100%;
-  border-collapse: collapse;
-  text-align: center;
-}
-
-thead {
-  background-color: grey;
-}
-
-th, td {
-  padding: 20px;
-  border-bottom: 1px solid #bbb;
-}
-
-.badge {
-  display: inline-block;
-  min-width: 200px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 18px;
-}
-
-.badge--critical {
-  background-color: #ff5252;
-  color: #b3001b;
-}
-
-.badge--low {
-  background-color: #ffe000;
-  color: #d9a900;
-}
-
-#header-dashboard{
+#header-dashboard {
   display: flex;
   justify-content: flex-end;
 }
 
-#config{
-  width:1500px;
-  height:700px;
+#config {
+  width: 1500px;
+  height: 700px;
 }

@@ -39,8 +39,8 @@
               <h2>Configurações</h2>
             </a>
           </div>
-          <div id="user-logout">
-            Logout
+          <div id="user-logout" class="btn-href">
+            <h2>Logout</h2>
           </div>
         </div>
       </div>
@@ -49,31 +49,102 @@
           <img src="../assets/dash/notification.png" width="30px">
           <img src="../assets/dash/userIcon.png" width="30px">
         </div>
-      <div id="area-suporte">
-        <div id="barra-superior">
-          <span id="texto-suporte">Suporte Digital</span>
-        </div>
-        <br>
-        <div id="campos-input">
-          Categorias de chamado: <br>
-          <select name="" id="slct_categoria">
-            <option value="">Ninguem decidiu</option>
-          </select> <br><br>
-          Nome completo: <br>
-          <input type="text" id="ipt_nome"> <br><br>
-          E-mail: <br>
-          <input type="text" id="ipt_email"> <br><br>
-          Assunto: <br>
-          <input type="text" id="ipt_assunto"> <br><br>
-          Descrição: <br>
-          <input type="text" id="ipt_descricao"> <br><br>
-        </div>
-        <div id="botao-div">
-          <button id="abrir_chamado">Abrir Chamado</button>
+        <div id="area-suporte">
+          <div id="barra-superior">
+            <span id="texto-suporte">Suporte Digital</span>
+          </div>
+          <div id="campos-input">
+
+            <div class="campo-object">
+              Categorias de chamado:
+              <select id="slct_categoria" class="ipt-suporte"">
+                <option value="">Ninguem decidiu</option>
+              </select>
+            </div>
+
+            <div class=" campo-object">
+                Nome completo:
+                <input type="text" id="ipt_nome" class="ipt-suporte">
+            </div>
+
+            <div class="campo-object">
+              E-mail:
+              <input type="text" id="ipt_email" class="ipt-suporte">
+            </div>
+
+            <div class="campo-object">
+              Assunto:
+              <input type="text" id="ipt_assunto" class="ipt-suporte">
+            </div>
+
+            <div class="campo-object">
+              Descrição:
+              <textarea type="text" id="ipt_descricao" class="ipt-suporte">
+              </textarea>
+            </div>
+
+          </div>
+          <div id="botao-div">
+            <button id="abrir_chamado">Abrir Chamado</button>
+          </div>
         </div>
       </div>
     </div>
-    </div>
+    <footer style="padding: 1.5rem; background-color: #f8f9fa;">
+
+      <!-- ------------- -->
+      <!-- Parte de Cima -->
+      <!-- ------------- -->
+
+      <div style="display: flex; justify-content: space-between;">
+        <div style="display: flex; align-items: center;">
+          <img style="width: 1.25rem; margin-left: 1rem; margin-right: 0.5rem;"
+            src="../assets/institucional/safelab_recortada.svg" alt="logo">
+          <div style="display: flex; align-items: center; font-family: 'Montserrat'; font-size: 2rem;">
+            <span style="font-weight: 200; letter-spacing: -0.1rem;">Safe</span>
+            <span style="font-weight: bold; margin-left: -0.1rem;">Lab</span>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+          <nav>
+            <div style="word-spacing: 1rem;">
+              <a onclick="contato_popup.showModal()"
+                style="color:#1c1c1c; display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Contato</a>
+              <a onclick="sobre_nos_popup.showModal()"
+                style="color:#1c1c1c; display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Sobre-Nós</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <!-- ------ -->
+      <!-- POPUPS -->
+      <!-- ------ -->
+
+      <dialog id="contato_popup">
+        <h2>Olá!</h2>
+        <p>Este é um pop-up simples.</p>
+        <button onclick="contato_popup.close()">Fechar</button>
+      </dialog>
+
+      <dialog id="sobre_nos_popup">
+        <h2>Olá!</h2>
+        <p>Este é um pop-up simples.</p>
+        <button onclick="sobre_nos_popup.close()">Fechar</button>
+      </dialog>
+
+      <!-- -------------- -->
+      <!-- Parte de Baixo -->
+      <!-- -------------- -->
+
+      <div>
+        <hr style="height: 0.2rem; background-color: #1c1c1c;">
+
+        <span style="margin-top: 1.5rem; display: flex; justify-content: center;"> © SafeLab - 2026 - Todos os
+          direitos reservados.</span>
+      </div>
+    </footer>
   </div>
 </body>
 
