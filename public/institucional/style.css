@@ -101,7 +101,7 @@ header{
 
 /* LADO DIREITO */
 
-.lado_direito{
+.conteiner_home_lado_direito{
     background-color: #e7e7e7;
 
     width: 41.25%;
@@ -175,7 +175,7 @@ header{
 
 /* LADO ESQUERDO */
 
-.lado_esquerdo{
+.conteiner_home_lado_esquerdo{
     background-color: #e7e7e7;
     width: 58%;
     height: 37rem;
@@ -282,7 +282,7 @@ header{
 /* PARTE DO ENZO */
 /* ------------- */
 
-.secao3 {
+.about {
     display: flex;
     background-color: #111f2e;
     min-height: 180vh;
@@ -290,7 +290,7 @@ header{
     color: #f8f9fa;
     text-align: left;
 
-    .aviso {
+    .aviso_esquerdo_about {
         color: #a0aab6;
         display: flex;
         padding-top: 5vh;
@@ -299,7 +299,7 @@ header{
         font-size: 1.25rem;
     }
 
-    .aviso2 {
+    .aviso_direito_about {
         color: #f8f9fa;
         padding-top: 10vh;
         padding-left: 65vw;
@@ -378,7 +378,7 @@ header{
 
         }
 
-        .fundoCardFodase {
+        .backgroundIcone {
           position: relative;
           z-index: 1;
             margin-top: 1rem;
@@ -423,20 +423,20 @@ header{
 /* ===== MEDIA QUERIES: resolvendo problemas de responsividade ===== */
 
 /* Full HD */
-@media (min-width: 1600px) {
+/* @media (min-width: 1600px) {
     html { font-size: 20px; }
-     .secao3 .Solucao .fundoCardFodase {
+     .secao3 .Solucao .backgroundIcone {
         margin-left: 4rem;
     }
 }
 
-/* Notebook */
-@media (max-width: 1400px) {
+Notebook */
+/* @media (max-width: 1400px) {
     html { font-size: 14px; }
-     .secao3 .Solucao .fundoCardFodase {
+     .secao3 .Solucao .backgroundIcone {
         margin-left: 4rem;
     }
-}
+} */
 
 /* --------- */
 /* SIMULADOR */
