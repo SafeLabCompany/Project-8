@@ -131,7 +131,6 @@ header {
         .DivLogin {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             align-items: center;
         }
 
@@ -145,9 +144,7 @@ header {
         }
 
         .ButtonLogin {
-
             text-align: center;
-
             width: 11rem;
             font-size: 1.2rem;
             border-radius: 5rem;

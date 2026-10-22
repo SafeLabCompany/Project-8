@@ -50,29 +50,33 @@
     <!--  ----------  -->
 
     <section id="PaginaLogin" class="PaginaLogin">
+
         <div class="LoginImagem">
-            <div><img class="Logotipo" src="../assets/cadastro/ImagemCentralCadastro.png" alt=""></div>
+            <div>
+                <img class="Logotipo" src="../assets/cadastro/ImagemCentralCadastro.png" alt="">
+            </div>
         </div>
 
         <div class="AreaDoLogin">
+
             <div class="DivLogin" style="margin-top: 2rem;">
                 <h2>Faça seu Login:</h2><br>
             </div>
 
             <div class="DivLogin">
-                <h3>Email: <br> <input class="LocalDeInsert" type="text" id="ipt_LoginEmail"
-                        style="text-align: center;"></h3>
-                <h3>Senha: <br> <input class="LocalDeInsert" type="password" id="ipt_LoginSenha"
-                        style="text-align: center;"></h3>
-
-                <button class="ButtonLogin" onclick="EntrarLogin()">Login</button><br>
-            </div>
-
-            <div class="DivLogin" style="margin-bottom: 2rem;">
-                <h3 style="font-weight: bold; font-size: 1.5rem;">Ainda não tem conta?</h3>
-                <a href="../cadastro/cad.html" class="ButtonCadastrese">Cadastre-se!</a>
+                <label for="ipt_loginEmail">
+                    email
+                </label>
+                    <input class="LocalDeInsert" type="text" id="ipt_LoginEmail" style="text-align: center;">
+                    
+                <label for="ipt_loginEmail">
+                    Senha
+                </label>
+                    <input class="LocalDeInsert" type="password" id="ipt_LoginSenha" style="text-align: center;">
+                        <button class="ButtonLogin" onclick="EntrarLogin()">Login</button><br>
             </div>
         </div>
+
     </section>
 
     <!-- -------- -->
@@ -143,14 +147,20 @@
 
     <script>
         function EntrarLogin() {
-            let InsertEmail = ipt_LoginEmail.value;
-            let InsertSenha = ipt_LoginSenha.value;
+            let ax_Email = ipt_LoginEmail.value;
+            let ax_Senha = ipt_LoginSenha.value;
 
-            if (InsertEmail == '') {
+            if (ax_Email == '') {
                 alert('É necessario informar o seu email para seguir com o Login')
             }
-            else if (InsertSenha == '') {
+            else if (ax_Senha == '') {
                 alert('É necessario inserir uma senha válida para seguir com o Login')
+            }
+
+            if (ax_Email != "AdminAdmin@email.com" || ax_Senha != "urubu100") {
+                alert('Senha e/ou email incorretos')
+            } else if (ax_Email == "AdminAdmin@email.com" && ax_Senha == "urubu100") {
+                window.location.href = "../dash/dashboard.html"
             }
         }
 
