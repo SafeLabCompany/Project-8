@@ -63,10 +63,8 @@
       </div>
 
       <div class="DivCad">
-        <h3>Nome:<br>
-          <input class="LocalDeInsert" type="text" id="ipt_CadastroNome">
-        </h3>
-
+        <h3>Código de Empresa: <br> <input class="LocalDeInsert" type="text" id="ipt_CadastroCodEmpresa"></h3>
+        <h3>Nome: <br> <input class="LocalDeInsert" type="text" id="ipt_CadastroNome"></h3>
         <h3>Email: <br> <input class="LocalDeInsert" type="text" id="ipt_CadastroEmail"></h3>
         <h3>Cpf: <br> <input class="LocalDeInsert" type="text" id="ipt_CadastroCpf"></h3>
         <h3>Senha: <br> <input class="LocalDeInsert" type="text" id="ipt_CadastroSenha"></h3>
@@ -74,12 +72,6 @@
 
         <button class="ButtonCad" onclick="Cadastrar()">Cadastrar</button><br>
       </div>
-
-      <div class="DivCad">
-        <h3 style="font-weight: bold; font-size: 1.5rem;">Ainda não tem conta?</h3>
-        <a href="../login/login.html" class="ButtonFazerLogin">Fazer Login</a>
-      </div>
-
     </div>
   </section>
 
@@ -156,23 +148,26 @@
       let InsertCpf = ipt_CadastroCpf.value;
       let InsertSenha = ipt_CadastroSenha.value;
       let InsertConfirmaSenha = ipt_CadastroConfirmarSenha.value;
+      let InsertCodEmpresa = ipt_CadastroCodEmpresa.value;
 
 
-      if (InsertNome == '') {
-        alert('É necessario informar o seu nome para seguir com o cadastro')
+      if (InsertCodEmpresa == '') {
+        alert('É necessário informar o seu código de empresa para seguir com o cadastro')
       }
-
+      else if (InsertNome == '') {
+        alert('É necessário informar o seu nome para seguir com o cadastro')
+      }
       else if (InsertEmail == '') {
-        alert('É necessario informar o seu email para seguir com o cadastro')
+        alert('É necessário informar o seu email para seguir com o cadastro')
       }
       else if (InsertCpf == '' || InsertCpf.length != 11) {
-        alert('É necessario informar o seu cpf para seguir com o cadastro, seu cpf precisar ter 11 digitos')
+        alert('É necessário informar o seu cpf para seguir com o cadastro, seu cpf precisar ter 11 digitos')
       }
       else if (InsertSenha == '') {
-        alert('É necessario inserir uma senha para seguir com o cadastro')
+        alert('É necessário inserir uma senha para seguir com o cadastro')
       }
       else if (InsertConfirmaSenha == '') {
-        alert('É necessario inserir a senha novamente para seguir com o cadastro')
+        alert('É necessário inserir a senha novamente para seguir com o cadastro')
       }
     }
 
