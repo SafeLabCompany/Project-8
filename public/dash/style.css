@@ -342,8 +342,11 @@ a {
 }
 
 #config {
-  width: 1500px;
-  height: 700px;
+  display: flex;
+  flex-direction: column;
+  height: 60rem;
+  width: 100rem;
+  
 }
 
 #table {
@@ -363,3 +366,69 @@ th , td{
 padding: 4px 8px;
 line-height: 1.2; 
 }
+
+#area-config {
+  width: 60vw;
+  height: 540px;
+  margin-left: 150px;
+  border-radius: 5px;
+  border: solid 1px;
+  border-color: #b5b5b5;
+  background-color: whitesmoke;
+}
+
+#barra-superior-config {
+  display: flex;
+  min-height: 4vh;
+  height: 7vh;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  font-weight: bolder;
+  border: solid 1px;
+  border-color: #a09b9b;
+  background-color: #d7d7d7;
+}
+
+
+#ipt_nome_config {
+  margin: 20px;
+  height: 2rem;
+  width: 50rem;
+}
+#ipt_email_config {
+  margin: 20px;
+  height: 2rem;
+  width: 50rem;
+}
+#ipt_senha_config {
+  width: 30rem;
+  margin: 20px;
+}
+
+#botao-salvar {
+  width: 200px;
+  height: 40px;
+  background-color: #2b3b92;
+  color: white;
+  border-radius: 5px;
+}
+
+#botao-descartar {
+  width: 200px;
+  height: 40px;
+  background-color: #2b3b92;
+  color: white;
+  border-radius: 5px;
+}
+
+#img-lapis {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-self: center;
+  
+}
+
+
+
