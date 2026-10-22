@@ -134,7 +134,6 @@ a {
   width: 100%;
   justify-content: center;
   align-items: center;
-
 }
 
 .card {
@@ -345,4 +344,22 @@ a {
 #config {
   width: 1500px;
   height: 700px;
+}
+
+#table {
+  display: flex;
+  overflow: auto;
+  border-collapse: collapse;
+  max-height: 15.3rem;
+  justify-content: space-between;
+}
+
+thead {
+  height: 3rem;
+  background-color: grey;
+  font-size: x-large;
+}
+th , td{
+padding: 4px 8px;
+line-height: 1.2; 
 }

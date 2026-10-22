@@ -16,18 +16,21 @@
   font-size: xx-large;
   margin-left: 20px;
   margin-top: 10px;
+  width: 74rem;
+  
 }
 
 table{
-  width: 100%;
+  width: 74rem;
   border-collapse: collapse;
   text-align: center;
+  
 }
 
 thead {
   background-color: grey;
 }
-
+ 
 th, td {
   padding: 20px;
   border-bottom: 1px solid #bbb;
