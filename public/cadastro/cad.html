@@ -143,30 +143,30 @@
 
   <script>
     function Cadastrar() {
-      let InsertNome = ipt_CadastroNome.value;
-      let InsertEmail = ipt_CadastroEmail.value;
-      let InsertCpf = ipt_CadastroCpf.value;
-      let InsertSenha = ipt_CadastroSenha.value;
-      let InsertConfirmaSenha = ipt_CadastroConfirmarSenha.value;
-      let InsertCodEmpresa = ipt_CadastroCodEmpresa.value;
+      let ax_Nome = ipt_CadastroNome.value;
+      let ax_Email = ipt_CadastroEmail.value;
+      let ax_Cpf = ipt_CadastroCpf.value;
+      let ax_Senha = ipt_CadastroSenha.value;
+      let ax_ConfirmaSenha = ipt_CadastroConfirmarSenha.value;
+      let ax_CodEmpresa = ipt_CadastroCodEmpresa.value;
 
 
-      if (InsertCodEmpresa == '') {
+      if (ax_CodEmpresa == '') {
         alert('É necessário informar o seu código de empresa para seguir com o cadastro')
       }
-      else if (InsertNome == '') {
+      else if (ax_Nome == '') {
         alert('É necessário informar o seu nome para seguir com o cadastro')
       }
-      else if (InsertEmail == '') {
+      else if (ax_Email == '') {
         alert('É necessário informar o seu email para seguir com o cadastro')
       }
-      else if (InsertCpf == '' || InsertCpf.length != 11) {
+      else if (ax_Cpf == '' || ax_Cpf.length != 11) {
         alert('É necessário informar o seu cpf para seguir com o cadastro, seu cpf precisar ter 11 digitos')
       }
-      else if (InsertSenha == '') {
+      else if (ax_Senha == '') {
         alert('É necessário inserir uma senha para seguir com o cadastro')
       }
-      else if (InsertConfirmaSenha == '') {
+      else if (ax_ConfirmaSenha == '') {
         alert('É necessário inserir a senha novamente para seguir com o cadastro')
       }
     }
