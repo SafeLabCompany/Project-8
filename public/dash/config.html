@@ -39,6 +39,11 @@
             <h2>Configurações</h2>
           </div>
 
+          <div class="btn-href">
+            <a href=""></a>
+            <h2>Administração de usuários</h2>
+          </div>
+
           <div id="user-logout" class="btn-href">
             <h2>Logout</h2>
           </div>
@@ -47,13 +52,53 @@
 
       <div id="config">
         <div id="header-dashboard">
-          <img src="../assets/dash/notification.png" width="30px">
-          <img src="../assets/dash/userIcon.png" width="30px">
-        </div>
+          <img src="../assets/dash/notification.png" width="40px">
+          <img src="../assets/dash/userIcon.png" width="40px">
+        </div> <br> <br> <br> <br> <br> <br>
 
+
+        <div id="area-config">
+          <div id="barra-superior-config">
+            <span id="texto-config">Configurações de usuários</span>
+          </div>
+
+          <div id="campos-input">
+
+            <div id="ipt_inputs">
+
+              <div class=" campo-object">
+                Nome completo:
+                <input type="text" id="ipt_nome_config" class="ipt-suporte">
+                <div id="img-lapis">
+                  <a onclick="oi()"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" width="30px"></a>
+                </div>
+              </div>
+              <div class="campo-object">
+                E-mail:
+                <input type="text" id="ipt_email_config" class="ipt-suporte">
+                <div id="img-lapis">
+                  <a><img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" width="30px"></a>
+                </div>
+              </div>
+
+              <div class="campo-object">
+                Senha:
+                <input type="text" id="ipt_senha_config" class="ipt-suporte">
+                  <a onclick=""><img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" width="30px"></a>
+              </div>
+              <div id="botoes-config">
+                <button id="botao-salvar">Salvar Alterações</button>
+                <button id="botao-descartar">Descartar Alterações</button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
       </div>
 
     </div>
+
     <footer style="padding: 1.5rem; background-color: #f8f9fa;">
 
       <!-- ------------- -->
@@ -109,7 +154,7 @@
           direitos reservados.</span>
       </div>
     </footer>
+
   </div>
 </body>
-
 </html>

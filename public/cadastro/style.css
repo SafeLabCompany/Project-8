@@ -95,7 +95,6 @@ header {
 
 .PaginaCad {
     display: flex;
-
     height: 41rem;
     width: 100%;
 
@@ -132,23 +131,21 @@ header {
         .DivCad {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
+            align-items: left;
+            padding-bottom: .2rem;
         }
 
         h2 {
             font-size: 2rem;
-            margin-bottom: .5rem;
+            margin-bottom: 0.2rem;
         }
 
         h3 {
-            margin-bottom: .2rem;
+            margin-bottom: 0.1rem;
         }
 
         .ButtonCad {
-
             text-align: center;
-
             width: 11rem;
             font-size: 1.2rem;
             border-radius: 5rem;

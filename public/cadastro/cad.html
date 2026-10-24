@@ -58,20 +58,48 @@
 
     <div class="AreaDoCad">
 
-      <div class="DivCad">
+      <div class="DivCad" style="margin-top: 2rem;">
         <h2>Faça seu cadastro:</h2>
       </div>
 
       <div class="DivCad">
-        <h3>Código de Empresa: <br> <input class="LocalDeInsert" type="text" id="ipt_CadastroCodEmpresa"></h3>
-        <h3>Nome: <br> <input class="LocalDeInsert" type="text" id="ipt_CadastroNome"></h3>
-        <h3>Email: <br> <input class="LocalDeInsert" type="text" id="ipt_CadastroEmail"></h3>
-        <h3>Cpf: <br> <input class="LocalDeInsert" type="text" id="ipt_CadastroCpf"></h3>
-        <h3>Senha: <br> <input class="LocalDeInsert" type="text" id="ipt_CadastroSenha"></h3>
-        <h3>Confirmar Senha: <br> <input class="LocalDeInsert" type="text" id="ipt_CadastroConfirmarSenha"></h3><br>
 
-        <button class="ButtonCad" onclick="Cadastrar()">Cadastrar</button><br>
+        <label for="ipt_CadastroCodEmpresa">
+          <h3>Código de Empresa:</h3> 
+        </label>
+        <input class="LocalDeInsert" type="text" id="ipt_CadastroCodEmpresa">
+
+        <label for="ipt_CadastroNome">
+          <h3>Nome:</h3> 
+        </label>
+        <input class="LocalDeInsert" type="text" id="ipt_CadastroNome">
+
+        <label for="ipt_CadastroEmail">
+          <h3>Email:</h3> 
+        </label>
+        <input class="LocalDeInsert" type="text" id="ipt_CadastroEmail">
+
+        <label for="ipt_CadastroCpf">
+          <h3>Cpf:</h3> 
+        </label>
+        <input class="LocalDeInsert" type="text" id="ipt_CadastroCpf">
+        
+        <label for="ipt_CadastroSenha">
+          <h3>Senha:</h3> 
+        </label>
+        <input class="LocalDeInsert" type="password" id="ipt_CadastroSenha" minlength="8" required>
+
+        <label for="ipt_CadastroConfirmarSenha">
+          <h3>Confirmar Senha:</h3> 
+        </label>
+        <input class="LocalDeInsert" type="password" id="ipt_CadastroConfirmarSenha" minlength="8" required>
+
       </div>
+
+      <div>
+        <button class="ButtonCad" onclick="Cadastrar()">Cadastrar</button>
+      </div>
+
     </div>
   </section>
 
@@ -143,31 +171,34 @@
 
   <script>
     function Cadastrar() {
-      let InsertNome = ipt_CadastroNome.value;
-      let InsertEmail = ipt_CadastroEmail.value;
-      let InsertCpf = ipt_CadastroCpf.value;
-      let InsertSenha = ipt_CadastroSenha.value;
-      let InsertConfirmaSenha = ipt_CadastroConfirmarSenha.value;
-      let InsertCodEmpresa = ipt_CadastroCodEmpresa.value;
+      let ax_Nome = ipt_CadastroNome.value;
+      let ax_Email = ipt_CadastroEmail.value;
+      let ax_Cpf = ipt_CadastroCpf.value;
+      let ax_Senha = ipt_CadastroSenha.value;
+      let ax_ConfirmaSenha = ipt_CadastroConfirmarSenha.value;
+      let ax_CodEmpresa = ipt_CadastroCodEmpresa.value;
 
 
-      if (InsertCodEmpresa == '') {
+      if (ax_CodEmpresa == '') {
         alert('É necessário informar o seu código de empresa para seguir com o cadastro')
       }
-      else if (InsertNome == '') {
+      else if (ax_Nome == '') {
         alert('É necessário informar o seu nome para seguir com o cadastro')
       }
-      else if (InsertEmail == '') {
+      else if (ax_Email == '') {
         alert('É necessário informar o seu email para seguir com o cadastro')
       }
-      else if (InsertCpf == '' || InsertCpf.length != 11) {
+      else if (ax_Cpf == '' || ax_Cpf.length != 11) {
         alert('É necessário informar o seu cpf para seguir com o cadastro, seu cpf precisar ter 11 digitos')
       }
-      else if (InsertSenha == '') {
+      else if (ax_Senha == '') {
         alert('É necessário inserir uma senha para seguir com o cadastro')
       }
-      else if (InsertConfirmaSenha == '') {
+      else if (ax_ConfirmaSenha == '') {
         alert('É necessário inserir a senha novamente para seguir com o cadastro')
+      } 
+      else if (ax_ConfirmaSenha != ax_Senha) {
+        alert('Senhas não condizentes')
       }
     }
 

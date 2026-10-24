@@ -1,8 +1,6 @@
 #main-area {
   display: flex;
-  width: 85%;
   flex-direction: column;
-  height: 1000px;
 }
 
 #user-icon {
@@ -16,18 +14,21 @@
   font-size: xx-large;
   margin-left: 20px;
   margin-top: 10px;
+  width: 74rem;
+  
 }
 
 table{
-  width: 100%;
+  width: 74rem;
   border-collapse: collapse;
   text-align: center;
+  
 }
 
 thead {
   background-color: grey;
 }
-
+ 
 th, td {
   padding: 20px;
   border-bottom: 1px solid #bbb;
@@ -39,14 +40,28 @@ th, td {
   padding: 6px 12px;
   border-radius: 6px;
   font-size: 18px;
+  background-color: #9cff9d;
+  color: #036b04;
 }
 
-.badge--critical {
+.--medium {
+  background-color: #ffe000;
+  color: #d9a900;
+}
+
+.--critical {
   background-color: #ff5252;
   color: #b3001b;
 }
 
-.badge--low {
-  background-color: #ffe000;
+.low {
+  color: #036b04;
+}
+
+.medium {
   color: #d9a900;
+}
+
+.critical {
+  color: #b3001b;
 }
