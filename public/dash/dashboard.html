@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="alert.css">
+  <link rel="stylesheet" href="style.css" />
+  <title>Safelab | Dashboard</title>
+  <link rel="icon" type="image/png" href="../assets/institucional/safelab_recortada.svg">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div id="page-container">
+    <div id="main-dash">
+      <div id="user-area">
+        <div id="user-img">
+          <img src="../assets/dash/userIcon.svg">
+        </div>
+        <h2>Olá, <span id="user-name">usuário</span></h2>
+        <div id="button-user">
+          <div class="btn-href-active">
+            <h2>Dashboard</h2>
+          </div>
+          <div class="btn-href">
+            <a href="alertas.html">
+              <h2>Alerta</h2>
+            </a>
+          </div>
+          <div class="btn-href">
+            <a href="suporte.html">
+              <h2>Chamado</h2>
+            </a>
+          </div>
+          <div class="btn-href">
+            <a href="config.html">
+              <h2>Configurações</h2>
+            </a>
+          </div>
+          <div id="user-logout" class="btn-href">
+            <h2>Logout</h2>
+          </div>
+        </div>
+      </div>
+      <div id="area-dashboard">
+        <div id="header-dashboard">
+          <img id="img_alert" width="50px" src="../assets/dash/notification.png" alt="user_icon.png" />
+          <img id="img_alert" width="50px" src="../assets/dash/userIcon.png" alt="user_icon.png" />
+        </div>
+        <div id="area-kpi">
+          <div class="card kpi1">
+            <span id="card-title"> Última falha crítica </span>
+            <span class="card-body">
+              Há 5 minutos!
+              <img id="img_alert" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
+            </span>
+            <span class="card-explain"> Refrigeradores afetados: 8, 5 </span>
+          </div>
+          <div class="card kpi2">
+            <span class="card-title"> Refrigerador mais instavél </span>
+            <span class="card-body"> 7º Refrigerador </span>
+            <span class="card-explain">
+              10 ocorrências de instabilidade <br />
+              nos últimos 15 dias
+            </span>
+          </div>
+
+          <div class="card kpi3">
+            <span class="card-title"> ATENÇÃO </span>
+            <span class="card-body">
+              próximos a ultrapassagens da faixa
+            </span>
+            <span class="card-explain"> 0 </span>
+          </div>
+
+          <div class="card kpi4">
+            <span class="card-title"> Unidade 5 </span>
+            <span class="card-body">
+              <select name="select_unidade" id="select_unidade">
+                <option value="Selecione a unidade">
+                  Selecione a unidade
+                </option>
+                <option value="Unidade Paulista">Paulista</option>
+                <option value="Unidade Tucuruvi">Tucuruvi</option>
+                <option value="Unidade Tatuapé">Tatuapé</option>
+              </select>
+            </span>
+          </div>
+        </div>
+
+        <div id="area-grafico">
+          <div id="container-esquerdo">
+            <div id="graficos-esquerdo">
+              <div class="dash-grafico">
+                <div class="dash-title">
+                  <span class="dash-text">
+                    Historico de temperaturas do refrigerador
+                  </span>
+                  <div class="dash-select">
+                    <select id="">
+                      <option>1</option>
+                    </select>
+                    <select id="">
+                      <option>Últimas 24 horas</option>
+                    </select>
+                  </div>
+                </div>
+                <canvas id="historico-temp"></canvas>
+              </div>
+
+              <div class="dash-grafico">
+                <div class="dash-title">
+                  <span class="dash-text">
+                    Média de temperaturas dos refrigeradores
+                  </span>
+                  <div class="dash-select">
+                    <select id="">
+                      <option>Últimas 24 horas</option>
+                    </select>
+                  </div>
+                </div>
+                <canvas id="media_refrigeradores"></canvas>
+              </div>
+            </div>
+
+            <div id="table">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="coluna_tabela" scope="col">Refrigerador</th>
+                    <th scope="col">Temperatura registrada</th>
+                    <th scope="col">Tipo de alerta</th>
+                    <th scope="col">Data e hora</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Refrigerador 4</th>
+                    <td>10,0ºC</td>
+                    <td><span class="badge badge--critical">Temperatura Crítica</span></td>
+                    <td>27/07/2026 09:41</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Refrigerador 4</th>
+                    <td>10,0ºC</td>
+                    <td> <span class="badge badge--low"> Abaixo do recomendado </span> </td>
+                    <td>27/07/2026 09:41</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Refrigerador 4</th>
+                    <td>10,0ºC</td>
+                    <td> <span class="badge badge--critical"> Sem registro </span> </td>
+                    <td>27/07/2026 09:41</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Refrigerador 4</th>
+                    <td>10,0ºC</td>
+                    <td class="crit">Temperatura Crítica</td>
+                    <td>27/07/2026 09:41</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Refrigerador 4</th>
+                    <td>10,0ºC</td>
+                    <td>Temperatura Crítica</td>
+                    <td>27/07/2026 09:41</td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="container-direito">
+            <div class="dash-alertas">
+              <div class="dash-title">
+                <span class="dash-select"> Últimos alertas </span>
+              </div>
+              <div class="card-alerta">
+                <img id="img_ultimos_alertas" width="40px" src="../assets/dash/alerta_vermelho-removebg-preview.png"
+                  alt="" />
+                <div class="text-alertas">
+                  Temperatura acima do limite!
+                  <br>
+                  <br>
+                  21/07/2026
+                </div>
+              </div>
+              <div class="card-alerta">
+                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
+                Temperatura acima da faixa!
+                <br>
+                <br>
+                21/07/2026
+              </div>
+              <div class="card-alerta">
+                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
+                Temperatura abaixo da faixa!
+                <br>
+                <br>
+                21/07/2026
+              </div>
+              <div class="card-alerta">
+                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
+                Temperatura abaixo da faixa!
+                <br>
+                <br>
+                21/07/2026
+              </div>
+              <div class="card-alerta">
+                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
+                Temperatura acima da faixa!
+                <br>
+                <br>
+                21/07/2026
+              </div>
+              <div class="card-alerta">
+                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
+                Temperatura acima da faixa!
+                <br>
+                <br>
+                21/07/2026
+              </div>
+              <div class="card-alerta">
+                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
+                Temperatura acima da faixa
+                <br>
+                <br>
+                21/07/2026
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer style="padding: 1.5rem; background-color: #f8f9fa;">
+
+      <!-- ------------- -->
+      <!-- Parte de Cima -->
+      <!-- ------------- -->
+
+      <div style="display: flex; justify-content: space-between;">
+        <div style="display: flex; align-items: center;">
+          <img style="width: 1.25rem; margin-left: 1rem; margin-right: 0.5rem;"
+            src="../assets/institucional/safelab_recortada.svg" alt="logo">
+          <div style="display: flex; align-items: center; font-family: 'Montserrat'; font-size: 2rem;">
+            <span style="font-weight: 200; letter-spacing: -0.1rem;">Safe</span>
+            <span style="font-weight: bold; margin-left: -0.1rem;">Lab</span>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+          <nav>
+            <div style="word-spacing: 1rem;">
+              <a onclick="contato_popup.showModal()"
+                style="color:#1c1c1c; display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Contato</a>
+              <a onclick="sobre_nos_popup.showModal()"
+                style="color:#1c1c1c; display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Sobre-Nós</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <!-- ------ -->
+      <!-- POPUPS -->
+      <!-- ------ -->
+
+      <dialog id="contato_popup">
+        <h2>Olá!</h2>
+        <p>Este é um pop-up simples.</p>
+        <button onclick="contato_popup.close()">Fechar</button>
+      </dialog>
+
+      <dialog id="sobre_nos_popup">
+        <h2>Olá!</h2>
+        <p>Este é um pop-up simples.</p>
+        <button onclick="sobre_nos_popup.close()">Fechar</button>
+      </dialog>
+
+      <!-- -------------- -->
+      <!-- Parte de Baixo -->
+      <!-- -------------- -->
+
+      <div>
+        <hr style="height: 0.2rem; background-color: #1c1c1c;">
+
+        <span style="margin-top: 1.5rem; display: flex; justify-content: center;"> © SafeLab - 2026 - Todos os
+          direitos reservados.</span>
+      </div>
+    </footer>
+  </div>
+</body>
+<script>
+  var historico_temp = new Chart(
+    document.getElementById("historico-temp").getContext("2d"),
+    {
+      type: "line",
+      data: {
+        labels: ["00:01", "00:02", "00:03", "00:04", "00:05", "00:06"],
+        datasets: [
+          {
+            label: "temperatura",
+            borderColor: "#558acb",
+            backgroundColor: "cyan",
+            borderWidth: 2,
+            data: [2, 3, 4, 5, 6, 20],
+          },
+          {
+            label: "Limite mínimo (2°C)",
+            borderColor: "red",
+            borderWidth: 2,
+            borderDash: [5, 5],
+            pointRadius: 0,
+            data: [2, 2, 2, 2, 2, 2],
+          },
+          {
+            label: "Limite máximo (8°C)",
+            borderColor: "red",
+            borderWidth: 2,
+            borderDash: [5, 5],
+            pointRadius: 0,
+            data: [8, 8, 8, 8, 8, 8],
+          },
+        ],
+      },
+      options: {
+        plugins: {
+          legend: {
+            position: "bottom",
+            align: "center",
+          },
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: "Horario",
+            },
+          },
+          y: {
+            min: 0,
+            max: 10,
+            title: {
+              display: true,
+              text: "Temperatura(°C)",
+            },
+          },
+        },
+      },
+      y: {
+        min: 0,
+        max: 10,
+        title: {
+          display: true,
+          text: 'Temperatura (°C)'
+        }
+      }
+    },
+  );
+
+  var media_refrigeradores = new Chart(
+    document.getElementById("media_refrigeradores").getContext("2d"),
+    {
+      type: "bar",
+      data: {
+        labels: [
+          "Refrigerador 1",
+          "Refrigerador 2",
+          "Refrigerador 3",
+          "Refrigerador 4",
+          "Refrigerador 5",
+        ],
+        datasets: [
+          {
+            label: "temperatura",
+            borderColor: "#558acb",
+            backgroundColor: "cyan",
+            borderWidth: 2,
+            data: [2, 2, 4, 3, 6],
+          },
+        ],
+      },
+      options: {
+        plugins: {
+          legend: {
+            position: "bottom",
+            align: "center",
+          },
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: "Refrigeradores",
+            },
+          },
+          y: {
+            min: 0,
+            max: 10,
+            title: {
+              display: true,
+              text: "Temperatura(°C)",
+            },
+          },
+        },
+      },
+    },
+  );
+</script>
+
+</html>
