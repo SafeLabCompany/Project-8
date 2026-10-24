@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body id="body" class="">
     <header>
         <div class="section_header">
             <img style="width: 1.25rem; margin-left: 1rem; margin-right: 1rem;"
@@ -249,53 +249,79 @@
             <img style="transform: rotate(180deg); width: 100%; position: relative; bottom: 1rem;"
                 src="../assets/institucional/ondas.svg" alt="">
 
-            <div id="simulator">
-                <br><br><br>
-            </div>
+            <div id="simulator" class="simulador">
+                <div class="simulador_titulo">
+                    Simule suas possiveis perdas!
+                </div>
 
-            <div style="display: flex; justify-content: center; align-items: center; margin-top: 4rem;">
-                <div class="container_simulador" style="align-self: center;">
-                    <h1>Calculadora de Estoque de Vacinas</h1>
-                    <h2>Configuração Inicial</h2>
+                <div class="card_informacoes_simulador">
+                    <div class="card_informacoes_header">
+                        <label style="color: #f8fafc; font-weight: bold;">Informações<br>de Estoque</label>
+                        <button
+                            style="background-color: #f8fafc; border: 0.2rem #003366 solid; border-radius: 0.5rem; font-weight: bold; padding: 0.5rem; cursor: pointer;"
+                            onclick="valor_vacinas()">Calcular Perdas</button>
+                    </div>
 
-                    <div class="caixa_pai">
-
-                        <div class="vaccine-card">
-                            <div class="card-header">Informações do Estoque</div>
-                            <div class="card-body">
-                                <div class="field-group">
-                                    <label>Selecione uma vacina:</label>
-                                    <select id="slc_vacina" onchange="verificar_outro()">
-                                        <option value="selecione" selected>Selecione...</option>
-                                        <option value="influenza">Influenza</option>
-                                        <option value="pentavalente">Pentavalente</option>
-                                        <option value="poliomielite">Poliomielite</option>
-                                        <option value="pneumococica">Pneumocócica 10-Valente</option>
-                                        <option value="triplice">Tríplice Viral</option>
-                                        <option value="bcg">BCG</option>
-                                        <option value="outro">Outro</option>
-                                    </select>
-                                </div>
-
-                                <div id="div_outro_1" class="field-group">
-                                </div>
-
-                                <div id="div_outro_2" class="field-group">
-                                </div>
-
-                                <div class="field-group">
-                                    <label>Quantidade Atual:</label>
-                                    <input type="number" id="ipt_qnt" placeholder="Ex: 10">
-                                </div>
-                            </div>
+                    <div style="display: flex; justify-content: space-evenly; width: 100%;">
+                        <div class="campo_entrada_simulador">
+                            <label class="nome_informacao">Selecione uma vacina:</label>
+                            <select class="select_simulador" id="slc_vacina" onchange="verificar_select_resultado()">
+                                <option value="outro" selected>Outra Vacina</option>
+                                <option value="influenza">Influenza</option>
+                                <option value="pentavalente">Pentavalente</option>
+                                <option value="poliomielite">Poliomielite</option>
+                                <option value="pneumococica">Pneumocócica-10-Valente</option>
+                                <option value="triplice">Tríplice Viral</option>
+                                <option value="bcg">BCG</option>
+                            </select>
                         </div>
 
-                        <div class="result-box">
-                            <div id="div_resultado" class="result-totals">
-                            </div>
-                        </div>`
+                        <div class="campo_entrada_simulador">
+                            <label class="nome_informacao">Informe o nome:</label>
+                            <input class="input_simulador" type="text" id="ipt_nome_vacina"
+                                placeholder="Ex: Hepatite B">
+                        </div>
+
+                        <div class="campo_entrada_simulador">
+                            <label class="nome_informacao">Informe o valor unitário (R$):</label>
+                            <input class="input_simulador" type="number" id="ipt_valor_vacina" placeholder="Ex: 100,99">
+                        </div>
+
+                        <div class="campo_entrada_simulador">
+                            <label class="nome_informacao">Quantidade atual de frascos:</label>
+                            <input class="input_simulador" type="number" id="ipt_qnt_frascos" placeholder="Min: 10">
+                        </div>
                     </div>
-                    <button onclick="valor_vacinas()" class="btn-primary btn-calc">Calcular Perdas</button>
+                </div>
+
+                <div id="div_exibir" class="card_resultado">
+                    <div class="texto_resultado">
+                        <div id="div_resultado" style="text-align: justify;"></div>
+                    </div>
+
+                    <div class="planos_resultado">
+                        <div class="lista_card_planos">
+                            <div class="card_planos">
+
+                            </div>
+
+                            <div class="card_planos">
+
+                            </div>
+
+                            <div class="card_planos">
+
+                            </div>
+                        </div>
+                        <div>
+                            <a href="">Ver Mais Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <a style="color: #2563eb; text-decoration: underline; cursor: pointer;"
+                        onclick="mais_informacoes_popup.showModal(); bloquear_body()">Mais informações</a>
                 </div>
             </div>
         </div>
@@ -324,8 +350,6 @@
                             style="display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Início</a>
                         <a onclick="contato_popup.showModal()"
                             style="display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Contato</a>
-                        <a onclick="sobre_nos_popup.showModal()"
-                            style="display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Sobre-Nós</a>
                     </div>
                 </nav>
             </div>
@@ -334,6 +358,94 @@
         <!-- ------ -->
         <!-- POPUPS -->
         <!-- ------ -->
+
+        <dialog class="popup" id="mais_informacoes_popup">
+            <div class="header_popup">
+                <div style="color: #f8f9fa;">
+                    Mais informações
+                </div>
+                <button
+                    style="width: 2rem; height: 2rem; text-align: center; align-self: flex-end; background-color: red; color: #f8f9fa;"
+                    onclick="mais_informacoes_popup.close(); desbloquear_body()">x</button>
+            </div>
+
+            <section class="popup_section">
+                <div id="preços" class="popup_card_informacoes">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Vacina
+                                </th>
+                                <th>
+                                    Preço
+                                </th>
+                                <th>
+                                    Referencia
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Influenza</td>
+                                <td>R$45,00</td>
+                                <td><a class="link" href="">link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Pentavalente</td>
+                                <td>R$170,00</td>
+                                <td><a class="link" href="">link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Poliomielite</td>
+                                <td>R$225,00</td>
+                                <td><a class="link" href="">link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Pneumocócica</td>
+                                <td>R$475,00</td>
+                                <td><a class="link" href="">link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Tríplice Viral</td>
+                                <td>R$130,00</td>
+                                <td><a class="link" href="">link</a></td>
+                            </tr>
+                            <tr>
+                                <td>BCG</td>
+                                <td>R$65,00</td>
+                                <td><a class="link" href="">link</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="outras_infos" class="popup_card_informacoes">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Outras Informações
+                                </th>
+                                <th>
+                                    Link
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>titulo</td>
+                                <td><a class="link" href="">link</a></td>
+                            </tr>
+                            <tr>
+                                <td>titulo</td>
+                                <td><a class="link" href="">link</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </dialog>
 
         <dialog id="contato_popup">
             <h2>Olá!</h2>
@@ -362,17 +474,58 @@
 </body>
 
 <script>
-    function verificar_outro() {
-        if (slc_vacina.value === 'outro') {
-            div_outro_1.innerHTML = `<label>Informe o nome:</label>
-                <input type="text" id="ipt_nome_outro" placeholder='Ex: Hepatite B'>`
+    // POPUPS
 
-            div_outro_2.innerHTML = `<label>Informe o valor unitário:</label>
-                <input type="number" id="ipt_valor_outro" placeholder='(R$)'>`
-        } else {
-            div_outro_1.innerHTML = ''
-            div_outro_2.innerHTML = ''
+    function bloquear_body() {
+        body.className = 'bodybloqueado'
+    }
+
+    function desbloquear_body() {
+        body.className = ''
+    }
+
+    // SIMULADOR
+
+    function verificar_select_resultado() {
+        if (slc_vacina.value === 'influenza') {
+            ipt_nome_vacina.value = `Influenza`
+            ipt_nome_vacina.readOnly = true
+            ipt_valor_vacina.value = `45`
+
+        } else if (slc_vacina.value === 'pentavalente') {
+            ipt_nome_vacina.value = `Pentavalente`
+            ipt_nome_vacina.readOnly = true
+            ipt_valor_vacina.value = `170`
+
+        } else if (slc_vacina.value === 'poliomielite') {
+            ipt_nome_vacina.value = `Poliomielite`
+            ipt_nome_vacina.readOnly = true
+            ipt_valor_vacina.value = `225`
+
+        } else if (slc_vacina.value === 'pneumococica') {
+            ipt_nome_vacina.value = `Pneumocócica-10-Valente`
+            ipt_nome_vacina.readOnly = true
+            ipt_valor_vacina.value = `475`
+
+        } else if (slc_vacina.value === 'triplice') {
+            ipt_nome_vacina.value = `Tríplice Vira`
+            ipt_nome_vacina.readOnly = true
+            ipt_valor_vacina.value = `130`
+
+        } else if (slc_vacina.value === 'bcg') {
+            ipt_nome_vacina.value = `BCG`
+            ipt_nome_vacina.readOnly = true
+            ipt_valor_vacina.value = `65`
+
+        } else if (slc_vacina.value === 'outro') {
+            ipt_nome_vacina.value = ``
+            ipt_nome_vacina.readOnly = false
+            ipt_valor_vacina.value = ``
         }
+    }
+
+    function verificar_input() {
+
     }
 
     function valor_vacinas() {
@@ -407,17 +560,17 @@
 
         } else if (nome == "outro") {
 
-            valor_medio = Number(ipt_valor_outro.value)
+            valor_medio = Number(ipt_valor_vacina.value)
 
         }
 
         // Realizando os calculos de acordo com as informações passadas:
 
-        let quantidade = Number(ipt_qnt.value)
+        let quantidade = Number(ipt_qnt_frascos.value)
         let percentual_perda = 41.4
 
         if (nome == 'outro') {
-            nome = ipt_nome_outro.value
+            nome = ipt_nome_vacina.value
         }
 
         if (nome == 'selecione') {
@@ -431,7 +584,15 @@
         } else if (String(quantidade).includes('.')) {
             div_resultado.innerHTML = '<b style="color: red">Insira uma quantidade inteira.</b>'
         } else {
-            let qnt_vacinas_perdidas = quantidade * (percentual_perda / 100)
+
+            let qnt_vacinas_perdidas = 0
+
+            if (quantidade == 1) {
+                qnt_vacinas_perdidas = 1
+            } else {
+                qnt_vacinas_perdidas = (quantidade * (percentual_perda / 100)).toFixed(0)
+            }
+
             let qnt_reais_perdidos = qnt_vacinas_perdidas * valor_medio
 
             let reais_antes_perda = quantidade * valor_medio
@@ -441,10 +602,10 @@
                         Foi usado o valor de ${reais_antes_perda.toFixed(2)} reais na compra das vacinas. <br>
                         <br>
                         Caso ocorra uma quebra de cadeia fria neste momento: <br>
-                        O total de vacinas que poderá ser perdido é de até <b>${qnt_vacinas_perdidas.toFixed(0)} doses </b> (41%). <br>
+                        O total de vacinas que poderá ser perdido é de até <span>${qnt_vacinas_perdidas} doses </span> (que representa até 41% do seu estoque). <br>
                         Que representará ${qnt_reais_perdidos.toFixed(2)} reais da compra. <br>
                         <br>
-                        Sobrando apenas <b>${(quantidade - qnt_vacinas_perdidas).toFixed(0)} vacinas</b> no estoque.`;
+                        Sobrando apenas <b>${(quantidade - qnt_vacinas_perdidas).toFixed(0)} vacinas</b> no estoque.`
         }
     }
 </script>
