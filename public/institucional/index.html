@@ -245,9 +245,13 @@
     </section>
 
     <section id="Simulador_sec" class="simulador_sessao">
-        <div class="container_principal_simulador">
-            <img style="transform: rotate(180deg); width: 100%; position: relative; bottom: 1rem;"
-                src="../assets/institucional/ondas.svg" alt="">
+        <img style="transform: rotate(180deg); width: 100%; position: relative; bottom: 1rem;"
+            src="../assets/institucional/ondas.svg" alt="">
+
+        <div class="conteiner_simulador_com_texto">
+            <div class="texto_gancho_simulador" style="align-self: center; text-align: center; font-size: 2.5rem;">
+                Sua empresa não faz<br>parte do nosso programa ainda?
+            </div>
 
             <div id="simulator" class="simulador">
                 <div class="simulador_titulo">
@@ -295,34 +299,17 @@
                 </div>
 
                 <div id="div_exibir" class="card_resultado">
-                    <div class="texto_resultado">
-                        <div id="div_resultado" style="text-align: justify;"></div>
-                    </div>
-
-                    <div class="planos_resultado">
-                        <div class="lista_card_planos">
-                            <div class="card_planos">
-
-                            </div>
-
-                            <div class="card_planos">
-
-                            </div>
-
-                            <div class="card_planos">
-
-                            </div>
-                        </div>
-                        <div>
-                            <a href="">Ver Mais Detalhes</a>
-                        </div>
-                    </div>
+                    
                 </div>
 
                 <div>
                     <a style="color: #2563eb; text-decoration: underline; cursor: pointer;"
                         onclick="mais_informacoes_popup.showModal(); bloquear_body()">Mais informações</a>
                 </div>
+            </div>
+
+            <div class="texto_gancho_simulador" style="align-self: flex-end;">
+                <a style="font-size: 2rem;" href="planos.html">Conheça nossos planos →</a>
             </div>
         </div>
     </section>
@@ -531,38 +518,8 @@
     function valor_vacinas() {
 
         // definindo o valor de cada tipo de vacina:
-        let valor_medio = 0
         let nome = slc_vacina.value
-
-        if (nome == "influenza") {
-
-            valor_medio = 45
-
-        } else if (nome == "pentavalente") {
-
-            valor_medio = 170
-
-        } else if (nome == "poliomielite") {
-
-            valor_medio = 225
-
-        } else if (nome == "pneumococica") {
-
-            valor_medio = 475
-
-        } else if (nome == "triplice") {
-
-            valor_medio = 130
-
-        } else if (nome == "bcg") {
-
-            valor_medio = 65
-
-        } else if (nome == "outro") {
-
-            valor_medio = Number(ipt_valor_vacina.value)
-
-        }
+        let valor_medio = Number((ipt_valor_vacina.value).replace(',', '.'))
 
         // Realizando os calculos de acordo com as informações passadas:
 
@@ -581,7 +538,7 @@
             div_resultado.innerHTML = '<b style="color: red">Insira o nome da vacina desejada.</b>'
         } else if (valor_medio <= 0) {
             div_resultado.innerHTML = '<b style="color: red">Insira um valor de vacina maior do que 0.</b>'
-        } else if (String(quantidade).includes('.')) {
+        } else if (String(quantidade).includes('.') || String(quantidade).includes(',')) {
             div_resultado.innerHTML = '<b style="color: red">Insira uma quantidade inteira.</b>'
         } else {
 
@@ -590,22 +547,42 @@
             if (quantidade == 1) {
                 qnt_vacinas_perdidas = 1
             } else {
-                qnt_vacinas_perdidas = (quantidade * (percentual_perda / 100)).toFixed(0)
+                qnt_vacinas_perdidas = Math.ceil((quantidade * (percentual_perda / 100)))
             }
 
             let qnt_reais_perdidos = qnt_vacinas_perdidas * valor_medio
 
             let reais_antes_perda = quantidade * valor_medio
 
-            div_resultado.innerHTML = `
-                        Para o estoque de ${quantidade} doses da Vacina ${nome}. <br>
-                        Foi usado o valor de ${reais_antes_perda.toFixed(2)} reais na compra das vacinas. <br>
-                        <br>
-                        Caso ocorra uma quebra de cadeia fria neste momento: <br>
-                        O total de vacinas que poderá ser perdido é de até <span>${qnt_vacinas_perdidas} doses </span> (que representa até 41% do seu estoque). <br>
-                        Que representará ${qnt_reais_perdidos.toFixed(2)} reais da compra. <br>
-                        <br>
-                        Sobrando apenas <b>${(quantidade - qnt_vacinas_perdidas).toFixed(0)} vacinas</b> no estoque.`
+            div_exibir.innerHTML = `
+                        <div class="texto_resultado">
+                            <div id="div_resultado" style="text-align: justify;">
+                                Para o estoque de ${quantidade} doses da Vacina ${nome}. <br>
+                                Foi usado o valor de R$${((reais_antes_perda.toFixed(2)).toString()).replace('.', ',')} na compra das vacinas. <br>
+                                <br>
+                                Caso ocorra uma quebra de cadeia fria neste momento: <br>
+                                O total de vacinas que poderá ser perdido é de até <span>${qnt_vacinas_perdidas} doses </span> (que representa ${(qnt_vacinas_perdidas * 100 / quantidade).toFixed(2)}% do seu estoque). <br>
+                                Que representará R$${((qnt_reais_perdidos.toFixed(2)).toString()).replace('.', ',')} da compra. <br>
+                                <br>
+                                Sobrando apenas <b>${(quantidade - qnt_vacinas_perdidas)} vacinas</b> no estoque.
+                            </div>
+                        </div>
+
+                        <div class="planos_resultado">
+                            <div id="div_resultado" style="text-align: justify; margin: 2rem;">
+                                Sua simulação foi concluida!<br>
+                                <br>
+                                Agora que você conhece o impacto financeiro que o monitoramento adequado pode trazer, que tal dar o próximo passo?<br>
+                                <br>
+                                Com o SafeLab, sua instituição pode acompanhar a temperatura dos equipamentos, receber alertas sobre possíveis irregularidades e agir para reduzir o risco de perdas de vacinas.<br>
+                                <br>
+                                Quer descobrir qual solução faz mais sentido para sua instituição?<br>
+                                Conheça nossos planos e encontre a opção ideal para suas necessidades.
+                            </div>
+                        </div>
+
+                            
+                        `
         }
     }
 </script>
