@@ -309,7 +309,7 @@
             </div>
 
             <div class="texto_gancho_simulador" style="align-self: flex-end;">
-                <a style="font-size: 2rem;" href="planos.html">Conheça nossos planos →</a>
+                <a style="font-size: 2rem;" onclick="bloquear_body(); contato_popup.showModal()">Entre em contato conosco →</a>
             </div>
         </div>
     </section>
@@ -547,7 +547,12 @@
             if (quantidade == 1) {
                 qnt_vacinas_perdidas = 1
             } else {
-                qnt_vacinas_perdidas = Math.ceil((quantidade * (percentual_perda / 100)))
+                qnt_vacinas_perdidas = (quantidade * (percentual_perda / 100)).toFixed(1)
+
+                if (qnt_vacinas_perdidas%1!=0){
+                    qnt_vacinas_perdidas -= qnt_vacinas_perdidas%1
+                    qnt_vacinas_perdidas++
+                }
             }
 
             let qnt_reais_perdidos = qnt_vacinas_perdidas * valor_medio
@@ -572,12 +577,12 @@
                             <div id="div_resultado" style="text-align: justify; margin: 2rem;">
                                 Sua simulação foi concluida!<br>
                                 <br>
-                                Agora que você conhece o impacto financeiro que o monitoramento adequado pode trazer, que tal dar o próximo passo?<br>
+                                Agora que você conhece o impacto financeiro que o monitoramento inadequado ou inexistente pode trazer, que tal dar o próximo passo?<br>
                                 <br>
                                 Com o SafeLab, sua instituição pode acompanhar a temperatura dos equipamentos, receber alertas sobre possíveis irregularidades e agir para reduzir o risco de perdas de vacinas.<br>
                                 <br>
                                 Quer descobrir qual solução faz mais sentido para sua instituição?<br>
-                                Conheça nossos planos e encontre a opção ideal para suas necessidades.
+                                Entre em contato e encontre a opção ideal para suas necessidades.
                             </div>
                         </div>
 

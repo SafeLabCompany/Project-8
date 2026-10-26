@@ -10,20 +10,7 @@ codigo_ativacao CHAR(7) NOT NULL,
 status_empresa TINYINT NOT NULL DEFAULT 1 -- 0: desativo, 1: ativo
 );
 
--- Tabela do Funcionário
-CREATE TABLE funcionario (
-id_funcionario INT,
-cpf CHAR(11) NOT NULL UNIQUE,
-nome VARCHAR(50) NOT NULL,
-email VARCHAR(60) NOT NULL,
-senha VARCHAR(100) NOT NULL,
-dt_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-nivel_permicoes TINYINT NOT NULL DEFAULT 1, -- 0: sem permição alguma, 1: analisar dashboards, 2: abrir chamados e solicitações, 3: analisar dados sensiveis
-fk_empresa INT NOT NULL,
-CONSTRAINT ChkFkEmpresa FOREIGN KEY (fk_empresa) REFERENCES empresa(id_empresa),
-CONSTRAINT pkFkEmpresaIdFuncionario PRIMARY KEY (id_funcionario, fk_empresa)
-);
-
+-- Tabela de Unidade
 CREATE TABLE unidade (
 id_unidade INT, 
 nome varchar(60) NOT NULL,
@@ -32,6 +19,22 @@ numero_endereco INT NOT NULL,
 fk_empresa INT NOT NULL,
 CONSTRAINT Chk_Fk_Empresa FOREIGN KEY (fk_empresa) REFERENCES empresa(id_empresa),
 CONSTRAINT pkFkEmpresaIdUnidade PRIMARY KEY (id_unidade, fk_empresa)
+);
+
+-- Tabela do Funcionário
+CREATE TABLE funcionario (
+id_funcionario INT,
+cpf CHAR(11) NOT NULL UNIQUE,
+nome VARCHAR(50) NOT NULL,
+email VARCHAR(60) NOT NULL,
+senha VARCHAR(100) NOT NULL,
+dt_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+-- nivel_permicoes TINYINT NOT NULL DEFAULT 1, -- 0: sem permição alguma, 1: analisar dashboards, 2: abrir chamados e solicitações, 3: analisar dados sensiveis
+fk_empresa INT,
+fk_unidade INT,
+CONSTRAINT ChkFkEmpresa FOREIGN KEY (fk_empresa) REFERENCES empresa(id_empresa),
+CONSTRAINT ChkFkUnidade FOREIGN KEY (fk_unidade) REFERENCES unidade(id_unidade),
+,CONSTRAINT pkFkEmpresaIdFuncionario PRIMARY KEY (id_funcionario, fk_empresa, fk_unidade)
 );
 
 -- Tabela do refrigerador
@@ -68,20 +71,9 @@ fk_medida INT NOT NULL,
 CONSTRAINT ChkFkMedida FOREIGN KEY (fk_medida) REFERENCES medida_temperatura(id_medida)
 );
 
-/* CREATE USER 'usuario_insert'@'%' IDENTIFIED BY '123';
+/*
+CREATE USER 'usuario_insert'@'%' IDENTIFIED BY '123';
 GRANT SELECT, INSERT ON safelab.* TO 'usuario_insert'@'%';
 FLUSH PRIVILEGES;
 SHOW GRANTS FOR 'usuario_insert'@'%'; /
-
-/ CREATE TABLE funcionario (
-id_funcionario INT,
-cpf CHAR(11) NOT NULL UNIQUE,
-nome VARCHAR(50) NOT NULL,
-email VARCHAR(60) NOT NULL,
-senha VARCHAR(100) NOT NULL,
-dt_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-nivel_permicoes TINYINT NOT NULL DEFAULT 1, -- 0: sem permição alguma, 1: analisar dashboards, 2: abrir chamados e solicitações, 3: analisar dados sensiveis
-fk_empresa INT NOT NULL,
-CONSTRAINT ChkFkEmpresa FOREIGN KEY (fk_empresa) REFERENCES empresa(id_empresa),
-CONSTRAINT pkEmpresaFuncionario PRIMARY KEY (fk_empresa, id_funcionario)
-); */
+*/
