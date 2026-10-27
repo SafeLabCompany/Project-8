@@ -335,14 +335,26 @@
                     <div style="word-spacing: 1rem;">
                         <a href="../institucional/index.html#home"
                             style="display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Início</a>
-                        <a onclick="contato_popup.showModal()"
+                        <a onclick="contato_popup.showModal(); bloquear_body()"
                             style="display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Contato</a>
                     </div>
                 </nav>
             </div>
         </div>
 
-        <!-- ------ -->
+        <!-- -------------- -->
+        <!-- Parte de Baixo -->
+        <!-- -------------- -->
+
+        <div>
+            <hr style="height: 0.2rem; background-color: #1c1c1c;">
+
+            <span style="margin-top: 1.5rem; display: flex; justify-content: center;"> © SafeLab - 2026 - Todos os
+                direitos reservados.</span>
+        </div>
+    </footer>
+
+    <!-- ------ -->
         <!-- POPUPS -->
         <!-- ------ -->
 
@@ -437,26 +449,8 @@
         <dialog id="contato_popup">
             <h2>Olá!</h2>
             <p>Este é um pop-up simples.</p>
-            <button onclick="contato_popup.close()">Fechar</button>
+            <button onclick="contato_popup.close(); desbloquear_body()">Fechar</button>
         </dialog>
-
-        <dialog id="sobre_nos_popup">
-            <h2>Olá!</h2>
-            <p>Este é um pop-up simples.</p>
-            <button onclick="sobre_nos_popup.close()">Fechar</button>
-        </dialog>
-
-        <!-- -------------- -->
-        <!-- Parte de Baixo -->
-        <!-- -------------- -->
-
-        <div>
-            <hr style="height: 0.2rem; background-color: #1c1c1c;">
-
-            <span style="margin-top: 1.5rem; display: flex; justify-content: center;"> © SafeLab - 2026 - Todos os
-                direitos reservados.</span>
-        </div>
-    </footer>
 
 </body>
 
