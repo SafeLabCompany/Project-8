@@ -1,0 +1,36 @@
+.card-kpi{
+    background-color: #558ACB;
+    padding: 2rem;
+    margin-left: 1%;
+    display: flex;
+    align-content: center;
+    justify-content: center;    
+}
+#area-kpi {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.card-body{
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.card-title{
+    font-size: large;
+}
+
+.dash-grafico{
+    width: 73rem;
+}
+
+#graficos-esquerdo{
+    width: 100%;
+}
+
+#historico-temp{
+    width: 1000000000px;
+}
+
