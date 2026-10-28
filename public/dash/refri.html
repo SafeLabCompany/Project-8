@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="alert.css">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="refri.css">
   <title>Safelab | Dashboard</title>
   <link rel="icon" type="image/png" href="../assets/institucional/safelab_recortada.svg">
+  <script src="info.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -48,8 +50,8 @@
           <img id="img_alert" width="50px" src="../assets/dash/notification.png" alt="user_icon.png" />
           <img id="img_alert" width="50px" src="../assets/dash/userIcon.png" alt="user_icon.png" />
         </div>
-        <canvas id="historico-temp"></canvas>
-
+        <div class="arearefrigerador" id="div_exibir">
+        </div>
       </div>
     </div>
   <footer style="padding: 1.5rem; background-color: #f8f9fa;">
@@ -110,91 +112,233 @@
   </div>
 </body>
 <script>
-  var historico_temp = new Chart(
-    document.getElementById("historico-temp").getContext("2d"),
-    {
-      type: "line",
-      data: {
-        labels: ["00:01", "00:02", "00:03", "00:04", "00:05", "00:06"],
-        datasets: [
-          {
-            label: "temperatura",
-            borderColor: "#558acb",
-            backgroundColor: "cyan",
-            borderWidth: 2,
-            data: [2, 3, 4, 5, 6, 20],
-          },
-          {
-            label: "Limite mínimo (2°C)",
-            borderColor: "red",
-            borderWidth: 2,
-            borderDash: [5, 5],
-            pointRadius: 0,
-            data: [2, 2, 2, 2, 2, 2],
-          },
-          {
-            label: "Limite máximo (8°C)",
-            borderColor: "red",
-            borderWidth: 2,
-            borderDash: [5, 5],
-            pointRadius: 0,
-            data: [8, 8, 8, 8, 8, 8],
-          },
-        ],
-      },
-      options: {
-      }
-    },
-  );
+  let message = ''
+  for (let i = 0; i < unidade_1.length; i++) {
+    message += `<canvas id="refrigerador-${i}"></canvas>`
+  }
+  div_exibir.innerHTML = message
 
-  var media_refrigeradores = new Chart(
-    document.getElementById("media_refrigeradores").getContext("2d"),
-    {
-      type: "bar",
-      data: {
-        labels: [
-          "Refrigerador 1",
-          "Refrigerador 2",
-          "Refrigerador 3",
-          "Refrigerador 4",
-          "Refrigerador 5",
-        ],
-        datasets: [
-          {
-            label: "temperatura",
-            borderColor: "#558acb",
-            backgroundColor: "cyan",
-            borderWidth: 2,
-            data: [2, 2, 4, 3, 6],
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          legend: {
-            position: "bottom",
-            align: "center",
-          },
-        },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: "Refrigeradores",
+  var historico_temp = new Chart(
+      document.getElementById(`refrigerador-0`).getContext("2d"),
+      {
+        type: "line",
+        data: {
+          labels: ["00:01", "00:02", "00:03", "00:04", "00:05", "00:06"],
+          datasets: [
+            {
+              label: "temperatura",
+              borderColor: "#558acb",
+              backgroundColor: "cyan",
+              borderWidth: 2,
+              data: sensor_1,
             },
-          },
-          y: {
-            min: 0,
-            max: 10,
-            title: {
-              display: true,
-              text: "Temperatura(°C)",
+            {
+              label: "Limite mínimo (2°C)",
+              borderColor: "red",
+              borderWidth: 2,
+              borderDash: [5, 5],
+              pointRadius: 0,
+              data: [2, 2, 2, 2, 2, 2],
             },
-          },
+            {
+              label: "Limite máximo (8°C)",
+              borderColor: "red",
+              borderWidth: 2,
+              borderDash: [5, 5],
+              pointRadius: 0,
+              data: [8, 8, 8, 8, 8, 8],
+            },
+          ],
         },
+        options: {
+        }
       },
-    },
-  );
+    );
+
+    var historico_temp = new Chart(
+      document.getElementById(`refrigerador-1`).getContext("2d"),
+      {
+        type: "line",
+        data: {
+          labels: ["00:01", "00:02", "00:03", "00:04", "00:05", "00:06"],
+          datasets: [
+            {
+              label: "temperatura",
+              borderColor: "#558acb",
+              backgroundColor: "cyan",
+              borderWidth: 2,
+              data: sensor_2,
+            },
+            {
+              label: "Limite mínimo (2°C)",
+              borderColor: "red",
+              borderWidth: 2,
+              borderDash: [5, 5],
+              pointRadius: 0,
+              data: [2, 2, 2, 2, 2, 2],
+            },
+            {
+              label: "Limite máximo (8°C)",
+              borderColor: "red",
+              borderWidth: 2,
+              borderDash: [5, 5],
+              pointRadius: 0,
+              data: [8, 8, 8, 8, 8, 8],
+            },
+          ],
+        },
+        options: {
+        }
+      },
+    );
+
+    var historico_temp = new Chart(
+      document.getElementById(`refrigerador-2`).getContext("2d"),
+      {
+        type: "line",
+        data: {
+          labels: ["00:01", "00:02", "00:03", "00:04", "00:05", "00:06"],
+          datasets: [
+            {
+              label: "temperatura",
+              borderColor: "#558acb",
+              backgroundColor: "cyan",
+              borderWidth: 2,
+              data: sensor_3,
+            },
+            {
+              label: "Limite mínimo (2°C)",
+              borderColor: "red",
+              borderWidth: 2,
+              borderDash: [5, 5],
+              pointRadius: 0,
+              data: [2, 2, 2, 2, 2, 2],
+            },
+            {
+              label: "Limite máximo (8°C)",
+              borderColor: "red",
+              borderWidth: 2,
+              borderDash: [5, 5],
+              pointRadius: 0,
+              data: [8, 8, 8, 8, 8, 8],
+            },
+          ],
+        },
+        options: {
+        }
+      },
+    );
+
+    var historico_temp = new Chart(
+      document.getElementById(`refrigerador-3`).getContext("2d"),
+      {
+        type: "line",
+        data: {
+          labels: ["00:01", "00:02", "00:03", "00:04", "00:05", "00:06"],
+          datasets: [
+            {
+              label: "temperatura",
+              borderColor: "#558acb",
+              backgroundColor: "cyan",
+              borderWidth: 2,
+              data: sensor_4,
+            },
+            {
+              label: "Limite mínimo (2°C)",
+              borderColor: "red",
+              borderWidth: 2,
+              borderDash: [5, 5],
+              pointRadius: 0,
+              data: [2, 2, 2, 2, 2, 2],
+            },
+            {
+              label: "Limite máximo (8°C)",
+              borderColor: "red",
+              borderWidth: 2,
+              borderDash: [5, 5],
+              pointRadius: 0,
+              data: [8, 8, 8, 8, 8, 8],
+            },
+          ],
+        },
+        options: {
+        }
+      },
+    );
+
+    var historico_temp = new Chart(
+      document.getElementById(`refrigerador-4`).getContext("2d"),
+      {
+        type: "line",
+        data: {
+          labels: ["00:01", "00:02", "00:03", "00:04", "00:05", "00:06"],
+          datasets: [
+            {
+              label: "temperatura",
+              borderColor: "#558acb",
+              backgroundColor: "cyan",
+              borderWidth: 2,
+              data: sensor_5,
+            },
+            {
+              label: "Limite mínimo (2°C)",
+              borderColor: "red",
+              borderWidth: 2,
+              borderDash: [5, 5],
+              pointRadius: 0,
+              data: [2, 2, 2, 2, 2, 2],
+            },
+            {
+              label: "Limite máximo (8°C)",
+              borderColor: "red",
+              borderWidth: 2,
+              borderDash: [5, 5],
+              pointRadius: 0,
+              data: [8, 8, 8, 8, 8, 8],
+            },
+          ],
+        },
+        options: {
+        }
+      },
+    );
+
+    var historico_temp = new Chart(
+      document.getElementById(`refrigerador-5`).getContext("2d"),
+      {
+        type: "line",
+        data: {
+          labels: ["00:01", "00:02", "00:03", "00:04", "00:05", "00:06"],
+          datasets: [
+            {
+              label: "temperatura",
+              borderColor: "#558acb",
+              backgroundColor: "cyan",
+              borderWidth: 2,
+              data: sensor_6,
+            },
+            {
+              label: "Limite mínimo (2°C)",
+              borderColor: "red",
+              borderWidth: 2,
+              borderDash: [5, 5],
+              pointRadius: 0,
+              data: [2, 2, 2, 2, 2, 2],
+            },
+            {
+              label: "Limite máximo (8°C)",
+              borderColor: "red",
+              borderWidth: 2,
+              borderDash: [5, 5],
+              pointRadius: 0,
+              data: [8, 8, 8, 8, 8, 8],
+            },
+          ],
+        },
+        options: {
+        }
+      },
+    );
 </script>
 
 </html>
