@@ -116,67 +116,38 @@
 
           <div id="container-direito">
             <div class="dash-alertas">
-              <div class="dash-title">
-                <span class="dash-select"> Últimos alertas </span>
+              <div class="ocorrencia-titulo">
+                <span class="dash-select"> Últimas Ocorrências </span>
               </div>
               <div class="card-alerta">
-                <img id="img_ultimos_alertas" width="40px" src="../assets/dash/alerta_vermelho-removebg-preview.png"
-                  alt="" />
-                <div class="text-alertas">
-                  Temperatura acima do limite!
-                  <br>
-                  <br>
-                  21/07/2026
-                </div>
+                <div class="indicador-alerta"></div>
+                <span>00:06</span> <span>9.0°C</span> <span>29/10/26</span> <span>Atenção</span>
               </div>
               <div class="card-alerta">
-                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-                Temperatura acima da faixa!
-                <br>
-                <br>
-                21/07/2026
+                <div class="indicador-alerta"></div>
+                <span>00:01</span> <span>1.0°C</span> <span>29/10/26</span> <span>Atenção</span>
               </div>
               <div class="card-alerta">
-                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-                Temperatura abaixo da faixa!
-                <br>
-                <br>
-                21/07/2026
+                <div class="indicador-alerta"></div>
+                <span>23:30</span> <span>29.0°C</span> <span>29/10/26</span> <span>Atenção</span>
               </div>
               <div class="card-alerta">
-                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-                Temperatura abaixo da faixa!
-                <br>
-                <br>
-                21/07/2026
+                <div class="indicador-alerta"></div>
+                <span>23:11</span> <span>-2.0°C</span> <span>29/10/26</span> <span>Atenção</span>
               </div>
               <div class="card-alerta">
-                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-                Temperatura acima da faixa!
-                <br>
-                <br>
-                21/07/2026
+                <div class="indicador-alerta"></div>
+                <span>12:02</span> <span>-4.0°C</span> <span>29/10/26</span> <span>Atenção</span>
               </div>
               <div class="card-alerta">
-                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-                Temperatura acima da faixa!
-                <br>
-                <br>
-                21/07/2026
-              </div>
-              <div class="card-alerta">
-                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-                Temperatura acima da faixa
-                <br>
-                <br>
-                21/07/2026
+                <div class="indicador-alerta"></div>
+                <span>10:00</span> <span>-5.0°C</span> <span>29/10/26</span> <span>Atenção</span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <footer style="padding: 1.5rem; background-color: #f8f9fa;">
 
       <!-- ------------- -->
@@ -232,7 +203,8 @@
           direitos reservados.</span>
       </div>
     </footer>
-  </div>
+  </div>    
+</div>
 </body>
 <script>
   var historico_temp = new Chart(
@@ -247,7 +219,7 @@
             borderColor: "#558acb",
             backgroundColor: "#558acb",
             borderWidth: 2,
-            data: [2, 3, 4, 5, 6, 9, 8, 7, 6, 5, 5, 6, 8, 7, 5, 4, 4, 3, 3, 4, 2],
+            data: [1, 2, 4, 5, 6, 9, 8, 7, 6, 5, 5, 6, 8, 7, 5, 4, 4, 3, 3, 4, 2],
           },
           {
             label: "Limite mínimo (2°C)",
