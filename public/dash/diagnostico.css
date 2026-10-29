@@ -5,6 +5,7 @@
     display: flex;
     align-content: center;
     justify-content: center;    
+    border: black solid 2px;
 }
 
 .ocorrencia-titulo{
@@ -94,7 +95,8 @@
 }
 
 .card-title{
-    font-size: large;
+    font-size: x-large;
+    font-weight: bold;
 }
 
 .dash-grafico{
@@ -111,6 +113,12 @@
 }
 
 #historico-temp{
-    width: 1000000000px;
+    border: solid #b5b5b5 2px;
+    border-radius: .7rem;
 }
 
+#container-faixa{
+    border: solid #b5b5b5 2px;
+    border-radius: .7rem;
+    padding: .3rem;
+}

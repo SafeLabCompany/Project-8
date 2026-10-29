@@ -49,7 +49,7 @@
           <div>
             <span style="font-size: xx-large; font-weight: bold;">Refrigerador 1</span>
             <br>
-            <p style="color: #a0aab6;">Unidade 2 - Últimas 24 horas</p>
+            <p style="color: #a0aab6;">Unidade 1</p>
           </div>
           <div id="status-refrigerador">
             Ideal
@@ -57,41 +57,41 @@
           <div id="container-select">
             <select class="select-diagnostico">
               <option value="refrigerador1">Refrigerador 1</option>
+              <option value="refrigerador1">Refrigerador 2</option>
+              <option value="refrigerador1">Refrigerador 3</option>
+              <option value="refrigerador1">Refrigerador 4</option>
+              <option value="refrigerador1">Refrigerador 5</option>
+              <option value="refrigerador1">Refrigerador 6</option>
             </select>
             <select class="select-diagnostico">
-              <option value="unidade2">Unidade 2</option>
+              <option value="unidade1">Unidade 1</option>
             </select>
           </div>
-          
+          <div id="header-dashboard">
+          <img id="img_alert" width="30px" height="30px" src="../assets/dash/notification.png" alt="user_icon.png" />
+          <img id="img_alert" width="30px" height="30px" src="../assets/dash/userIcon.png" alt="user_icon.png" />
+        </div>
         </div>
         <div id="area-kpi">
           <div class="card kpi1, card-kpi">
             <span class="card-title"> Temperatura atual </span>
             <span class="card-body" >
-              5.1ºC
+              4.0ºC
             </span>
             <span class="card-explain"> Há 1 min </span>
           </div>
           <div class="card kpi2, card-kpi">
             <span class="card-title"> Mínima/Máxima </span>
-            <span class="card-body"> 4.8ºC/8.3ºC </span>
+            <span class="card-body"> -5.0ºC/10.0ºC </span>
             <span class="card-explain">
               nas últimas 24hr
             </span>
           </div>
 
           <div class="card kpi3, card-kpi">
-            <span class="card-title"> Tempo na faixa ideal </span>
-            <span class="card-body">
-              71%
-            </span>
-            <span class="card-explain"> das leituras nas últimas 24hr </span>
-          </div>
-
-          <div class="card kpi3, card-kpi">
             <span class="card-title"> Ocorrências </span>
             <span class="card-body">
-              7
+              6
             </span>
             <span class="card-explain"> leituras fora do ideal </span>
           </div>
@@ -108,9 +108,7 @@
             </div>
 
             <div id="container-faixa">
-              <canvas id="faixa_temp">
-                ideal
-              </canvas>
+              <canvas id="faixa_temp"></canvas>
             </div>
           </div>
 
@@ -129,19 +127,19 @@
               </div>
               <div class="card-alerta">
                 <div class="indicador-alerta"></div>
-                <span>23:30</span> <span>29.0°C</span> <span>29/10/26</span> <span>Atenção</span>
+                <span>23:30</span> <span>10.0°C</span> <span>28/10/26</span> <span>Atenção</span>
               </div>
               <div class="card-alerta">
                 <div class="indicador-alerta"></div>
-                <span>23:11</span> <span>-2.0°C</span> <span>29/10/26</span> <span>Atenção</span>
+                <span>23:11</span> <span>-2.0°C</span> <span>28/10/26</span> <span>Atenção</span>
               </div>
               <div class="card-alerta">
                 <div class="indicador-alerta"></div>
-                <span>12:02</span> <span>-4.0°C</span> <span>29/10/26</span> <span>Atenção</span>
+                <span>12:02</span> <span>-4.0°C</span> <span>28/10/26</span> <span>Atenção</span>
               </div>
               <div class="card-alerta">
                 <div class="indicador-alerta"></div>
-                <span>10:00</span> <span>-5.0°C</span> <span>29/10/26</span> <span>Atenção</span>
+                <span>10:00</span> <span>-5.0°C</span> <span>28/10/26</span> <span>Atenção</span>
               </div>
             </div>
           </div>
