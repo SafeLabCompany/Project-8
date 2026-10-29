@@ -101,19 +101,16 @@
           <div id="container-esquerdo">
             <div id="graficos-esquerdo">
               <div class="dash-grafico">
-                <div class="dash-title">
-                  <span class="dash-text">
-                    Historico de temperaturas do refrigerador
-                  </span>
-                </div>
                 <canvas id="historico-temp"></canvas>
               </div>
 
               
             </div>
 
-            <div id="table">
-              
+            <div id="container-faixa">
+              <canvas id="faixa_temp">
+                ideal
+              </canvas>
             </div>
           </div>
 
@@ -292,6 +289,70 @@
               display: true,
               text: "Temperatura(°C)",
             },
+          },
+        },
+      },
+      y: {
+        min: 0,
+        max: 10,
+        title: {
+          display: true,
+          text: 'Temperatura (°C)'
+        }
+      }
+    },
+  );
+
+  var faixa_temp = new Chart(
+    document.getElementById("faixa_temp").getContext("2d"),
+    {
+      type: "bar",
+      data: {
+        labels: ["0"],
+        datasets: [
+          {
+            label: "Ideal - 94%",
+            backgroundColor: "#00bf63",
+            data: [94]
+          },
+          {
+            label: "Crítico - 6%",
+            backgroundColor: "#e61e28", 
+            data: [6],
+          },
+        ],
+      },
+      options: {
+        maintainAspectRatio: false,
+        indexAxis: 'y',
+        plugins: {
+          title: {
+            display: true,
+            text: "Permanência em cada faixa",
+            align: "start",
+            font: {size: 20, weight: "bold"},
+
+          },
+          subtitle: {
+            display: true,
+            text: "Últimas 24 horas",
+            align: "start",
+            font: {size: 16},
+          },
+          legend: {
+            position: "bottom",
+            align: "start",
+          },
+        },
+        scales: {
+          x: {
+            stacked: true,
+            min: 0,
+            max: 100,
+          },
+          y: {
+            stacked: true,
+            display: false
           },
         },
       },

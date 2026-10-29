@@ -71,6 +71,11 @@
 
 .dash-grafico{
     width: 73rem;
+    border: 0.5px;
+}
+
+.dash-title{
+    background-color: #f9fafb;
 }
 
 #graficos-esquerdo{
