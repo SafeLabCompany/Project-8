@@ -48,8 +48,17 @@
 
       <div id="area-dashboard">
         <div id="header-dashboard">
-          <img id="img_alert" width="25px" src="../assets/dash/notification.png" alt="user_icon.png" />
-          <img id="img_alert" width="25px" src="../assets/dash/userIcon.png" alt="user_icon.png" />
+          <div>
+            <a href=""></a>
+          </div>
+          <div>
+            <select name="" id="slc_unidade">
+            </select>
+          </div>
+          <div>
+            <img id="img_alert" width="25px" src="../assets/dash/notification.png" alt="user_icon.png" />
+            <img id="img_alert" width="25px" src="../assets/dash/userIcon.png" alt="user_icon.png" />
+          </div>
         </div>
         <div class="arearefrigerador" id="div_exibir">
         </div>
@@ -115,6 +124,14 @@
 <script>
   let message = '';
   let ultimo_valor = 0
+
+  for(let i = 1; i <= lista_unidade.length; i++){
+    message += `<option value="${i}">Unidade ${i}</option>`
+  }
+
+  slc_unidade.innerHTML = message
+
+  message = '';
 
   for (let i = 0; i < unidade_1.length; i++) {
     if(i == 0){
