@@ -6,6 +6,53 @@
     align-content: center;
     justify-content: center;    
 }
+#header-dashboard{
+    justify-content: flex-start;
+}
+
+#status-refrigerador{
+    background-color: #9cff9d;
+    height: 2rem;
+    width: 12rem;
+    margin-left: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    border-radius: 5%;
+    border: solid 1px;
+    margin-top: 2rem;
+}
+
+#container-select{
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    width: 50rem;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.select-diagnostico{
+    background-color: #111f2e;
+    color: #ffff;
+    font-weight: bolder;
+    height: 3rem;
+    width: 18rem;
+    margin-left: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: large;
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+    font-size: x-large;
+}
+
+
+
 #area-kpi {
   display: flex;
   flex-direction: row;

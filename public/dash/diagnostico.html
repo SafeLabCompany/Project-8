@@ -46,8 +46,23 @@
       </div>
       <div id="area-dashboard">
         <div id="header-dashboard">
-          <img id="img_alert" width="50px" src="../assets/dash/notification.png" alt="user_icon.png" />
-          <img id="img_alert" width="50px" src="../assets/dash/userIcon.png" alt="user_icon.png" />
+          <div>
+            <span style="font-size: xx-large; font-weight: bold;">Refrigerador 1</span>
+            <br>
+            <p style="color: #a0aab6;">Unidade 2 - Últimas 24 horas</p>
+          </div>
+          <div id="status-refrigerador">
+            Ideal
+          </div>
+          <div id="container-select">
+            <select class="select-diagnostico">
+              <option value="refrigerador1">Refrigerador 1</option>
+            </select>
+            <select class="select-diagnostico">
+              <option value="unidade2">Unidade 2</option>
+            </select>
+          </div>
+          
         </div>
         <div id="area-kpi">
           <div class="card kpi1, card-kpi">
@@ -228,14 +243,14 @@
     {
       type: "line",
       data: {
-        labels: ["00:01", "00:02", "00:03", "00:04", "00:05", "00:06","00:07","00:01", "00:02", "00:03", "00:04", "00:05", "00:06","00:07", "00:05", "00:06","00:07"],
+        labels: ["00:01", "00:02", "00:03", "00:04", "00:05", "00:06","00:07","00:08", "00:09", "00:10", "00:11", "00:12", "00:13","00:14", "00:15", "00:16","00:17"],
         datasets: [
           {
             label: "temperatura",
             borderColor: "#558acb",
             backgroundColor: "#558acb",
             borderWidth: 2,
-            data: [2, 3, 4, 5, 6, 20],
+            data: [2, 3, 4, 5, 6, 9, 8, 7, 6, 5, 5, 6, 8, 7, 5, 4, 4, 3, 3, 4, 2],
           },
           {
             label: "Limite mínimo (2°C)",
@@ -243,7 +258,7 @@
             borderWidth: 2,
             borderDash: [5, 5],
             pointRadius: 0,
-            data: [2, 2, 2, 2, 2, 2],
+            data: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
           },
           {
             label: "Limite máximo (8°C)",
@@ -251,7 +266,7 @@
             borderWidth: 2,
             borderDash: [5, 5],
             pointRadius: 0,
-            data: [8, 8, 8, 8, 8, 8],
+            data: [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
           },
         ],
       },
