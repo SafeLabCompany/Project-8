@@ -92,3 +92,42 @@
   width: 100%;
   color: #fffafa;
 }
+
+.table-off{
+  background-color: #000c1b;
+  color: white;
+ 
+}
+
+.table-ideal{
+  background-color:#9cff9d;
+}
+
+
+.table-critical{
+  background-color:#ff5252;
+  color: white;
+}
+
+.global{
+  border-radius: 0.2rem;
+  padding: 0.2rem;
+  min-width: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.number-green{
+  color: #036b04;
+}
+
+.number-red{
+  color:#e61e28;
+}
+
+table{
+  height: 40rem;
+  border: #000c1b solid 0.02rem;
+  font-size: 1.8rem;
+}
+
