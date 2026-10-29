@@ -19,7 +19,7 @@
     background-color: #f9fafb;
     border-color: #b5b5b5;
     border-radius: .4rem;
-    height: fit-content;
+    height: 33.5rem;
 }
 
 .indicador-alerta{
@@ -110,6 +110,7 @@
 
 #graficos-esquerdo{
     width: 100%;
+    flex-direction: column;
 }
 
 #historico-temp{
@@ -121,4 +122,6 @@
     border: solid #b5b5b5 2px;
     border-radius: .7rem;
     padding: .3rem;
+    width: 1168px;
+    margin-left: 1.1rem;
 }
