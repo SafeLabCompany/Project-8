@@ -339,8 +339,6 @@ a {
 #header-dashboard {
   display: flex;
   justify-content: flex-end;
-
-  margin-bottom: 20px;
 }
 
 #config {

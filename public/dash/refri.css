@@ -1,3 +1,29 @@
+#header-dashboard {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+/* ----------------- */
+
+.areatabela_desativo {
+  display: none;
+}
+
+.arearefrigerador_desativo {
+  display: none;
+}
+
+/* ----------------- */
+
+.areatabela{
+  width: 80rem;
+  height: 47rem;
+}
+
+/* ----------------- */
+
 .arearefrigerador {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));

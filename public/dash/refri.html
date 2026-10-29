@@ -48,8 +48,8 @@
 
       <div id="area-dashboard">
         <div id="header-dashboard">
-          <div>
-            <a href=""></a>
+          <div id="button-vizualizacao">
+            <button onclick="alternar_vizualizacao()">Visualização em Tabela</button>
           </div>
           <div>
             <select name="" id="slc_unidade">
@@ -60,7 +60,31 @@
             <img id="img_alert" width="25px" src="../assets/dash/userIcon.png" alt="user_icon.png" />
           </div>
         </div>
-        <div class="arearefrigerador" id="div_exibir">
+        <div class="areatabela_desativo" id="div_exibir_tabela">
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Profissão</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ana</td>
+                <td>25</td>
+                <td>Desenvolvedora</td>
+              </tr>
+              <tr>
+                <td>Carlos</td>
+                <td>30</td>
+                <td>Designer</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="arearefrigerador" id="div_exibir_grafico">
         </div>
       </div>
     </div>
@@ -122,10 +146,27 @@
   </div>
 </body>
 <script>
+  let tabela = false
+  let grafico = true
+
+  function alternar_vizualizacao() {
+    if (grafico == true) {
+      div_exibir_grafico.className = 'arearefrigerador_desativo'
+      div_exibir_tabela.className = 'areatabela'
+      grafico = false
+      tabela = true
+    } else {
+      div_exibir_grafico.className = 'arearefrigerador'
+      div_exibir_tabela.className = 'areatabela_desativo'
+      grafico = true
+      tabela = false
+    }
+  }
+
   let message = '';
   let ultimo_valor = 0
 
-  for(let i = 1; i <= lista_unidade.length; i++){
+  for (let i = 1; i <= lista_unidade.length; i++) {
     message += `<option value="${i}">Unidade ${i}</option>`
   }
 
@@ -134,17 +175,17 @@
   message = '';
 
   for (let i = 0; i < unidade_1.length; i++) {
-    if(i == 0){
+    if (i == 0) {
       ultimo_valor = sensor_1[5]
-    } else if (i == 1){
+    } else if (i == 1) {
       ultimo_valor = sensor_2[5]
-    } else if (i == 2){
+    } else if (i == 2) {
       ultimo_valor = sensor_3[5]
-    } else if (i == 3){
+    } else if (i == 3) {
       ultimo_valor = sensor_4[5]
-    } else if (i == 4){
+    } else if (i == 4) {
       ultimo_valor = sensor_5[5]
-    } else if (i == 5){
+    } else if (i == 5) {
       ultimo_valor = sensor_6[5]
     }
 
@@ -154,8 +195,8 @@
           <div style='margin-left: 6px;'>
             Refrigerador - ${i + 1}
           </div>
-          <div style='margin-right: 6px;' class="badge --${ultimo_valor < 8 && ultimo_valor > 2 && ultimo_valor != null ? 'ideal' : ultimo_valor == null ? 'desligado': 'critical'}">
-            ${ultimo_valor < 8 && ultimo_valor > 2 && ultimo_valor != null ? 'Ideal' : ultimo_valor == null ? 'Desligado': 'Crítico'}
+          <div style='margin-right: 6px;' class="badge --${ultimo_valor < 8 && ultimo_valor > 2 && ultimo_valor != null ? 'ideal' : ultimo_valor == null ? 'desligado' : 'critical'}">
+            ${ultimo_valor < 8 && ultimo_valor > 2 && ultimo_valor != null ? 'Ideal' : ultimo_valor == null ? 'Desligado' : 'Crítico'}
           </div>
         </div>
           <canvas class="refrigerador" id="refrigerador-${i}"></canvas>
@@ -164,7 +205,7 @@
     `;
   }
 
-  div_exibir.innerHTML = message;
+  div_exibir_grafico.innerHTML = message;
 
   var historico_temp = new Chart(
     document.getElementById(`refrigerador-0`).getContext("2d"),
