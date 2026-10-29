@@ -1,12 +1,68 @@
 .arearefrigerador {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(8rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
   gap: 1.2rem;
+  width: 80rem;
+  height: 47rem;
+  align-items: stretch;
 }
 
-.refrigerador{
+.refrigerador {
+  position: relative;
   min-width: 0;
-  min-height: 0;
-  padding: 1.2rem;
+  height: 21rem;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.refrigerador canvas {
+  width: 100%;
+  height: 100%;
+}
+
+#area-dashboard {
+  min-width: 0;
+}
+
+/* --------------- */
+
+.badge {
+  display: inline-block;
+  min-width: auto;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: #9cff9d;
+  color: #036b04;
+}
+
+.--desligado {
+  background-color: #000c1b;
+  color: #fffafa;
+}
+
+.--medium {
+  background-color: #ffe000;
+  color: #d9a900;
+}
+
+.--critical {
+  background-color: #ff5252;
+  color: #fffafa;
+}
+
+.titulo-card{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: gray;
+  height: 4rem;
+  width: 100%;
+  color: #fffafa;
 }

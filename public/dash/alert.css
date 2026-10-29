@@ -44,6 +44,11 @@ th, td {
   color: #036b04;
 }
 
+.--desligado {
+  background-color: #000c1b;
+  color: #fffafa;
+}
+
 .--medium {
   background-color: #ffe000;
   color: #d9a900;
@@ -51,7 +56,7 @@ th, td {
 
 .--critical {
   background-color: #ff5252;
-  color: #b3001b;
+  color: #fffafa;
 }
 
 .low {
