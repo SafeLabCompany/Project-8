@@ -1,12 +1,12 @@
 .arearefrigerador {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  max-height: 41rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 1.2rem;
 }
 
 .refrigerador{
-  flex: 1;
-  flex-grow: 1;
-
+  min-width: 0;
+  min-height: 0;
+  padding: 1.2rem;
 }
