@@ -72,10 +72,10 @@
             </div>
 
             <div class="navegacao-config">
-              <span class="navegacao-config-item-selecionado"
-                >Conta Pessoal</span
-              >
               <span class="navegacao-config-item"
+                ><a href="config.html" style="color: #1c1c1c;">Conta pessoal</a></span
+              >
+              <span class="navegacao-config-item-selecionado"
                 >Administração de Usuários</span
               >
             </div>
@@ -83,7 +83,20 @@
             <div id="campos-input">
               <div id="ipt_inputs">
                 <div class="campo-object">
-                  Nome completo:
+                  <span style="font-size: x-large;">Informe o e-mail do usuário desejado:</span>
+                  <div class="area-editar">
+                    <input
+                      type="text"
+                      id="ipt_email_user_config"
+                      class="ipt-suporte"
+                    />
+                    <div id="botoes-config-user">
+                  <button id="botao-salvar">Verificar Usuário</button>
+                </div>
+                  </div>
+                </div>
+                <div class="campo-object">
+                  <span style="font-size: x-large;">Nome Completo:</span>
                   <div class="area-editar">
                     <input
                       type="text"
@@ -99,8 +112,9 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="campo-object">
-                  E-mail:
+                  <span style="font-size: x-large;">E-mail:</span>
                   <div class="area-editar">
                     <input
                       type="text"
@@ -118,25 +132,26 @@
                 </div>
 
                 <div class="campo-object">
-                  Senha:
+                 <span style="font-size: x-large;">Senha:</span>
                   <div class="area-editar">
                     <input
                       type="text"
                       id="ipt_senha_config"
                       class="ipt-suporte"
                     />
-                    <div id="img-lapis-senha">
+                    <div id="img-lapis-senha-admin">
                       <a 
                         ><img
                           src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png"
                           width="30px"
                       /></a>
                     </div>
-                    <div id="botoes-config">
+                  </div>
+                    <div id="botoes-config-user">
                   <button id="botao-salvar">Salvar Alterações</button>
                   <button id="botao-descartar">Descartar Alterações</button>
                 </div>
-                  </div>
+                  
                 </div>
                 
               </div>

@@ -409,23 +409,37 @@ line-height: 1.2;
   height: 3rem;
   width: 80rem;
 }
+#ipt_email_user_config {
+  margin: 20px;
+  height: 3rem;
+  width: 60rem;
+}
 #ipt_senha_config {
   margin: 20px;
   height: 3rem;
-  width: 40rem;
+  width: 80rem;
 }
 
 #botoes-config{
   margin-left: 3rem;
-  width: 30rem;
+  width: 50rem;
   align-self: center;
+  display: flex;
+  justify-content: space-between;
+  
+}
+#botoes-config-user{
+  margin-left: 3rem;
+  width: 30rem;
+  align-self: flex-start;
   display: flex;
   justify-content: space-between;
 }
 
 #botao-salvar {
   width: 200px;
-  height: 3.5rem;
+  font-size: x-large;
+  height: 3.7rem;
   background-color: #2b3b92;
   color: white;
   border-radius: 5px;
@@ -433,7 +447,8 @@ line-height: 1.2;
 
 #botao-descartar {
   width: 200px;
-  height: 3.5rem;
+  height: 3.7rem;
+  font-size: x-large;
   background-color: #2b3b92;
   color: white;
   border-radius: 5px;
@@ -454,7 +469,16 @@ line-height: 1.2;
   margin-bottom: 1.7rem;
   position: absolute;
   align-self: flex-end;
-  margin-left: 38.7rem;
+  margin-left: 44.7rem;
+}
+
+#img-lapis-senha-admin {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1.7rem;
+  position: absolute;
+  align-self: flex-end;
+  margin-left: 80rem;
 }
 
 #texto-config{
