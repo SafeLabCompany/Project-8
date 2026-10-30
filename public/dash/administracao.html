@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="config.css" />
+    <title>Safelab | Dashboard</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="../assets/institucional/safelab_recortada.svg"
+    />
+  </head>
+
+  <body>
+    <div id="page-container">
+      <div id="main-dash">
+        <div id="user-area">
+          <div id="user-img">
+            <img src="../assets/dash/userIcon.svg" />
+          </div>
+          <h2>Olá, <span id="user-name">usuário</span></h2>
+
+          <div id="button-user">
+            <div class="btn-href">
+              <a href="dashboard.html">
+                <h2>Dashboard</h2>
+              </a>
+            </div>
+            <div class="btn-href">
+              <a href="alertas.html">
+                <h2>Alerta</h2>
+              </a>
+            </div>
+            <div class="btn-href">
+              <a href="suporte.html">
+                <h2>Chamado</h2>
+              </a>
+            </div>
+            <div class="btn-href-active">
+              <h2>Configurações</h2>
+            </div>
+
+            <div class="btn-href">
+              <a href=""></a>
+              <h2>Administração de usuários</h2>
+            </div>
+
+            <div id="user-logout" class="btn-href">
+              <h2>Logout</h2>
+            </div>
+          </div>
+        </div>
+
+        <div id="config">
+          <div id="header-dashboard">
+            <img src="../assets/dash/notification.png" width="40px" />
+            <img src="../assets/dash/userIcon.png" width="40px" />
+          </div>
+
+          <div id="area-config">
+            <div id="barra-superior-config">
+              <img
+                id="icone-config"
+                src="../assets/dash/icone_config.png"
+                alt="icon_config"
+              />
+              <span id="texto-config" style="margin-top: 2rem"
+                >Configurações de usuários</span
+              >
+            </div>
+
+            <div class="navegacao-config">
+              <span class="navegacao-config-item-selecionado"
+                >Conta Pessoal</span
+              >
+              <span class="navegacao-config-item"
+                >Administração de Usuários</span
+              >
+            </div>
+
+            <div id="campos-input">
+              <div id="ipt_inputs">
+                <div class="campo-object">
+                  Nome completo:
+                  <div class="area-editar">
+                    <input
+                      type="text"
+                      id="ipt_nome_config"
+                      class="ipt-suporte"
+                    />
+                    <div id="img-lapis">
+                      <a 
+                        ><img
+                          src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png"
+                          width="30px"
+                      /></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="campo-object">
+                  E-mail:
+                  <div class="area-editar">
+                    <input
+                      type="text"
+                      id="ipt_email_config"
+                      class="ipt-suporte"
+                    />
+                    <div id="img-lapis">
+                      <a 
+                        ><img
+                          src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png"
+                          width="30px"
+                      /></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="campo-object">
+                  Senha:
+                  <div class="area-editar">
+                    <input
+                      type="text"
+                      id="ipt_senha_config"
+                      class="ipt-suporte"
+                    />
+                    <div id="img-lapis-senha">
+                      <a 
+                        ><img
+                          src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png"
+                          width="30px"
+                      /></a>
+                    </div>
+                    <div id="botoes-config">
+                  <button id="botao-salvar">Salvar Alterações</button>
+                  <button id="botao-descartar">Descartar Alterações</button>
+                </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer style="padding: 1.5rem; background-color: #f8f9fa">
+        <!-- ------------- -->
+        <!-- Parte de Cima -->
+        <!-- ------------- -->
+
+        <div style="display: flex; justify-content: space-between">
+          <div style="display: flex; align-items: center">
+            <img
+              style="width: 1.25rem; margin-left: 1rem; margin-right: 0.5rem"
+              src="../assets/institucional/safelab_recortada.svg"
+              alt="logo"
+            />
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                font-family: &quot;Montserrat&quot;;
+                font-size: 2rem;
+              "
+            >
+              <span style="font-weight: 200; letter-spacing: -0.1rem"
+                >Safe</span
+              >
+              <span style="font-weight: bold; margin-left: -0.1rem">Lab</span>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center">
+            <nav>
+              <div style="word-spacing: 1rem">
+                <a
+                  onclick="contato_popup.showModal()"
+                  style="
+                    color: #1c1c1c;
+                    display: inline-block;
+                    cursor: pointer;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                  "
+                  >Contato</a
+                >
+                <a
+                  onclick="sobre_nos_popup.showModal()"
+                  style="
+                    color: #1c1c1c;
+                    display: inline-block;
+                    cursor: pointer;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                  "
+                  >Sobre-Nós</a
+                >
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <!-- ------ -->
+        <!-- POPUPS -->
+        <!-- ------ -->
+
+        <dialog id="contato_popup">
+          <h2>Olá!</h2>
+          <p>Este é um pop-up simples.</p>
+          <button onclick="contato_popup.close()">Fechar</button>
+        </dialog>
+
+        <dialog id="sobre_nos_popup">
+          <h2>Olá!</h2>
+          <p>Este é um pop-up simples.</p>
+          <button onclick="sobre_nos_popup.close()">Fechar</button>
+        </dialog>
+
+        <!-- -------------- -->
+        <!-- Parte de Baixo -->
+        <!-- -------------- -->
+
+        <div>
+          <hr style="height: 0.2rem; background-color: #1c1c1c" />
+
+          <span
+            style="margin-top: 1.5rem; display: flex; justify-content: center"
+          >
+            © SafeLab - 2026 - Todos os direitos reservados.</span
+          >
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
