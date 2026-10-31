@@ -483,6 +483,159 @@ line-height: 1.2;
 
 #texto-config{
   align-self: center;
+  
+}
+/* Unidades */
+
+.area_unidades_total{
+display: flex;
+flex-direction: column;
+width: 86.5vw;
+height: 100%;
+align-items: center;
+background-color: white;
+
+}
+
+.title_unidades{
+  background-color: gray;
+  width: 95%;
+  text-align: center;
+  border-style: solid;
+border-color: black;
+
+
+
+}
+
+.area_unidades{
+  display: grid;
+ grid-template-columns: repeat(3,1fr);
+ column-gap: 5%;
+ row-gap: 60px;
+ margin-top: 0.5%;
+ justify-content: center; 
+ border-style: solid;
+border-color: black;
+height: 90%;
+width: 95%;
+position: relative;
+padding: 40px 0;
+box-sizing: border-box;
+
+}
+
+.unidade{
+  background-color:#2b3b92 ;
+  margin-top: 5%;
+   width: 60%;
+   max-width: 240px;
+  height:175px;
+  border-radius: 8px;
+  border-color: #000000;
+  border-style: solid;
+  text-align: center; 
+  font-size: 22px;
+  justify-self: center;
+}
+
+.btn_cadastrar_unidades{
+ align-self: flex-end;
+ right: 5%;
+  bottom: 3%;
+ position: absolute;
+
+}
+.btn_cad{
+  height: 70px;
+
+  border-style: none;
+  background-color: white;
+}
+
+
+.cadastrar_unidade{
+   width: 86vw;
+  min-height: 90vh;
+}
+.Area_Cadastro_Total{
+  width: 100%;
+ 
+
+}
+
+.Titulo_Cadastro{
+  
+  display: flex;
+  justify-content: space-around;
+  margin-top: 90px;
+ 
+}
+
+
+
+.Titulo_Cadastro2{
+   border-style: solid;
+  border-color: black;
+   width: 90%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  background-color: #d7d7d7 ;
+  text-align: start;
+  padding-left:1% ;
+  font-size: 22px;
+}
+
+.Informacoes_cadastro{
+width: 91.5%;
+min-height: 65vh;
+border-style: solid;
+padding-left: 50px;
+padding-top: 40px;
+gap: 30px;
+box-sizing: border-box;
+margin-left: auto;
+margin-right: auto;
+background-color: #fcfcfc;
+display: flex;
+flex-direction: column;
+}
+
+.Area_Cadastro_Total{
+justify-content: space-between;
+
+input{
+  width: 90%;
+  height: 40px;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+
+font-size: 20px;
+}
+
+.informacao_unidade, .ipt_cep_unidade ,.numero_unidade{
+  display: flex;
+   flex-direction: column; 
+ justify-content: space-between;
+gap: 6px ;}
+
+
+.botao_alteracoes{
+  border-radius: 5px;
+  background-color: #2b3b92;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border-color: black;
+  border-style: solid;
+}
+
+.btn_alteracoes{
+ align-self: flex-start;
+}
 }
 
 .navegacao-config{
