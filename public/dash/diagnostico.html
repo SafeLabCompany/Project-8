@@ -46,37 +46,52 @@
       </div>
       <div id="area-dashboard">
         <div id="header-dashboard">
-          <img id="img_alert" width="50px" src="../assets/dash/notification.png" alt="user_icon.png" />
-          <img id="img_alert" width="50px" src="../assets/dash/userIcon.png" alt="user_icon.png" />
+          <div>
+            <span style="font-size: xx-large; font-weight: bold;">Refrigerador 1</span>
+            <br>
+            <p style="color: #a0aab6;">Unidade 1</p>
+          </div>
+          <div id="status-refrigerador">
+            Ideal
+          </div>
+          <div id="container-select">
+            <select class="select-diagnostico">
+              <option value="refrigerador1">Refrigerador 1</option>
+              <option value="refrigerador1">Refrigerador 2</option>
+              <option value="refrigerador1">Refrigerador 3</option>
+              <option value="refrigerador1">Refrigerador 4</option>
+              <option value="refrigerador1">Refrigerador 5</option>
+              <option value="refrigerador1">Refrigerador 6</option>
+            </select>
+            <select class="select-diagnostico">
+              <option value="unidade1">Unidade 1</option>
+            </select>
+          </div>
+          <div id="header-dashboard">
+          <img id="img_alert" width="30px" height="30px" src="../assets/dash/notification.png" alt="user_icon.png" />
+          <img id="img_alert" width="30px" height="30px" src="../assets/dash/userIcon.png" alt="user_icon.png" />
+        </div>
         </div>
         <div id="area-kpi">
           <div class="card kpi1, card-kpi">
             <span class="card-title"> Temperatura atual </span>
             <span class="card-body" >
-              5.1ºC
+              4.0ºC
             </span>
             <span class="card-explain"> Há 1 min </span>
           </div>
           <div class="card kpi2, card-kpi">
             <span class="card-title"> Mínima/Máxima </span>
-            <span class="card-body"> 4.8ºC/8.3ºC </span>
+            <span class="card-body"> -5.0ºC/10.0ºC </span>
             <span class="card-explain">
               nas últimas 24hr
             </span>
           </div>
 
           <div class="card kpi3, card-kpi">
-            <span class="card-title"> Tempo na faixa ideal </span>
-            <span class="card-body">
-              71%
-            </span>
-            <span class="card-explain"> das leituras nas últimas 24hr </span>
-          </div>
-
-          <div class="card kpi3, card-kpi">
             <span class="card-title"> Ocorrências </span>
             <span class="card-body">
-              7
+              6
             </span>
             <span class="card-explain"> leituras fora do ideal </span>
           </div>
@@ -86,85 +101,49 @@
           <div id="container-esquerdo">
             <div id="graficos-esquerdo">
               <div class="dash-grafico">
-                <div class="dash-title">
-                  <span class="dash-text">
-                    Historico de temperaturas do refrigerador
-                  </span>
-                </div>
                 <canvas id="historico-temp"></canvas>
-              </div>
-
-              
+                  </div>
+                    <div id="container-faixa">
+                  <canvas id="faixa_temp"></canvas>
             </div>
-
-            <div id="table">
               
             </div>
           </div>
 
           <div id="container-direito">
             <div class="dash-alertas">
-              <div class="dash-title">
-                <span class="dash-select"> Últimos alertas </span>
+              <div class="ocorrencia-titulo">
+                <span class="dash-select"> Últimas Ocorrências </span>
               </div>
               <div class="card-alerta">
-                <img id="img_ultimos_alertas" width="40px" src="../assets/dash/alerta_vermelho-removebg-preview.png"
-                  alt="" />
-                <div class="text-alertas">
-                  Temperatura acima do limite!
-                  <br>
-                  <br>
-                  21/07/2026
-                </div>
+                <div class="indicador-alerta"></div>
+                <span>00:06</span> <span>9.0°C</span> <span>29/10/26</span> <span>Atenção</span>
               </div>
               <div class="card-alerta">
-                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-                Temperatura acima da faixa!
-                <br>
-                <br>
-                21/07/2026
+                <div class="indicador-alerta"></div>
+                <span>00:01</span> <span>1.0°C</span> <span>29/10/26</span> <span>Atenção</span>
               </div>
               <div class="card-alerta">
-                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-                Temperatura abaixo da faixa!
-                <br>
-                <br>
-                21/07/2026
+                <div class="indicador-alerta"></div>
+                <span>23:30</span> <span>10.0°C</span> <span>28/10/26</span> <span>Atenção</span>
               </div>
               <div class="card-alerta">
-                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-                Temperatura abaixo da faixa!
-                <br>
-                <br>
-                21/07/2026
+                <div class="indicador-alerta"></div>
+                <span>23:11</span> <span>-2.0°C</span> <span>28/10/26</span> <span>Atenção</span>
               </div>
               <div class="card-alerta">
-                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-                Temperatura acima da faixa!
-                <br>
-                <br>
-                21/07/2026
+                <div class="indicador-alerta"></div>
+                <span>12:02</span> <span>-4.0°C</span> <span>28/10/26</span> <span>Atenção</span>
               </div>
               <div class="card-alerta">
-                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-                Temperatura acima da faixa!
-                <br>
-                <br>
-                21/07/2026
-              </div>
-              <div class="card-alerta">
-                <img id="img_ultimos_alertas" width="40px" src="../assets/alert_image-removebg-preview.png" alt="" />
-                Temperatura acima da faixa
-                <br>
-                <br>
-                21/07/2026
+                <div class="indicador-alerta"></div>
+                <span>10:00</span> <span>-5.0°C</span> <span>28/10/26</span> <span>Atenção</span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <footer style="padding: 1.5rem; background-color: #f8f9fa;">
 
       <!-- ------------- -->
@@ -220,7 +199,8 @@
           direitos reservados.</span>
       </div>
     </footer>
-  </div>
+  </div>    
+</div>
 </body>
 <script>
   var historico_temp = new Chart(
@@ -228,14 +208,14 @@
     {
       type: "line",
       data: {
-        labels: ["00:01", "00:02", "00:03", "00:04", "00:05", "00:06","00:07","00:01", "00:02", "00:03", "00:04", "00:05", "00:06","00:07", "00:05", "00:06","00:07"],
+        labels: ["00:01", "00:02", "00:03", "00:04", "00:05", "00:06","00:07","00:08", "00:09", "00:10", "00:11", "00:12", "00:13","00:14", "00:15", "00:16","00:17"],
         datasets: [
           {
             label: "temperatura",
             borderColor: "#558acb",
             backgroundColor: "#558acb",
             borderWidth: 2,
-            data: [2, 3, 4, 5, 6, 20],
+            data: [1, 2, 4, 5, 6, 9, 8, 7, 6, 5, 5, 6, 8, 7, 5, 4, 4, 3, 3, 4, 2],
           },
           {
             label: "Limite mínimo (2°C)",
@@ -243,7 +223,7 @@
             borderWidth: 2,
             borderDash: [5, 5],
             pointRadius: 0,
-            data: [2, 2, 2, 2, 2, 2],
+            data: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
           },
           {
             label: "Limite máximo (8°C)",
@@ -251,7 +231,7 @@
             borderWidth: 2,
             borderDash: [5, 5],
             pointRadius: 0,
-            data: [8, 8, 8, 8, 8, 8],
+            data: [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
           },
         ],
       },
@@ -277,6 +257,70 @@
               display: true,
               text: "Temperatura(°C)",
             },
+          },
+        },
+      },
+      y: {
+        min: 0,
+        max: 10,
+        title: {
+          display: true,
+          text: 'Temperatura (°C)'
+        }
+      }
+    },
+  );
+
+  var faixa_temp = new Chart(
+    document.getElementById("faixa_temp").getContext("2d"),
+    {
+      type: "bar",
+      data: {
+        labels: ["0"],
+        datasets: [
+          {
+            label: "Ideal - 94%",
+            backgroundColor: "#00bf63",
+            data: [94]
+          },
+          {
+            label: "Crítico - 6%",
+            backgroundColor: "#e61e28", 
+            data: [6],
+          },
+        ],
+      },
+      options: {
+        maintainAspectRatio: false,
+        indexAxis: 'y',
+        plugins: {
+          title: {
+            display: true,
+            text: "Permanência em cada faixa",
+            align: "start",
+            font: {size: 20, weight: "bold"},
+
+          },
+          subtitle: {
+            display: true,
+            text: "Últimas 24 horas",
+            align: "start",
+            font: {size: 16},
+          },
+          legend: {
+            position: "bottom",
+            align: "start",
+          },
+        },
+        scales: {
+          x: {
+            stacked: true,
+            min: 0,
+            max: 100,
+          },
+          y: {
+            stacked: true,
+            display: false
           },
         },
       },
