@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="alert.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="diagnostico.css" />
+  <title>Safelab | Diagnóstico</title>
+  <link rel="icon" type="image/png" href="../assets/institucional/safelab_recortada.svg">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div id="page-container">
+    <div id="main-dash">
+      <div id="user-area">
+        <div id="user-img">
+          <img src="../assets/dash/userIcon.svg">
+        </div>
+        <h2>Olá, <span id="user-name">usuário</span></h2>
+        <div id="button-user">
+          <div class="btn-href-active">
+            <h2>Dashboard</h2>
+          </div>
+          <div class="btn-href">
+            <a href="alertas.html">
+              <h2>Alerta</h2>
+            </a>
+          </div>
+          <div class="btn-href">
+            <a href="suporte.html">
+              <h2>Chamado</h2>
+            </a>
+          </div>
+          <div class="btn-href">
+            <a href="config.html">
+              <h2>Configurações</h2>
+            </a>
+          </div>
+          <div id="user-logout" class="btn-href">
+            <h2>Logout</h2>
+          </div>
+        </div>
+      </div>
+      <div id="area-dashboard">
+        <div id="header-dashboard">
+          <div>
+            <span style="font-size: xx-large; font-weight: bold;">Refrigerador 1</span>
+            <br>
+            <p style="color: #a0aab6;">Unidade 1</p>
+          </div>
+          <div id="status-refrigerador">
+            Ideal
+          </div>
+          <div id="container-select">
+            <select class="select-diagnostico">
+              <option value="refrigerador1">Refrigerador 1</option>
+              <option value="refrigerador1">Refrigerador 2</option>
+              <option value="refrigerador1">Refrigerador 3</option>
+              <option value="refrigerador1">Refrigerador 4</option>
+              <option value="refrigerador1">Refrigerador 5</option>
+              <option value="refrigerador1">Refrigerador 6</option>
+            </select>
+            <select class="select-diagnostico">
+              <option value="unidade1">Unidade 1</option>
+            </select>
+          </div>
+          <div id="header-dashboard">
+          <img id="img_alert" width="30px" height="30px" src="../assets/dash/notification.png" alt="user_icon.png" />
+          <img id="img_alert" width="30px" height="30px" src="../assets/dash/userIcon.png" alt="user_icon.png" />
+        </div>
+        </div>
+        <div id="area-kpi">
+          <div class="card kpi1, card-kpi">
+            <span class="card-title"> Temperatura atual </span>
+            <span class="card-body" >
+              4.0ºC
+            </span>
+            <span class="card-explain"> Há 1 min </span>
+          </div>
+          <div class="card kpi2, card-kpi">
+            <span class="card-title"> Mínima/Máxima </span>
+            <span class="card-body"> -5.0ºC/10.0ºC </span>
+            <span class="card-explain">
+              nas últimas 24hr
+            </span>
+          </div>
+
+          <div class="card kpi3, card-kpi">
+            <span class="card-title"> Ocorrências </span>
+            <span class="card-body">
+              6
+            </span>
+            <span class="card-explain"> leituras fora do ideal </span>
+          </div>
+        </div>
+
+        <div id="area-grafico">
+          <div id="container-esquerdo">
+            <div id="graficos-esquerdo">
+              <div class="dash-grafico">
+                <canvas id="historico-temp"></canvas>
+                  </div>
+                    <div id="container-faixa">
+                  <canvas id="faixa_temp"></canvas>
+            </div>
+              
+            </div>
+          </div>
+
+          <div id="container-direito">
+            <div class="dash-alertas">
+              <div class="ocorrencia-titulo">
+                <span class="dash-select"> Últimas Ocorrências </span>
+              </div>
+              <div class="card-alerta">
+                <div class="indicador-alerta"></div>
+                <span>00:06</span> <span>9.0°C</span> <span>29/10/26</span> <span>Atenção</span>
+              </div>
+              <div class="card-alerta">
+                <div class="indicador-alerta"></div>
+                <span>00:01</span> <span>1.0°C</span> <span>29/10/26</span> <span>Atenção</span>
+              </div>
+              <div class="card-alerta">
+                <div class="indicador-alerta"></div>
+                <span>23:30</span> <span>10.0°C</span> <span>28/10/26</span> <span>Atenção</span>
+              </div>
+              <div class="card-alerta">
+                <div class="indicador-alerta"></div>
+                <span>23:11</span> <span>-2.0°C</span> <span>28/10/26</span> <span>Atenção</span>
+              </div>
+              <div class="card-alerta">
+                <div class="indicador-alerta"></div>
+                <span>12:02</span> <span>-4.0°C</span> <span>28/10/26</span> <span>Atenção</span>
+              </div>
+              <div class="card-alerta">
+                <div class="indicador-alerta"></div>
+                <span>10:00</span> <span>-5.0°C</span> <span>28/10/26</span> <span>Atenção</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer style="padding: 1.5rem; background-color: #f8f9fa;">
+
+      <!-- ------------- -->
+      <!-- Parte de Cima -->
+      <!-- ------------- -->
+
+      <div style="display: flex; justify-content: space-between;">
+        <div style="display: flex; align-items: center;">
+          <img style="width: 1.25rem; margin-left: 1rem; margin-right: 0.5rem;"
+            src="../assets/institucional/safelab_recortada.svg" alt="logo">
+          <div style="display: flex; align-items: center; font-family: 'Montserrat'; font-size: 2rem;">
+            <span style="font-weight: 200; letter-spacing: -0.1rem;">Safe</span>
+            <span style="font-weight: bold; margin-left: -0.1rem;">Lab</span>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+          <nav>
+            <div style="word-spacing: 1rem;">
+              <a onclick="contato_popup.showModal()"
+                style="color:#1c1c1c; display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Contato</a>
+              <a onclick="sobre_nos_popup.showModal()"
+                style="color:#1c1c1c; display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Sobre-Nós</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <!-- ------ -->
+      <!-- POPUPS -->
+      <!-- ------ -->
+
+      <dialog id="contato_popup">
+        <h2>Olá!</h2>
+        <p>Este é um pop-up simples.</p>
+        <button onclick="contato_popup.close()">Fechar</button>
+      </dialog>
+
+      <dialog id="sobre_nos_popup">
+        <h2>Olá!</h2>
+        <p>Este é um pop-up simples.</p>
+        <button onclick="sobre_nos_popup.close()">Fechar</button>
+      </dialog>
+
+      <!-- -------------- -->
+      <!-- Parte de Baixo -->
+      <!-- -------------- -->
+
+      <div>
+        <hr style="height: 0.2rem; background-color: #1c1c1c;">
+
+        <span style="margin-top: 1.5rem; display: flex; justify-content: center;"> © SafeLab - 2026 - Todos os
+          direitos reservados.</span>
+      </div>
+    </footer>
+  </div>    
+</div>
+</body>
+<script>
+  var historico_temp = new Chart(
+    document.getElementById("historico-temp").getContext("2d"),
+    {
+      type: "line",
+      data: {
+        labels: ["00:01", "00:02", "00:03", "00:04", "00:05", "00:06","00:07","00:08", "00:09", "00:10", "00:11", "00:12", "00:13","00:14", "00:15", "00:16","00:17"],
+        datasets: [
+          {
+            label: "temperatura",
+            borderColor: "#558acb",
+            backgroundColor: "#558acb",
+            borderWidth: 2,
+            data: [1, 2, 4, 5, 6, 9, 8, 7, 6, 5, 5, 6, 8, 7, 5, 4, 4, 3, 3, 4, 2],
+          },
+          {
+            label: "Limite mínimo (2°C)",
+            borderColor: "red",
+            borderWidth: 2,
+            borderDash: [5, 5],
+            pointRadius: 0,
+            data: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+          },
+          {
+            label: "Limite máximo (8°C)",
+            borderColor: "red",
+            borderWidth: 2,
+            borderDash: [5, 5],
+            pointRadius: 0,
+            data: [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+          },
+        ],
+      },
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: "bottom",
+            align: "center",
+          },
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: "Horario",
+            },
+          },
+          y: {
+            min: 0,
+            max: 10,
+            title: {
+              display: true,
+              text: "Temperatura(°C)",
+            },
+          },
+        },
+      },
+      y: {
+        min: 0,
+        max: 10,
+        title: {
+          display: true,
+          text: 'Temperatura (°C)'
+        }
+      }
+    },
+  );
+
+  var faixa_temp = new Chart(
+    document.getElementById("faixa_temp").getContext("2d"),
+    {
+      type: "bar",
+      data: {
+        labels: ["0"],
+        datasets: [
+          {
+            label: "Ideal - 94%",
+            backgroundColor: "#00bf63",
+            data: [94]
+          },
+          {
+            label: "Crítico - 6%",
+            backgroundColor: "#e61e28", 
+            data: [6],
+          },
+        ],
+      },
+      options: {
+        maintainAspectRatio: false,
+        indexAxis: 'y',
+        plugins: {
+          title: {
+            display: true,
+            text: "Permanência em cada faixa",
+            align: "start",
+            font: {size: 20, weight: "bold"},
+
+          },
+          subtitle: {
+            display: true,
+            text: "Últimas 24 horas",
+            align: "start",
+            font: {size: 16},
+          },
+          legend: {
+            position: "bottom",
+            align: "start",
+          },
+        },
+        scales: {
+          x: {
+            stacked: true,
+            min: 0,
+            max: 100,
+          },
+          y: {
+            stacked: true,
+            display: false
+          },
+        },
+      },
+      y: {
+        min: 0,
+        max: 10,
+        title: {
+          display: true,
+          text: 'Temperatura (°C)'
+        }
+      }
+    },
+  );
+
+
+</script>
+
+</html>
