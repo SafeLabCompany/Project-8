@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="page-container">
+        <div id="main-dash">
+            <div id="user-area">
+                <div id="user-img">
+                    <img src="../assets/dash/userIcon.svg">
+                </div>
+                <h2>Olá, <span id="user-name">usuário</span></h2>
+                <div id="button-user">
+                    <div class="btn-href-active">
+                        <h2>Dashboard</h2>
+                    </div>
+                    <div class="btn-href">
+                        <a href="alertas.html">
+                            <h2>Alerta</h2>
+                        </a>
+                    </div>
+                    <div class="btn-href">
+                        <a href="suporte.html">
+                            <h2>Chamado</h2>
+                        </a>
+                    </div>
+                    <div class="btn-href">
+                        <a href="config.html">
+                            <h2>Configurações</h2>
+                        </a>
+                    </div>
+                    <div class="btn-href">
+                        <a href="unidades">
+                            <h2>unidades</h2>
+                        </a>
+                    </div>
+
+                    <div id="user-logout" class="btn-href">
+                        <h2>Logout</h2>
+                    </div>
+                </div>
+            </div>
+
+            <section class="cadastrar_unidade">
+                <div class="Area_Cadastro_Total">
+                    <div class="Titulo_Cadastro">
+                        <h3 class="Titulo_Cadastro2">Cadastrar Unidade</h3>
+                    </div>
+
+                    <div class="Informacoes_cadastro">
+                        <div class="informacao_unidade">
+                            <label for="ipt_nome_unidade">Informe o nome da unidade</label>
+                            <input type="text" id="ipt_nome_unidade">
+                        </div>
+
+                        <div class="ipt_cep_unidade">
+                            <label for="ipt_cep_unidade">CEP</label>
+                            <input type="text" id="ipt_cep_unidade">
+                        </div>
+
+                        <div class="numero_unidade">
+                            <label for="ipt_numero_unidade">Número</label>
+                            <input type="text" id="ipt_numero_unidade">
+                        </div>
+
+                        <div class="btn_alteracoes">
+                        <button class="botao_alteracoes" onclick="alteracoes()">Salvar alterações</button>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </section>
+
+
+
+</body>
+
+</html>
