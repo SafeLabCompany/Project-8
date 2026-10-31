@@ -295,6 +295,7 @@ a {
 
 #campos-input {
   max-width: 90%;
+  height: 45rem;
   display: flex;
   gap: 2vh;
   margin-left: 3rem;
@@ -308,6 +309,7 @@ a {
 
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .ipt-suporte {
@@ -319,6 +321,7 @@ a {
 #ipt_descricao {
   min-height: 3rem;
   height: 5rem;
+  
 }
 
 #botao-div {
@@ -346,7 +349,6 @@ a {
   flex-direction: column;
   height: 60rem;
   width: 100rem;
-  
 }
 
 #table {
@@ -368,47 +370,76 @@ line-height: 1.2;
 }
 
 #area-config {
-  width: 60vw;
-  height: 540px;
-  margin-left: 150px;
+  width: 90rem ;
+  height: 60rem;
   border-radius: 5px;
   border: solid 1px;
-  border-color: #b5b5b5;
   background-color: whitesmoke;
+  align-self: center;
+  
+}
+
+#barra-superior-config span{
+  margin-bottom: 1rem;
+  font-size: xx-large;
 }
 
 #barra-superior-config {
   display: flex;
   min-height: 4vh;
-  height: 7vh;
-  align-items: center;
-  justify-content: center;
+  height: rem;
+  align-items: flex-start;
+  justify-content: flex-start;
   font-size: x-large;
   font-weight: bolder;
-  border: solid 1px;
-  border-color: #a09b9b;
-  background-color: #d7d7d7;
+  color: #2b3b92;
 }
 
 
 #ipt_nome_config {
   margin: 20px;
-  height: 2rem;
-  width: 50rem;
+  height: 3rem;
+  width: 80rem;
+  display: flex;
+  position: relative;
+  
 }
 #ipt_email_config {
   margin: 20px;
-  height: 2rem;
-  width: 50rem;
+  height: 3rem;
+  width: 80rem;
+}
+#ipt_email_user_config {
+  margin: 20px;
+  height: 3rem;
+  width: 60rem;
 }
 #ipt_senha_config {
-  width: 30rem;
   margin: 20px;
+  height: 3rem;
+  width: 80rem;
+}
+
+#botoes-config{
+  margin-left: 3rem;
+  width: 50rem;
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  
+}
+#botoes-config-user{
+  margin-left: 3rem;
+  width: 30rem;
+  align-self: flex-start;
+  display: flex;
+  justify-content: space-between;
 }
 
 #botao-salvar {
   width: 200px;
-  height: 40px;
+  font-size: x-large;
+  height: 3.7rem;
   background-color: #2b3b92;
   color: white;
   border-radius: 5px;
@@ -416,7 +447,8 @@ line-height: 1.2;
 
 #botao-descartar {
   width: 200px;
-  height: 40px;
+  height: 3.7rem;
+  font-size: x-large;
   background-color: #2b3b92;
   color: white;
   border-radius: 5px;
@@ -425,10 +457,226 @@ line-height: 1.2;
 #img-lapis {
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  margin-bottom: 1.7rem;
+  position: absolute;
+  align-self: flex-end;
+  margin-left: 76.5rem;
+}
+
+#img-lapis-senha {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1.7rem;
+  position: absolute;
+  align-self: flex-end;
+  margin-left: 44.7rem;
+}
+
+#img-lapis-senha-admin {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1.7rem;
+  position: absolute;
+  align-self: flex-end;
+  margin-left: 80rem;
+}
+
+#texto-config{
   align-self: center;
   
 }
+/* Unidades */
+
+.area_unidades_total{
+display: flex;
+flex-direction: column;
+width: 86.5vw;
+height: 100%;
+align-items: center;
+background-color: white;
+
+}
+
+.title_unidades{
+  background-color: gray;
+  width: 95%;
+  text-align: center;
+  border-style: solid;
+border-color: black;
+
+
+
+}
+
+.area_unidades{
+  display: grid;
+ grid-template-columns: repeat(3,1fr);
+ column-gap: 5%;
+ row-gap: 60px;
+ margin-top: 0.5%;
+ justify-content: center; 
+ border-style: solid;
+border-color: black;
+height: 90%;
+width: 95%;
+position: relative;
+padding: 40px 0;
+box-sizing: border-box;
+
+}
+
+.unidade{
+  background-color:#2b3b92 ;
+  margin-top: 5%;
+   width: 60%;
+   max-width: 240px;
+  height:175px;
+  border-radius: 8px;
+  border-color: #000000;
+  border-style: solid;
+  text-align: center; 
+  font-size: 22px;
+  justify-self: center;
+}
+
+.btn_cadastrar_unidades{
+ align-self: flex-end;
+ right: 5%;
+  bottom: 3%;
+ position: absolute;
+
+}
+.btn_cad{
+  height: 70px;
+
+  border-style: none;
+  background-color: white;
+}
+
+
+.cadastrar_unidade{
+   width: 86vw;
+  min-height: 90vh;
+}
+.Area_Cadastro_Total{
+  width: 100%;
+ 
+
+}
+
+.Titulo_Cadastro{
+  
+  display: flex;
+  justify-content: space-around;
+  margin-top: 90px;
+ 
+}
+
+
+
+.Titulo_Cadastro2{
+   border-style: solid;
+  border-color: black;
+   width: 90%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  background-color: #d7d7d7 ;
+  text-align: start;
+  padding-left:1% ;
+  font-size: 22px;
+}
+
+.Informacoes_cadastro{
+width: 91.5%;
+min-height: 65vh;
+border-style: solid;
+padding-left: 50px;
+padding-top: 40px;
+gap: 30px;
+box-sizing: border-box;
+margin-left: auto;
+margin-right: auto;
+background-color: #fcfcfc;
+display: flex;
+flex-direction: column;
+}
+
+.Area_Cadastro_Total{
+justify-content: space-between;
+
+input{
+  width: 90%;
+  height: 40px;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+
+font-size: 20px;
+}
+
+.informacao_unidade, .ipt_cep_unidade ,.numero_unidade{
+  display: flex;
+   flex-direction: column; 
+ justify-content: space-between;
+gap: 6px ;}
+
+
+.botao_alteracoes{
+  border-radius: 5px;
+  background-color: #2b3b92;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border-color: black;
+  border-style: solid;
+}
+
+.btn_alteracoes{
+ align-self: flex-start;
+}
+}
+
+.navegacao-config{
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #2b3b92;
+
+}
+
+.navegacao-config-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1c1c1c;
+}
+
+.navegacao-config-item-selecionado{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 0.3rem #2b3b92;
+  padding-bottom: 0.5rem;
+}
+
+.area-editar{
+  display: flex;
+  flex-direction: row;
+  
+
+}
+
+#ipt_inputs{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 45rem;
+}
+
+
 
 
 
