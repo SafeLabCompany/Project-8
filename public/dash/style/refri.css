@@ -1,7 +1,6 @@
 #header-dashboard {
   display: flex;
   justify-content: space-between;
-
   margin-bottom: 20px;
 }
 
@@ -18,7 +17,7 @@
 /* ----------------- */
 
 .areatabela{
-  width: 80rem;
+  width: 85vw;
   height: 47rem;
 }
 
@@ -29,10 +28,15 @@
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
   grid-template-rows: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
   gap: 1.2rem;
-  width: 80rem;
-  height: 47rem;
+  width: auto;
+  height: auto;
   align-items: stretch;
+  padding: 3rem;
 }
+/*
+  Isso daqui esta como gambiarra, na sprint 3 vale ver se isso aqui ta correto;
+*/
+
 
 .refrigerador {
   position: relative;
@@ -55,6 +59,8 @@
 
 #area-dashboard {
   min-width: 0;
+  margin-left: 2rem;
+  width: 85vw;
 }
 
 /* --------------- */
@@ -92,42 +98,3 @@
   width: 100%;
   color: #fffafa;
 }
-
-.table-off{
-  background-color: #000c1b;
-  color: white;
- 
-}
-
-.table-ideal{
-  background-color:#9cff9d;
-}
-
-
-.table-critical{
-  background-color:#ff5252;
-  color: white;
-}
-
-.global{
-  border-radius: 0.2rem;
-  padding: 0.2rem;
-  min-width: 4rem;
-  display: flex;
-  justify-content: center;
-}
-
-.number-green{
-  color: #036b04;
-}
-
-.number-red{
-  color:#e61e28;
-}
-
-table{
-  height: 40rem;
-  border: #000c1b solid 0.02rem;
-  font-size: 1.8rem;
-}
-
