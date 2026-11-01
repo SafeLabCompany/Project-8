@@ -18,34 +18,61 @@
         <div id="user-img">
           <img src="../assets/dash/userIcon.svg">
         </div>
-        <h2>Olá, <span id="user-name">usuário</span></h2>
-        <div id="button-user">
+        <div class="button-user">
+          <div class="btn-title">Monitoramento</div>
           <div class="btn-href-active">
-            <h2>Dashboard</h2>
-          </div>
-          <div class="btn-href">
-            <a href="alertas.html">
-              <h2>Alerta</h2>
+            <a href="dashboard.html" class="btn-row">
+              <img class="btn-img" src="../assets/dash/user-area/casa.svg" alt="Casa">
+              <h2>Home</h2>
             </a>
           </div>
+
           <div class="btn-href">
-            <a href="suporte.html">
-              <h2>Chamado</h2>
+            <a href="alertas.html" class="btn-row">
+              <img class="btn-img" src="../assets/dash/user-area/alerta.svg" alt="Alerta">
+              <h2>Alertas</h2>
             </a>
           </div>
+
           <div class="btn-href">
-            <a href="config.html">
+            <a href="refrigeradores.html" class="btn-row">
+              <img class="btn-img" src="../assets/dash/user-area/complexo.svg" alt="Undiades">
+              <h2>Visão da unidade</h2>
+            </a>
+          </div>
+
+          <div class="btn-href">
+            <a href="diagnostico.html" class="btn-row">
+              <img class="btn-img" src="../assets/dash/user-area/refrigerador.svg" alt="Refrigeradores">
+              <h2>Diagnóstico do refrigerador</h2>
+            </a>
+          </div>
+
+          <div class="btn-title">Configurações & Cadastros</div>
+          <div class="btn-href">
+            <a href="config.html" class="btn-row">
+              <img class="btn-img" src="../assets/dash/user-area/config1.svg" alt="Casa">
               <h2>Configurações</h2>
             </a>
           </div>
+
           <div class="btn-href">
-            <a href="unidades.html">
-              <h2>unidades</h2>
-          </a>  
+            <a href="unidades.html" class="btn-row">
+              <img class="btn-img" src="../assets/dash/user-area/hospital.svg" alt="Casa">
+              <h2>Unidades</h2>
+            </a>
+          </div>
+
+          <div class="btn-href">
+            <a href="suporte.html" class="btn-row">
+              <img class="btn-img" src="../assets/dash/user-area/info.svg" alt="Badge-info">
+              <h2>Suporte</h2>
+            </a>
           </div>
 
           <div id="user-logout" class="btn-href">
             <h2>Logout</h2>
+            <img class="btn-img" src="../assets/dash/user-area/log-out.svg" alt="">
           </div>
         </div>
       </div>
@@ -398,7 +425,7 @@
           x: {
             title: {
               display: true,
-               text: "Refrigeradores",
+              text: "Refrigeradores",
             },
           },
           y: {
