@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/suporte.css">
   <title>Safelab | Dashboard</title>
   <link rel="icon" type="image/png" href="../assets/institucional/safelab_recortada.svg">
 </head>
@@ -16,31 +17,61 @@
         <div id="user-img">
           <img src="../assets/dash/userIcon.svg">
         </div>
-        <h2>Olá, <span id="user-name">usuário</span></h2>
+        <div class="button-user">
+          <div class="btn-title">Monitoramento</div>
+          <div class="btn-href">
+            <a href="dashboard.html" class="btn-row">
+              <img class="btn-img" src="../assets/dash/user-area/casa.svg" alt="Casa">
+              <h2>Home</h2>
+            </a>
+          </div>
 
-        <div id="button-user">
           <div class="btn-href">
-            <a href="dashboard.html">
-              <h2>Dashboard</h2>
+            <a href="alertas.html" class="btn-row">
+              <img class="btn-img" src="../assets/dash/user-area/alerta.svg" alt="Alerta">
+              <h2>Alertas</h2>
             </a>
           </div>
+
           <div class="btn-href">
-            <a href="alertas.html">
-              <h2>Alerta</h2>
+            <a href="refrigeradores.html" class="btn-row">
+              <img class="btn-img" src="../assets/dash/user-area/complexo.svg" alt="Undiades">
+              <h2>Visão da unidade</h2>
             </a>
           </div>
-          <div class="btn-href-active">
-            <a href="suporte.html">
-              <h2>Chamado</h2>
+
+          <div class="btn-href">
+            <a href="diagnostico.html" class="btn-row">
+              <img class="btn-img" style="margin-top: 0.5rem;" src="../assets/dash/user-area/refrigerador.svg" alt="Refrigeradores">
+              <h2>Diagnóstico do refrigerador</h2>
             </a>
           </div>
+
+          <div class="btn-title">Configurações & Cadastros</div>
           <div class="btn-href">
-            <a href="config.html">
+            <a href="config.html" class="btn-row">
+              <img class="btn-img" src="../assets/dash/user-area/config1.svg" alt="Casa">
               <h2>Configurações</h2>
             </a>
           </div>
+
+          <div class="btn-href">
+            <a href="unidades.html" class="btn-row">
+              <img class="btn-img" src="../assets/dash/user-area/hospital.svg" alt="Casa">
+              <h2>Unidades</h2>
+            </a>
+          </div>
+
+          <div class="btn-href-active">
+            <a href="suporte.html" class="btn-row">
+              <img class="btn-img" src="../assets/dash/user-area/info.svg" alt="Badge-info">
+              <h2>Suporte</h2>
+            </a>
+          </div>
+
           <div id="user-logout" class="btn-href">
             <h2>Logout</h2>
+            <img class="btn-img" src="../assets/dash/user-area/log-out.svg" alt="">
           </div>
         </div>
       </div>
@@ -57,70 +88,58 @@
 
             <div class="campo-object">
               Categorias de chamado:
-              <select id="slct_categoria" class="ipt-suporte">
+              <select id="slct-categoria" class="ipt-suporte">
                 <option value="">Selecione uma opção</option>
               </select>
             </div>
 
             <div class=" campo-object">
                 Nome completo:
-                <input type="text" id="ipt_nome" class="ipt-suporte">
+                <input type="text" id="ipt-nome" class="ipt-suporte">
             </div>
 
             <div class="campo-object">
               E-mail:
-              <input type="text" id="ipt_email" class="ipt-suporte">
+              <input type="text" id="ipt-email" class="ipt-suporte">
             </div>
 
             <div class="campo-object">
               Assunto:
-              <input type="text" id="ipt_assunto" class="ipt-suporte">
+              <input type="text" id="ipt-assunto" class="ipt-suporte">
             </div>
 
             <div class="campo-object">
               Descrição:
-              <textarea type="text" id="ipt_descricao" class="ipt-suporte">
+              <textarea type="text" id="ipt-descricao" class="ipt-suporte">
               </textarea>
             </div>
 
           </div>
           <div id="botao-div">
-            <button id="abrir_chamado">Abrir Chamado</button>
+            <button id="abrir-chamado">Abrir Chamado</button>
           </div>
         </div>
       </div>
     </div>
-    <footer style="padding: 1.5rem; background-color: #f8f9fa;">
-
-      <!-- ------------- -->
-      <!-- Parte de Cima -->
-      <!-- ------------- -->
-
-      <div style="display: flex; justify-content: space-between;">
-        <div style="display: flex; align-items: center;">
-          <img style="width: 1.25rem; margin-left: 1rem; margin-right: 0.5rem;"
-            src="../assets/institucional/safelab_recortada.svg" alt="logo">
-          <div style="display: flex; align-items: center; font-family: 'Montserrat'; font-size: 2rem;">
-            <span style="font-weight: 200; letter-spacing: -0.1rem;">Safe</span>
-            <span style="font-weight: bold; margin-left: -0.1rem;">Lab</span>
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-marca">
+          <img class="footer-logo" src="../assets/institucional/safelab_recortada.svg" alt="logo">
+          <div class="footer-body">
+            <span class="footer-bodyLight">Safe</span>
+            <span class="footer-booterBold">Lab</span>
           </div>
         </div>
 
-        <div style="display: flex; align-items: center;">
+        <div class="footer-Nav">
           <nav>
-            <div style="word-spacing: 1rem;">
-              <a onclick="contato_popup.showModal()"
-                style="color:#1c1c1c; display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Contato</a>
-              <a onclick="sobre_nos_popup.showModal()"
-                style="color:#1c1c1c; display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Sobre-Nós</a>
+            <div class="footer-links">
+              <a onclick="contato_popup.showModal()">Contato</a>
+              <a onclick="sobre_nos_popup.showModal()">Sobre-Nós</a>
             </div>
           </nav>
         </div>
       </div>
-
-      <!-- ------ -->
-      <!-- POPUPS -->
-      <!-- ------ -->
 
       <dialog id="contato_popup">
         <h2>Olá!</h2>
@@ -134,15 +153,9 @@
         <button onclick="sobre_nos_popup.close()">Fechar</button>
       </dialog>
 
-      <!-- -------------- -->
-      <!-- Parte de Baixo -->
-      <!-- -------------- -->
-
       <div>
-        <hr style="height: 0.2rem; background-color: #1c1c1c;">
-
-        <span style="margin-top: 1.5rem; display: flex; justify-content: center;"> © SafeLab - 2026 - Todos os
-          direitos reservados.</span>
+        <hr class="footer-divider">
+        <span class="footer-copyright"> © SafeLab - 2026 - Todos os direitos reservados.</span>
       </div>
     </footer>
   </div>

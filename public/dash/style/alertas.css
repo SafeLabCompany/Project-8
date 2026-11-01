@@ -7,29 +7,31 @@
   align-self: flex-end;
 }
 
-#table{
-  border: 1px solid #bbb;
-  border-spacing: 0px;
+#table {
+  display: flex;
   overflow: auto;
+  border-collapse: collapse;
+  justify-content: space-between;
+  border: 1px solid #bbb;
+  border-spacing: 0;
   font-size: xx-large;
   margin-left: 20px;
   margin-top: 10px;
-  width: 74rem;
-  
+  width: 85vw;
 }
 
-table{
-  width: 74rem;
+#table table {
+  width: 85vw;
   border-collapse: collapse;
   text-align: center;
-  
 }
 
-thead {
+#table thead {
   background-color: grey;
 }
- 
-th, td {
+
+#table th,
+#table td {
   padding: 20px;
   border-bottom: 1px solid #bbb;
 }
