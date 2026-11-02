@@ -1,6 +1,7 @@
 #area-suporte {
-  width: 85vw;
-  height: 700px;
+  margin-left: 2rem;
+  width: 83vw;
+  height: auto;
   border-radius: 5px;
   border: solid 1px;
   border-color: #b5b5b5;
@@ -28,7 +29,8 @@
 #botao-div {
   display: flex;
   justify-content: center;
-  font-size: large;
+  font-size: x-large;
+  font-weight: 900;
   margin-top: 5vh;
 }
 
