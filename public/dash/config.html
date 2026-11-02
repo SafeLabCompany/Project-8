@@ -127,7 +127,7 @@
                     <button id="botao-descartar">Descartar Alterações</button><br>
                   </div>
                 </div>
-                  <br><div id="msg"></div>
+                  <br><div id="Mensagem_forca_senha"></div>
               </div>
 
             </div>
@@ -234,9 +234,9 @@
             forca = "muito Forte"
       } 
         if(senha.length < 8){
-          msg.innerHTML = `A senha precisa ter no minimo 8 caracteres`
+          Mensagem_forca_senha.innerHTML = `A senha precisa ter no minimo 8 caracteres`
         } else{
-          msg.innerHTML = `Força da senha: ${forca}`
+          Mensagem_forca_senha.innerHTML = `Força da senha: ${forca}`
         }
   }
 </script>
