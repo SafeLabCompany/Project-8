@@ -17,11 +17,11 @@
   border-spacing: 0;
   font-size: xx-large;
   margin-top: 10px;
-  width: 85vw;
+  width: 80vw;
 }
 
 #table table {
-  width: 85vw;
+  width: 80vw;
   border-collapse: collapse;
   text-align: center;
 }
@@ -47,6 +47,11 @@
 }
 
 .--desligado {
+  background-color: #828282;
+  color: #000c1b;
+}
+
+.--semReg {
   background-color: #000c1b;
   color: #fffafa;
 }
@@ -70,5 +75,5 @@
 }
 
 .critical {
-  color: #b3001b;
+  color: #8b0015;
 }

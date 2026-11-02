@@ -164,3 +164,35 @@
 #table td {
   border-bottom: 1px solid #bbb;
 }
+
+.--desligado {
+  background-color: #828282;
+  color: #000c1b;
+}
+
+.--semReg {
+  background-color: #000c1b;
+  color: #fffafa;
+}
+
+.--medium {
+  background-color: #ffe000;
+  color: #d9a900;
+}
+
+.--critical {
+  background-color: #ff5252;
+  color: #fffafa;
+}
+
+.low {
+  color: #036b04;
+}
+
+.medium {
+  color: #d9a900;
+}
+
+.critical {
+  color: #8b0015;
+}
