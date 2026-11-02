@@ -116,17 +116,18 @@
               </div>
 
               <div class="campo-object">
-                Senha:
+                 <label for="ipt_senha_config">Senha:</label>
                 <div class="area-editar">
-                  <input type="text" id="ipt_senha_config" class="ipt-suporte" />
+                  <input type="text" id="ipt_senha_config" class="ipt-suporte" onkeyup="Validar()" /> 
                   <div id="img-lapis-senha">
                     <a><img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" width="30px" /></a>
                   </div>
                   <div id="botoes-config">
                     <button id="botao-salvar">Salvar Alterações</button>
-                    <button id="botao-descartar">Descartar Alterações</button>
+                    <button id="botao-descartar">Descartar Alterações</button><br>
                   </div>
                 </div>
+                  <br><div id="msg"></div>
               </div>
 
             </div>
@@ -173,6 +174,74 @@
       </div>
     </footer>
   </div>
+
+<script>
+  function Validar(){
+    let senha = ipt_senha_config.value
+    let numeros = '0123456789';
+    let letrasMin = 'abcdefghijklmnopqrstuvwxyz'
+    let letrasMai = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    let caracterEspecial = '!@#$%&*_-.,/'
+
+     let criterioNumero= 0;
+     let criterioMai = 0;
+     let criterioEspe = 0;
+     let criterioTotal = 0;
+     let criterioMin = 0;
+
+      for(let i =0; i < senha.length; i++ ){
+        if(numeros.includes(senha[i])){
+          criterioNumero++
+        }
+        if(letrasMai.includes(senha[i])){
+          criterioMai++
+        }
+        if(letrasMin.includes(senha[i])){
+          criterioMin++
+        }
+        if(caracterEspecial.includes(senha[i])){
+          criterioEspe++
+        }
+      }
+
+     
+
+      let forca = ""
+      if(criterioEspe > 0){
+        criterioTotal++
+      }
+      if(criterioMai > 0){
+         criterioTotal++
+      }
+      if(criterioMin > 0){
+        criterioTotal++
+      }
+       if(criterioNumero > 0){
+        criterioTotal++
+       }
+      if(senha.length >= 8){
+         criterioTotal++
+      }
+     
+        if(criterioTotal == 2 ){
+            forca = "fraca"}
+        else if(criterioTotal == 3){
+            forca = "Média"}
+        else if(criterioTotal == 4){
+           forca = "forte"
+        } 
+        else if(criterioTotal >= 5 ) {
+            forca = "muito Forte"
+      } 
+        if(senha.length < 8){
+          msg.innerHTML = `A senha precisa ter no minimo 8 caracteres`
+        } else{
+          msg.innerHTML = `Força da senha: ${forca}`
+        }
+  }
+</script>
+
+
 </body>
 
 </html>
