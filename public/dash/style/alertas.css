@@ -1,6 +1,7 @@
 #main-area {
   display: flex;
   flex-direction: column;
+  margin-left: 2rem;
 }
 
 #user-icon {
@@ -15,13 +16,12 @@
   border: 1px solid #bbb;
   border-spacing: 0;
   font-size: xx-large;
-  margin-left: 20px;
   margin-top: 10px;
-  width: 85vw;
+  width: 80vw;
 }
 
 #table table {
-  width: 85vw;
+  width: 80vw;
   border-collapse: collapse;
   text-align: center;
 }
@@ -36,6 +36,26 @@
   border-bottom: 1px solid #bbb;
 }
 
+.badge {
+  display: inline-block;
+  min-width: 200px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 18px;
+  background-color: #9cff9d;
+  color: #036b04;
+}
+
+.--desligado {
+  background-color: #828282;
+  color: #000c1b;
+}
+
+.--semReg {
+  background-color: #000c1b;
+  color: #fffafa;
+}
+
 .--medium {
   background-color: #ffe000;
   color: #d9a900;
@@ -43,7 +63,7 @@
 
 .--critical {
   background-color: #ff5252;
-  color: #b3001b;
+  color: #fffafa;
 }
 
 .low {
@@ -55,5 +75,5 @@
 }
 
 .critical {
-  color: #b3001b;
+  color: #8b0015;
 }
