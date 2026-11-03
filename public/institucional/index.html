@@ -309,7 +309,7 @@
                 </div>
 
                 <div id="div_exibir" class="card_resultado">
-                    
+
                 </div>
 
                 <div>
@@ -319,7 +319,8 @@
             </div>
 
             <div class="texto_gancho_simulador" style="align-self: flex-end;">
-                <a style="font-size: 2rem;" onclick="bloquear_body(); contato_popup.showModal()">Entre em contato conosco →</a>
+                <a style="font-size: 2rem;" onclick="bloquear_body(); contato_popup.showModal()">Entre em contato
+                    conosco →</a>
             </div>
         </div>
     </section>
@@ -365,19 +366,71 @@
     </footer>
 
     <!-- ------ -->
-        <!-- POPUPS -->
-        <!-- ------ -->
+    <!-- POPUPS -->
+    <!-- ------ -->
 
-        <dialog class="popup" id="mais_informacoes_popup">
-            <div class="header_popup">
-                <div style="color: #f8f9fa;">
-                    Mais informações
-                </div>
-                <button
-                    style="width: 2rem; height: 2rem; text-align: center; align-self: flex-end; background-color: red; color: #f8f9fa;"
-                    onclick="mais_informacoes_popup.close(); desbloquear_body()">x</button>
+    <dialog class="popup" id="mais_informacoes_popup">
+        <div class="header_popup">
+            <div style="color: #f8f9fa;">
+                Mais informações
+            </div>
+            <button
+                style="width: 2rem; height: 2rem; text-align: center; align-self: flex-end; background-color: red; color: #f8f9fa;"
+                onclick="mais_informacoes_popup.close(); desbloquear_body()">x</button>
+        </div>
+
+        <section class="popup_section">
+            <div id="preços" class="popup_card_informacoes">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Vacina
+                            </th>
+                            <th>
+                                Preço
+                            </th>
+                            <th>
+                                Referencia
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Influenza</td>
+                            <td>R$45,00</td>
+                            <td><a class="link" href="">link</a></td>
+                        </tr>
+                        <tr>
+                            <td>Pentavalente</td>
+                            <td>R$170,00</td>
+                            <td><a class="link" href="">link</a></td>
+                        </tr>
+                        <tr>
+                            <td>Poliomielite</td>
+                            <td>R$225,00</td>
+                            <td><a class="link" href="">link</a></td>
+                        </tr>
+                        <tr>
+                            <td>Pneumocócica</td>
+                            <td>R$475,00</td>
+                            <td><a class="link" href="">link</a></td>
+                        </tr>
+                        <tr>
+                            <td>Tríplice Viral</td>
+                            <td>R$130,00</td>
+                            <td><a class="link" href="">link</a></td>
+                        </tr>
+                        <tr>
+                            <td>BCG</td>
+                            <td>R$65,00</td>
+                            <td><a class="link" href="">link</a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
+<<<<<<< Updated upstream
             <section class="popup_section">
                 <div id="preços" class="popup_card_informacoes">
                     <table>
@@ -461,6 +514,47 @@
             <p>Este é um pop-up simples.</p>
             <button onclick="contato_popup.close(); desbloquear_body()">Fechar</button>
         </dialog>
+=======
+            <div id="outras_infos" class="popup_card_informacoes">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Outras Informações
+                            </th>
+                            <th>
+                                Link
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>titulo</td>
+                            <td><a class="link" href="">link</a></td>
+                        </tr>
+                        <tr>
+                            <td>titulo</td>
+                            <td><a class="link" href="">link</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </dialog>
+
+    <dialog id="contato_popup">
+        <div id="header_popup">
+            <h2 id="texto_header_popup">Entre em contato conosco</h2>
+            <button id="botao_popup" onclick="contato_popup.close(); desbloquear_body()">X</button>
+        </div>
+        <div id="div_popup">
+            Insira o seu e-mail:<p><input type="text" id="ipt_email_empresa"></p>
+            Assunto: <p><input type="text" id="ipt_assunto_popup"></p>
+            Texto: <p><input type="text" id="ipt_texto_popup"></p>
+            <button id="enviar_popup">Enviar e-mail</button>
+        </div>
+    </dialog>
+>>>>>>> Stashed changes
 
 </body>
 
@@ -553,8 +647,8 @@
             } else {
                 qnt_vacinas_perdidas = (quantidade * (percentual_perda / 100)).toFixed(1)
 
-                if (qnt_vacinas_perdidas%1!=0){
-                    qnt_vacinas_perdidas -= qnt_vacinas_perdidas%1
+                if (qnt_vacinas_perdidas % 1 != 0) {
+                    qnt_vacinas_perdidas -= qnt_vacinas_perdidas % 1
                     qnt_vacinas_perdidas++
                 }
             }
