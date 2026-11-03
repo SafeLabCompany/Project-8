@@ -1,198 +1,123 @@
+#header-dashboard {
+  display: flex;
+  justify-content: space-between;
+}
+
 #area-dashboard {
-  margin-left: 10px;
+  width: 80vw;
+  margin-left: 20px;
   padding: 10px;
   display: flex;
   flex-direction: column;
-}
-
-#area-grafico {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-#container-esquerdo {
-  display: flex;
-  flex-direction: column;
-}
-
-#graficos-esquerdo {
-  display: flex;
-  flex-direction: row;
-}
-
-#container-direito {
-  display: flex;
-  width: 20%;
-  justify-content: center;
 }
 
 #area-kpi {
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 40%;
-  height: 100px;
-  border-radius: 15px;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  padding: 20px;
-  gap: 15%;
-}
-
-.card-body {
-  display: flex;
-  text-align: center;
+  width: 30%;
+  height: 120px;
+  border-radius: 10px;
+  border: 2px solid #000;
   justify-content: center;
   align-items: center;
+  color: white;
+  padding: 10px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
 
 .kpi1 {
-  margin-left: 10%;
-  background-color: #ff0000;
+  background-color: #dc3545;
+  margin-left: 0;
 }
 
 .kpi2 {
-  margin-left: 2%;
-  background-color: #2b3b91;
+  background-color: #ffc107;
 }
 
-.kpi3 {
+#area-grafico{
+  display: flex;
+}
+
+#container-esquerdo {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+
+  gap: 1rem;
+}
+
+#container-direito {
+  display: flex;
+  flex-direction: column;
+  width: 28%;
   margin-left: 2%;
-  background-color: #fdcc02;
+}
+
+.dash-title{
+  display: flex;
   justify-content: space-between;
-  color: rgb(0, 0, 0);
+  align-items: center;
+
+  background-color: #a9a9a9;
+  padding: 0.5rem;
+
+  font-weight: bolder;
+  margin-bottom: 15px;
 }
 
-.kpi4 {
-  margin-left: 2%;
-  margin-right: 10%;
-  background-color: #036b04;
-  font-size: xx-large;
-  justify-content: space-evenly;
-  color: white;
+#dash-select{
+  width: 8rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 2rem;
+  text-align: center;
 }
 
 .dash-grafico {
-  margin-top: 15px;
-  background-color: whitesmoke;
-  width: 570px;
-  height: 350px;
-  border: #000000 solid 1.5px;
-  margin: 20px;
-}
-
-.dash-title {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  width: auto;
-  background-color: #d7d7d7;
-  padding: 10px;
-}
-
-.dash-select {
-  margin-left: 10px;
-}
-
-#select_unidade {
-  height: 100%;
-  width: 50%;
+  background-color: #f8f9fa;
+  width: 100%;
+  border: 1px solid #ccc;
+  margin-top: 0;
 }
 
 .dash-alertas {
-  border: #000000 solid 1.5px;
-  width: 300px;
-  height: 584px;
+  border: 1px solid #ccc;
+  width: 100%;
+  height: fit-content;
   margin-top: 15px;
-  background-color: whitesmoke;
+  background-color: #f8f9fa;
   display: flex;
   flex-direction: column;
 }
 
-#img_ultimos_alertas {
-  margin-right: 20px;
-}
-
-.text-alertas {
+.container-alerta{
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: white;
-  width: 100%;
-}
-
-.card-alerta {
-  border: #b5b5b5 solid 1.5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(255, 255, 255);
-  padding: 10px;
-}
-
-#table {
-  display: flex;
-  overflow: auto;
-  border-collapse: collapse;
-  max-height: 15.3rem;
-  justify-content: space-between;
-  border: 1px solid #bbb;
-  border-spacing: 0;
-  font-size: xx-large;
-  margin-left: 20px;
-  margin-top: 10px;
-  width: 74rem;
-}
-
-#table table {
-  width: 74rem;
-  border-collapse: collapse;
   text-align: center;
+  padding: 1rem;
+  font-size: 1.25rem;
+  border-bottom: 1px solid #ccc;
 }
 
-#table th,
-#table td {
-  border-bottom: 1px solid #bbb;
+.img-perigo{
+  width: 4rem;
+  height: 4rem;
+  margin-left: 2rem;
+  margin-right: 3rem;
 }
 
-.--desligado {
-  background-color: #828282;
-  color: #000c1b;
-}
-
-.--semReg {
-  background-color: #000c1b;
-  color: #fffafa;
-}
-
-.--medium {
-  background-color: #ffe000;
-  color: #d9a900;
-}
-
-.--critical {
-  background-color: #ff5252;
-  color: #fffafa;
-}
-
-.low {
-  color: #036b04;
-}
-
-.medium {
-  color: #d9a900;
-}
-
-.critical {
-  color: #8b0015;
+.text-alertas{
+  font-weight: bolder;
+  color: red;
 }
