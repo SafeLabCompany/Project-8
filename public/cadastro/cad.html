@@ -82,7 +82,8 @@
         <label for="ipt_CadastroSenha">
           <h3>Senha:</h3>
         </label>
-        <input class="LocalDeInsert" type="password" id="ipt_CadastroSenha" minlength="8" required>
+        <input class="LocalDeInsert" type="password" id="ipt_CadastroSenha" minlength="8" required oninput="Validar()">
+        <br><div id="Mensagem_forca_senha"></div>
 
         <label for="ipt_CadastroConfirmarSenha">
           <h3>Confirmar Senha:</h3> 
@@ -157,6 +158,94 @@
   <!-- ------------ -->
 
   <script>
+    let ValidarCadastro = 0;
+
+       function Validar(){
+       
+    let senha = ipt_CadastroSenha.value
+    let numeros = '0123456789';
+    let letrasMin = 'abcdefghijklmnopqrstuvwxyz'
+    let letrasMai = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    let caracterEspecial = '!@#$%&*_-.,/'
+     let criterioNumero= 0;
+     let criterioMai = 0;
+     let criterioEspe = 0;
+     let criterioMin = 0;
+     let criterioTotal = 0;
+
+      if (senha.length == 0) {
+    ValidarCadastro = 0;
+    Mensagem_forca_senha.innerHTML = "";
+    return;
+}
+
+      for(let i =0; i < senha.length; i++ ){
+        if(numeros.includes(senha[i])){
+          criterioNumero++
+         
+        }
+        if(letrasMai.includes(senha[i])){
+          criterioMai++
+          
+        }
+        if(letrasMin.includes(senha[i])){
+          criterioMin++
+          
+        }
+        if(caracterEspecial.includes(senha[i])){
+          criterioEspe++
+          
+        }
+      }
+
+     
+
+      let forca = ""
+      if(criterioEspe > 0){
+        criterioTotal++
+      }
+      if(criterioMai > 0){
+         criterioTotal++
+      }
+      if(criterioMin > 0){
+        criterioTotal++
+      }
+       if(criterioNumero > 0){
+        criterioTotal++
+       }
+      if(senha.length >= 8){
+         criterioTotal++
+      }
+     
+        if(criterioTotal == 2 ){
+          ValidarCadastro = 1;
+           Mensagem_forca_senha.innerHTML = `Força da senha: Fraca`
+           Mensagem_forca_senha.style.color = "red"
+          }
+        else if(criterioTotal == 3){
+          ValidarCadastro = 2;
+            Mensagem_forca_senha.innerHTML = `Força da senha: Média`
+           Mensagem_forca_senha.style.color = "black"
+           }
+        else if(criterioTotal == 4){
+          ValidarCadastro = 3;
+             Mensagem_forca_senha.innerHTML = `Força da senha: Forte`
+           Mensagem_forca_senha.style.color = "green"
+        } 
+        else if(criterioTotal >= 5 ) {
+          ValidarCadastro = 4;
+             Mensagem_forca_senha.innerHTML = `Força da senha: Muito Forte`
+           Mensagem_forca_senha.style.color = "green"
+      } 
+        if(senha.length < 8){
+          Mensagem_forca_senha.innerHTML = `minimo 8 caracteres`
+           Mensagem_forca_senha.style.color = "red"
+         } 
+
+        
+  }
+
+
     function Cadastrar() {
       let ax_Nome = ipt_CadastroNome.value;
       let ax_Email = ipt_CadastroEmail.value;
@@ -187,9 +276,12 @@
       else if (ax_ConfirmaSenha != ax_Senha) {
         alert('Senhas não condizentes')
       }
+      else if(ValidarCadastro <= 1){
+        alert("Sua senha precisa ser no minimo média")
+      }
     }
 
-
+ 
 
 
   </script>

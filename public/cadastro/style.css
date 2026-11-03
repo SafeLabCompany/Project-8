@@ -149,6 +149,7 @@ header {
             background-color: #2b3b92;
             border-style: solid;
             color: #f8f9fa;
+             margin-top: 10px;
         }
 
         .ButtonFazerLogin {
@@ -162,6 +163,7 @@ header {
             border-color: #2b3b92;
             border-style: solid;
             color: #f8f9fa;
+            
         }
 
         .LocalDeInsert {
@@ -169,6 +171,7 @@ header {
             height: 2rem;
             width: 15rem;
             border-style: solid;
+            
         }
 
 
