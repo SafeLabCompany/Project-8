@@ -73,6 +73,7 @@
                 </label>
                 <input class="LocalDeInsert" type="password" id="ipt_LoginSenha" style="text-align: center;">
             </div>
+            <div id="msg_erro"></div><br>
             <div>
                 <button class="ButtonLogin" onclick="EntrarLogin()">Login</button>  
             </div>
@@ -151,7 +152,8 @@
             }
 
             if (ax_Email != "AdminAdmin@email.com" || ax_Senha != "urubu100") {
-                alert('Senha e/ou email incorretos')
+                msg_erro.innerHTML = `Sua senha ou email esta incorreto`
+                msg_erro.style.color = "red";
             } else if (ax_Email == "AdminAdmin@email.com" && ax_Senha == "urubu100") {
                 window.location.href = "../dash/dashboard.html"
             }
