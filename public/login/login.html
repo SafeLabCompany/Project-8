@@ -141,8 +141,9 @@
 
     <script>
         function EntrarLogin() {
-            let ax_Email = ipt_LoginEmail.value;
-            let ax_Senha = ipt_LoginSenha.value;
+            let ax_Email = "adm@safelab.com";
+            let ax_Senha = "urubu100";
+           
 
             if (ax_Email == '') {
                 alert('É necessario informar o seu email para seguir com o Login')
@@ -151,10 +152,10 @@
                 alert('É necessario inserir uma senha válida para seguir com o Login')
             }
 
-            if (ax_Email != "AdminAdmin@email.com" || ax_Senha != "urubu100") {
+            if (ax_Email != "adm@safelab.com" || ax_Senha != "urubu100") {
                 msg_erro.innerHTML = `Sua senha ou email esta incorreto`
                 msg_erro.style.color = "red";
-            } else if (ax_Email == "AdminAdmin@email.com" && ax_Senha == "urubu100") {
+            } else if (ax_Email == "adm@safelab.com" && ax_Senha == "urubu100") {
                 window.location.href = "../dash/dashboard.html"
             }
         }

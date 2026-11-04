@@ -90,11 +90,11 @@
 
           <div class="navegacao-config">
             <span class="navegacao-config-item-selecionado">Conta Pessoal</span>
-            <span class="navegacao-config-item"><a href="administracao.html">Administração de
-                Usuários</a></span>
-          </div>
+            <!-- <span class="navegacao-config-item"><a href="administracao.html">Administração de
+                Usuários</a></span> -->
+          </div>  
 
-          <div id="campos-input">
+           <div id="campos-input">
             <div id="ipt_inputs">
               <div class="campo-object">
                 Nome completo:
@@ -116,7 +116,7 @@
               </div>
 
               <div class="campo-object">
-                 <label for="ipt_senha_config">Senha:</label>
+                 <label for="ipt_senha_config">Senha: <br> Necessário caractere especial - letra maiúscula - número - mínimo 8 caracter </label>
                 <div class="area-editar">
                   <input type="text" id="ipt_senha_config" class="ipt-suporte" onkeyup="Validar()" /> 
                   <div id="img-lapis-senha">
@@ -126,8 +126,18 @@
                     <button id="botao-salvar">Salvar Alterações</button>
                     <button id="botao-descartar">Descartar Alterações</button><br>
                   </div>
+
                 </div>
-                  <br><div id="Mensagem_forca_senha"></div>
+                  <br><div id="Mensagem_forca_senha"></div> <br>
+                    <div class="campo-object">
+                Confirmar Senha:
+                <div class="area-editar">
+                  <input type="text" id="ipt_email_config" class="ipt-suporte" />
+                  <div id="img-lapis">
+                    <a><img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" width="30px" /></a>
+                  </div>
+                </div>
+              </div>
               </div>
 
             </div>
@@ -169,31 +179,43 @@
   </div>
 
 <script>
-  function Validar(){
+  let ValidarCadastro = 0;
+
+       function Validar(){
+       
     let senha = ipt_senha_config.value
     let numeros = '0123456789';
     let letrasMin = 'abcdefghijklmnopqrstuvwxyz'
     let letrasMai = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     let caracterEspecial = '!@#$%&*_-.,/'
-
      let criterioNumero= 0;
      let criterioMai = 0;
      let criterioEspe = 0;
-     let criterioTotal = 0;
      let criterioMin = 0;
+     let criterioTotal = 0;
+
+      if (senha.length == 0) {
+    ValidarCadastro = 0;
+    Mensagem_forca_senha.innerHTML = "";
+    return;
+}
 
       for(let i =0; i < senha.length; i++ ){
         if(numeros.includes(senha[i])){
           criterioNumero++
+         
         }
         if(letrasMai.includes(senha[i])){
           criterioMai++
+          
         }
         if(letrasMin.includes(senha[i])){
           criterioMin++
+          
         }
         if(caracterEspecial.includes(senha[i])){
           criterioEspe++
+          
         }
       }
 
@@ -217,22 +239,36 @@
       }
      
         if(criterioTotal == 2 ){
-            forca = "fraca"}
+          ValidarCadastro = 1;
+           Mensagem_forca_senha.innerHTML = `Força da senha: Fraca<br>`
+           Mensagem_forca_senha.style.color = "red"
+          }
         else if(criterioTotal == 3){
-            forca = "Média"}
+          ValidarCadastro = 2;
+            Mensagem_forca_senha.innerHTML = `Força da senha: Média<br>`
+           Mensagem_forca_senha.style.color = "black"
+           }
         else if(criterioTotal == 4){
-           forca = "forte"
+          ValidarCadastro = 3;
+             Mensagem_forca_senha.innerHTML = `Força da senha: Forte<br>`
+           Mensagem_forca_senha.style.color = "green"
         } 
         else if(criterioTotal >= 5 ) {
-            forca = "muito Forte"
+          ValidarCadastro = 4;
+             Mensagem_forca_senha.innerHTML = `Força da senha: Muito Forte<br>`
+           Mensagem_forca_senha.style.color = "green"
       } 
         if(senha.length < 8){
-          Mensagem_forca_senha.innerHTML = `A senha precisa ter no minimo 8 caracteres`
-        } else{
-          Mensagem_forca_senha.innerHTML = `Força da senha: ${forca}`
-        }
+          Mensagem_forca_senha.innerHTML = `minimo 8 caracteres<br>`
+           Mensagem_forca_senha.style.color = "red"
+         } 
+
+        
   }
-</script>
+
+
+   
+    </script>
 
 
 </body>
