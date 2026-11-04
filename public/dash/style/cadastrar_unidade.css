@@ -1,0 +1,73 @@
+.cadastrar_unidade {
+  width: 86vw;
+  min-height: 90vh;
+}
+
+.Area_Cadastro_Total {
+  width: 100%;
+  font-size: 20px;
+}
+
+.Area_Cadastro_Total input {
+  width: 90%;
+  height: 40px;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+.Titulo_Cadastro {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 90px;
+}
+
+.Titulo_Cadastro2 {
+  border-style: solid;
+  border-color: black;
+  width: 90%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  background-color: #d7d7d7;
+  text-align: start;
+  padding-left: 1%;
+  font-size: 22px;
+}
+
+.Informacoes_cadastro {
+  width: 91.5%;
+  min-height: 65vh;
+  border-style: solid;
+  padding-left: 50px;
+  padding-top: 40px;
+  gap: 30px;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fcfcfc;
+  display: flex;
+  flex-direction: column;
+}
+
+.informacao_unidade,
+.ipt_cep_unidade,
+.numero_unidade {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.botao_alteracoes {
+  border-radius: 5px;
+  background-color: #2b3b92;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border-color: black;
+  border-style: solid;
+}
+
+.btn_alteracoes {
+  align-self: flex-start;
+}

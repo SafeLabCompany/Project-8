@@ -1,0 +1,100 @@
+#header-dashboard {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* ----------------- */
+
+.areatabela_desativo {
+  display: none;
+}
+
+.arearefrigerador_desativo {
+  display: none;
+}
+
+/* ----------------- */
+
+.areatabela{
+  width: 80vw;
+  height: 47rem;
+}
+
+/* ----------------- */
+
+.arearefrigerador {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 1.2rem;
+  width: auto;
+  height: auto;
+  align-items: stretch;
+  padding: 3rem;
+}
+/*
+  Isso daqui esta como gambiarra, na sprint 3 vale ver se isso aqui ta correto;
+*/
+
+
+.refrigerador {
+  position: relative;
+  min-width: 0;
+  height: 21rem;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.refrigerador canvas {
+  width: 100%;
+  height: 100%;
+}
+
+#area-dashboard {
+  min-width: 0;
+  margin-left: 2rem;
+  width: 80vw;
+}
+
+/* --------------- */
+
+.badge {
+  display: inline-block;
+  min-width: auto;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: #9cff9d;
+  color: #036b04;
+}
+
+.--desligado {
+  background-color: #000c1b;
+  color: #fffafa;
+}
+
+.--medium {
+  background-color: #ffe000;
+  color: #d9a900;
+}
+
+.--critical {
+  background-color: #ff5252;
+  color: #fffafa;
+}
+
+.titulo-card{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: gray;
+  height: 4rem;
+  width: 100%;
+  color: #fffafa;
+}

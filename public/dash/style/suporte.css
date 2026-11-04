@@ -1,0 +1,43 @@
+#area-suporte {
+  margin-left: 2rem;
+  width: 83vw;
+  height: auto;
+  border-radius: 5px;
+  border: solid 1px;
+  border-color: #b5b5b5;
+  background-color: whitesmoke;
+}
+
+#barra-superior {
+  display: flex;
+  min-height: 1vh;
+  height: 8vh;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  font-weight: bolder;
+  border: solid 1px;
+  border-color: #a09b9b;
+  background-color: #d7d7d7;
+}
+
+#ipt-descricao {
+  min-height: 3rem;
+  height: 5rem;
+}
+
+#botao-div {
+  display: flex;
+  justify-content: center;
+  font-size: x-large;
+  font-weight: 900;
+  margin-top: 5vh;
+}
+
+#abrir-chamado {
+  width: 300px;
+  height: 50px;
+  background-color: #2b3b92;
+  color: white;
+  border-radius: 5px;
+}

@@ -1,0 +1,59 @@
+.area-unidades-total {
+  display: flex;
+  flex-direction: column;
+  width: 86.5vw;
+  height: 100%;
+  align-items: center;
+  background-color: white;
+}
+
+.title-unidades {
+  background-color: gray;
+  width: 95%;
+  text-align: center;
+  border-style: solid;
+  border-color: black;
+}
+
+.area-unidades {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 5%;
+  row-gap: 60px;
+  margin-top: 0.5%;
+  justify-content: center;
+  border-style: solid;
+  border-color: black;
+  height: 90%;
+  width: 95%;
+  position: relative;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+.unidade {
+  background-color: #2b3b92;
+  margin-top: 5%;
+  width: 60%;
+  max-width: 240px;
+  height: 175px;
+  border-radius: 8px;
+  border-color: #000000;
+  border-style: solid;
+  text-align: center;
+  font-size: 22px;
+  justify-self: center;
+}
+
+.btn-cadastrar-unidades {
+  align-self: flex-end;
+  right: 5%;
+  bottom: 3%;
+  position: absolute;
+}
+
+.btn-cad {
+  height: 70px;
+  border-style: none;
+  background-color: white;
+}
