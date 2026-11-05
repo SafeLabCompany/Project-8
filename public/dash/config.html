@@ -70,10 +70,8 @@
           </div>
 
           <div id="user-logout" class="btn-href">
-            <a href="../institucional/index.html" style="display: flex;">
             <h2>Logout</h2>
             <img class="btn-img" src="../assets/dash/user-area/log-out.svg" alt="">
-            </a>
           </div>
         </div>
       </div>
@@ -92,11 +90,11 @@
 
           <div class="navegacao-config">
             <span class="navegacao-config-item-selecionado">Conta Pessoal</span>
-            <!-- <span class="navegacao-config-item"><a href="administracao.html">Administração de
-                Usuários</a></span> -->
-          </div>  
+            <span class="navegacao-config-item"><a href="administracao.html">Administração de
+                Usuários</a></span>
+          </div>
 
-           <div id="campos-input">
+          <div id="campos-input">
             <div id="ipt_inputs">
               <div class="campo-object">
                 Nome completo:
@@ -118,7 +116,7 @@
               </div>
 
               <div class="campo-object">
-                 <label for="ipt_senha_config">Senha: <br> Necessário caractere especial - letra maiúscula - número - mínimo 8 caracter </label>
+                 <label for="ipt_senha_config">Senha:</label>
                 <div class="area-editar">
                   <input type="text" id="ipt_senha_config" class="ipt-suporte" onkeyup="Validar()" /> 
                   <div id="img-lapis-senha">
@@ -128,18 +126,8 @@
                     <button id="botao-salvar">Salvar Alterações</button>
                     <button id="botao-descartar">Descartar Alterações</button><br>
                   </div>
-
                 </div>
-                  <br><div id="Mensagem_forca_senha"></div> <br>
-                    <div class="campo-object">
-                Confirmar Senha:
-                <div class="area-editar">
-                  <input type="text" id="ipt_email_config" class="ipt-suporte" />
-                  <div id="img-lapis">
-                    <a><img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" width="30px" /></a>
-                  </div>
-                </div>
-              </div>
+                  <br><div id="Mensagem_forca_senha"></div>
               </div>
 
             </div>
@@ -181,43 +169,31 @@
   </div>
 
 <script>
-  let ValidarCadastro = 0;
-
-       function Validar(){
-       
+  function Validar(){
     let senha = ipt_senha_config.value
     let numeros = '0123456789';
     let letrasMin = 'abcdefghijklmnopqrstuvwxyz'
     let letrasMai = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     let caracterEspecial = '!@#$%&*_-.,/'
+
      let criterioNumero= 0;
      let criterioMai = 0;
      let criterioEspe = 0;
-     let criterioMin = 0;
      let criterioTotal = 0;
-
-      if (senha.length == 0) {
-    ValidarCadastro = 0;
-    Mensagem_forca_senha.innerHTML = "";
-    return;
-}
+     let criterioMin = 0;
 
       for(let i =0; i < senha.length; i++ ){
         if(numeros.includes(senha[i])){
           criterioNumero++
-         
         }
         if(letrasMai.includes(senha[i])){
           criterioMai++
-          
         }
         if(letrasMin.includes(senha[i])){
           criterioMin++
-          
         }
         if(caracterEspecial.includes(senha[i])){
           criterioEspe++
-          
         }
       }
 
@@ -241,36 +217,22 @@
       }
      
         if(criterioTotal == 2 ){
-          ValidarCadastro = 1;
-           Mensagem_forca_senha.innerHTML = `Força da senha: Fraca<br>`
-           Mensagem_forca_senha.style.color = "red"
-          }
+            forca = "fraca"}
         else if(criterioTotal == 3){
-          ValidarCadastro = 2;
-            Mensagem_forca_senha.innerHTML = `Força da senha: Média<br>`
-           Mensagem_forca_senha.style.color = "black"
-           }
+            forca = "Média"}
         else if(criterioTotal == 4){
-          ValidarCadastro = 3;
-             Mensagem_forca_senha.innerHTML = `Força da senha: Forte<br>`
-           Mensagem_forca_senha.style.color = "green"
+           forca = "forte"
         } 
         else if(criterioTotal >= 5 ) {
-          ValidarCadastro = 4;
-             Mensagem_forca_senha.innerHTML = `Força da senha: Muito Forte<br>`
-           Mensagem_forca_senha.style.color = "green"
+            forca = "muito Forte"
       } 
         if(senha.length < 8){
-          Mensagem_forca_senha.innerHTML = `minimo 8 caracteres<br>`
-           Mensagem_forca_senha.style.color = "red"
-         } 
-
-        
+          Mensagem_forca_senha.innerHTML = `A senha precisa ter no minimo 8 caracteres`
+        } else{
+          Mensagem_forca_senha.innerHTML = `Força da senha: ${forca}`
+        }
   }
-
-
-   
-    </script>
+</script>
 
 
 </body>
