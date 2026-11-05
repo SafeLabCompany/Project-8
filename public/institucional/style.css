@@ -28,7 +28,7 @@ section {
     scroll-margin-top: 5rem;
 }
 
-div{
+div {
     scroll-margin-top: 5rem;
 }
 
@@ -463,7 +463,7 @@ Notebook */
 /* SIMULADOR */
 /* --------- */
 
-.simulador_sessao{
+.simulador_sessao {
     background-image: url(../assets/institucional/backgroundimg.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -476,7 +476,7 @@ Notebook */
     align-items: center;
 }
 
-.conteiner_simulador_com_texto{
+.conteiner_simulador_com_texto {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -489,7 +489,7 @@ Notebook */
     width: 100%;
 }
 
-.texto_gancho_simulador{
+.texto_gancho_simulador {
     /* font-size: 2.5rem; */
     font-weight: bold;
     font-family: 'Montserrat';
@@ -500,7 +500,7 @@ Notebook */
     /* width: 100%; */
 }
 
-.simulador{
+.simulador {
     background-color: #f8fafc;
     width: 100%;
     height: 40rem;
@@ -516,14 +516,14 @@ Notebook */
     align-self: center;
 }
 
-.simulador_titulo{
+.simulador_titulo {
     text-align: center;
 
     font-size: 2.5rem;
     font-weight: bolder;
 }
 
-.card_informacoes_simulador{
+.card_informacoes_simulador {
     display: flex;
     align-items: center;
     width: 90%;
@@ -533,7 +533,7 @@ Notebook */
     border-radius: 0.5rem;
 }
 
-.card_informacoes_header{
+.card_informacoes_header {
     background-color: #003366;
     font-weight: 600;
     font-size: 1rem;
@@ -550,20 +550,20 @@ Notebook */
     height: 100%;
 }
 
-.campo_entrada_simulador{
+.campo_entrada_simulador {
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
 }
 
-.nome_informacao{
+.nome_informacao {
     font-weight: bold;
     font-size: 0.9rem;
 
     text-align: center;
 }
 
-.select_simulador{
+.select_simulador {
     border: 0.1rem #cbd5e1 solid;
     border-radius: 1rem;
 
@@ -576,11 +576,11 @@ Notebook */
     text-align: center;
 }
 
-.select_simulador:focus{
+.select_simulador:focus {
     border-color: #2563eb;
 }
 
-.input_simulador{
+.input_simulador {
     border: 0.1rem solid #cbd5e1;
     border-radius: 1rem;
     font-size: 0.9rem;
@@ -597,7 +597,7 @@ Notebook */
     border-color: #2563eb;
 }
 
-.card_resultado{
+.card_resultado {
     width: 90%;
     height: 20rem;
     background-color: #f0f9ff;
@@ -608,7 +608,7 @@ Notebook */
     justify-content: space-evenly;
 }
 
-.texto_resultado{
+.texto_resultado {
     height: 100%;
     width: 28%;
 
@@ -617,7 +617,7 @@ Notebook */
     align-items: center;
 }
 
-.planos_resultado{
+.planos_resultado {
     height: 80%;
     width: 60%;
 
@@ -636,7 +636,7 @@ Notebook */
 /* POPUPs */
 /* ------*/
 
-.bodybloqueado{
+.bodybloqueado {
     overflow: hidden;
 }
 
@@ -679,10 +679,10 @@ Notebook */
     margin-top: 2rem;
 }
 
-table{
+table {
     border-collapse: collapse;
     justify-content: space-between;
-    
+
     height: 100%;
 
     border-width: 0.2rem;
@@ -690,7 +690,7 @@ table{
     border-color: #1c1c1c;
 }
 
-thead{
+thead {
     background-color: #2b3b92;
 }
 
@@ -704,8 +704,94 @@ th {
     border: 0.1rem solid #1c1c1c;
 }
 
-td{
+td {
     padding: 1rem;
     text-align: left;
     border: 0.1rem solid #1c1c1c;
+}
+
+#contato_popup {
+    display: flex;
+    flex-direction: column;
+    width: 50rem;
+    border-radius: 1rem;
+    border-color: #2b3b92;
+    border-width: 0.5rem;
+    padding: 0;
+}
+
+#botao_popup {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: x-large;
+    background-color: #ff0000;
+    border-style: solid;
+    border-color: #ff0000;
+    color: white;
+}
+
+#ipt_email_empresa {
+    width: 20rem;
+    height: 2rem;
+    border-color: #2b3b92;
+    border-style: solid;
+    border-width: 0.2rem;
+    border-radius: 0.5rem;
+}
+
+#ipt_assunto_popup {
+    width: 30rem;
+    height: 2rem;
+    border-color: #2b3b92;
+    border-style: solid;
+    border-width: 0.2rem;
+    border-radius: 0.5rem;
+}
+
+#ipt_texto_popup {
+    width: 40rem;
+    height: 9rem;
+    border-color: #2b3b92;
+    border-style: solid;
+    border-width: 0.2rem;
+    border-radius: 0.5rem;
+}
+
+#header_popup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50rem;
+    height: 6rem;
+    background-color: #2b3b92;
+}
+
+#texto_header_popup {
+    display: flex;
+    justify-content: center;
+    margin-left: 1rem;
+    color: white;
+}
+#div_popup{
+    padding-top: 1rem;
+    align-self: center;
+}
+#enviar_popup{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    font-size: large;
+    border-radius: 0.5rem;
+    background-color: #2b3b92;
+    border-style: solid;
+    border-color: #2b3b92;
+    color: white;
 }
