@@ -711,8 +711,6 @@ td {
 }
 
 #contato_popup {
-    display: flex;
-    flex-direction: column;
     width: 50rem;
     border-radius: 1rem;
     border-color: #2b3b92;
@@ -778,14 +776,12 @@ td {
     color: white;
 }
 #div_popup{
+    margin-left: 5rem;
     padding-top: 1rem;
     align-self: center;
 }
 #enviar_popup{
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
     margin-right: 1rem;
     margin-bottom: 1rem;
     font-size: large;
