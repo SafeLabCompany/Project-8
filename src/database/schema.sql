@@ -41,7 +41,7 @@ fk_funcionario INT NOT NULL,
 CONSTRAINT ChkFkChamadoFuncionario FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id)
 );
 
--- Tabela do refrigerador
+-- Tabela do refrigerador 
 CREATE TABLE refrigerador (
 id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(50) NOT NULL,
