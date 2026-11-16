@@ -279,7 +279,41 @@
       else if(ValidarCadastro <= 1){
         alert("Sua senha precisa ser no minimo média")
       }
+
+
+      fetch('/usuarios/cadastrar', {
+        method: 'POST',
+        body: {
+          Nome: ax_Nome,
+          Email: ax_Email,
+          CPF: ax_Cpf,
+          Senha: ax_Senha,
+          codEmpresa: ax_CodEmpresa
+        }
+      }).then(function(resposta){
+        if(resposta.ok){
+          console.log(resposta);
+
+          resposta.json().then(json => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            sessionStorage.user_name = json.name;
+            sessionStorage.user_email = json.email;
+
+            setTimeout(function (){
+              window.location = "../login/login.html"
+            },1000)
+          })
+        }
+        else {
+            console.log("Houve um erro ao tentar realizar o login");
+            resposta.text().then(texto =>{
+              console.error(texto);
+            });
+          }
+      })
     }
+    
 
  
 

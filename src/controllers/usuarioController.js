@@ -39,12 +39,11 @@ function autenticar(req, res) {
 }
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nome = req.body.nomeServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-    var fk_unidade = req.body.idEmpresaVincularServer;
-    var cpf = req.body.cpfServer;
+    var nome = req.body.Nome;
+    var email = req.body.Email;
+    var senha = req.body.Senha;
+    var codigo_empresa = req.body.codEmpresa;
+    var cpf = req.body.CPF;
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -53,8 +52,8 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (fk_unidade == undefined) {
-        res.status(400).send("Sua empresa a vincular está undefined!");
+    } else if (codigo_empresa == undefined) {
+        res.status(400).send("Empresa inexistente!");
     } else if (cpf == undefined) {
         res.status(400).send("Seu cpf está undefined!");
     } else {
@@ -64,10 +63,10 @@ function cadastrar(req, res) {
             .then(
                 function (resultado) {
                     if (resultado.length == 1) {
-                        usuarioModel.cadastrar(nome, email, senha, fk_unidade, cpf)
+                        usuarioModel.cadastrar(nome, email, senha, codigo_empresa, cpf)
                             .then(
                                 function (result) {
-                                    var unidade = resultado[0];
+                                    var unidade = result[0];
                                     res.status(201).json({
                                         unidadeId: unidade.unidadeId,
                                         empresaId: unidade.unidadeId
