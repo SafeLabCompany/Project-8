@@ -19,7 +19,7 @@
             <img src="../assets/dash/userIcon.svg" />
           </div>
           <div class="button-user">
-            <div class="btn-title">Monitoramento</div>
+            <div class="btn-title">Fernanda</div>
             <div class="btn-href">
               <a href="dashboard.html" class="btn-row">
                 <img
@@ -111,9 +111,8 @@
         </div>
       <div id="area-dashboard">
         <div id="header-dashboard">
-          <div style="color: rgb(64, 64, 64); font-size: 2rem; font-weight: bold;">Olá Fernanda!</div>
-          <div style="display: flex; gap: 15px; align-items: center;">
-            <img id="img_alert" width="25px" src="../assets/dash/notification.png" alt="Alerta" />
+          <div style="display: flex; gap: 15px; margin-left: auto; align-self: flex-end; align-items: center;">
+            <img id="img_alert"  width="25px" src="../assets/dash/notification.png" alt="Alerta" />
             <img id="user_icon" width="30px" src="../assets/dash/userIcon.png" alt="Usuário" />
           </div>
         </div>
@@ -123,11 +122,22 @@
             <div style="font-weight: bold;">Último registro crítico:</div>
             <div style="font-size: 1.8rem; font-weight: bold;">Há 5 minutos!</div>
             <div style="font-size: 0.9rem;">No refrigerador 5<br><b>Status: Pendente!</b></div>
+            
+            <a onclick="kpi1_popup.showModal(); bloquear_body()"
+                            style="display: inline-block; align-self: flex-start; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">
+                          <img src="../assets/dash/icone_i_branco.png" alt="icone_informacao" width="30px">
+                          </a>
+
           </div>
           <div class="card kpi2">
-            <div style="font-weight: bold;">Estado da unidade:</div>
-            <div style="font-size: 1.8rem; font-weight: bold; color: white;">Atenção</div>
-            <div style="font-size: 0.9rem;">1 refrigerador em risco<br>0 em atenção - 5 ideais</div>
+            <div style="font-weight: bold; color: rgb(64, 64, 64);">Estado da unidade:</div>
+            <div style="font-size: 1.8rem; font-weight: bold; color: rgb(64, 64, 64);">Atenção</div>
+            <div style="font-size: 0.9rem; color: rgb(64, 64, 64)">1 refrigerador em risco<br>0 em atenção - 5 ideais</div>
+
+            <a onclick="kpi2_popup.showModal(); bloquear_body()"
+                            style="display: inline-block; align-self: flex-start; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">
+                          <img src="../assets/dash/icone_i.png" alt="icone_informacao" width="30px">
+                          </a>
           </div>
           <div class="card kpi1">
             <div style="font-weight: bold;">Tempo em estado de atenção</div>
@@ -136,6 +146,10 @@
               <span style="font-size: 0.8rem;">desde a primeira ocorrência</span>
             </div>
             <div style="font-size: 0.9rem;">Início da ocorrência: 02/11/2026 às 16:46</div>
+            <a onclick="kpi3_popup.showModal(); bloquear_body()"
+                            style="display: inline-block; align-self: flex-start; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">
+                          <img src="../assets/dash/icone_i_branco.png" alt="icone_informacao" width="30px">
+                          </a>
           </div>
         </div>
 
@@ -274,8 +288,31 @@
       </div>
     </div>
   </div>
+
+  <dialog class="kpi_popup" id="kpi1_popup">
+            <button class="botao_pop_kpi_1" onclick="kpi1_popup.close(); ">X</button>
+            <h2>Tempo desde o último registro crítico</h2>
+            <p>Exibição do intervalo de tempo desde o último alerta de temperatura fora da faixa ideal</p>
+            
+  </dialog>
+
+  <dialog class="kpi_popup" id="kpi2_popup" >
+            <button class="botao_pop_kpi_2" onclick="kpi2_popup.close();">X</button>
+            <h2>Estado da unidade</h2>
+            <p>Exibição do estado geral da unidade de acordo com o status de seus refrigeradores</p>
+            
+  </dialog>
+
+  <dialog class="kpi_popup" id="kpi3_popup">
+            <button class="botao_pop_kpi_3" onclick="kpi3_popup.close();">X</button>
+            <h2>Estado da unidade</h2>
+            <p>Exibição do tempo desde que o refrigerador registrou uma ocorrência de temperatura fora da faixa ideal</p>
+            
+  </dialog>
+
 </body>
 <script>
+
   var historico_temp = new Chart(
     document.getElementById("historico-temp").getContext("2d"),
     {
