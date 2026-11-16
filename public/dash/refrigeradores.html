@@ -1,25 +1,20 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style/style.css" />
-    <link rel="stylesheet" href="style/refri.css" />
-    <link rel="stylesheet" href="style/alertas.css" />
-    <title>Safelab | Dashboard</title>
-    <link
-      rel="icon"
-      type="image/png"
-      href="../assets/institucional/safelab_recortada.svg"
-    />
-    <script src="info.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  </head>
 
-  <body>
-    <div id="page-container">
-      <div id="main-dash">
-        <div id="user-area">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="style/dashboard.css" />
+  <title>Safelab | Dashboard</title>
+  <link rel="icon" type="image/png" href="../assets/institucional/safelab_recortada.svg">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div id="page-container">
+    <div id="main-dash">
+      <div id="user-area">
           <div id="user-img">
             <img src="../assets/dash/userIcon.svg" />
           </div>
@@ -114,309 +109,289 @@
             </div>
           </div>
         </div>
-
-        <div id="area-dashboard">
-          <div id="header-dashboard">
-            <div id="button-vizualizacao">
-              <button onclick="alternar_vizualizacao()">
-                Visualização em Tabela
-              </button>
-            </div>
-            <div>
-              <select name="" id="slc_unidade" onchange="gerar_graficos()">
-                <option value="unidade_1">Unidade 1</option>
-                <option value="unidade_2">Unidade 2</option>
-                <option value="unidade_3">Unidade 3</option>
-                <option value="unidade_4">Unidade 4</option>
-                <option value="unidade_5">Unidade 5</option>
-              </select>
-            </div>
-            <div>
-              <img
-                id="img_alert"
-                width="25px"
-                src="../assets/dash/notification.png"
-                alt="user_icon.png"
-              />
-              <img
-                id="img_alert"
-                width="25px"
-                src="../assets/dash/userIcon.png"
-                alt="user_icon.png"
-              />
-            </div>
+      <div id="area-dashboard">
+        <div id="header-dashboard">
+          <div style="color: rgb(64, 64, 64); font-size: 2rem; font-weight: bold;">Olá Fernanda!</div>
+          <div style="display: flex; gap: 15px; align-items: center;">
+            <img id="img_alert" width="25px" src="../assets/dash/notification.png" alt="Alerta" />
+            <img id="user_icon" width="30px" src="../assets/dash/userIcon.png" alt="Usuário" />
           </div>
-          <div class="areatabela_desativo" id="div_exibir_tabela">
-            <div id="table">
-              <table>
-                <thead>
-                  <tr>
-                    <th scope="col">Refrigeradores</th>
-                    <th scope="col">Registro Atual</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Data e Hora</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td scope="row">Refrigerador 1</td>
-                    <td scope="row"><span class="low">2.8</span></td>
-                    <td scope="row"><span class="badge">Ideal</span></td>
-                    <td scope="row">27/05/2026 9:41</td>
-                  </tr>
-                  <tr>
-                    <td>Refrigerador 2</td>
-                    <td><span class="low">2.5</span></td>
-                    <td><span class="badge">Ideal</span></td>
-                    <td>27/05/2026 9:40</td>
-                  </tr>
-                  <tr>
-                    <td>Refrigerador 3</td>
-                    <td><span class="low">2.8</span></td>
-                    <td><span class="badge">Ideal</span></td>
-                    <td>27/05/2026 9:39</td>
-                  </tr>
-                  <tr>
-                    <td>Refrigerador 4</td>
-                    <td><span class="low">6</span></td>
-                    <td><span class="badge">Ideal</span></td>
-                    <td>27/05/2026 9:38</td>
-                  </tr>
-                  <tr>
-                    <td>Refrigerador 5</td>
-                    <td><span class="critical">9.2</span></td>
-                    <td><span class="badge --critical">Crítico</span></td>
-                    <td>27/05/2026 9:37</td>
-                  </tr>
-                  <tr>
-                    <td>Refrigerador 6</td>
-                    <td>---</td>
-                    <td><span class="badge --desligado">Desligado</span></td>
-                    <td>27/05/2026 9:36</td>
-                  </tr>
-                </tbody>
-              </table>
+        </div>
+
+        <div id="area-kpi">
+          <div class="card kpi1">
+            <div style="font-weight: bold;">Último registro crítico:</div>
+            <div style="font-size: 1.8rem; font-weight: bold;">Há 5 minutos!</div>
+            <div style="font-size: 0.9rem;">No refrigerador 5<br><b>Status: Pendente!</b></div>
+          </div>
+          <div class="card kpi2">
+            <div style="font-weight: bold;">Estado da unidade:</div>
+            <div style="font-size: 1.8rem; font-weight: bold; color: white;">Atenção</div>
+            <div style="font-size: 0.9rem;">1 refrigerador em risco<br>0 em atenção - 5 ideais</div>
+          </div>
+          <div class="card kpi1">
+            <div style="font-weight: bold;">Tempo em estado de atenção</div>
+            <div>
+              <span style="font-size: 1.8rem; font-weight: bold;">0h 15min</span>
+              <span style="font-size: 0.8rem;">desde a primeira ocorrência</span>
+            </div>
+            <div style="font-size: 0.9rem;">Início da ocorrência: 02/11/2026 às 16:46</div>
+          </div>
+        </div>
+
+        <div id="area-grafico">
+          <div id="container-esquerdo">
+
+            <div class="dash-grafico">
+              <div class="dash-title">
+                <span>Temperatura atual dos refrigeradores:</span>
+              </div>
+              <canvas id="media_refrigeradores" style="max-height: 280px;"></canvas>
+            </div>
+
+
+            <div class="dash-grafico">
+              <div class="dash-title">
+                <span>Histórico de Temperaturas do Refrigerador</span>
+                <select id="dash-select">
+                  <option>Refrigerador 1</option>
+                  <option>Refrigerador 2</option>
+                  <option>Refrigerador 3</option>
+                  <option>Refrigerador 4</option>
+                  <option>Refrigerador 5</option>
+                  <option>Refrigerador 6</option>
+                </select>
+              </div>
+              <canvas id="historico-temp" style="max-height: 280px;"></canvas>
             </div>
           </div>
 
-          <div class="arearefrigerador" id="div_exibir_grafico"></div>
+          <div id="container-direito">
+            <select
+              style="width: 100%; padding: 10px; background-color: #558acb; color: white; border: none; border-radius: 10px; font-size: 1.5rem; font-weight: bold; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+              <option value="">Unidade 1</option>
+              <option value="">Unidade 2</option>
+              <option value="">Unidade 3</option>
+              <option value="">Unidade 4</option>
+            </select>
+
+            <div class="dash-alertas">
+              <div
+                style="text-align: center; font-size: 1.5rem; font-weight: bold; padding: 15px; background-color: #a9a9a9; border-bottom: 1px solid #ccc;">
+                Ultimos alertas
+              </div>
+              <div class="container-alerta">
+                <div>
+                  <img class="img-perigo" src="../assets/dash/alerta_vermelho-removebg-preview.png" alt="">
+                </div>
+
+                <div>
+                  <div>
+                    Temperatura de Risco!
+                  </div>
+                  <div>
+                    Refrigerador 5
+                  </div>
+                  <div class="text-alertas">
+                    PENDENTE
+                  </div>
+                </div>
+              </div>
+              <div class="container-alerta">
+                <div>
+                  <img class="img-perigo" src="../assets/dash/alerta-amarelo.svg" alt="">
+                </div>
+
+                <div>
+                  <div>
+                    Temperatura acima da faixa!
+                  </div>
+                  <div>
+                    Refrigerador 5
+                  </div>
+                  <div class="text-alertas">
+                    PENDENTE
+                  </div>
+                </div>
+              </div>
+                <div class="container-alerta">
+                  <div>
+                    <img class="img-perigo" src="../assets/dash/alerta-amarelo.svg" alt="">
+                  </div>
+                  
+                  <div>
+                    <div>
+                      Temperatura acima da faixa
+                    </div>
+                    <div>
+                      Refrigerador 4
+                    </div>
+                    <div style="font-weight: bolder;">
+                      RESOLVIDO
+                    </div>
+                  </div>
+                </div>
+                <div class="container-alerta">
+                  <div>
+                    <img class="img-perigo" src="../assets/dash/alerta-amarelo.svg" alt="">
+                  </div>
+                  
+                  <div>
+                    <div>
+                      Temperatura acima da faixa
+                    </div>
+                    <div>
+                      Refrigerador 4
+                    </div>
+                    <div style="font-weight: bolder;">
+                      RESOLVIDO
+                    </div>
+                  </div>
+                </div>
+                <div class="container-alerta">
+                  <div>
+                    <img class="img-perigo" src="../assets/dash/alerta-amarelo.svg" alt="">
+                  </div>
+                  
+                  <div>
+                    <div>
+                      Temperatura acima da faixa
+                    </div>
+                    <div>
+                      Refrigerador 3
+                    </div>
+                    <div style="font-weight: bolder;">
+                      RESOLVIDO
+                    </div>
+                  </div>
+                </div>
+              <div style="text-align: center; padding: 15px;">
+                <a href="alertas.html" style="color: #558acb; text-decoration: none;">Ver todos os registros →</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </body>
-  <script>
-    let tabela = false;
-    let grafico = true;
-
-    function alternar_vizualizacao() {
-      if (grafico == true) {
-        div_exibir_grafico.className = "arearefrigerador_desativo";
-        div_exibir_tabela.className = "areatabela";
-        grafico = false;
-        tabela = true;
-      } else {
-        div_exibir_grafico.className = "arearefrigerador";
-        div_exibir_tabela.className = "areatabela_desativo";
-        grafico = true;
-        tabela = false;
-      }
-    }
-
-    let message = "";
-    let ultimo_valor = 0;
-
-    for(let i = 1; i <= lista_unidade.length; i++){
-     message += `<option value="${i}"> Unidade ${i}</option>`; 
-    }
-    slc_unidade.innerHTML = message;
-
-    let graficos = [];
-
-    function gerar_graficos() {
-      for (let i = 0; i < graficos.length; i++) {
-        graficos[i].destroy();
-      }
-
-      graficos = [];
-
-      message = "";
-
-      let unidade = slc_unidade.value;
-      let sensores = [];
-
-      if (unidade == "1") {
-         sensores = [unidade_1_sensor_1, unidade_1_sensor_2, unidade_1_sensor_3, unidade_1_sensor_4, unidade_1_sensor_5, unidade_1_sensor_6];
-
-        for (let i = 0; i < unidade_1.length; i++) {
-          if (i == 0) {
-            ultimo_valor = unidade_1_sensor_1[unidade_1_sensor_1.length - 1];
-          } else if (i == 1) {
-            ultimo_valor = unidade_1_sensor_2[unidade_1_sensor_2.length - 1];
-          } else if (i == 2) {
-            ultimo_valor = unidade_1_sensor_3[unidade_1_sensor_3.length - 1];
-          } else if (i == 3) {
-            ultimo_valor = unidade_1_sensor_4[unidade_1_sensor_4.length - 1];
-          } else if (i == 4) {
-            ultimo_valor = unidade_1_sensor_5[unidade_1_sensor_5.length - 1];
-          } else if (i == 5) {
-            ultimo_valor = unidade_1_sensor_6[unidade_1_sensor_6.length - 1];
-          }
-
-          message += `
-      <div class="refrigerador">
-        <div class='titulo-card'>
-          <div style='margin-left: 6px;'>
-            Refrigerador - ${i + 1}
-          </div>
-          <div style='margin-right: 6px;' class="badge --${ultimo_valor < 8 && ultimo_valor > 2 && ultimo_valor != null ? "ideal" : ultimo_valor == null ? "semReg" : "critical"}">
-            ${ultimo_valor < 8 && ultimo_valor > 2 && ultimo_valor != null ? "Ideal" : ultimo_valor == null ? "Sem Registro" : "Crítico"}
-          </div>
-        </div>
-          <canvas class="refrigerador" id="refrigerador-${i}"></canvas>
-          </div>
-        
-    `
-        }
-      } else if (unidade == "3") {
-
-        sensores = [unidade_3_sensor_1, unidade_3_sensor_2, unidade_3_sensor_3, unidade_3_sensor_4];
-
-        for (let i = 0; i < unidade_3.length; i++) {
-          if (i == 0) {
-            ultimo_valor = unidade_3_sensor_1[unidade_3_sensor_1.length - 1];
-          } else if (i == 1) {
-            ultimo_valor = unidade_3_sensor_2[unidade_3_sensor_2.length - 1];
-          } else if (i == 2) {
-            ultimo_valor = unidade_3_sensor_3[unidade_3_sensor_3.length - 1];
-          } else if (i == 3) {
-            ultimo_valor = unidade_3_sensor_4[unidade_3_sensor_4.length - 1];
-          }
-
-          message += `
-      <div class="refrigerador">
-        <div class='titulo-card'>
-          <div style='margin-left: 6px;'>
-            Refrigerador - ${i + 1}
-          </div>
-          <div style='margin-right: 6px;' class="badge --${ultimo_valor < 8 && ultimo_valor > 2 && ultimo_valor != null ? "ideal" : ultimo_valor == null ? "semReg" : "critical"}">
-            ${ultimo_valor < 8 && ultimo_valor > 2 && ultimo_valor != null ? "Ideal" : ultimo_valor == null ? "Sem Registro" : "Crítico"}
-          </div>
-        </div>
-          <canvas class="refrigerador" id="refrigerador-${i}"></canvas>
-        </div>
-    `;
-        }
-      } else if (unidade == "4") {
-
-        sensores = [unidade_4_sensor_1, unidade_4_sensor_2, unidade_4_sensor_3];
-
-        for (let i = 0; i < unidade_4.length; i++) {
-          if (i == 0) {
-            ultimo_valor = unidade_4_sensor_1[unidade_4_sensor_1.length - 1];
-          } else if (i == 1) {
-            ultimo_valor = unidade_4_sensor_2[unidade_4_sensor_2.length - 1];
-          } else if (i == 2) {
-            ultimo_valor = unidade_4_sensor_3[unidade_4_sensor_3.length - 1];
-          }
-
-          message += `
-      <div class="refrigerador">
-        <div class='titulo-card'>
-          <div style='margin-left: 6px;'>
-            Refrigerador - ${i + 1}
-          </div>
-          <div style='margin-right: 6px;' class="badge --${ultimo_valor < 8 && ultimo_valor > 2 && ultimo_valor != null ? "ideal" : ultimo_valor == null ? "semReg" : "critical"}">
-            ${ultimo_valor < 8 && ultimo_valor > 2 && ultimo_valor != null ? "Ideal" : ultimo_valor == null ? "Sem Registro" : "Crítico"}
-          </div>
-        </div>
-          <canvas class="refrigerador" id="refrigerador-${i}"></canvas>
-        </div>
-    `;
-        }
-      } else if (unidade == "2") {
-
-        sensores = [unidade_2_sensor_1, unidade_2_sensor_2, unidade_2_sensor_3, unidade_2_sensor_4, unidade_2_sensor_5];
-
-        for (let i = 0; i < unidade_2.length; i++) {
-          if (i == 0) {
-            ultimo_valor = unidade_2_sensor_1[unidade_2_sensor_1.length - 1];
-          } else if (i == 1) {
-            ultimo_valor = unidade_2_sensor_2[unidade_2_sensor_2.length - 1];
-          } else if (i == 2) {
-            ultimo_valor = unidade_2_sensor_3[unidade_2_sensor_3.length - 1];
-          } else if (i == 3) {
-            ultimo_valor = unidade_2_sensor_4[unidade_2_sensor_4.length - 1];
-          } else if (i == 4) {
-            ultimo_valor = unidade_2_sensor_5[unidade_2_sensor_5.length - 1];
-          }
-
-          message += `
-      <div class="refrigerador">
-        <div class='titulo-card'>
-          <div style='margin-left: 6px;'>
-            Refrigerador - ${i + 1}
-          </div>
-          <div style='margin-right: 6px;' class="badge --${ultimo_valor < 8 && ultimo_valor > 2 && ultimo_valor != null ? "ideal" : ultimo_valor == null ? "semReg" : "critical"}">
-            ${ultimo_valor < 8 && ultimo_valor > 2 && ultimo_valor != null ? "Ideal" : ultimo_valor == null ? "Sem Registro" : "Crítico"}
-          </div>
-        </div>
-          <canvas class="refrigerador" id="refrigerador-${i}"></canvas>
-        </div>
-    `;
-        }
-      } 
-
-      div_exibir_grafico.innerHTML = message;
-
-      for(let i = 0; i < sensores.length; i++){
-        var historico_temp = new Chart(
-        document.getElementById(`refrigerador-${i}`).getContext("2d"),
-        {
-          type: "line",
-          data: {
-            labels: horas,
-            datasets: [
-              {
-                label: "temperatura",
-                borderColor: "#558acb",
-                backgroundColor: "cyan",
-                borderWidth: 2,
-                data: sensores[i],
-              },
-              {
-                label: "Limite mínimo (2°C)",
-                borderColor: "red",
-                borderWidth: 2,
-                borderDash: [5, 5],
-                pointRadius: 0,
-                data: [
-                  2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-                ],
-              },
-              {
-                label: "Limite máximo (8°C)",
-                borderColor: "red",
-                borderWidth: 2,
-                borderDash: [5, 5],
-                pointRadius: 0,
-                data: [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
-              },
-            ],
+  </div>
+</body>
+<script>
+  var historico_temp = new Chart(
+    document.getElementById("historico-temp").getContext("2d"),
+    {
+      type: "line",
+      data: {
+        labels: ["00:01", "00:02", "00:03", "00:04", "00:05", "00:06"],
+        datasets: [
+          {
+            label: "temperatura",
+            borderColor: "#558acb",
+            backgroundColor: "#558acb",
+            borderWidth: 2,
+            data: [4, 5, 4, 3, 5, 6],
           },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
+          {
+            label: "Limite mínimo (2°C)",
+            borderColor: "red",
+            borderWidth: 2,
+            borderDash: [5, 5],
+            pointRadius: 0,
+            data: [2, 2, 2, 2, 2, 2],
+          },
+          {
+            label: "Limite máximo (8°C)",
+            borderColor: "red",
+            borderWidth: 2,
+            borderDash: [5, 5],
+            pointRadius: 0,
+            data: [8, 8, 8, 8, 8, 8],
+          },
+        ],
+      },
+      options: {
+        plugins: {
+          legend: {
+            position: "bottom",
+            align: "center",
           },
         },
-      );
-      graficos.push(historico_temp)
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: "Horario",
+            },
+          },
+          y: {
+            min: 0,
+            max: 10,
+            title: {
+              display: true,
+              text: "Temperatura(°C)",
+            },
+          },
+        },
+      },
+      y: {
+        min: 0,
+        max: 10,
+        title: {
+          display: true,
+          text: 'Temperatura (°C)'
+        }
       }
+    },
+  );
 
-      
-    }
+  var media_refrigeradores = new Chart(
+    document.getElementById("media_refrigeradores").getContext("2d"),
+    {
+      type: "bar",
+      data: {
+        labels: [
+          "Refrigerador 1",
+          "Refrigerador 2",
+          "Refrigerador 3",
+          "Refrigerador 4",
+          "Refrigerador 5",
+          "Refrigerador 6",
+        ],
+        datasets: [
+          {
+            label: "temperatura",
+            borderColor: ["#558acb", "#558acb", "#558acb", "#558acb", "red", "#558acb"],
+            backgroundColor: ["#558acb", "#558acb", "#558acb", "#558acb", "red", "#558acb"],
+            borderWidth: 2,
+            data: [6, 4, 4, 5, 1, 6],
+          },
+        ],
+      },
+      options: {
+        plugins: {
+          legend: {
+            position: "bottom",
+            align: "center",
+          },
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: "Refrigeradores",
+            },
+          },
+          y: {
+            min: 0,
+            max: 10,
+            title: {
+              display: true,
+              text: "Temperatura(°C)",
+            },
+          },
+        },
+      },
+    },
+  );
+</script>
 
-    gerar_graficos();
-
-    
-  </script>
 </html>
