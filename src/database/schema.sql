@@ -1,7 +1,6 @@
 CREATE DATABASE safelab;
 USE safelab;
 
-
 -- Tabela da Empresa
 CREATE TABLE empresa (
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -18,61 +17,113 @@ cep CHAR(8) NOT NULL,
 numero_endereco INT NOT NULL,
 codigo_ativacao CHAR(7) NOT NULL,
 fk_empresa INT NOT NULL,
-CONSTRAINT ChkFkUnidadeEmpresa FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+CONSTRAINT ConstFkUnidadeEmpresa FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
 
 -- Tabela do Funcionário
 CREATE TABLE funcionario (
-id INT,
+id INT PRIMARY KEY AUTO_INCREMENT,
 cpf CHAR(11) NOT NULL UNIQUE,
 nome VARCHAR(50) NOT NULL,
 email VARCHAR(60) NOT NULL,
 senha VARCHAR(100) NOT NULL,
-dt_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-fk_unidade INT,
-CONSTRAINT ChkFkFuncionarioUnidade FOREIGN KEY (fk_unidade) REFERENCES unidade(id),
-CONSTRAINT pkFkEmpresaIdFuncionario PRIMARY KEY (id, fk_unidade)
+dt_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Tabela registro de funcionario
+CREATE TABLE registro_funcionario (
+fk_funcionario INT,
+CONSTRAINT ConstFkRegistroFuncionario FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id),
+fk_unidade INT,
+CONSTRAINT ConstFkRegistroUnidade FOREIGN KEY (fk_unidade) REFERENCES unidade(id),
+PRIMARY KEY (fk_funcionario, fk_unidade)
+);
+
+-- Tabela Nivel de acesso dos usuarios
+CREATE TABLE nivel_acesso (
+id INT PRIMARY KEY AUTO_INCREMENT,
+fk_funcionario INT NOT NULL,
+CONSTRAINT ConstFkAcessoFuncionario FOREIGN KEY (fk_funcionario) REFERENCES registro_funcionario(fk_funcionario),
+fk_unidade INT NOT NULL,
+CONSTRAINT ConstFkAcessoUnidade FOREIGN KEY (fk_unidade) REFERENCES registro_funcionario(fk_unidade)
+);
+
+-- Tabela de Permissões
+CREATE TABLE permissao (
+id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(45) NOT NULL UNIQUE,
+descricao VARCHAR(250) NOT NULL
+);
+
+-- Tabela Permissões de cada acesso
+CREATE TABLE permissao_acesso (
+fk_permissao INT,
+CONSTRAINT ConstFkPermissao_acessoNivelPermissao FOREIGN KEY (fk_permissao) REFERENCES registro_funcionario(fk_unidade),
+fk_nivel_acesso INT,
+CONSTRAINT ConstFkPermissao_acessoNivel FOREIGN KEY (fk_nivel_acesso) REFERENCES registro_funcionario(fk_unidade),
+PRIMARY KEY (fk_permissao, fk_nivel_acesso)
+);
+
+-- Tabela Chamado feito pelo usuario
 CREATE TABLE chamado (
 id INT PRIMARY KEY,
 descricao VARCHAR(250) NOT NULL,
 fk_funcionario INT NOT NULL,
-CONSTRAINT ChkFkChamadoFuncionario FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id)
+CONSTRAINT ConstFkChamadoFuncionario FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id)
 );
 
 -- Tabela do refrigerador
 CREATE TABLE refrigerador (
 id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(50) NOT NULL,
-status TINYINT NOT NULL DEFAULT 1, -- 1: Ativo, 0: inativo
 fk_unidade INT NOT NULL,
-CONSTRAINT ChkFkRefrigeradorUnidade FOREIGN KEY (fk_unidade) REFERENCES unidade(id)
+CONSTRAINT ConstFkRefrigeradorUnidade FOREIGN KEY (fk_unidade) REFERENCES unidade(id)
 );
 
 -- Tabela do Sensor - para localizarmos cada sensor
 CREATE TABLE sensor (
 id INT PRIMARY KEY AUTO_INCREMENT,
 ip INT NOT NULL,
-status TINYINT NOT NULL DEFAULT 1, -- 1: Ativo, 0: inativo
 dt_manutencao DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
 fk_refrigerador INT UNIQUE NOT NULL,
-CONSTRAINT ChkFkSensorRefrigerador FOREIGN KEY (fk_refrigerador) REFERENCES refrigerador(id)
+CONSTRAINT ConstFkSensorRefrigerador FOREIGN KEY (fk_refrigerador) REFERENCES refrigerador(id)
 );
+
 -- Tabela das temperaturas
 CREATE TABLE medida_temperatura (
 id INT PRIMARY KEY AUTO_INCREMENT,
 temperatura DECIMAL(4, 1) NOT NULL,
 dt_hora DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
 fk_sensor INT NOT NULL,
-CONSTRAINT ChkFkMedidaSensor FOREIGN KEY (fk_sensor) REFERENCES sensor(id)
+CONSTRAINT ConstFkMedidaSensor FOREIGN KEY (fk_sensor) REFERENCES sensor(id)
 );
 
+-- Tabale alertas capturados
 CREATE TABLE alerta (
 id INT PRIMARY KEY AUTO_INCREMENT,
-tipo TINYINT NOT NULL, -- 1: Temperatura fora da faixa, 2: Temperatura Crítica
+tipo_alerta TINYINT NOT NULL, -- 1: Temperatura fora da faixa, 2: Temperatura Crítica
 fk_medida INT NOT NULL,
-CONSTRAINT ChkFkAlertaMedida FOREIGN KEY (fk_medida) REFERENCES medida_temperatura(id)
+CONSTRAINT ConstFkAlertaMedida FOREIGN KEY (fk_medida) REFERENCES medida_temperatura(id)
+);
+
+-- Tabela Historico de status do refrigerador
+CREATE TABLE historico_status_refrigerador (
+id INT PRIMARY KEY AUTO_INCREMENT,
+dth_registro DATETIME NOT NULL,
+statuss TINYINT NOT NULL,
+fk_refrigerador INT NOT NULL,
+CONSTRAINT ConstFkHisc_RefrigeradorSensor FOREIGN KEY (fk_refrigerador) REFERENCES refrigerador(id)
+);
+
+-- Tabela Historico de status do sensor
+CREATE TABLE historico_status_sensor (
+id INT PRIMARY KEY AUTO_INCREMENT,
+dth_registro DATETIME NOT NULL,
+statuss TINYINT NOT NULL,
+fk_sensor INT NOT NULL,
+CONSTRAINT ConstFkHisc_sensorSensor FOREIGN KEY (fk_sensor) REFERENCES sensor(id),
+fk_historico_refrigerador INT NOT NULL,
+CONSTRAINT ConstFkHist_sensorHist_refrigerador FOREIGN KEY (fk_historico_refrigerador) REFERENCES historico_status_refrigerador(id)
 );
 
 /*
@@ -81,7 +132,7 @@ GRANT SELECT, INSERT ON safelab.* TO 'usuario_insert'@'%';
 FLUSH PRIVILEGES;
 SHOW GRANTS FOR 'usuario_insert'@'%'; /
 */
-
+/*
 INSERT INTO empresa (cnpj, nome, status) VALUES
 ('12345678000190', 'BioVida Laboratórios', 1),
 ('98765432000110', 'ImunoSaúde Distribuidora', 1);
@@ -161,3 +212,4 @@ FROM
 	ON u.id = r.fk unidade
 	JOIN empresa e
 	ON e.id = u.fk_empresa;
+*/
