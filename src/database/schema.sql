@@ -70,7 +70,7 @@ CONSTRAINT ChkFkMedidaSensor FOREIGN KEY (fk_sensor) REFERENCES sensor(id)
 
 CREATE TABLE alerta (
 id INT PRIMARY KEY AUTO_INCREMENT,
-tipo_alerta TINYINT NOT NULL, -- 1: Temperatura fora da faixa, 2: Temperatura Crítica
+tipo TINYINT NOT NULL, -- 1: Temperatura fora da faixa, 2: Temperatura Crítica
 fk_medida INT NOT NULL,
 CONSTRAINT ChkFkAlertaMedida FOREIGN KEY (fk_medida) REFERENCES medida_temperatura(id)
 );
