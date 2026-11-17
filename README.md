@@ -18,7 +18,7 @@ Arduino UNO R3 com sensor de temperatura LM35 de alta precisão, integrado a uma
 Arduino UNO R3 <br>
 Sensor LM35 <br>
 MySQL <br>
-Trello -> [Adição pendente] <br>
+Trello -> https://trello.com/b/JzjiuVPV/sprint-2-projeto-de-pi-grupo-8 <br>
 VirtualBox -> Lubuntu
 
 ### Tecnologias utilizadas
@@ -39,7 +39,7 @@ VirtualBox -> Lubuntu
 ```
 .
 ├── docs/
-│   └── Sprint1/
+│   └── sprint1/
 │       ├── coletivo/
 │       └── Individuais/
 ├── src/
