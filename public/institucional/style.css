@@ -463,7 +463,11 @@ Notebook */
 /* SIMULADOR */
 /* --------- */
 
-.simulador_sessao {
+.desativo{
+    display: none !important;
+}
+
+.simulador_sessao{
     background-image: url(../assets/institucional/backgroundimg.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -503,7 +507,7 @@ Notebook */
 .simulador {
     background-color: #f8fafc;
     width: 100%;
-    height: 40rem;
+    height: fit-content;
     align-self: center;
 
     display: flex;
@@ -514,6 +518,10 @@ Notebook */
     border-radius: 1rem;
 
     align-self: center;
+
+    .div_principal{
+        margin: 2rem;
+    }
 }
 
 .simulador_titulo {

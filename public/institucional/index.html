@@ -16,10 +16,10 @@
                 src="../assets/institucional/safelab_recortada.svg" alt="logo">
             <div class="texto_logo">
                 <span style="font-weight: 200; letter-spacing: -0.1rem;">
-                  Safe
+                    Safe
                 </span>
                 <span style="font-weight: bold; margin-left: -0.1rem;">
-                  Lab
+                    Lab
                 </span>
             </div>
         </div>
@@ -28,13 +28,13 @@
             <nav class="menu_navegacao">
                 <div style="word-spacing: 1rem;">
                     <a style="color: #2b3b92;" href="#home" class="link_header">
-                      Inicio
+                        Inicio
                     </a>
                     <a style="color: #2b3b92;" href="#about" class="link_header">
-                      Sobre
+                        Sobre
                     </a>
                     <a style="color: #2b3b92;" href="#simulator" class="link_header">
-                      Simulador
+                        Simulador
                     </a>
                 </div>
             </nav>
@@ -264,18 +264,11 @@
             </div>
 
             <div id="simulator" class="simulador">
-                <div class="simulador_titulo">
+                <div class="simulador_titulo div_principal">
                     Simule suas possiveis perdas!
                 </div>
 
-                <div class="card_informacoes_simulador">
-                    <div class="card_informacoes_header">
-                        <label style="color: #f8fafc; font-weight: bold;">Informações<br>de Estoque</label>
-                        <button
-                            style="background-color: #f8fafc; border: 0.2rem #003366 solid; border-radius: 0.5rem; font-weight: bold; padding: 0.5rem; cursor: pointer;"
-                            onclick="valor_vacinas()">Calcular Perdas</button>
-                    </div>
-
+                <div class="card_informacoes_simulador div_principal">
                     <div style="display: flex; justify-content: space-evenly; width: 100%;">
                         <div class="campo_entrada_simulador">
                             <label class="nome_informacao">Selecione uma vacina:</label>
@@ -306,13 +299,20 @@
                             <input class="input_simulador" type="number" id="ipt_qnt_frascos" placeholder="Min: 10">
                         </div>
                     </div>
+
+                    <div class="card_informacoes_header">
+                        <label style="color: #f8fafc; font-weight: bold;">Informações<br>de Estoque</label>
+                        <button
+                            style="background-color: #f8fafc; border: 0.2rem #003366 solid; border-radius: 0.5rem; font-weight: bold; padding: 0.5rem; cursor: pointer;"
+                            onclick="valor_vacinas()">Calcular Perdas</button>
+                    </div>
                 </div>
 
-                <div id="div_exibir" class="card_resultado">
+                <div id="div_exibir" class="card_resultado desativo div_principal">
 
                 </div>
 
-                <div>
+                <div class="div_principal">
                     <a style="color: #2563eb; text-decoration: underline; cursor: pointer;"
                         onclick="mais_informacoes_popup.showModal(); bloquear_body()">Mais informações</a>
                 </div>
@@ -380,83 +380,98 @@
         </div>
 
         <section class="popup_section">
-            <section class="popup_section">
-                <div id="preços" class="popup_card_informacoes">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>
-                                    Vacina
-                                </th>
-                                <th>
-                                    Preço
-                                </th>
-                                <th>
-                                    Referencia
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Influenza</td>
-                                <td>R$45,00</td>
-                                <td><a class="link" href="https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_BPS/SEIDIGI_DEMAS_BPS.html?qlikTicket=zSE-3X107Ub6Hfc6">Ministério da Saúde - Painel de Preços da Saúde</a></td>
-                            </tr>
-                            <tr>
-                                <td>Pentavalente</td>
-                                <td>R$170,00</td>
-                                <td><a class="link" href="https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_BPS/SEIDIGI_DEMAS_BPS.html?qlikTicket=zSE-3X107Ub6Hfc6">Ministério da Saúde - Painel de Preços da Saúde</a></td>
-                            </tr>
-                            <tr>
-                                <td>Poliomielite</td>
-                                <td>R$225,00</td>
-                                <td><a class="link" href="https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_BPS/SEIDIGI_DEMAS_BPS.html?qlikTicket=zSE-3X107Ub6Hfc6">Ministério da Saúde - Painel de Preços da Saúde</a></td>
-                            </tr>
-                            <tr>
-                                <td>Pneumocócica</td>
-                                <td>R$475,00</td>
-                                <td><a class="link" href="https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_BPS/SEIDIGI_DEMAS_BPS.html?qlikTicket=zSE-3X107Ub6Hfc6">Ministério da Saúde - Painel de Preços da Saúde</a></td>
-                            </tr>
-                            <tr>
-                                <td>Tríplice Viral</td>
-                                <td>R$130,00</td>
-                                <td><a class="link" href="https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_BPS/SEIDIGI_DEMAS_BPS.html?qlikTicket=zSE-3X107Ub6Hfc6">Ministério da Saúde - Painel de Preços da Saúde</a></td>
-                            </tr>
-                            <tr>
-                                <td>BCG</td>
-                                <td>R$65,00</td>
-                                <td><a class="link" href="https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_BPS/SEIDIGI_DEMAS_BPS.html?qlikTicket=zSE-3X107Ub6Hfc6">Ministério da Saúde - Painel de Preços da Saúde</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div id="preços" class="popup_card_informacoes">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Vacina
+                            </th>
+                            <th>
+                                Preço
+                            </th>
+                            <th>
+                                Referencia
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Influenza</td>
+                            <td>R$45,00</td>
+                            <td><a class="link"
+                                    href="https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_BPS/SEIDIGI_DEMAS_BPS.html?qlikTicket=zSE-3X107Ub6Hfc6">Ministério
+                                    da Saúde - Painel de Preços da Saúde</a></td>
+                        </tr>
+                        <tr>
+                            <td>Pentavalente</td>
+                            <td>R$170,00</td>
+                            <td><a class="link"
+                                    href="https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_BPS/SEIDIGI_DEMAS_BPS.html?qlikTicket=zSE-3X107Ub6Hfc6">Ministério
+                                    da Saúde - Painel de Preços da Saúde</a></td>
+                        </tr>
+                        <tr>
+                            <td>Poliomielite</td>
+                            <td>R$225,00</td>
+                            <td><a class="link"
+                                    href="https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_BPS/SEIDIGI_DEMAS_BPS.html?qlikTicket=zSE-3X107Ub6Hfc6">Ministério
+                                    da Saúde - Painel de Preços da Saúde</a></td>
+                        </tr>
+                        <tr>
+                            <td>Pneumocócica</td>
+                            <td>R$475,00</td>
+                            <td><a class="link"
+                                    href="https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_BPS/SEIDIGI_DEMAS_BPS.html?qlikTicket=zSE-3X107Ub6Hfc6">Ministério
+                                    da Saúde - Painel de Preços da Saúde</a></td>
+                        </tr>
+                        <tr>
+                            <td>Tríplice Viral</td>
+                            <td>R$130,00</td>
+                            <td><a class="link"
+                                    href="https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_BPS/SEIDIGI_DEMAS_BPS.html?qlikTicket=zSE-3X107Ub6Hfc6">Ministério
+                                    da Saúde - Painel de Preços da Saúde</a></td>
+                        </tr>
+                        <tr>
+                            <td>BCG</td>
+                            <td>R$65,00</td>
+                            <td><a class="link"
+                                    href="https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_BPS/SEIDIGI_DEMAS_BPS.html?qlikTicket=zSE-3X107Ub6Hfc6">Ministério
+                                    da Saúde - Painel de Preços da Saúde</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                <div id="outras_infos" class="popup_card_informacoes">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>
-                                    Outras Informações
-                                </th>
-                                <th>
-                                    Link
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Fonte Principal</td>
-                                <td><a class="link" href="https://www.scielo.br/j/reben/a/4JjkNN4G5wF4Tcn3fsrwVCG/?format=html&lang=en&ilang=pt_BR">https://www.scielo.br/j/reben/a/4JjkNN4G5wF4Tcn3fsrwVCG/?format=html&lang=en&ilang=pt_BR</a></td>
-                            </tr>
-                            <tr>
-                                <td>Fonte Complementar</td>
-                                <td><a class="" href="https://www.cosemssc.org.br/wp-content/uploads/2022/08/Thiago-Fernandes.pdf">https://www.cosemssc.org.br/wp-content/uploads/2022/08/Thiago-Fernandes.pdf</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </dialog>
+            <div id="outras_infos" class="popup_card_informacoes">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Outras Informações
+                            </th>
+                            <th>
+                                Link
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fonte Principal</td>
+                            <td><a class="link"
+                                    href="https://www.scielo.br/j/reben/a/4JjkNN4G5wF4Tcn3fsrwVCG/?format=html&lang=en&ilang=pt_BR">https://www.scielo.br/j/reben/a/4JjkNN4G5wF4Tcn3fsrwVCG/?format=html&lang=en&ilang=pt_BR</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Fonte Complementar</td>
+                            <td><a class=""
+                                    href="https://www.cosemssc.org.br/wp-content/uploads/2022/08/Thiago-Fernandes.pdf">https://www.cosemssc.org.br/wp-content/uploads/2022/08/Thiago-Fernandes.pdf</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </dialog>
 
     <dialog id="contato_popup">
         <div id="header_popup">
@@ -489,32 +504,32 @@
         if (slc_vacina.value === 'influenza') {
             ipt_nome_vacina.value = `Influenza`
             ipt_nome_vacina.readOnly = true
-            ipt_valor_vacina.value = `45`
+            ipt_valor_vacina.value = `45.00`
 
         } else if (slc_vacina.value === 'pentavalente') {
             ipt_nome_vacina.value = `Pentavalente`
             ipt_nome_vacina.readOnly = true
-            ipt_valor_vacina.value = `170`
+            ipt_valor_vacina.value = `170.00`
 
         } else if (slc_vacina.value === 'poliomielite') {
             ipt_nome_vacina.value = `Poliomielite`
             ipt_nome_vacina.readOnly = true
-            ipt_valor_vacina.value = `225`
+            ipt_valor_vacina.value = `225.00`
 
         } else if (slc_vacina.value === 'pneumococica') {
             ipt_nome_vacina.value = `Pneumocócica-10-Valente`
             ipt_nome_vacina.readOnly = true
-            ipt_valor_vacina.value = `475`
+            ipt_valor_vacina.value = `475.00`
 
         } else if (slc_vacina.value === 'triplice') {
             ipt_nome_vacina.value = `Tríplice Vira`
             ipt_nome_vacina.readOnly = true
-            ipt_valor_vacina.value = `130`
+            ipt_valor_vacina.value = `130.00`
 
         } else if (slc_vacina.value === 'bcg') {
             ipt_nome_vacina.value = `BCG`
             ipt_nome_vacina.readOnly = true
-            ipt_valor_vacina.value = `65`
+            ipt_valor_vacina.value = `65.00`
 
         } else if (slc_vacina.value === 'outro') {
             ipt_nome_vacina.value = ``
@@ -523,11 +538,8 @@
         }
     }
 
-    function verificar_input() {
-
-    }
-
     function valor_vacinas() {
+        div_exibir.className = "card_resultado"
 
         // definindo o valor de cada tipo de vacina:
         let nome = slc_vacina.value
@@ -542,18 +554,17 @@
             nome = ipt_nome_vacina.value
         }
 
-        if (nome == 'selecione') {
-            div_resultado.innerHTML = '<b style="color: red">Selecione uma opção valida.</b>'
-        } else if (quantidade <= 0) {
-            div_resultado.innerHTML = '<b style="color: red">Insira um valor maior que 0 na quantidade.</b>'
-        } else if (nome == '') {
-            div_resultado.innerHTML = '<b style="color: red">Insira o nome da vacina desejada.</b>'
-        } else if (valor_medio <= 0) {
-            div_resultado.innerHTML = '<b style="color: red">Insira um valor de vacina maior do que 0.</b>'
-        } else if (String(quantidade).includes('.') || String(quantidade).includes(',')) {
-            div_resultado.innerHTML = '<b style="color: red">Insira uma quantidade inteira.</b>'
-        } else {
+        
 
+        if (quantidade < 10) {
+            div_exibir.innerHTML = `<div class="texto_resultado"><div id="div_resultado" style="text-align: center; color: red; font-weight: bold;">Insira um valor maior que 10 na quantidade.</div></div>`
+        } else if (nome == '') {
+            div_exibir.innerHTML = '<div class="texto_resultado"><div id="div_resultado" style="text-align: center; color: red; font-weight: bold;">Insira o nome da vacina desejada.</b></div></div>'
+        } else if (valor_medio <= 0) {
+            div_exibir.innerHTML = '<div class="texto_resultado"><div id="div_resultado" style="text-align: center; color: red; font-weight: bold;">Insira um valor de vacina maior do que 0.</b></div></div>'
+        } else if (String(quantidade).includes('.') || String(quantidade).includes(',')) {
+            div_exibir.innerHTML = '<div class="texto_resultado"><div id="div_resultado" style="text-align: center; color: red; font-weight: bold;">Insira uma quantidade inteira.</b></div></div>'
+        } else {
             let qnt_vacinas_perdidas = 0
 
             if (quantidade == 1) {
@@ -578,20 +589,20 @@
                                 Foi usado o valor de R$${((reais_antes_perda.toFixed(2)).toString()).replace('.', ',')} na compra das vacinas. <br>
                                 <br>
                                 Caso ocorra uma quebra de cadeia fria neste momento: <br>
-                                O total de vacinas que poderá ser perdido é de até <span>${qnt_vacinas_perdidas} doses </span> (que representa ${(qnt_vacinas_perdidas * 100 / quantidade).toFixed(2)}% do seu estoque). <br>
-                                Que representará R$${((qnt_reais_perdidos.toFixed(2)).toString()).replace('.', ',')} da compra. <br>
+                                O total de vacinas que poderá ser perdido é de até <span style="color: red; font-weight: bold;">${qnt_vacinas_perdidas} doses</span> (que representa ${(qnt_vacinas_perdidas * 100 / quantidade).toFixed(2)}% do seu estoque). <br>
+                                Que representará <span style="color: red; font-weight: bold;">R$${((qnt_reais_perdidos.toFixed(2)).toString()).replace('.', ',')}</span> da compra. <br>
                                 <br>
-                                Sobrando apenas <b>${(quantidade - qnt_vacinas_perdidas)} vacinas</b> no estoque.
+                                Sobrando apenas <span style="color: red; font-weight: bold;">${(quantidade - qnt_vacinas_perdidas)} vacinas</span> no estoque.
                             </div>
                         </div>
 
                         <div class="planos_resultado">
                             <div id="div_resultado" style="text-align: justify; margin: 2rem;">
-                                Sua simulação foi concluida!<br>
+                                <b>Sua simulação foi concluida!</b><br>
                                 <br>
                                 Agora que você conhece o impacto financeiro que o monitoramento inadequado ou inexistente pode trazer, que tal dar o próximo passo?<br>
                                 <br>
-                                Com o SafeLab, sua instituição pode acompanhar a temperatura dos equipamentos, receber alertas sobre possíveis irregularidades e agir para reduzir o risco de perdas de vacinas.<br>
+                                Com o SafeLab, sua instituição pode <span style="text-decoration: underline;">acompanhar a temperatura dos equipamentos, receber alertas sobre possíveis irregularidades e agir para reduzir o risco de perdas de vacinas.</span><br>
                                 <br>
                                 Quer descobrir qual solução faz mais sentido para sua instituição?<br>
                                 Entre em contato e encontre a opção ideal para suas necessidades.
