@@ -59,7 +59,7 @@ function cadastrar(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.AtivarCodigo(codigo_ativacao)
+        usuarioModel.AtivarCodigo(codigo_empresa)
             .then(
                 function (resultado) {
                     if (resultado.length == 1) {
