@@ -474,9 +474,16 @@
     </dialog>
 
     <dialog id="contato_popup">
-        <h2>Olá!</h2>
-        <p>Este é um pop-up simples.</p>
-        <button onclick="contato_popup.close(); desbloquear_body()">Fechar</button>
+        <div id="header_popup">
+            <h2 id="texto_header_popup">Entre em contato conosco</h2>
+            <button id="botao_popup" onclick="contato_popup.close(); desbloquear_body()">X</button>
+        </div>
+        <div id="div_popup">
+            Insira o seu e-mail:<p><input type="text" id="ipt_email_empresa"></p>
+            Assunto: <p><input type="text" id="ipt_assunto_popup"></p>
+            Texto: <p><input type="text" id="ipt_texto_popup"></p>
+            <button id="enviar_popup">Enviar e-mail</button>
+        </div>
     </dialog>
 
 </body>
