@@ -42,26 +42,11 @@ PRIMARY KEY (fk_funcionario, fk_unidade)
 -- Tabela Nivel de acesso dos usuarios
 CREATE TABLE nivel_acesso (
 id INT PRIMARY KEY AUTO_INCREMENT,
+nivel TINYINT NOT NULL DEFAULT 0,
 fk_funcionario INT NOT NULL,
 CONSTRAINT ConstFkAcessoFuncionario FOREIGN KEY (fk_funcionario) REFERENCES registro_funcionario(fk_funcionario),
 fk_unidade INT NOT NULL,
 CONSTRAINT ConstFkAcessoUnidade FOREIGN KEY (fk_unidade) REFERENCES registro_funcionario(fk_unidade)
-);
-
--- Tabela de Permissões
-CREATE TABLE permissao (
-id INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(45) NOT NULL UNIQUE,
-descricao VARCHAR(250) NOT NULL
-);
-
--- Tabela Permissões de cada acesso
-CREATE TABLE permissao_acesso (
-fk_permissao INT,
-CONSTRAINT ConstFkPermissao_acessoPermissao FOREIGN KEY (fk_permissao) REFERENCES permissao(id),
-fk_nivel_acesso INT,
-CONSTRAINT ConstFkPermissao_acessoNivel FOREIGN KEY (fk_nivel_acesso) REFERENCES nivel_acesso(id),
-PRIMARY KEY (fk_permissao, fk_nivel_acesso)
 );
 
 -- Tabela Chamado feito pelo usuario
@@ -138,7 +123,7 @@ ON u.fk_empresa = e.id;
 SELECT * FROM dados_funcionario AS d WHERE d.email = '${email}' AND d.senha = '${senha}';
 
 CREATE VIEW unidades_acesso AS
-SELECT u.fk_empresa, u.id AS "ID UNIDADE", n.id AS "ID NIVEL ACESSO" FROM empresa AS e
+SELECT u.fk_empresa, u.id AS id_unidade, n.id AS id_nivel, n.nivel FROM empresa AS e
 RIGHT JOIN unidade AS u
 ON e.id = u.fk_empresa
 LEFT JOIN registro_funcionario AS r
@@ -148,4 +133,4 @@ ON r.fk_funcionario = f.id
 LEFT JOIN nivel_acesso AS n
 ON n.fk_unidade = r.fk_unidade AND n.fk_funcionario = r.fk_funcionario;
 
-SELECT * FROM unidades_acesso AS d WHERE d.fk_empresa = ${fkEmpresa};
+SELECT * FROM unidades_acesso AS d WHERE d.fk_empresa = '${fkEmpresa}';

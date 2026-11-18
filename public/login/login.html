@@ -56,11 +56,11 @@
             </div>
 
             <div class="DivLogin">
-                <label for="ipt_loginEmail">
+                <label>
                     <h3>Email:</h3>
                 </label>
                 <input class="LocalDeInsert" type="text" id="ipt_LoginEmail" style="text-align: center;">
-                <label for="ipt_loginEmail">
+                <label>
                     <h3>Senha:</h3>
                 </label>
                 <input class="LocalDeInsert" type="password" id="ipt_LoginSenha" style="text-align: center;">
@@ -115,33 +115,28 @@
 
     <script>
         function EntrarLogin() {
-            let ax_Email = ipt_LoginEmail.value;
-            let ax_Senha = ipt_LoginSenha.value;
+            var ax_Email = ipt_LoginEmail.value;
+            var ax_Senha = ipt_LoginSenha.value;
 
             if (ax_Email == '') {
                 alert('É necessario informar o seu email para seguir com o Login')
             }
             else if (ax_Senha == '') {
                 alert('É necessario inserir uma senha válida para seguir com o Login')
-            }
+            } else{
 
-            if (ax_Email != "adm@safelab.com" || ax_Senha != "urubu100") {
-                msg_erro.innerHTML = `Sua senha ou email esta incorreto`
-                msg_erro.style.color = "red";
-            } else if (ax_Email == "adm@safelab.com" && ax_Senha == "urubu100") {
-                window.location.href = "../dash/dashboard.html"
-            }
-    
-        }
-
-        fetch("/usuarios/autenticar", {
+            fetch("/usuarios/autenticar", {
         method: 'POST',
-        body: {
+        headers: {
+                "Content-Type": "application/json"
+            },
+        body: JSON.stringify({
           
           Email: ax_Email,
-          Senha: ax_Senha,
+          Senha: ax_Senha
+          
 
-        }
+        })
         }).then(function(resposta){
             if(resposta.ok){
           console.log(resposta);
@@ -149,8 +144,12 @@
           resposta.json().then(json => {
             console.log(json);
             console.log(JSON.stringify(json));
-            sessionStorage.user_name = json.name;
+            sessionStorage.user_name = json.nome;
             sessionStorage.user_email = json.email;
+            sessionStorage.user_id = json.id;
+            sessionStorage.empresa_id = json.fkEmpresa;
+            sessionStorage.nivel_id = json.nivel;
+            
 
             setTimeout(function (){
               window.location = "../dash/dashboard.html"
@@ -164,6 +163,10 @@
             });
           }
       })
+    
+        }
+}
+        
 
     </script>
 
