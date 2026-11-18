@@ -89,6 +89,14 @@ header {
     font-weight: bold;
 }
 
+.Oculto {
+    display: none
+}
+
+.Exibido {
+    display: show;
+}
+
 .PaginaCad {
     display: flex;
     height: 41rem;
@@ -125,6 +133,21 @@ header {
         height: 100%;
 
         .DivCad {
+            height: 100%;
+            justify-content: space-between;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: .2rem;
+        }
+
+        #BotaoVoltar {
+            background: none;
+            border: none;
+        }
+
+        #ipt_CadastroCodEmpresa #ipt_CadastroNome #ipt_CadastroEmail #ipt_CadastroCpf #ipt_CadastroSenha #ipt_CadastroConfirmarSenha #BotaoVoltar{
+            justify-content: space-between;
             display: flex;
             flex-direction: column;
             align-items: left;

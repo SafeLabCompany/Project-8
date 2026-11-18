@@ -54,45 +54,62 @@
     </div>
     <div class="AreaDoCad">
 
-      <div class="DivCad" style="margin-top: 2rem;">
-        <h2>Faça seu cadastro:</h2>
-      </div>
-
       <div class="DivCad">
-        <label for="ipt_CadastroCodEmpresa">
-          <h3>Código de Empresa:</h3> 
-        </label>
-        <input class="LocalDeInsert" type="text" id="ipt_CadastroCodEmpresa">
+        <h2>Faça seu cadastro:</h2>
 
-        <label for="ipt_CadastroNome">
-          <h3>Nome:</h3> 
-        </label>
-        <input class="LocalDeInsert" type="text" id="ipt_CadastroNome">
+        <button onclick="Retornar()" id="BotaoVoltar" class="Oculto">
+          <img src="../assets/cadastro/BotaoVoltar.svg" alt="Voltar">
+        </button>
 
-        <label for="ipt_CadastroEmail">
-          <h3>Email:</h3> 
-        </label>
-        <input class="LocalDeInsert" type="text" id="ipt_CadastroEmail">
+        <div id="codEmpresa_ocultavel">
+          <label for="ipt_CadastroCodEmpresa" id="ipt_CadastroCodEmpresa">
+            <h3>Código de Empresa:</h3> 
+          </label>
+          <input class="LocalDeInsert" type="text" id="ipt_CadastroCodEmpresa">
+        </div>
 
-        <label for="ipt_CadastroCpf">
-          <h3>Cpf:</h3> 
-        </label>
-        <input class="LocalDeInsert" type="text" id="ipt_CadastroCpf">
+        <div id="nome_ocultavel">
+          <label for="ipt_CadastroNome">
+           <h3>Nome:</h3> 
+          </label>
+          <input class="LocalDeInsert" type="text" id="ipt_CadastroNome">
+        </div>
+
+        <div id="email_ocultavel">
+          <label for="ipt_CadastroEmail">
+           <h3>Email:</h3> 
+          </label>
+          <input class="LocalDeInsert" type="text" id="ipt_CadastroEmail">
+        </div>
+
+        <div id="cpf_ocultavel">
+          <label for="ipt_CadastroCpf">
+            <h3>Cpf:</h3> 
+          </label>
+          <input class="LocalDeInsert" type="text" id="ipt_CadastroCpf">
+        </div>
         
-        <label for="ipt_CadastroSenha">
-          <h3>Senha:</h3>
-        </label>
-        <input class="LocalDeInsert" type="password" id="ipt_CadastroSenha" minlength="8" required oninput="Validar()">
-        <br><div id="Mensagem_forca_senha"></div>
+        <div class="Oculto" id="senha_ocultavel">
+          <label for="ipt_CadastroSenha">
+            <h3>Senha:</h3>
+          </label>
+          <input class="LocalDeInsert" type="password" id="ipt_CadastroSenha" minlength="8" required oninput="Validar()">
+        </div>
+        <br><div id="Mensagem_forca_senha">
 
-        <label for="ipt_CadastroConfirmarSenha">
-          <h3>Confirmar Senha:</h3> 
-        </label>
-        <input class="LocalDeInsert" type="password" id="ipt_CadastroConfirmarSenha" minlength="8" required>
+        <div class="Oculto" id="confirma_senha_ocultavel">
+          <label for="ipt_CadastroConfirmarSenha">
+            <h3>Confirmar Senha:</h3> 
+          </label>
+          <input class="LocalDeInsert" type="password" id="ipt_CadastroConfirmarSenha" minlength="8" required>
+        </div>
 
       </div>
 
-      <div>
+      <div id="botaoRemove">
+        <button class="ButtonCad" onclick="Ocultar()">Avançar</button>
+      </div>
+      <div class="Oculto" id="botaoCadastra">
         <button class="ButtonCad" onclick="Cadastrar()">Cadastrar</button>
       </div>
 
@@ -245,7 +262,51 @@
         
   }
 
+  function Retornar() {
+    document.getElementById(codEmpresa_ocultavel.classList.remove('Oculto'))
+    document.getElementById(email_ocultavel.classList.remove('Oculto'))
+    document.getElementById(nome_ocultavel.classList.remove('Oculto'))
+    document.getElementById(cpf_ocultavel.classList.remove('Oculto'))
 
+    document.getElementById(codEmpresa_ocultavel.classList.add('Exibido'))
+    document.getElementById(email_ocultavel.classList.add('Exibido'))
+    document.getElementById(nome_ocultavel.classList.add('Exibido'))
+    document.getElementById(cpf_ocultavel.classList.add('Exibido'))
+
+    document.getElementById(senha_ocultavel.classList.remove('Exibido'))
+    document.getElementById(senha_ocultavel.classList.add('Oculto'))
+    document.getElementById(confirma_senha_ocultavel.classList.remove('Exibido'))
+    document.getElementById(confirma_senha_ocultavel.classList.add('Oculto'))
+
+    document.getElementById(botaoRemove.classList.remove('Oculto'))
+    document.getElementById(botaoRemove.classList.add('Exibido'))
+    document.getElementById(botaoCadastra.classList.remove('Exibido'))
+    document.getElementById(botaoCadastra.classList.add('Oculto'))
+
+    document.getElementById(BotaoVoltar.classList.remove('Exibido'))
+    document.getElementById(BotaoVoltar.classList.add('Oculto'))
+  }
+
+  function Ocultar() {
+    document.getElementById(codEmpresa_ocultavel.classList.add('Oculto'))
+    document.getElementById(email_ocultavel.classList.add('Oculto'))
+    document.getElementById(nome_ocultavel.classList.add('Oculto'))
+    document.getElementById(cpf_ocultavel.classList.add('Oculto'))
+
+    document.getElementById(senha_ocultavel.classList.remove('Oculto'))
+    document.getElementById(senha_ocultavel.classList.add('Exibido'))
+    document.getElementById(confirma_senha_ocultavel.classList.remove('Oculto'))
+    document.getElementById(confirma_senha_ocultavel.classList.add('Exibido'))
+
+    document.getElementById(botaoRemove.classList.remove('Exibido'))
+    document.getElementById(botaoRemove.classList.add('Oculto'))
+    document.getElementById(botaoCadastra.classList.remove('Oculto'))
+    document.getElementById(botaoCadastra.classList.add('Exibido'))
+
+    document.getElementById(BotaoVoltar.classList.remove('Oculto'))
+    document.getElementById(BotaoVoltar.classList.add('Exibido'))
+  }
+  
     function Cadastrar() {
       let ax_Nome = ipt_CadastroNome.value;
       let ax_Email = ipt_CadastroEmail.value;
