@@ -67,8 +67,9 @@ function cadastrar(req, res) {
                             .then(
                                 function (result) {
                                     console.log('\ Olha aqui o InsertId: ',result.insertId)
-                                    usuarioModel.correlacionar(resultado[0].unidadeId, result.insertId).then(res =>{
-                                        return res.status(201).json()
+                                    usuarioModel.correlacionar(resultado[0].unidadeId, result.insertId)
+                                    .then(function (){
+                                        return res.status(201).json({nome: nome,email:email});
                                     })
                                 }
                             ).catch(

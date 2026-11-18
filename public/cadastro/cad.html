@@ -60,33 +60,34 @@
 
       <div class="DivCad">
         <label for="ipt_CadastroCodEmpresa">
-          <h3>Código de Empresa:</h3> 
+          <h3>Código de Empresa:</h3>
         </label>
         <input class="LocalDeInsert" type="text" id="ipt_CadastroCodEmpresa">
 
         <label for="ipt_CadastroNome">
-          <h3>Nome:</h3> 
+          <h3>Nome:</h3>
         </label>
         <input class="LocalDeInsert" type="text" id="ipt_CadastroNome">
 
         <label for="ipt_CadastroEmail">
-          <h3>Email:</h3> 
+          <h3>Email:</h3>
         </label>
         <input class="LocalDeInsert" type="text" id="ipt_CadastroEmail">
 
         <label for="ipt_CadastroCpf">
-          <h3>Cpf:</h3> 
+          <h3>Cpf:</h3>
         </label>
         <input class="LocalDeInsert" type="text" id="ipt_CadastroCpf">
-        
+
         <label for="ipt_CadastroSenha">
           <h3>Senha:</h3>
         </label>
         <input class="LocalDeInsert" type="password" id="ipt_CadastroSenha" minlength="8" required oninput="Validar()">
-        <br><div id="Mensagem_forca_senha"></div>
+        <br>
+        <div id="Mensagem_forca_senha"></div>
 
         <label for="ipt_CadastroConfirmarSenha">
-          <h3>Confirmar Senha:</h3> 
+          <h3>Confirmar Senha:</h3>
         </label>
         <input class="LocalDeInsert" type="password" id="ipt_CadastroConfirmarSenha" minlength="8" required>
 
@@ -160,90 +161,90 @@
   <script>
     let ValidarCadastro = 0;
 
-       function Validar(){
-       
-    let senha = ipt_CadastroSenha.value
-    let numeros = '0123456789';
-    let letrasMin = 'abcdefghijklmnopqrstuvwxyz'
-    let letrasMai = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    let caracterEspecial = '!@#$%&*_-.,/'
-     let criterioNumero= 0;
-     let criterioMai = 0;
-     let criterioEspe = 0;
-     let criterioMin = 0;
-     let criterioTotal = 0;
+    function Validar() {
+
+      let senha = ipt_CadastroSenha.value
+      let numeros = '0123456789';
+      let letrasMin = 'abcdefghijklmnopqrstuvwxyz'
+      let letrasMai = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      let caracterEspecial = '!@#$%&*_-.,/'
+      let criterioNumero = 0;
+      let criterioMai = 0;
+      let criterioEspe = 0;
+      let criterioMin = 0;
+      let criterioTotal = 0;
 
       if (senha.length == 0) {
-    ValidarCadastro = 0;
-    Mensagem_forca_senha.innerHTML = "";
-    return;
-}
+        ValidarCadastro = 0;
+        Mensagem_forca_senha.innerHTML = "";
+        return;
+      }
 
-      for(let i =0; i < senha.length; i++ ){
-        if(numeros.includes(senha[i])){
+      for (let i = 0; i < senha.length; i++) {
+        if (numeros.includes(senha[i])) {
           criterioNumero++
-         
+
         }
-        if(letrasMai.includes(senha[i])){
+        if (letrasMai.includes(senha[i])) {
           criterioMai++
-          
+
         }
-        if(letrasMin.includes(senha[i])){
+        if (letrasMin.includes(senha[i])) {
           criterioMin++
-          
+
         }
-        if(caracterEspecial.includes(senha[i])){
+        if (caracterEspecial.includes(senha[i])) {
           criterioEspe++
-          
+
         }
       }
 
-     
+
 
       let forca = ""
-      if(criterioEspe > 0){
+      if (criterioEspe > 0) {
         criterioTotal++
       }
-      if(criterioMai > 0){
-         criterioTotal++
-      }
-      if(criterioMin > 0){
+      if (criterioMai > 0) {
         criterioTotal++
       }
-       if(criterioNumero > 0){
+      if (criterioMin > 0) {
         criterioTotal++
-       }
-      if(senha.length >= 8){
-         criterioTotal++
       }
-     
-        if(criterioTotal == 2 ){
-          ValidarCadastro = 1;
-           Mensagem_forca_senha.innerHTML = `Força da senha: Fraca`
-           Mensagem_forca_senha.style.color = "red"
-          }
-        else if(criterioTotal == 3){
-          ValidarCadastro = 2;
-            Mensagem_forca_senha.innerHTML = `Força da senha: Média`
-           Mensagem_forca_senha.style.color = "black"
-           }
-        else if(criterioTotal == 4){
-          ValidarCadastro = 3;
-             Mensagem_forca_senha.innerHTML = `Força da senha: Forte`
-           Mensagem_forca_senha.style.color = "green"
-        } 
-        else if(criterioTotal >= 5 ) {
-          ValidarCadastro = 4;
-             Mensagem_forca_senha.innerHTML = `Força da senha: Muito Forte`
-           Mensagem_forca_senha.style.color = "green"
-      } 
-        if(senha.length < 8){
-          Mensagem_forca_senha.innerHTML = `minimo 8 caracteres`
-           Mensagem_forca_senha.style.color = "red"
-         } 
+      if (criterioNumero > 0) {
+        criterioTotal++
+      }
+      if (senha.length >= 8) {
+        criterioTotal++
+      }
 
-        
-  }
+      if (criterioTotal == 2) {
+        ValidarCadastro = 1;
+        Mensagem_forca_senha.innerHTML = `Força da senha: Fraca`
+        Mensagem_forca_senha.style.color = "red"
+      }
+      else if (criterioTotal == 3) {
+        ValidarCadastro = 2;
+        Mensagem_forca_senha.innerHTML = `Força da senha: Média`
+        Mensagem_forca_senha.style.color = "black"
+      }
+      else if (criterioTotal == 4) {
+        ValidarCadastro = 3;
+        Mensagem_forca_senha.innerHTML = `Força da senha: Forte`
+        Mensagem_forca_senha.style.color = "green"
+      }
+      else if (criterioTotal >= 5) {
+        ValidarCadastro = 4;
+        Mensagem_forca_senha.innerHTML = `Força da senha: Muito Forte`
+        Mensagem_forca_senha.style.color = "green"
+      }
+      if (senha.length < 8) {
+        Mensagem_forca_senha.innerHTML = `minimo 8 caracteres`
+        Mensagem_forca_senha.style.color = "red"
+      }
+
+
+    }
 
 
     function Cadastrar() {
@@ -272,53 +273,53 @@
       }
       else if (ax_ConfirmaSenha == '') {
         alert('É necessário inserir a senha novamente para seguir com o cadastro')
-      } 
+      }
       else if (ax_ConfirmaSenha != ax_Senha) {
         alert('Senhas não condizentes')
       }
-      else if(ValidarCadastro <= 1){
+      else if (ValidarCadastro <= 1) {
         alert("Sua senha precisa ser no minimo média")
       }
+      else {
 
 
-      fetch('/usuarios/cadastrar', {
-        method: 'POST',
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          Nome: ax_Nome,
-          Email: ax_Email,
-          CPF: ax_Cpf,
-          Senha: ax_Senha,
-          codEmpresa: ax_CodEmpresa
-        })
-      }).then(function(resposta){
-        if(resposta.ok){
-          console.log(resposta);
-
-          resposta.json().then(json => {
-            console.log(json);
-            console.log(JSON.stringify(json));
-            sessionStorage.user_name = json.name;
-            sessionStorage.user_email = json.email;
-
-            setTimeout(function (){
-              window.location = "../login/login.html"
-            },1000)
+        fetch('/usuarios/cadastrar', {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            Nome: ax_Nome,
+            Email: ax_Email,
+            CPF: ax_Cpf,
+            Senha: ax_Senha,
+            codEmpresa: ax_CodEmpresa
           })
-        }
-        else {
+        }).then(function (resposta) {
+          if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+              console.log(json);
+              console.log(JSON.stringify(json));
+
+              setTimeout(function () {
+                window.location = "../login/login.html"
+              }, 1000)
+            })
+          }
+          else {
             console.log("Houve um erro ao tentar realizar o login");
-            resposta.text().then(texto =>{
+            resposta.text().then(texto => {
               console.error(texto);
             });
           }
-      })
+        })
+      }
     }
-    
 
- 
+
+
 
 
   </script>
