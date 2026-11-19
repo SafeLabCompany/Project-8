@@ -89,20 +89,10 @@ header {
     font-weight: bold;
 }
 
-.Oculto {
-    display: none
-}
-
-.Exibido {
-    display: show;
-}
-
 .PaginaCad {
     display: flex;
     height: 41rem;
     width: 100%;
-
-
 
     .CadImagem {
         flex: 1;
@@ -122,41 +112,61 @@ header {
         width: 17rem;
         height: auto;
     }
-
-
-    .AreaDoCad {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 20rem;
-        align-items: center;
-        height: 100%;
-
         .DivCad {
-            height: 100%;
-            justify-content: space-between;
-            display: flex;
-            flex-direction: column;
+            display: flex;         
+            flex-direction: column;   
             align-items: center;
+            height: 100%;
+            width: 20rem;            
             padding-bottom: .2rem;
+
         }
 
-        #BotaoVoltar {
-            background: none;
-            border: none;
-        }
-
-        #ipt_CadastroCodEmpresa #ipt_CadastroNome #ipt_CadastroEmail #ipt_CadastroCpf #ipt_CadastroSenha #ipt_CadastroConfirmarSenha #BotaoVoltar{
-            justify-content: space-between;
-            display: flex;
+        .DivSenha {
             flex-direction: column;
-            align-items: left;
-            padding-bottom: .2rem;
         }
+
+        .DivCadastroCima {
+            flex-direction: row;
+
+        }
+
+            #RequisitosDeSenha {
+                align-items: left;
+            }
+
+            #DivBotaoVoltar {
+                align-items: left;
+                width: 20rem;
+            }
+
+            #CampoDeSenha {
+                margin-top: 2.5rem;
+            }
+
+            #DivBotaoDeCadastro{
+                margin-top: 3rem;
+            }
+
+            #BotaoVoltar {
+              background: none;
+              border: none;
+              gap: .3rem;
+              margin-left: 1.5rem;
+            }
+
+            .BotaoVoltar {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+            }
+
+            .Oculto {
+              display: none
+            }
 
         h2 {
             font-size: 2rem;
-            margin-bottom: 0.2rem;
         }
 
         h3 {
@@ -196,12 +206,6 @@ header {
             border-style: solid;
             
         }
-
-
-    }
-
-
-
 }
 
 
