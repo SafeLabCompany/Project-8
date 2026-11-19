@@ -6,7 +6,8 @@ CREATE TABLE empresa (
 id INT PRIMARY KEY AUTO_INCREMENT,
 cnpj CHAR(14) NOT NULL UNIQUE,
 nome VARCHAR(50) NOT NULL,
-status TINYINT NOT NULL DEFAULT 1 -- 0: desativo, 1: ativo
+codigo_ativacao CHAR(7) NOT NULL,
+statuss TINYINT NOT NULL DEFAULT 1 -- 0: desativo, 1: ativo
 );
 
 -- Tabela de Unidade
@@ -15,7 +16,6 @@ id INT PRIMARY KEY,
 titulo varchar(60) NOT NULL,
 cep CHAR(8) NOT NULL,
 numero_endereco INT NOT NULL,
-codigo_ativacao CHAR(7) NOT NULL,
 fk_empresa INT NOT NULL,
 CONSTRAINT ConstFkUnidadeEmpresa FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
@@ -32,36 +32,12 @@ dt_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 
 -- Tabela registro de funcionario
 CREATE TABLE registro_funcionario (
+nivel TINYINT NOT NULL DEFAULT 0,
 fk_funcionario INT,
 CONSTRAINT ConstFkRegistroFuncionario FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id),
 fk_unidade INT,
 CONSTRAINT ConstFkRegistroUnidade FOREIGN KEY (fk_unidade) REFERENCES unidade(id),
 PRIMARY KEY (fk_funcionario, fk_unidade)
-);
-
--- Tabela Nivel de acesso dos usuarios
-CREATE TABLE nivel_acesso (
-id INT PRIMARY KEY AUTO_INCREMENT,
-fk_funcionario INT NOT NULL,
-CONSTRAINT ConstFkAcessoFuncionario FOREIGN KEY (fk_funcionario) REFERENCES registro_funcionario(fk_funcionario),
-fk_unidade INT NOT NULL,
-CONSTRAINT ConstFkAcessoUnidade FOREIGN KEY (fk_unidade) REFERENCES registro_funcionario(fk_unidade)
-);
-
--- Tabela de Permissões
-CREATE TABLE permissao (
-id INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(45) NOT NULL UNIQUE,
-descricao VARCHAR(250) NOT NULL
-);
-
--- Tabela Permissões de cada acesso
-CREATE TABLE permissao_acesso (
-fk_permissao INT,
-CONSTRAINT ConstFkPermissao_acessoNivelPermissao FOREIGN KEY (fk_permissao) REFERENCES registro_funcionario(fk_unidade),
-fk_nivel_acesso INT,
-CONSTRAINT ConstFkPermissao_acessoNivel FOREIGN KEY (fk_nivel_acesso) REFERENCES registro_funcionario(fk_unidade),
-PRIMARY KEY (fk_permissao, fk_nivel_acesso)
 );
 
 -- Tabela Chamado feito pelo usuario
@@ -126,90 +102,22 @@ fk_historico_refrigerador INT NOT NULL,
 CONSTRAINT ConstFkHist_sensorHist_refrigerador FOREIGN KEY (fk_historico_refrigerador) REFERENCES historico_status_refrigerador(id)
 );
 
-/*
-CREATE USER 'usuario_insert'@'%' IDENTIFIED BY '123';
-GRANT SELECT, INSERT ON safelab.* TO 'usuario_insert'@'%';
-FLUSH PRIVILEGES;
-SHOW GRANTS FOR 'usuario_insert'@'%'; /
-*/
-/*
-INSERT INTO empresa (cnpj, nome, status) VALUES
-('12345678000190', 'BioVida Laboratórios', 1),
-('98765432000110', 'ImunoSaúde Distribuidora', 1);
+CREATE VIEW dados_funcionario AS
+SELECT DISTINCT e.id, f.id AS id_funcionario, f.nome, f.email, f.senha FROM funcionario AS f
+JOIN registro_funcionario AS r
+ON r.fk_funcionario = f.id
+JOIN unidade AS u
+ON r.fk_unidade = u.id
+JOIN empresa AS e
+ON u.fk_empresa = e.id;
 
--- Unidades (id_unidade não tem AUTO_INCREMENT, por isso o id é informado)
-INSERT INTO unidade (id, titulo, cep, numero_endereco, codigo_ativacao, fk_empresa) VALUES
-(1, 'BioVida - Matriz', '01310100', 1000, 'BV00001', 1),
-(2, 'BioVida - Filial Campinas', '13010111', 250, 'BV00002', 1),
-(3, 'ImunoSaúde - Centro de Distribuição', '04538133', 87, 'IS00001', 2);
+SELECT * FROM dados_funcionario AS d WHERE d.email = '${email}' AND d.senha = '${senha}';
 
--- Funcionários (id_funcionario também não é AUTO_INCREMENT)
-INSERT INTO funcionario (id, cpf, nome, email, senha, fk_unidade) VALUES
-(1, '11122233344', 'Leandro Ramos', 'leandro@biovida.com', 'senha123', 1),
-(2, '22233344455', 'Gabriel Falcão', 'gabriel@biovida.com', 'senha123', 1),
-(3, '33344455566', 'Júlio Lino', 'julio@biovida.com', 'senha123', 2),
-(4, '44455566677', 'Claudio Frizzarini', 'claudio@imunosaude.com', 'senha123', 3),
-(5, '55566677788', 'Vinicius Kenzo', 'vinicius@imunosaude.com', 'senha123', 3);
-
--- Chamados
-INSERT INTO chamado (id, descricao, fk_funcionario) VALUES
-(1, 'Sensor do refrigerador 1 apresentando leituras instáveis.', 1),
-(2, 'Alerta crítico disparado, mas a porta estava fechada. Solicito verificação.', 3),
-(3, 'Preciso redefinir o acesso ao dashboard de temperaturas.', 4);
-
--- Refrigeradores
-INSERT INTO refrigerador (nome, status, fk_unidade) VALUES
-('Geladeira Vacinas A', 1, 1),
-('Geladeira Vacinas B', 1, 1),
-('Geladeira Campinas 01', 1, 2),
-('Câmara Fria Distribuição 01', 1, 3);
-
--- Sensores (1 sensor por refrigerador, pois fk_refrigerador é UNIQUE)
-INSERT INTO sensor (ip, status, dt_manutencao, fk_refrigerador) VALUES
-(101, 1, '2026-09-01 08:00:00', 1),
-(102, 1, '2026-09-01 08:30:00', 2),
-(103, 1, '2026-09-05 09:00:00', 3),
-(104, 1, '2026-09-10 10:00:00', 4);
-
--- Medidas de temperatura (faixa ideal para vacinas: 2 a 8 °C)
-INSERT INTO medida_temperatura (temperatura, dt_hora, fk_sensor) VALUES
-(4.2, '2026-11-03 08:00:00', 1),
-(5.0, '2026-11-03 08:05:00', 1),
-(9.3, '2026-11-03 08:10:00', 1),
-(4.7, '2026-11-03 08:15:00', 1),
-(3.5, '2026-11-03 08:00:00', 2),
-(6.1, '2026-11-03 08:05:00', 2),
-(10.8, '2026-11-03 08:10:00', 2),
-(5.4, '2026-11-03 08:15:00', 2),
-(2.9, '2026-11-03 08:00:00', 3),
-(1.2, '2026-11-03 08:05:00', 3),
-(4.4, '2026-11-03 08:10:00', 3),
-(5.8, '2026-11-03 08:15:00', 3),
-(6.7, '2026-11-03 08:00:00', 4),
-(15.2, '2026-11-03 08:05:00', 4),
-(7.9, '2026-11-03 08:10:00', 4),
-(4.0, '2026-11-03 08:15:00', 4);
-
-INSERT INTO alerta (tipo_alerta, fk_medida) VALUES
-(1, 3),
-(2, 7),
-(1, 10),
-(2, 14);
-
-
-SELECT
-	mt.temperatura 'Temperatura',
-	mt.dt_hora 'Data e hora',
-	r.nome 'Refrigerador',
-	e.nome 'Nome da empresa',
-	u.nome 'Unidade'
-FROM
-	medida_temperatura mt JOIN sensor
-	ON mt.fk_sensor = sensor.id
-	JOIN refrigerador r
-	ON r.id = sensor.fk_refrigerador
-	JOIN unidade uSSSss
-	ON u.id = r.fk unidade
-	JOIN empresa e
-	ON e.id = u.fk_empresa;
-*/
+CREATE VIEW unidades_acesso AS
+SELECT u.fk_empresa, r.* FROM empresa AS e
+RIGHT JOIN unidade AS u
+ON e.id = u.fk_empresa
+LEFT JOIN registro_funcionario AS r
+ON u.id = r.fk_unidade
+LEFT JOIN funcionario AS f
+ON r.fk_funcionario = f.id;
