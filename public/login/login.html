@@ -148,13 +148,21 @@
             sessionStorage.user_email = json.email;
             sessionStorage.user_id = json.id;
             sessionStorage.empresa_id = json.unidades[0].fk_empresa;
-            sessionStorage.unidades = JSON.stringify(json.unidades);
-            sessionStorage.nivel_id = JSON.stringify(json.unidades.id_nivel);
+            
+
             var listaNiveis = [];
+            var listaUnidades = [];
+
             for (var i = 0; i < json.unidades.length; i++) {
-             listaNiveis.push(json.unidades[i].id_nivel);
+             listaNiveis.push(json.unidades[i].nivel);
             }
+
+            for (var i = 0; i < json.unidades.length; i++) {
+             listaUnidades.push(json.unidades[i].fk_unidade);
+            }
+
             sessionStorage.nivel_id = JSON.stringify(listaNiveis);
+            sessionStorage.unidades = JSON.stringify(listaUnidades);
             
 
             setTimeout(function (){

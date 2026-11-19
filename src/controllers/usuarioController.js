@@ -18,7 +18,8 @@ function autenticar(req, res) {
         if (resultadoAutenticar.length == 1) {
           console.log(resultadoAutenticar[0]);
           var fkEmpresa = resultadoAutenticar[0].id;
-          usuarioModel.autenticarUnidadesAcesso(fkEmpresa)
+          var idFuncionario = resultadoAutenticar[0].id_funcionario;
+          usuarioModel.autenticarUnidadesAcesso(fkEmpresa, idFuncionario)
             .then(function(resultadoUnidades){
                 res.json({
                     email: resultadoAutenticar[0].email,

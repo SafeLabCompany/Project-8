@@ -1,6 +1,8 @@
 CREATE DATABASE safelab;
 USE safelab;
 
+SELECT * FROM funcionario;
+
 -- Tabela da Empresa
 CREATE TABLE empresa (
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -32,21 +34,12 @@ dt_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 
 -- Tabela registro de funcionario
 CREATE TABLE registro_funcionario (
+nivel TINYINT NOT NULL DEFAULT 0,
 fk_funcionario INT,
 CONSTRAINT ConstFkRegistroFuncionario FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id),
 fk_unidade INT,
 CONSTRAINT ConstFkRegistroUnidade FOREIGN KEY (fk_unidade) REFERENCES unidade(id),
 PRIMARY KEY (fk_funcionario, fk_unidade)
-);
-
--- Tabela Nivel de acesso dos usuarios
-CREATE TABLE nivel_acesso (
-id INT PRIMARY KEY AUTO_INCREMENT,
-nivel TINYINT NOT NULL DEFAULT 0,
-fk_funcionario INT NOT NULL,
-CONSTRAINT ConstFkAcessoFuncionario FOREIGN KEY (fk_funcionario) REFERENCES registro_funcionario(fk_funcionario),
-fk_unidade INT NOT NULL,
-CONSTRAINT ConstFkAcessoUnidade FOREIGN KEY (fk_unidade) REFERENCES registro_funcionario(fk_unidade)
 );
 
 -- Tabela Chamado feito pelo usuario
@@ -112,7 +105,7 @@ CONSTRAINT ConstFkHist_sensorHist_refrigerador FOREIGN KEY (fk_historico_refrige
 );
 
 CREATE VIEW dados_funcionario AS
-SELECT e.id, f.nome, f.email, f.senha FROM funcionario AS f
+SELECT DISTINCT e.id, f.id AS id_funcionario, f.nome, f.email, f.senha FROM funcionario AS f
 JOIN registro_funcionario AS r
 ON r.fk_funcionario = f.id
 JOIN unidade AS u
@@ -123,14 +116,12 @@ ON u.fk_empresa = e.id;
 SELECT * FROM dados_funcionario AS d WHERE d.email = '${email}' AND d.senha = '${senha}';
 
 CREATE VIEW unidades_acesso AS
-SELECT u.fk_empresa, u.id AS id_unidade, n.id AS id_nivel, n.nivel FROM empresa AS e
+SELECT u.fk_empresa, r.* FROM empresa AS e
 RIGHT JOIN unidade AS u
 ON e.id = u.fk_empresa
 LEFT JOIN registro_funcionario AS r
 ON u.id = r.fk_unidade
 LEFT JOIN funcionario AS f
-ON r.fk_funcionario = f.id
-LEFT JOIN nivel_acesso AS n
-ON n.fk_unidade = r.fk_unidade AND n.fk_funcionario = r.fk_funcionario;
+ON r.fk_funcionario = f.id;
 
-SELECT * FROM unidades_acesso AS d WHERE d.fk_empresa = '${fkEmpresa}';
+SELECT * FROM unidades_acesso AS d WHERE d.fk_empresa = ${fkEmpresa} AND d.fk_funcionario = ${id_funcionario};
