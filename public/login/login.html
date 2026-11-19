@@ -147,8 +147,14 @@
             sessionStorage.user_name = json.nome;
             sessionStorage.user_email = json.email;
             sessionStorage.user_id = json.id;
-            sessionStorage.empresa_id = json.fkEmpresa;
-            sessionStorage.nivel_id = json.nivel;
+            sessionStorage.empresa_id = json.unidades[0].fk_empresa;
+            sessionStorage.unidades = JSON.stringify(json.unidades);
+            sessionStorage.nivel_id = JSON.stringify(json.unidades.id_nivel);
+            var listaNiveis = [];
+            for (var i = 0; i < json.unidades.length; i++) {
+             listaNiveis.push(json.unidades[i].id_nivel);
+            }
+            sessionStorage.nivel_id = JSON.stringify(listaNiveis);
             
 
             setTimeout(function (){

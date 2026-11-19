@@ -16,19 +16,16 @@ function autenticar(req, res) {
         console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);
 
         if (resultadoAutenticar.length == 1) {
-          console.log(resultadoAutenticar);
-          res
-            .json({
-              email: resultadoAutenticar[0].email,
-              nome: resultadoAutenticar[0].nome,
-            })
-            .then(function (resultadoAutenticar) {
-              var fkEmpresa = resultadoAutenticar.fkEmpresa;
-              return usuarioModel.autenticarUnidadesAcesso(fkEmpresa);
-            })
-            .then(function (resultadoAutenticar) {
-              res.json(resultadoAutenticar);
-              console.log(resultadoAutenticar);
+          console.log(resultadoAutenticar[0]);
+          var fkEmpresa = resultadoAutenticar[0].id;
+          usuarioModel.autenticarUnidadesAcesso(fkEmpresa)
+            .then(function(resultadoUnidades){
+                res.json({
+                    email: resultadoAutenticar[0].email,
+                    nome: resultadoAutenticar[0].nome,
+                    id: resultadoAutenticar[0].id,
+                    unidades: resultadoUnidades,
+                });
             })
             .catch(function (erro) {
               console.log(erro);
