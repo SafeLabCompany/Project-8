@@ -1,8 +1,6 @@
 CREATE DATABASE safelab;
 USE safelab;
 
-SELECT * FROM funcionario;
-
 -- Tabela da Empresa
 CREATE TABLE empresa (
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -123,5 +121,3 @@ LEFT JOIN registro_funcionario AS r
 ON u.id = r.fk_unidade
 LEFT JOIN funcionario AS f
 ON r.fk_funcionario = f.id;
-
-SELECT * FROM unidades_acesso AS d WHERE d.fk_empresa = ${fkEmpresa} AND d.fk_funcionario = ${id_funcionario};
