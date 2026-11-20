@@ -24,9 +24,9 @@
         <div class="section_header">
             <nav class="menu_navegacao">
                 <div style="word-spacing: 1rem;">
-                    <a style="color: #2b3b92;" href="../institucional/index.html#home" class="link_header">Inicio</a>
-                    <a style="color: #2b3b92;" href="../institucional/index.html#about" class="link_header">Sobre</a>
-                    <a style="color: #2b3b92;" href="../institucional/index.html#simulator"
+                    <a style="color: #2b3b92;" href="../index.html#home" class="link_header">Inicio</a>
+                    <a style="color: #2b3b92;" href="../index.html#about" class="link_header">Sobre</a>
+                    <a style="color: #2b3b92;" href="../index.html#simulator"
                         class="link_header">Simulador</a>
                 </div>
             </nav>
@@ -88,7 +88,7 @@
             <div style="display: flex; align-items: center;">
                 <nav>
                     <div style="word-spacing: 1rem;">
-                        <a href="../institucional/index.html#home"
+                        <a href="../index.html#home"
                             style="display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Início</a>
                         <a onclick="contato_popup.showModal()"
                             style="display: inline-block; cursor: pointer; text-decoration: none; transition: all 0.3s ease;">Contato</a>
@@ -152,6 +152,11 @@
 
             var listaNiveis = [];
             var listaUnidades = [];
+            var listaRefrigeradores = [];
+
+            for (var i = 0; i < json.refrigeradores.length; i++) {
+             listaRefrigeradores.push(json.refrigeradores[i].id);
+            }
 
             for (var i = 0; i < json.unidades.length; i++) {
              listaNiveis.push(json.unidades[i].nivel);
@@ -162,6 +167,7 @@
             }
 
             sessionStorage.nivel_id = JSON.stringify(listaNiveis);
+            sessionStorage.refrigeradores = JSON.stringify(listaRefrigeradores);
             sessionStorage.unidades = JSON.stringify(listaUnidades);
             
 

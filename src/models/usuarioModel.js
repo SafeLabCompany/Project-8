@@ -9,9 +9,19 @@ function autenticar(email, senha) {
     return database.executar(instrucaoSql);
 }
 
-function autenticarUnidadesAcesso(fkEmpresa, id_funcionario){
+function autenticarUnidadesAcesso(fkEmpresa, id_funcionario) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", fkEmpresa)
-    var instrucaoSql = `SELECT * FROM unidades_acesso AS d WHERE d.fk_empresa = ${fkEmpresa} AND d.fk_funcionario = ${id_funcionario};` 
+    var instrucaoSql = `SELECT * FROM unidades_acesso AS d WHERE d.fk_empresa = ${fkEmpresa} AND d.fk_funcionario = ${id_funcionario};`
+    return database.executar(instrucaoSql);
+}
+
+function autenticarRefrigeradoresUnidades(fkEmpresa) {
+    var instrucaoSql = `SELECT r.id FROM empresa AS e
+                        JOIN unidade AS u
+                        ON u.fk_empresa = e.id
+                        JOIN refrigerador AS r
+                        ON r.fk_unidade = u.id
+                        WHERE e.id = ${fkEmpresa};;`
     return database.executar(instrucaoSql);
 }
 
@@ -29,11 +39,11 @@ function cadastrar(nome, email, senha, cpf) {
 }
 
 function correlacionar(fk_unidade, fk_funcionario) {
-console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar(): ", fk_unidade,fk_funcionario);
-var instrucaoSql = `INSERT INTO registro_funcionario (fk_unidade, fk_funcionario) Values
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar(): ", fk_unidade, fk_funcionario);
+    var instrucaoSql = `INSERT INTO registro_funcionario (fk_unidade, fk_funcionario) Values
 (${fk_unidade}, ${fk_funcionario})`
 
-console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
@@ -53,5 +63,6 @@ module.exports = {
     cadastrar,
     AtivarCodigo,
     correlacionar,
-    autenticarUnidadesAcesso
+    autenticarUnidadesAcesso,
+    autenticarRefrigeradoresUnidades
 };
