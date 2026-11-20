@@ -1,9 +1,9 @@
 var unidadeModel = require("../models/unidadeModel");
 
 function cadastrar(req, res) {
-    var titulo = req.body.titulo;
-    var cep = req.body.cep;
-    var numero_endereco = req.body.numero_endereco;
+    var titulo = req.body.nova_unidade;
+    var cep = req.body.novo_cep;
+    var numero_endereco = req.body.novo_numero;
     var fk_empresa = req.body.fk_empresa;
 
     if (titulo == undefined || titulo == "") {
