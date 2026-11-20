@@ -4,7 +4,7 @@ function cadastrar(req, res) {
     var titulo = req.body.nova_unidade;
     var cep = req.body.novo_cep;
     var numero_endereco = req.body.novo_numero;
-    var fk_empresa = req.body.fk_empresa;
+    var fk_empresa = req.body.novo_empresa_id;
 
     if (titulo == undefined || titulo == "") {
         res.status(400).send("O nome da unidade está inválido!");

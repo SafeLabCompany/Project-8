@@ -140,36 +140,38 @@
   </div>
 </body>
 <script>
+    function alteracoes(){
+            fetch("/unidade", {
+            method: 'POST',
+            headers: {
+                    "Content-Type": "application/json"
+                },
+            body: JSON.stringify({
+              nova_unidade: unidadeNova.value,
+              novo_cep: cep.value,
+              novo_numero: numero_unidade.value,
+              novo_empresa_id: sessionStorage.getItem("empresa_id")
+            })
+            }).then(function(resposta){
+                if(resposta.ok){
+              console.log(resposta);
 
-  fetch("/unidade", {
-        method: 'POST',
-        headers: {
-                "Content-Type": "application/json"
-            },
-        body: JSON.stringify({
-           nova_unidade: unidadeNova.value,
-           novo_cep: cep.value,
-           novo_numero: numero_unidade.value
-        })
-        }).then(function(resposta){
-            if(resposta.ok){
-          console.log(resposta);
+              resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
 
-          resposta.json().then(json => {
-            console.log(json);
-            console.log(JSON.stringify(json));
-
-            setTimeout(function (){
-              window.location = "../dash/unidades.html"
-            },1000)
+                setTimeout(function (){
+                  window.location = "../dash/unidades.html"
+                },1000)
+              })
+            }
+            else {
+                console.log("Houve um erro ao tentar realizar o cadastro de uma nova unidade");
+                resposta.text().then(texto =>{
+                  console.error(texto);
+                });
+              }
           })
-        }
-        else {
-            console.log("Houve um erro ao tentar realizar o cadastro de uma nova unidade");
-            resposta.text().then(texto =>{
-              console.error(texto);
-            });
-          }
-      })
+    }
 </script>
 </html>
