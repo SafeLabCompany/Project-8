@@ -2,7 +2,7 @@ var database = require("../database/config");
 
 function buscarUltimasMedidas(idRefrigerador, limite_linhas) {
 
-    var instrucaoSql = `Select m.temperatura, m.dt_hora from medida_temperatura as m where m.fk_sensor = ${idRefrigerador} limit = ${limite_linhas}`;
+    var instrucaoSql = `Select m.temperatura, m.dt_hora from medida_temperatura as m where m.fk_sensor = ${idRefrigerador} limit ${limite_linhas}`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

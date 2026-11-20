@@ -326,30 +326,30 @@
     let lista_refrigeradores = sessionStorage.refrigeradores;
     lista_refrigeradores = JSON.parse(lista_refrigeradores)
     let conteudo = ''
-    alert(lista_refrigeradores)
+    
 
     for(let i = 0; i < lista_refrigeradores.length ;i++ ){
-      conteudo += `<option value="${i+1}">Refrigerador ${i+1}</option>`
+      conteudo += `<option value="${lista_refrigeradores[i]}">Refrigerador ${i+1}</option>`
     }
 
     slc_refrigeradores.innerHTML = conteudo
    
     function verificarSelect(){
-
-
-
-
-
+      let opcao = slc_refrigeradores.value
+      obterDadosGrafico(opcao);
     }
     function obterDadosGrafico(idRefrigerador) {
 
-        alterarTitulo(idRefrigerador)
+        
 
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
-        }
+        // if (proximaAtualizacao != undefined) {
+        //     clearTimeout(proximaAtualizacao);
+        // }
 
-        fetch(`/medidas/ultimas/${idRefrigerador}`, { cache: 'no-store' }).then(function (response) {
+     
+
+        fetch(`/medidas/ultimas/${idRefrigerador}`, { method: "GET", headers: {"Content-Type": "application/json"} })
+        .then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -417,11 +417,11 @@
 
         // Adicionando gráfico criado em div na tela
         let myChart = new Chart(
-            document.getElementById(`myChartCanvas${idAquario}`),
+            document.getElementById(`myChartCanvas${idRefrigerador}`),
             config
         );
 
-        setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+        setTimeout(() => atualizarGrafico(idRefrigerador, dados, myChart), 2000);
     }
 
 
