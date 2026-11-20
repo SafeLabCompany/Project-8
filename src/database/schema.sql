@@ -121,3 +121,26 @@ LEFT JOIN registro_funcionario AS r
 ON u.id = r.fk_unidade
 LEFT JOIN funcionario AS f
 ON r.fk_funcionario = f.id;
+
+
+CREATE VIEW vw_ultimos_registros AS 
+SELECT mt.temperatura, mt.dt_hora
+FROM medida_temperatura AS mt
+JOIN sensor AS s
+ON mt.fk_sensor = s.id
+JOIN refrigerador AS r
+ON s.fk_refrigerador = r.id
+JOIN unidade AS u
+ON r.fk_unidade = u.id;
+
+
+CREATE OR REPLACE VIEW vw_ultimos_registros AS 
+SELECT mt.temperatura AS temperatura, mt.dt_hora AS momento, DATE_FORMAT(mt.dt_hora,'%H:%i:%s') as momento_grafico, u.id AS id_unidade,
+       r.id AS id_refrigerador
+FROM medida_temperatura AS mt
+JOIN sensor AS s
+ON mt.fk_sensor = s.id
+JOIN refrigerador AS r
+ON s.fk_refrigerador = r.id
+JOIN unidade AS u
+ON r.fk_unidade = u.id;

@@ -4,11 +4,11 @@ function buscarUltimasMedidas(req, res) {
 
     const limite_linhas = 7;
 
-    var idRefrigerador = req.params.idRefrigerador;
+    var idUnidade = req.params.idUnidade;
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    medidaModel.buscarUltimasMedidas(idRefrigerador, limite_linhas).then(function (resultado) {
+    medidaModel.buscarUltimasMedidas(idUnidade, idRefrigerador, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -24,11 +24,13 @@ function buscarUltimasMedidas(req, res) {
 
 function buscarMedidasEmTempoReal(req, res) {
 
-    var idRefrigerador = req.params.idRefrigerador;
+    
+    var idUnidade = req.params.idUnidade;
+    var idRefrigerador = req.params.idRefrigerador
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idRefrigerador).then(function (resultado) {
+    medidaModel.buscarMedidasEmTempoReal(idUnidade, idRefrigerador).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
