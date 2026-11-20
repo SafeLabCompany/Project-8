@@ -152,6 +152,11 @@
 
             var listaNiveis = [];
             var listaUnidades = [];
+            var listaRefrigeradores = [];
+
+            for (var i = 0; i < json.refrigeradores.length; i++) {
+             listaRefrigeradores.push(json.refrigeradores[i].id);
+            }
 
             for (var i = 0; i < json.unidades.length; i++) {
              listaNiveis.push(json.unidades[i].nivel);
@@ -162,6 +167,7 @@
             }
 
             sessionStorage.nivel_id = JSON.stringify(listaNiveis);
+            sessionStorage.refrigeradores = JSON.stringify(listaRefrigeradores);
             sessionStorage.unidades = JSON.stringify(listaUnidades);
             
 

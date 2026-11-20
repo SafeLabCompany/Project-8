@@ -20,36 +20,40 @@ function autenticar(req, res) {
           var fkEmpresa = resultadoAutenticar[0].id;
           var idFuncionario = resultadoAutenticar[0].id_funcionario;
           usuarioModel.autenticarUnidadesAcesso(fkEmpresa, idFuncionario)
-            .then(function(resultadoUnidades){
-                res.json({
+            .then(function (resultadoUnidades) {
+              usuarioModel.autenticarRefrigeradoresUnidades(fkEmpresa)
+                .then(function (resultadoRefrigeradores) {
+                  res.json({
                     email: resultadoAutenticar[0].email,
                     nome: resultadoAutenticar[0].nome,
                     id: resultadoAutenticar[0].id,
                     unidades: resultadoUnidades,
-                });
+                    refrigeradores: resultadoRefrigeradores,
+                  });
+                })
             })
-            .catch(function (erro) {
-              console.log(erro);
-              console.log(
-                "Houve um erro ao realizar o cadastro de desempenho! Erro: ",
-                erro.sqlMessage,
-              );
-              res.status(500).json(erro.sqlMessage);
-            });
-        } else if (resultadoAutenticar.length == 0) {
-          res.status(403).send("Email e/ou senha inválido(s)");
-        } else {
-          res.status(403).send("Mais de um usuário com o mesmo login e senha!");
-        }
-      })
       .catch(function (erro) {
         console.log(erro);
         console.log(
-          "\nHouve um erro ao realizar o login! Erro: ",
+          "Houve um erro ao realizar o cadastro de desempenho! Erro: ",
           erro.sqlMessage,
         );
         res.status(500).json(erro.sqlMessage);
       });
+  } else if (resultadoAutenticar.length == 0) {
+    res.status(403).send("Email e/ou senha inválido(s)");
+  } else {
+    res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+  }
+})
+      .catch (function (erro) {
+  console.log(erro);
+  console.log(
+    "\nHouve um erro ao realizar o login! Erro: ",
+    erro.sqlMessage,
+  );
+  res.status(500).json(erro.sqlMessage);
+});
   }
 }
 
