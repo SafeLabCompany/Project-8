@@ -97,7 +97,7 @@
 
             <div class="Oculto" id="confirma_senha_ocultavel">
              <label for="ipt_CadastroConfirmarSenha"> <h3>Confirmar Senha:</h3> </label>
-             <input type="password" class="LocalDeInsert" id="ipt_CadastroConfirmarSenha">
+             <input type="password" class="LocalDeInsert" id="ipt_CadastroConfirmarSenha" required oninput="ValidarConfirma()">
             </div>
 
             <p id="RequisitosDeSenha" class="Oculto">
@@ -184,9 +184,9 @@
   <script>
     let ValidarCadastro = 0;
 
-       function Validar(){
-
+  function Validar(){
     let senha = ipt_CadastroSenha.value
+
     let numeros = '0123456789';
     let letrasMin = 'abcdefghijklmnopqrstuvwxyz'
     let letrasMai = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -197,32 +197,28 @@
      let criterioMin = 0;
      let criterioTotal = 0;
 
-      if (senha.length == 0) {
-    ValidarCadastro = 0;
-    Mensagem_forca_senha.innerHTML = "";
-    return;
+    if (senha.length == 0) {
+      ValidarCadastro = 0;
+     return;
 }
+    for(i = 0; i < senha.length; i++ ){
+      if(numeros.includes(senha[i])){
+        criterioNumero++
 
-      for(let i =0; i < senha.length; i++ ){
-        if(numeros.includes(senha[i])){
-          criterioNumero++
-
-        }
-        if(letrasMai.includes(senha[i])){
-          criterioMai++
-
-        }
-        if(letrasMin.includes(senha[i])){
-          criterioMin++
-
-        }
-        if(caracterEspecial.includes(senha[i])){
-          criterioEspe++
-
-        }
       }
+      if(letrasMai.includes(senha[i])){
+        criterioMai++
 
+      }
+      if(letrasMin.includes(senha[i])){
+        criterioMin++
 
+      }
+      if(caracterEspecial.includes(senha[i])){
+        criterioEspe++
+
+      }
+    }
 
       let forca = ""
       if(criterioEspe > 0){
@@ -241,33 +237,33 @@
          criterioTotal++
       }
 
-        if(criterioTotal == 2 ){
-          ValidarCadastro = 1;
-           Mensagem_forca_senha.innerHTML = `Força da senha: Fraca`
-           Mensagem_forca_senha.style.color = "red"
-          }
-        else if(criterioTotal == 3){
-          ValidarCadastro = 2;
-            Mensagem_forca_senha.innerHTML = `Força da senha: Média`
-           Mensagem_forca_senha.style.color = "black"
-           }
-        else if(criterioTotal == 4){
-          ValidarCadastro = 3;
-             Mensagem_forca_senha.innerHTML = `Força da senha: Forte`
-           Mensagem_forca_senha.style.color = "green"
-        }
+        if(criterioTotal < 5){
+           ipt_CadastroSenha.classList.remove('senhaAceita')
+           ipt_CadastroSenha.classList.add('senhaNegada')
+           }      
         else if(criterioTotal >= 5 ) {
           ValidarCadastro = 4;
-             Mensagem_forca_senha.innerHTML = `Força da senha: Muito Forte`
-           Mensagem_forca_senha.style.color = "green"
+           ipt_CadastroSenha.classList.remove('senhaNegada')
+           ipt_CadastroSenha.classList.add('senhaAceita')
       }
         if(senha.length < 8){
-          Mensagem_forca_senha.innerHTML = `minimo 8 caracteres`
-           Mensagem_forca_senha.style.color = "red"
+           ipt_CadastroSenha.classList.remove('senhaAceita')
+           ipt_CadastroSenha.classList.add('senhaNegada')
          }
-
-
   }
+    function ValidarConfirma() {
+      let confirma = ipt_CadastroConfirmarSenha.value;
+      let senha = ipt_CadastroSenha.value;
+
+      if (confirma != senha) {
+        ipt_CadastroConfirmarSenha.classList.remove('senhaAceita')
+        ipt_CadastroConfirmarSenha.classList.add('senhaNegada')
+      } else if (confirma == senha) {
+        ipt_CadastroConfirmarSenha.classList.remove('senhaNegada')
+        ipt_CadastroConfirmarSenha.classList.add('senhaAceita')
+      }
+    }
+
 
     function Ocultar() {
     document.getElementById(codEmpresa_ocultavel.classList.add('Oculto'))

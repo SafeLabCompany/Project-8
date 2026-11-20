@@ -206,6 +206,14 @@ header {
             border-style: solid;
             
         }
+
+    .senhaNegada {
+        border-color: red;
+    }
+
+    .senhaAceita {
+        border-color: green;
+    }
 }
 
 
@@ -243,6 +251,5 @@ header {
 
 
         }
-
     }
 }
