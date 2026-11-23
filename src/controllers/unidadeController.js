@@ -1,6 +1,7 @@
 var unidadeModel = require("../models/unidadeModel");
 
 function cadastrar(req, res) {
+    console.log(req.body);
     var titulo = req.body.nova_unidade;
     var cep = req.body.novo_cep;
     var numero_endereco = req.body.novo_numero;
@@ -17,21 +18,22 @@ function cadastrar(req, res) {
     } else {
         unidadeModel.cadastrar(titulo, cep, numero_endereco, fk_empresa)
             .then(function (resultado) {
-                console.log("Unidade cadastrada com sucesso!");
-
-                res.status(201).json({
-                    mensagem: "Unidade cadastrada com sucesso!",
-                    titulo: titulo
-                });
-            })
-
-
-            .catch(function (erro) {
+                if(resultado.length > 0){
+                    res.status(201).json(resultado);
+                    console.log("Chegou no controller")
+                    console.log("Unidade cadastrada com sucesso!");
+                } else{
+                    res.status(204).send("Nenhum resultado encontrado")
+                }
+            }).catch(function (erro) {
                 console.log(erro);
                 console.log("Erro ao cadastrar unidade:", erro.sqlMessage);
 
                 res.status(500).json(erro.sqlMessage);
             });
+
+
+            
 
     }
 }
