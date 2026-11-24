@@ -4,6 +4,8 @@ function buscarUltimasMedidas(req, res) {
 
     const limite_linhas = 7;
 
+
+    var idRefrigerador = req.params.idRefrigerador;
     var idUnidade = req.params.idUnidade;
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);

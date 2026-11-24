@@ -218,19 +218,90 @@
             });
     }
 
+    function plotarGrafico(resposta, idRefrigerador) {
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: horas,
+            datasets: [
+              {
+                label: "temperatura",
+                borderColor: "#558acb",
+                backgroundColor: "cyan",
+                borderWidth: 2,
+                data: sensores[i],
+              },
+              {
+                label: "Limite mínimo (2°C)",
+                borderColor: "red",
+                borderWidth: 2,
+                borderDash: [5, 5],
+                pointRadius: 0,
+                data: [
+                  2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+                ],
+              },
+              {
+                label: "Limite máximo (8°C)",
+                borderColor: "red",
+                borderWidth: 2,
+                borderDash: [5, 5],
+                pointRadius: 0,
+                data: [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+              },
+            ],
+          };
+
+        console.log('----------------------------------------------')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.momento_grafico);
+            dados.datasets[0].data.push(registro.temperatura);
+        }
+
+        console.log('----------------------------------------------')
+        console.log(labels)
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'line',
+            data: dados,
+            options: {
+            responsive: true,
+            maintainAspectRatio: false,
+          }
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`myChartCanvas${idRefrigerador}`),
+            config
+        );
+
+        setTimeout(() => atualizarGrafico(idRefrigerador, dados, myChart), 2000);
+    };
+
+
     function atualizarGrafico(idUnidade, idRefrigerador, dados, myChart) {
 
         fetch(`/medidas/tempo-real/${idUnidade}/${idRefrigerador}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
-                    obterdados(idAquario);
-                    // alertar(novoRegistro, idAquario);
-                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    obterdados(idRefrigerador);
+                    // alertar(novoRegistro, idRefrigerador);
                     console.log(`Dados atuais do gráfico:`);
                     console.log(dados);
 
-                    let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
+                    let avisoCaptura = document.getElementById(`avisoCaptura${idRefrigerador}`)
                     avisoCaptura.innerHTML = ""
 
 
@@ -255,12 +326,12 @@
                     }
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idRefrigerador, dados, myChart), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idRefrigerador, dados, myChart), 2000);
             }
         })
             .catch(function (error) {
