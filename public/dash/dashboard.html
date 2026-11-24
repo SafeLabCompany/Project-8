@@ -214,7 +214,9 @@
     let proximaAtualizacao;
 
     function obterDados(idUnidade, idRefrigerador) {
-      fetch(`/ultima/tempo-real/1/1`)
+      idUnidade = 1;
+      idRefrigerador = 1;
+      fetch(`/medidas/ultima/tempo-real/${idUnidade}/${idRefrigerador}`)
         .then(function (response) {
           if (resposta.ok) {
             resposta.json().then(function (resposta) {
@@ -298,7 +300,10 @@
         });
     }
 
-    function plotarGrafico(resposta, idRefrigerador) {
+    function plotarGrafico(resposta, idRefrigerador, idUnidade) {
+
+      idRefrigerador = 1;
+      idUnidade = 1
       // Criando estrutura para plotar gráfico - labels
       let labels = [];
       let valoresTemperatura = [];
@@ -367,7 +372,7 @@
         config,
       );
 
-      setTimeout(() => atualizarGrafico(idRefrigerador, dados, myChart), 2000);
+      setTimeout(() => atualizarGrafico(idUnidade, idRefrigerador, dados, myChart), 2000);
     }
 
     function atualizarGrafico(idUnidade, idRefrigerador, dados, myChart) {
@@ -379,6 +384,7 @@
               console.log(`Dados atuais do gráfico:`);
               console.log(`${dados.labels}`);
               console.log(`${novoRegistro[0].momento_grafico}`);
+              console.log(`${novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]}`);
 
               if (
                 novoRegistro[0].momento_grafico ==
