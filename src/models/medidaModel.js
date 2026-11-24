@@ -10,7 +10,7 @@ function buscarUltimasMedidas(idUnidade, idRefrigerador, limite_linhas) {
 
 function buscarMedidasEmTempoReal(idUnidade, idRefrigerador) {
 
-    var instrucaoSql = `SELECT * from vw_ultimos_registros WHERE u.id = ${idUnidade} AND r.id = ${idRefrigerador};`;
+    var instrucaoSql = `SELECT * from vw_ultimos_registros WHERE id_unidade = ${idUnidade} AND id_refrigerador = ${idRefrigerador};`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

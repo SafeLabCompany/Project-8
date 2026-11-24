@@ -170,7 +170,9 @@
             </div>
           </div>
 
-          <div class="arearefrigerador" id="div_exibir_grafico"></div>
+          <div class="arearefrigerador" id="div_exibir_grafico">
+            <canvas id="myChartCanvas1"></canvas>
+          </div>
         </div>
       </div>
     </div>
@@ -222,8 +224,21 @@
 
         // Criando estrutura para plotar gráfico - labels
         let labels = [];
+        let valoresTemperatura = [];
 
         // Criando estrutura para plotar gráfico - dados
+        
+
+        console.log('----------------------------------------------')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.momento_grafico);
+            valoresTemperatura.push(registro.temperatura)
+        }
+
         let dados = {
             labels: horas,
             datasets: [
@@ -232,7 +247,7 @@
                 borderColor: "#558acb",
                 backgroundColor: "cyan",
                 borderWidth: 2,
-                data: sensores[i],
+                data: valoresTemperatura,
               },
               {
                 label: "Limite mínimo (2°C)",
@@ -254,16 +269,6 @@
               },
             ],
           };
-
-        console.log('----------------------------------------------')
-        console.log(resposta)
-
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.temperatura);
-        }
 
         console.log('----------------------------------------------')
         console.log(labels)
@@ -289,48 +294,29 @@
         setTimeout(() => atualizarGrafico(idRefrigerador, dados, myChart), 2000);
     };
 
-
     function atualizarGrafico(idUnidade, idRefrigerador, dados, myChart) {
-
         fetch(`/medidas/tempo-real/${idUnidade}/${idRefrigerador}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
-
-                    obterdados(idRefrigerador);
-                    // alertar(novoRegistro, idRefrigerador);
+                    obterDados(idRefrigerador);
                     console.log(`Dados atuais do gráfico:`);
-                    console.log(dados);
-
-                    let avisoCaptura = document.getElementById(`avisoCaptura${idRefrigerador}`)
-                    avisoCaptura.innerHTML = ""
-
 
                     if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-                        console.log("---------------------------------------------------------------")
-                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
                         avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
-                        console.log("Horário do novo dado capturado:")
-                        console.log(novoRegistro[0].momento_grafico)
-                        console.log("Horário do último dado capturado:")
-                        console.log(dados.labels[dados.labels.length - 1])
-                        console.log("---------------------------------------------------------------")
                     } else {
-                        // tirando e colocando valores no gráfico
-                        dados.labels.shift(); // apagar o primeiro
-                        dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+                        dados.labels.shift();
+                        dados.labels.push(novoRegistro[0].momento_grafico);
 
-                        dados.datasets[0].data.shift();  // apagar o primeiro de temperatura
-                        dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+                        dados.datasets[0].data.shift();
+                        dados.datasets[0].data.push(novoRegistro[0].temperatura);
 
                         myChart.update();
                     }
 
-                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(idRefrigerador, dados, myChart), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
-                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
                 proximaAtualizacao = setTimeout(() => atualizarGrafico(idRefrigerador, dados, myChart), 2000);
             }
         })
@@ -339,6 +325,9 @@
             });
 
     }
+    
+    obterDadosGrafico(1, 1)
+
     let message = "";
     let ultimo_valor = 0;
 
@@ -531,8 +520,6 @@
 
       
     }
-
-    gerar_graficos();
 
     
   </script>

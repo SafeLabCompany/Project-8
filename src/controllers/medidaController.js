@@ -4,7 +4,6 @@ function buscarUltimasMedidas(req, res) {
 
     const limite_linhas = 7;
 
-
     var idRefrigerador = req.params.idRefrigerador;
     var idUnidade = req.params.idUnidade;
 
@@ -48,5 +47,4 @@ function buscarMedidasEmTempoReal(req, res) {
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal
-
 }
