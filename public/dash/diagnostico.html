@@ -11,7 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="verificarSelect()">
+<body onload="verificarSelect(),verificarUnidade()">
   <div id="page-container">
     <div id="main-dash">
       <div id="user-area">
@@ -40,10 +40,11 @@
               <h2>Visão da unidade</h2>
             </a>
           </div>
-          
+
           <div class="btn-href-active">
             <a href="diagnostico.html" class="btn-row">
-              <img class="btn-img" style="margin-top: 0.5rem;" src="../assets/dash/user-area/refrigerador.svg" alt="Refrigeradores">
+              <img class="btn-img" style="margin-top: 0.5rem;" src="../assets/dash/user-area/refrigerador.svg"
+                alt="Refrigeradores">
               <h2>Diagnóstico do refrigerador</h2>
             </a>
           </div>
@@ -72,8 +73,8 @@
 
           <div id="user-logout" class="btn-href">
             <a href="../index.html" style="display: flex;">
-            <h2>Logout</h2>
-            <img class="btn-img" src="../assets/dash/user-area/log-out.svg" alt="">
+              <h2>Logout</h2>
+              <img class="btn-img" src="../assets/dash/user-area/log-out.svg" alt="">
             </a>
           </div>
         </div>
@@ -81,7 +82,8 @@
       <div id="area-dashboard">
         <div id="header-dashboard">
           <div>
-            <span class="refrigerator-title">Refrigerador 1</span>
+            <span class="refrigerator-title">Refrigerador</span>
+            <span id="refrigeradorSuperior" class="refrigerator-title">1</span>
             <br>
             <p class="refrigerator-unit">Unidade 1 - Últimas 24 horas</p>
           </div>
@@ -89,23 +91,23 @@
             Ideal
           </div>
           <div id="container-select">
-            <select id="slc_refrigeradores" class="select-diagnostico">
-             
+            <select onchange="verificarSelect()" id="slc_refrigeradores" class="select-diagnostico">
+
 
             </select>
-            <select class="select-diagnostico">
-              <option value="unidade1">Unidade 1</option>
+            <select onchange="verificarUnidade()" id="slc_unidades" class="select-diagnostico">
+              <!-- <option value="unidade1">Unidade 1</option> -->
             </select>
           </div>
           <div id="header-dashboard">
-          <img id="img_alert" width="30px" height="30px" src="../assets/dash/notification.png" alt="user_icon.png" />
-          <img id="img_alert" width="30px" height="30px" src="../assets/dash/userIcon.png" alt="user_icon.png" />
-        </div>
+            <img id="img_alert" width="30px" height="30px" src="../assets/dash/notification.png" alt="user_icon.png" />
+            <img id="img_alert" width="30px" height="30px" src="../assets/dash/userIcon.png" alt="user_icon.png" />
+          </div>
         </div>
         <div id="area-kpi">
           <div class="card kpi1, card-kpi">
             <span class="card-title"> Temperatura atual </span>
-            <span class="card-body" >
+            <span class="card-body">
               4.0 °C
             </span>
             <span class="card-explain"> Há 1 min </span>
@@ -131,12 +133,12 @@
           <div id="container-esquerdo">
             <div id="graficos-esquerdo">
               <div class="dash-grafico">
-                <canvas id="historico-temp"></canvas>
-                  </div>
-                    <div id="container-faixa">
-                  <canvas id="faixa_temp"></canvas>
-            </div>
-              
+                <canvas id="historico_temp"></canvas>
+              </div>
+              <div id="container-faixa">
+                <canvas id="faixa_temp"></canvas>
+              </div>
+
             </div>
           </div>
 
@@ -178,305 +180,371 @@
 </body>
 <script>
 
-  let listaTemperatura = []
-  var historico_temp = new Chart(
-    document.getElementById("historico-temp").getContext("2d"),
-    {
-      type: "line",
-      data: {
-        labels: ["00:01", "00:02", "00:03", "00:04", "00:05", "00:06","00:07","00:08", "00:09", "00:10", "00:11", "00:12", "00:13","00:14", "00:15", "00:16","00:17"],
-        datasets: [
-          {
-            label: "temperatura",
-            borderColor: "#558acb",
-            backgroundColor: "#558acb",
-            borderWidth: 2,
-            data: listaTemperatura,
-          },
-          {
-            label: "Limite mínimo (2°C)",
-            borderColor: "red",
-            borderWidth: 2,
-            borderDash: [5, 5],
-            pointRadius: 0,
-            data: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-          },
-          {
-            label: "Limite máximo (8°C)",
-            borderColor: "red",
-            borderWidth: 2,
-            borderDash: [5, 5],
-            pointRadius: 0,
-            data: [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
-          },
-        ],
-      },
-      options: {
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            position: "bottom",
-            align: "center",
-          },
-        },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: "Horario",
-            },
-          },
-          y: {
-            min: 0,
-            max: 10,
-            title: {
-              display: true,
-              text: "Temperatura(°C)",
-            },
-          },
-        },
-      },
-      y: {
-        min: 0,
-        max: 10,
-        title: {
-          display: true,
-          text: 'Temperatura (°C)'
-        }
-      }
-    },
-  );
 
-  var faixa_temp = new Chart(
-    document.getElementById("faixa_temp").getContext("2d"),
-    {
-      type: "bar",
-      data: {
-        labels: ["0"],
-        datasets: [
-          {
-            label: "Ideal - 94%",
-            backgroundColor: "#00bf63",
-            data: [94]
+  // 
+
+  let lista_temperatura = []
+  let lista_horarios = []
+
+  let fora = 0
+  let dentro = 0
+
+  let lista_refrigeradores = sessionStorage.refrigeradores;
+  lista_refrigeradores = JSON.parse(lista_refrigeradores)
+
+  let lista_unidades = sessionStorage.unidades
+  lista_unidades = JSON.parse(lista_unidades);
+
+
+
+  let conteudo = ''
+  let conteudo1 = ''
+
+
+  for (let i = 0; i < lista_refrigeradores.length; i++) {
+    conteudo += `<option value="${lista_refrigeradores[i]}">Refrigerador ${i + 1}</option>`
+    conteudo += `<span value="${lista_refrigeradores[i]}">Refrigerador ${i + 1}</span>`
+  }
+
+  for (let a = 0; a < lista_unidades.length; a++) {
+    conteudo1 += `<option value="${lista_unidades[a]}">Unidades ${a + 1}</option>`
+    // conteudo += `<option value="${lista_unidades[a]}">Refrigerador ${a+1}</option>`
+  }
+
+
+
+  slc_refrigeradores.innerHTML = conteudo
+  conteudo = ''
+
+  slc_unidades.innerHTML = conteudo1
+  conteudo1 = ''
+
+  const select = document.getElementById('slc_refrigeradores')
+  const span = document.getElementById('refrigeradorSuperior')
+
+  select.addEventListener('change', function () {
+    span.textContent = this.value;
+  });
+
+  let unidade_selecionada = 0
+
+  function verificarUnidade() {
+    let unidade_selecionada = slc_unidades.value
+    alert(unidade_selecionada)
+    verificarSelect(unidade_selecionada)
+  }
+
+  function verificarSelect(unidade_selecionada) {
+    let opcao = slc_refrigeradores.value
+    obterDadosGrafico(opcao, unidade_selecionada);
+  }
+
+  function obterDadosGrafico(Sensor, Unidade) {
+    fetch(`/medidas/tempo-real`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        idUnidade: Unidade,
+        idSensor: Sensor
+      })
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+            // resposta.reverse();
+
+            for (let i = resposta.length - 1; i >= 0; i--) {
+              lista_temperatura.push(resposta[i].temperatura)
+              lista_horarios.push(resposta[i].Horario)
+            }
+            obterDados24(Sensor, Unidade)
+
+            // plotarGrafico(lista_temperatura,lista_horarios);
+
+          });
+        } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+        }
+      })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+  }
+
+  function obterDados24(Sensor, Unidade) {
+    fetch(`/medidas/ultimas-24`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        idUnidade: Unidade,
+        idSensor: Sensor
+      })
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+            // resposta.reverse();
+
+            fora = resposta[0].fora
+            dentro = resposta[0].dentro
+
+
+            plotarGrafico();
+
+          });
+        } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+        }
+      })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+  }
+
+
+  // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+  // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+  // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+  function plotarGrafico() {
+
+    var faixa_temp = new Chart(
+      document.getElementById("faixa_temp").getContext("2d"),
+      {
+        type: "bar",
+        data: {
+          labels: ["0"],
+          datasets: [
+            {
+              label: "Ideal - 94%",
+              backgroundColor: "#00bf63",
+              data: [dentro]
+            },
+            {
+              label: "Crítico - 6%",
+              backgroundColor: "#e61e28",
+              data: [fora]
+            },
+          ],
+        },
+        options: {
+          maintainAspectRatio: false,
+          indexAxis: 'y',
+          plugins: {
+            title: {
+              display: true,
+              text: "Permanência em cada faixa",
+              align: "start",
+              font: { size: 20, weight: "bold" },
+
+            },
+            subtitle: {
+              display: true,
+              text: "Últimas 24 horas",
+              align: "start",
+              font: { size: 16 },
+            },
+            legend: {
+              position: "bottom",
+              align: "start",
+            },
           },
-          {
-            label: "Crítico - 6%",
-            backgroundColor: "#e61e28", 
-            data: [6],
+          scales: {
+            x: {
+              stacked: true,
+              min: 0,
+              max: 100,
+            },
+            y: {
+              stacked: true,
+              display: false
+            },
           },
-        ],
-      },
-      options: {
-        maintainAspectRatio: false,
-        indexAxis: 'y',
-        plugins: {
+        },
+        y: {
+          min: 0,
+          max: 10,
           title: {
             display: true,
-            text: "Permanência em cada faixa",
-            align: "start",
-            font: {size: 20, weight: "bold"},
-
-          },
-          subtitle: {
-            display: true,
-            text: "Últimas 24 horas",
-            align: "start",
-            font: {size: 16},
-          },
-          legend: {
-            position: "bottom",
-            align: "start",
-          },
-        },
-        scales: {
-          x: {
-            stacked: true,
-            min: 0,
-            max: 100,
-          },
-          y: {
-            stacked: true,
-            display: false
-          },
-        },
+            text: 'Temperatura (°C)'
+          }
+        }
       },
-      y: {
-        min: 0,
-        max: 10,
-        title: {
-          display: true,
-          text: 'Temperatura (°C)'
-        }
-      }
-    },
-  );
+    );
 
-// O gráfico é construído com três funções:
-    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
-    // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
-
-    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
-    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
-    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-   
-    let lista_refrigeradores = sessionStorage.refrigeradores;
-    lista_refrigeradores = JSON.parse(lista_refrigeradores)
-    let conteudo = ''
-    
-
-    for(let i = 0; i < lista_refrigeradores.length ;i++ ){
-      conteudo += `<option value="${lista_refrigeradores[i]}">Refrigerador ${i+1}</option>`
-    }
-
-    slc_refrigeradores.innerHTML = conteudo
-   
-    function verificarSelect(){
-      let opcao = slc_refrigeradores.value
-      obterDadosGrafico(opcao);
-    }
-    function obterDadosGrafico(idRefrigerador) {
-
-        
-
-        // if (proximaAtualizacao != undefined) {
-        //     clearTimeout(proximaAtualizacao);
-        // }
-
-     
-
-        fetch(`/medidas/ultimas/${idRefrigerador}`, { method: "GET", headers: {"Content-Type": "application/json"} })
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-
-                    plotarGrafico(resposta, idRefrigerador);
-
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-    }
-
-    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta, idRefrigerador) {
-
-        console.log('iniciando plotagem do gráfico...');
-
-        // Criando estrutura para plotar gráfico - labels
-        let labels = [];
-
-        // Criando estrutura para plotar gráfico - dados
-        let dados = {
-            labels: labels,
-            datasets: [
+    var historico_temp1 = new Chart(
+      document.getElementById("historico_temp").getContext("2d"),
+      {
+        type: "line",
+        data: {
+          labels: lista_horarios,
+          datasets: [
             {
-                label: 'Temperatura',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(199, 52, 52)',
-                tension: 0.1
-            }]
-        };
-
-        console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        console.log(resposta)
-
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.temperatura);
+              label: "temperatura",
+              borderColor: "#558acb",
+              backgroundColor: "#558acb",
+              borderWidth: 2,
+              data: lista_temperatura,
+            },
+            {
+              label: "Limite mínimo (2°C)",
+              borderColor: "red",
+              borderWidth: 2,
+              borderDash: [5, 5],
+              pointRadius: 0,
+              data: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            },
+            {
+              label: "Limite máximo (8°C)",
+              borderColor: "red",
+              borderWidth: 2,
+              borderDash: [5, 5],
+              pointRadius: 0,
+              data: [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+            },
+          ],
+        },
+        options: {
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: "bottom",
+              align: "center",
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: "Horario",
+              },
+            },
+            y: {
+              min: 0,
+              max: 10,
+              title: {
+                display: true,
+                text: "Temperatura(°C)",
+              },
+            },
+          },
+        },
+        y: {
+          min: 0,
+          max: 10,
+          title: {
+            display: true,
+            text: 'Temperatura (°C)'
+          }
         }
+      },
+    );
 
-        console.log('----------------------------------------------')
-        console.log('O gráfico será plotado com os respectivos valores:')
-        console.log('Labels:')
-        console.log(labels)
-        console.log('Dados:')
-        console.log(dados.datasets)
-        console.log('----------------------------------------------')
+    // console.log('iniciando plotagem do gráfico...');
 
-        // Criando estrutura para plotar gráfico - config
-        const config = {
-            type: 'line',
-            data: dados,
-        };
+    // // Criando estrutura para plotar gráfico - labels
+    // let labels = [];
 
-        // Adicionando gráfico criado em div na tela
-        let myChart = new Chart(
-            document.getElementById(`myChartCanvas${idRefrigerador}`),
-            config
-        );
-
-        setTimeout(() => atualizarGrafico(idRefrigerador, dados, myChart), 2000);
-    }
+    // // Criando estrutura para plotar gráfico - dados
+    // let dados = {
+    //     labels: labels,
+    //     datasets: [
+    //     {
+    //         label: 'Temperatura',
+    //         data: lista_temperatura,
+    //         fill: false,
+    //         borderColor: 'rgb(199, 52, 52)',
+    //         tension: 0.1
+    //     }]
+    // };
 
 
 
+    // // Criando estrutura para plotar gráfico - config
+    // const config = {
+    //     type: 'line',
+    //     data: dados,
+    // };
 
-  function atualizarGrafico(idRefrigerador, dados, myChart) {
+    // // Adicionando gráfico criado em div na tela
+    // let myChart = new Chart(
+    //     document.getElementById(`myChartCanvas${historico_temp}`),
+    //     config
+    // );
 
-        fetch(`/medidas/tempo-real/${idRefrigerador}}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (novoRegistro) {
-
-                    obterdados(idRefrigerador);
-                    // alertar(novoRegistro, idRefrigerador);
-                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                    console.log(`Dados atuais do gráfico:`);
-                    console.log(dados);
-
-                    let avisoCaptura = document.getElementById(`avisoCaptura${idRefrigerador}`)
-                    avisoCaptura.innerHTML = ""
+    // setTimeout(() => atualizarGrafico(), 2000);
+  }
 
 
-                    if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-                        console.log("---------------------------------------------------------------")
-                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                        avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
-                        console.log("Horário do novo dado capturado:")
-                        console.log(novoRegistro[0].momento_grafico)
-                        console.log("Horário do último dado capturado:")
-                        console.log(dados.labels[dados.labels.length - 1])
-                        console.log("---------------------------------------------------------------")
-                    } else {
-                        // tirando e colocando valores no gráfico
-                        dados.labels.shift(); // apagar o primeiro
-                        dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+  function atualizarGrafico() {
+    fetch(`/medidas/tempo-real`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        idUnidade: Unidade,
+        idSensor: Sensor
+      })
+    })
 
-                        dados.datasets[0].data.shift();  // apagar o primeiro de temperatura
-                        dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
 
-                        myChart.update();
-                    }
 
-                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idRefrigerador, dados, myChart), 2000);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idRefrigerador, dados, myChart), 2000);
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
+  }
 
-    }
+
+
+  // function atualizarGrafico(idRefrigerador, dados, myChart) {
+
+  //       fetch(`/medidas/tempo-real/${idRefrigerador}}`, { cache: 'no-store' }).then(function (response) {
+  //           if (response.ok) {
+  //               response.json().then(function (novoRegistro) {
+
+  //                   obterdados(idRefrigerador);
+  //                   // alertar(novoRegistro, idRefrigerador);
+  //                   console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+  //                   console.log(`Dados atuais do gráfico:`);
+  //                   console.log(dados);
+
+  //                   let avisoCaptura = document.getElementById(`avisoCaptura${idRefrigerador}`)
+  //                   avisoCaptura.innerHTML = ""
+
+
+  //                   // if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
+  //                   //     console.log("---------------------------------------------------------------")
+  //                   //     console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+  //                   //     avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+  //                   //     console.log("Horário do novo dado capturado:")
+  //                   //     console.log(novoRegistro[0].momento_grafico)
+  //                   //     console.log("Horário do último dado capturado:")
+  //                   //     console.log(dados.labels[dados.labels.length - 1])
+  //                   //     console.log("---------------------------------------------------------------")
+  //                   // } else {
+  //                   //     // tirando e colocando valores no gráfico
+  //                   //     dados.labels.shift(); // apagar o primeiro
+  //                   //     dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+
+  //                   //     dados.datasets[0].data.shift();  // apagar o primeiro de temperatura
+  //                   //     dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+
+  //                   //     myChart.update();
+  //                   // }
+
+  //                   // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+  //                   proximaAtualizacao = setTimeout(() => atualizarGrafico(idRefrigerador, dados, myChart), 2000);
+  //               });
+  //           } else {
+  //               console.error('Nenhum dado encontrado ou erro na API');
+  //               // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+  //               proximaAtualizacao = setTimeout(() => atualizarGrafico(idRefrigerador, dados, myChart), 2000);
+  //           }
+  //       })
+  //           .catch(function (error) {
+  //               console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+  //           });
+
+  //   }
 
 
 </script>

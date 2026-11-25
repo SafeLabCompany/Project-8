@@ -1,47 +1,53 @@
 var medidaModel = require("../models/medidaModel");
 
-function buscarUltimasMedidas(req, res) {
-    const limite_linhas = 7;
+function buscarPermanencia(req, res) {
 
-    const idReg = req.params.idRefrigeradores;
+  var sensor = req.body.idSensor;
+    var unidade = req.body.idUnidade;
+    console.log(`Recuperando medidas em tempo real`);
 
-    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
-
-    medidaModel.buscarUltimasMedidas(idReg, limite_linhas).then(function (resultado) {
+    medidaModel.buscarPermanencia(sensor,unidade).then(function (resultado) {
+    
         if (resultado.length > 0) {
-            res.status(200).json(resultado);
+            res.json(
+            resultado
+           )
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
         }
     }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
+        // console.log(erro);
+        // console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        // res.status(500).json(erro.sqlMessage);
     });
 }
-
 
 function buscarMedidasEmTempoReal(req, res) {
 
-    var idRefrigerador = req.params.idRefrigerador;
-
+  var sensor = req.body.idSensor;
+    var unidade = req.body.idUnidade;
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idRefrigerador).then(function (resultado) {
+    medidaModel.buscarMedidasEmTempoReal(sensor,unidade).then(function (resultado) {
+    
         if (resultado.length > 0) {
-            res.status(200).json(resultado);
+            res.json(
+            resultado
+           )
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
         }
     }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
+        // console.log(erro);
+        // console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        // res.status(500).json(erro.sqlMessage);
     });
 }
 
+
+
 module.exports = {
-    buscarUltimasMedidas,
+   buscarPermanencia,
     buscarMedidasEmTempoReal
     
 

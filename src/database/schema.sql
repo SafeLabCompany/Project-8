@@ -37,7 +37,7 @@ fk_funcionario INT,
 CONSTRAINT ConstFkRegistroFuncionario FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id),
 fk_unidade INT,
 CONSTRAINT ConstFkRegistroUnidade FOREIGN KEY (fk_unidade) REFERENCES unidade(id),
-PRIMARY KEY (fk_funcionario, fk_unidade)
+PRIMARY KEY (fk_funcionario, fk_unidade)    
 );
 
 -- Tabela Chamado feito pelo usuario

@@ -9,8 +9,12 @@ router.get("/ultimas/:idRefrigeradores", function (req, res) {
 
 
 
-// router.get("/tempo-real/:id", function (req, res) {
-//     medidaController.buscarMedidasEmTempoReal(req, res);
-// })
+router.post("/tempo-real", function ( req, res) {
+    medidaController.buscarMedidasEmTempoReal( req,res);
+})
+
+router.post("/ultimas-24", function ( req, res) {
+    medidaController.buscarPermanencia( req,res);
+})
 
 module.exports = router;
