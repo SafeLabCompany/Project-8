@@ -218,13 +218,13 @@
       idRefrigerador = 1;
       fetch(`/medidas/ultima/tempo-real/${idUnidade}/${idRefrigerador}`)
         .then(function (response) {
-          if (resposta.ok) {
-            resposta.json().then(function (resposta) {
+          if (response.ok) {
+            response.json().then(function (resposta) {
               console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             });
           } else {
             console.error(
-              `Nenhum dado encontrado para o id ${idAquario} ou erro na API`,
+              `Nenhum dado encontrado para o id ${idRefrigerador} ou erro na API`,
             );
           }
         })
