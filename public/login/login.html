@@ -11,10 +11,6 @@
 
 <body>
 
-    <!-- -------- -->
-    <!--  HEADER  -->
-    <!-- -------- -->
-
     <header>
         <div class="section_header">
             <img style="width: 1.25rem; margin-left: 1rem; margin-right: 1rem;"
@@ -45,10 +41,6 @@
             </nav>
     </header>
 
-    <!--  ----------  -->
-    <!--  Fim HEADER  -->
-    <!--  ----------  -->
-
     <section id="PaginaLogin" class="PaginaLogin">
 
         <div class="LoginImagem">
@@ -64,11 +56,11 @@
             </div>
 
             <div class="DivLogin">
-                <label for="ipt_loginEmail">
+                <label>
                     <h3>Email:</h3>
                 </label>
                 <input class="LocalDeInsert" type="text" id="ipt_LoginEmail" style="text-align: center;">
-                <label for="ipt_loginEmail">
+                <label>
                     <h3>Senha:</h3>
                 </label>
                 <input class="LocalDeInsert" type="password" id="ipt_LoginSenha" style="text-align: center;">
@@ -81,15 +73,7 @@
 
     </section>
 
-    <!-- -------- -->
-    <!--  Footer  -->
-    <!-- -------- -->
-
     <footer style="padding: 1.5rem; background-color: #f8f9fa;">
-
-        <!-- ------------- -->
-        <!-- Parte de Cima -->
-        <!-- ------------- -->
 
         <div style="display: flex; justify-content: space-between;">
             <div style="display: flex; align-items: center;">
@@ -113,9 +97,6 @@
             </div>
         </div>
 
-        <!-- ------ -->
-        <!-- POPUPS -->
-        <!-- ------ -->
 
         <dialog id="contato_popup">
             <h2>Olá!</h2>
@@ -123,9 +104,6 @@
             <button onclick="contato_popup.close()">Fechar</button>
         </dialog>
 
-        <!-- -------------- -->
-        <!-- Parte de Baixo -->
-        <!-- -------------- -->
 
         <div>
             <hr style="height: 0.2rem; background-color: #1c1c1c;">
@@ -135,30 +113,74 @@
         </div>
     </footer>
 
-    <!-- ------------ -->
-    <!--  Fim Footer  -->
-    <!-- ------------ -->
-
     <script>
         function EntrarLogin() {
-            let ax_Email = "adm@safelab.com";
-            let ax_Senha = "urubu100";
-           
+            var ax_Email = ipt_LoginEmail.value;
+            var ax_Senha = ipt_LoginSenha.value;
 
             if (ax_Email == '') {
                 alert('É necessario informar o seu email para seguir com o Login')
             }
             else if (ax_Senha == '') {
                 alert('É necessario inserir uma senha válida para seguir com o Login')
+            } else{
+
+            fetch("/usuarios/autenticar", {
+        method: 'POST',
+        headers: {
+                "Content-Type": "application/json"
+            },
+        body: JSON.stringify({
+          
+          Email: ax_Email,
+          Senha: ax_Senha
+          
+
+        })
+        }).then(function(resposta){
+            if(resposta.ok){
+          console.log(resposta);
+
+          resposta.json().then(json => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            sessionStorage.user_name = json.nome;
+            sessionStorage.user_email = json.email;
+            sessionStorage.user_id = json.id;
+            sessionStorage.empresa_id = json.unidades[0].fk_empresa;
+            
+
+            var listaNiveis = [];
+            var listaUnidades = [];
+
+            for (var i = 0; i < json.unidades.length; i++) {
+             listaNiveis.push(json.unidades[i].nivel);
             }
 
-            if (ax_Email != "adm@safelab.com" || ax_Senha != "urubu100") {
-                msg_erro.innerHTML = `Sua senha ou email esta incorreto`
-                msg_erro.style.color = "red";
-            } else if (ax_Email == "adm@safelab.com" && ax_Senha == "urubu100") {
-                window.location.href = "../dash/dashboard.html"
+            for (var i = 0; i < json.unidades.length; i++) {
+             listaUnidades.push(json.unidades[i].fk_unidade);
             }
+
+            sessionStorage.nivel_id = JSON.stringify(listaNiveis);
+            sessionStorage.unidades = JSON.stringify(listaUnidades);
+            
+
+            setTimeout(function (){
+              window.location = "../dash/dashboard.html"
+            },1000)
+          })
         }
+        else {
+            console.log("Houve um erro ao tentar realizar o login");
+            resposta.text().then(texto =>{
+              console.error(texto);
+            });
+          }
+      })
+    
+        }
+}
+        
 
     </script>
 

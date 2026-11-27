@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style/style.css">
   <link rel="stylesheet" href="style/unidades.css">
-  <title>Document</title>
+  <title>Tela de Unidades</title>
 </head>
 
 <body>
@@ -83,7 +83,7 @@
             <h2>Unidades</h2>
           </div>
 
-          <div class="area-unidades">
+          <div class="area-unidades" id="unidades-id">
             <div class="unidade">
               <p>Unidade 1</p>
               <p>4 Refrigeradores</p>
@@ -109,7 +109,7 @@
               <p>1 Refrigeradores</p>
             </div>
 
-            <div class="btn-cadastrar-unidades">
+            <div class="btn-cadastrar-unidades" id="cadastro-id">
               <button class="btn-cad" onclick="window.location.href='cadastrar_unidade.html'"><img class="btn-cad"
                   src="../assets/dash/Icone_Azul_Adicionar_Refrigerador.png" alt=""></button>
             </div>
@@ -117,38 +117,44 @@
         </div>
       </section>
     </div>
-
-    <footer class="footer">
-      <div class="footer-top">
-        <div class="footer-marca">
-          <img class="footer-logo" src="../assets/institucional/safelab_recortada.svg" alt="logo">
-          <div class="footer-body">
-            <span class="footer-bodyLight">Safe</span>
-            <span class="footer-booterBold">Lab</span>
-          </div>
-        </div>
-
-        <div class="footer-Nav">
-          <nav>
-            <div class="footer-links">
-              <a onclick="contato_popup.showModal()">Contato</a>
-            </div>
-          </nav>
-        </div>
-      </div>
-
-      <dialog id="contato_popup">
-        <h2>Olá!</h2>
-        <p>Este é um pop-up simples.</p>
-        <button onclick="contato_popup.close()">Fechar</button>
-      </dialog>
-
-      <div>
-        <hr class="footer-divider">
-        <span class="footer-copyright"> © SafeLab - 2026 - Todos os direitos reservados.</span>
-      </div>
-    </footer>
   </div>
 </body>
+<script>
+      function BuscandoRefrigeradores(){
 
+        fetch(`/unidade/buscarRefri/${sessionStorage.empresa_id}`)
+        .then(function(resposta){
+          if(resposta.ok){
+            resposta.json().then(function (dados){
+              console.log(dados)
+
+              const area = document.getElementById("unidades-id")
+              const botao = document.getElementById("cadastro-id")
+
+              dados.forEach(function(unidade){
+                let bloco = document.createElement("div")
+                bloco.className = "unidade"
+                bloco.id = "unidade" + unidade.id
+
+                let titulo = document.createElement("p")
+                titulo.innerHTML = unidade.titulo
+
+                let qtd = document.createElement("p")
+                qtd.innerHTML = unidade.qtd_refrigeradores + (unidade.qtd_refrigeradores == 1 ? " Refrigerador" : " Refrigeradores")
+
+                bloco.appendChild(titulo)
+                bloco.appendChild(qtd)
+                area.insertBefore(bloco, botao)
+              })
+            })
+          }else{
+            console.log("Erro ao buscar as unidades: " + resposta.status)
+          }
+        }).catch(function(erro){
+          console.error("Erro ao conectar com o servidor:", erro)
+        })
+      }
+
+      BuscandoRefrigeradores()
+</script>
 </html>

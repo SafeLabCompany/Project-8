@@ -42,7 +42,7 @@
 }
 
 .kpi2 {
-  background-color: #ffc107;
+  background-color: #ffc107d6;
 }
 
 #area-grafico{
@@ -120,4 +120,35 @@
 .text-alertas{
   font-weight: bolder;
   color: red;
+}
+
+.kpi_popup{
+  background-color: #2b3b92;
+  border-color: #061157;
+  color: white;
+  border-radius: 7px;
+}
+
+.botao_pop_kpi_1{
+  background-color: red;
+  border: 1px solid;
+  border-color: #a9a9a9;
+  color: #a9a9a9;
+  margin-left: 40rem;
+}
+
+.botao_pop_kpi_2{
+  background-color: red;
+  border: 1px solid;
+  border-color: #a9a9a9;
+  color: #a9a9a9;
+  margin-left: 37rem;
+}
+
+.botao_pop_kpi_3{
+  background-color: red;
+  border: 1px solid;
+  border-color: #a9a9a9;
+  color: #a9a9a9;
+  margin-left: 45rem;
 }

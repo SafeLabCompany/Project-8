@@ -98,3 +98,20 @@
   width: 100%;
   color: #fffafa;
 }
+
+.btn-viz{
+    width: 25rem;
+    height: 3rem;
+    background-color: #2b3b92;
+    border-color: #2b3b92;
+    border-style: solid;
+    border-radius: 4rem;
+
+    color: #e7e7e7;
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-weight: bolder;  
+    font-size: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+}

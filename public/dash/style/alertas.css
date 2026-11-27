@@ -18,6 +18,8 @@
   font-size: xx-large;
   margin-top: 10px;
   width: 80vw;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 #table table {
