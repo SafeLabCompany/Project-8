@@ -37,8 +37,20 @@ function cadastrar(req, res) {
 
     }
 }
-
+        function buscarRefri(req, res){
+            var fk_empresa = req.params.fk_empresa;
+            unidadeModel.buscarRefri(fk_empresa)
+            .then(function (resultado){
+                console.log(resultado)
+                res.status(200).json(resultado);
+               
+            }) 
+            .catch(function(erro){
+                res.status(500).json(erro.sqlMessage)
+            })
+        }
 
 module.exports = {
-    cadastrar
+    cadastrar,
+    buscarRefri
 };

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style/style.css">
   <link rel="stylesheet" href="style/unidades.css">
-  <title>Document</title>
+  <title>Tela de Unidades</title>
 </head>
 
 <body>
@@ -83,33 +83,33 @@
             <h2>Unidades</h2>
           </div>
 
-          <div class="area-unidades">
-            <div class="unidade" id="unidade1">
+          <div class="area-unidades" id="unidades-id">
+            <div class="unidade">
               <p>Unidade 1</p>
               <p>4 Refrigeradores</p>
             </div>
-            <div class="unidade" id="unidade2">
+            <div class="unidade">
               <p>Unidade 2</p>
               <p>3 Refrigeradores</p>
             </div>
-            <div class="unidade" id="unidade3">
+            <div class="unidade">
               <p>Unidade 3</p>
               <p>2 Refrigeradores</p>
             </div>
-            <div class="unidade" id="unidade4">
+            <div class="unidade">
               <p>Unidade 4</p>
               <p>3 Refrigeradores</p>
             </div>
-            <div class="unidade" id="unidades">
+            <div class="unidade">
               <p>Unidade 5</p>
               <p>4 Refrigeradores</p>
             </div>
-            <div class="unidade" id="unidade6">
+            <div class="unidade">
               <p>Unidade 6</p>
               <p>1 Refrigeradores</p>
             </div>
 
-            <div class="btn-cadastrar-unidades">
+            <div class="btn-cadastrar-unidades" id="cadastro-id">
               <button class="btn-cad" onclick="window.location.href='cadastrar_unidade.html'"><img class="btn-cad"
                   src="../assets/dash/Icone_Azul_Adicionar_Refrigerador.png" alt=""></button>
             </div>
@@ -120,9 +120,41 @@
   </div>
 </body>
 <script>
+      function BuscandoRefrigeradores(){
 
-      
+        fetch(`/unidade/buscarRefri/${sessionStorage.empresa_id}`)
+        .then(function(resposta){
+          if(resposta.ok){
+            resposta.json().then(function (dados){
+              console.log(dados)
 
-      
+              const area = document.getElementById("unidades-id")
+              const botao = document.getElementById("cadastro-id")
+
+              dados.forEach(function(unidade){
+                let bloco = document.createElement("div")
+                bloco.className = "unidade"
+                bloco.id = "unidade" + unidade.id
+
+                let titulo = document.createElement("p")
+                titulo.innerHTML = unidade.titulo
+
+                let qtd = document.createElement("p")
+                qtd.innerHTML = unidade.qtd_refrigeradores + (unidade.qtd_refrigeradores == 1 ? " Refrigerador" : " Refrigeradores")
+
+                bloco.appendChild(titulo)
+                bloco.appendChild(qtd)
+                area.insertBefore(bloco, botao)
+              })
+            })
+          }else{
+            console.log("Erro ao buscar as unidades: " + resposta.status)
+          }
+        }).catch(function(erro){
+          console.error("Erro ao conectar com o servidor:", erro)
+        })
+      }
+
+      BuscandoRefrigeradores()
 </script>
 </html>
