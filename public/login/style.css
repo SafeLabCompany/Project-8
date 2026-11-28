@@ -42,8 +42,7 @@ header {
     flex-direction: row;
 
     min-height: 4rem;
-    /* background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px); */
+
     background-color: #f8f9fa;
 }
 
@@ -69,16 +68,10 @@ header {
 }
 
 .link_header:hover {
-    /* background-color: #2b3b92;
-    border-color: #2b3b92;
-    border-style: solid;
-    border-width: 0.5rem;
-    border-radius: 2rem;
-    color: #f8f9fa; */
 
     text-decoration: underline;
     transform: scale(1.25);
-    /* font-size: 1.25rem; */
+    
 }
 
 .menu_navegacao {
@@ -130,7 +123,6 @@ header {
         .DivLogin {
             display: flex;
             flex-direction: column;
-            align-items: left;
             padding-bottom: 2rem;
         }
 
