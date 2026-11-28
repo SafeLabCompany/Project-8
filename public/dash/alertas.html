@@ -80,12 +80,14 @@
           
         </div>
       </div>
-
       <div id="main-area">
         <div id="user-icon">
           <img src="../assets/dash/notification.png" width="30px">
           <img src="../assets/dash/userIcon.png" width="30px">
         </div>
+        <select onchange="verificarUnidade()" id="slc_unidades" class="select-diagnostico">
+             <option value="unidade1">Unidade 1</option>
+            </select>
         <div id="table">
           <table>
             <thead>
@@ -127,6 +129,57 @@
       </div>
     </div>
   </div>
+  <script>
+
+    let maior_menor = []
+
+    function verificarUnidade() {
+    let unidade_selecionada = slc_unidades.value
+    alert(unidade_selecionada)
+    verificarSelect(unidade_selecionada)
+  }
+
+
+    function ultimosAlertas(){
+       fetch(`/medidas/tempo-real`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        idUnidade: sessionStorage.unidades,
+        //idRefrigerador: sessionStorage.,            ADICIONAR O SESSIONSTORAGE DO REFRIGERADOR
+        
+      })
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+            // resposta.reverse();
+
+            for (let i = resposta.length - 1; i >= 0; i--) {
+              lista_temperatura.push(resposta[i].temperatura)
+              lista_horarios.push(resposta[i].Horario)
+
+               if(resposta[i].temperatura >= 8 || resposta[i].temperatura <= 2){
+                  maior_menor.push(resposta[i].temperatura)
+                  console.log(maior_menor)
+
+            }else{
+              console.log("temperatura adequada")
+            }
+          }       
+          });
+        } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+        }
+      })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+    }
+    ultimosAlertas()
+  </script>
 </body>
 
 </html>

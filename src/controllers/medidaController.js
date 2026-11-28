@@ -24,11 +24,13 @@ function buscarUltimasMedidas(req, res) {
 
 function buscarMedidasEmTempoReal(req, res) {
 
-    var idRefrigerador = req.params.idRefrigerador;
+    var refrigerador= 1;
+    var unidade = 1;
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idRefrigerador).then(function (resultado) {
+    medidaModel.buscarMedidasEmTempoReal(unidade, sensor).then(function (resultado) {
+        console.log(`${sensor}, ${unidade}`)
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
