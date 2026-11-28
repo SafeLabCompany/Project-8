@@ -224,7 +224,7 @@
             });
           } else {
             console.error(
-              `Nenhum dado encontrado para o id ${idRefrigerador} ou erro na API`,
+              `Nenhum dado encontrado para o id ${idUnidade} ou erro na API`,
             );
           }
         })
@@ -258,7 +258,7 @@
       ];
 
       for (let i = 0; i <= refrigeradores[0].length - 1; i++) {
-        document.getElementById("div_exibir_grafico") =
+        document.getElementById("div_exibir_grafico").innerHTML =
           `<div class="refrigerador">
         <div class='titulo-card'>
           <div style='margin-left: 6px;'>
@@ -280,14 +280,14 @@
         clearTimeout(proximaAtualizacao);
       }
 
-      fetch(`/medidas/ultimas/1/1`, { cache: "no-store" })
+      fetch(`/medidas/ultimas/${idUnidade}/${idRefrigerador}`, { cache: "no-store" })
         .then(function (response) {
           if (response.ok) {
             response.json().then(function (resposta) {
               console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
               resposta.reverse();
 
-              plotarGrafico(resposta, idRefrigerador);
+              plotarGrafico(resposta, idUnidade, idRefrigerador);
             });
           } else {
             console.error("Nenhum dado encontrado ou erro na API");
@@ -302,8 +302,6 @@
 
     function plotarGrafico(resposta, idRefrigerador, idUnidade) {
 
-      idRefrigerador = 1;
-      idUnidade = 1
       // Criando estrutura para plotar gráfico - labels
       let labels = [];
       let valoresTemperatura = [];
@@ -318,7 +316,7 @@
       }
 
       let dados = {
-        labels: horas,
+        labels: labels,
         datasets: [
           {
             label: "temperatura",
@@ -384,11 +382,10 @@
               console.log(`Dados atuais do gráfico:`);
               console.log(`${dados.labels}`);
               console.log(`${novoRegistro[0].momento_grafico}`);
-              console.log(`${novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]}`);
 
               if (
                 novoRegistro[0].momento_grafico ==
-                dados.labels[dados.labels.length - 1]
+                dados.labels[(dados.labels).length - 1]
               ) {
                 avisoCaptura.innerHTML =
                   "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará.";
@@ -403,14 +400,14 @@
               }
 
               proximaAtualizacao = setTimeout(
-                () => atualizarGrafico(idRefrigerador, dados, myChart),
+                () => atualizarGrafico(idUnidade, idRefrigerador, dados, myChart),
                 2000,
               );
             });
           } else {
             console.error("Nenhum dado encontrado ou erro na API");
             proximaAtualizacao = setTimeout(
-              () => atualizarGrafico(idRefrigerador, dados, myChart),
+              () => atualizarGrafico(idUnidade, idRefrigerador, dados, myChart),
               2000,
             );
           }
