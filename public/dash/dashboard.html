@@ -253,7 +253,7 @@
     function atualizarRefrigeradores() {
       let refrigeradores = []
       refrigeradores = [
-        [1, 2, 3]
+        [1, 2]
       ];
       let idUnidade = document.getElementById('slc_unidade').value
 
@@ -299,7 +299,7 @@
         });
     }
 
-    function plotarGrafico(resposta, idRefrigerador, idUnidade) {
+    function plotarGrafico(resposta, idUnidade, idRefrigerador) {
 
       // Criando estrutura para plotar gráfico - labels
       let labels = [];
@@ -365,7 +365,7 @@
 
       // Adicionando gráfico criado em div na tela
       let myChart = new Chart(
-        document.getElementById(`myChartCanvas${idRefrigerador}`),
+        document.getElementById(`refrigerador-${idRefrigerador}`),
         config,
       );
 
