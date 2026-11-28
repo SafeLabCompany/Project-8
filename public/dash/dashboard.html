@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
-  <body onload="atualizarRefrigeradores()">
+  <body onload="atualizarRefrigeradores(slc_unidade.value)">
     <div id="page-container">
       <div id="main-dash">
         <div id="user-area">
@@ -125,7 +125,7 @@
               </button>
             </div>
             <div>
-              <select name="" id="slc_unidade">
+              <select name="" id="slc_unidade" onchange="atualizarRefrigeradores(slc_unidade.value)">
                 <option value="1">Unidade 1</option>
                 <option value="2">Unidade 2</option>
                 <option value="3">Unidade 3</option>
@@ -250,14 +250,19 @@
       }
     }
 
-    function atualizarRefrigeradores() {
+    function atualizarRefrigeradores(unidadeEscolhida) {
       let refrigeradores = []
       refrigeradores = [
-        [1, 2]
+        [1, 2],
+        [3],
+        [5, 6]
       ];
-      let idUnidade = document.getElementById('slc_unidade').value
+      let idUnidade = unidadeEscolhida
 
-      for (let i = 1; i <= refrigeradores[0].length; i++) {
+      document.getElementById("div_exibir_grafico").innerHTML = "";
+      for (let i = 1; i <= refrigeradores[idUnidade - 1].length; i++) {
+        
+
         document.getElementById("div_exibir_grafico").innerHTML +=
           `<div class="refrigerador">
         <div class='titulo-card'>
@@ -266,11 +271,10 @@
           </div>
           <div style='margin-right: 6px;'></div>
         </div>
-          <canvas class="refrigerador" id="refrigerador-${i}"></canvas>
+          <canvas class="refrigerador" id="refrigerador-${refrigeradores[idUnidade-1][i-1]}"></canvas>
         </div>`;
 
-        obterDadosGrafico(idUnidade, i);
-
+       obterDadosGrafico(idUnidade, refrigeradores[idUnidade-1][i-1]);
       }
     }
 
@@ -284,7 +288,7 @@
           if (response.status == 200) {
             response.json().then(function (resposta) {
               console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-              resposta.reverse();
+              
 
               plotarGrafico(resposta, idUnidade, idRefrigerador);
             });
@@ -373,7 +377,7 @@
     }
 
     function atualizarGrafico(idUnidade, idRefrigerador, dados, myChart) {
-      fetch(`/medidas/tempo-real/1/1`, { cache: "no-store" })
+      fetch(`/medidas/tempo-real/${idUnidade}/${idRefrigerador}`, { cache: "no-store" })
         .then(function (response) {
           if (response.ok) {
             response.json().then(function (novoRegistro) {
@@ -386,8 +390,7 @@
                 novoRegistro[0].momento_grafico ==
                 dados.labels[(dados.labels).length - 1]
               ) {
-                avisoCaptura.innerHTML =
-                  "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará.";
+                
               } else {
                 dados.labels.shift();
                 dados.labels.push(novoRegistro[0].momento_grafico);
