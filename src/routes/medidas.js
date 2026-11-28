@@ -15,4 +15,8 @@ router.get("/ultima/tempo-real/:idUnidade/:idRefrigerador", function (req, res) 
     medidaController.buscarUltimaMedida(req, res);
 })
 
+router.get("/tabela/:idUnidade", function(req, res){
+    medidaController.buscarDadosTabela(req,res);
+})
+
 module.exports = router;

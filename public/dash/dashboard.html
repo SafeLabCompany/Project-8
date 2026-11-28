@@ -120,8 +120,8 @@
         <div id="area-dashboard">
           <div id="header-dashboard">
             <div id="button-vizualizacao">
-              <button onclick="alternar_vizualizacao()">
-                Visualização em Tabela
+              <button id="botao_alternar" onclick="alternar_vizualizacao()">
+                <span>Visualização em Tabela</span>
               </button>
             </div>
             <div>
@@ -159,43 +159,7 @@
                     <th scope="col">Data e Hora</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td scope="row">Refrigerador 1</td>
-                    <td scope="row"><span class="low">2.8</span></td>
-                    <td scope="row"><span class="badge">Ideal</span></td>
-                    <td scope="row">27/05/2026 9:41</td>
-                  </tr>
-                  <tr>
-                    <td>Refrigerador 2</td>
-                    <td><span class="low">2.5</span></td>
-                    <td><span class="badge">Ideal</span></td>
-                    <td>27/05/2026 9:40</td>
-                  </tr>
-                  <tr>
-                    <td>Refrigerador 3</td>
-                    <td><span class="low">2.8</span></td>
-                    <td><span class="badge">Ideal</span></td>
-                    <td>27/05/2026 9:39</td>
-                  </tr>
-                  <tr>
-                    <td>Refrigerador 4</td>
-                    <td><span class="low">6</span></td>
-                    <td><span class="badge">Ideal</span></td>
-                    <td>27/05/2026 9:38</td>
-                  </tr>
-                  <tr>
-                    <td>Refrigerador 5</td>
-                    <td><span class="critical">9.2</span></td>
-                    <td><span class="badge --critical">Crítico</span></td>
-                    <td>27/05/2026 9:37</td>
-                  </tr>
-                  <tr>
-                    <td>Refrigerador 6</td>
-                    <td>---</td>
-                    <td><span class="badge --desligado">Desligado</span></td>
-                    <td>27/05/2026 9:36</td>
-                  </tr>
+                <tbody id="dados_tabela">
                 </tbody>
               </table>
             </div>
@@ -212,6 +176,31 @@
     let tabela = false;
     let grafico = true;
     let proximaAtualizacao;
+
+    function gerarItem(idUnidade){
+      fetch(`/medidas/tabela/${idUnidade}`).then(function(response){
+        if(response.ok){
+          response.json().then(function(resposta){
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+            document.getElementById('dados_tabela').innerHTML = "";
+            
+            for(let i = 0; i <= resposta.length-1; i++){
+            document.getElementById('dados_tabela').innerHTML += `
+            <tr>
+                    <td scope="row">Refrigerador ${resposta[i].nome}</td>
+                    <td scope="row"><span class="low">${resposta[i].temperatura}</span></td>
+                    <td scope="row"><span class="badge">${resposta[i].status}</span></td>
+                    <td scope="row">${resposta[i].Hora}</td>
+            </tr>
+            `
+            }
+            
+            
+          })
+        }
+      })
+    }
 
     function obterDados(idUnidade, idRefrigerador) {
       idUnidade = 1;
@@ -242,11 +231,13 @@
         div_exibir_tabela.className = "areatabela";
         grafico = false;
         tabela = true;
+        document.getElementById('botao_alternar').innerHTML = `<span>Alternar para visualização em gráfico</span>`
       } else {
         div_exibir_grafico.className = "arearefrigerador";
         div_exibir_tabela.className = "areatabela_desativo";
         grafico = true;
         tabela = false;
+        document.getElementById('botao_alternar').innerHTML = `<span>Alternar para visualização em tabela</span>`
       }
     }
 
@@ -291,6 +282,7 @@
               
 
               plotarGrafico(resposta, idUnidade, idRefrigerador);
+              gerarItem(idUnidade);
             });
           } else {
             console.error("Nenhum dado encontrado ou erro na API");

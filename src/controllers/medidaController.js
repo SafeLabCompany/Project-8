@@ -66,9 +66,26 @@ function buscarUltimaMedida(req, res) {
     });
 }
 
+function buscarDadosTabela(req, res){
+    var idUnidade = req.params.idUnidade;
+
+    medidaModel.buscarDadosTabela(idUnidade).then(function(resultado){
+        if(resultado.length > 0){
+            res.status(200).json(resultado);
+        } else{
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
-    buscarUltimaMedida
+    buscarUltimaMedida,
+    buscarDadosTabela
 }

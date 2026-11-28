@@ -144,3 +144,22 @@ JOIN refrigerador AS r
 ON s.fk_refrigerador = r.id
 JOIN unidade AS u
 ON r.fk_unidade = u.id;
+
+CREATE OR REPLACE VIEW vw_dados_tabela AS SELECT 
+                        u.id, r.nome, 
+                        mt.temperatura, 
+                        DATE_FORMAT(mt.dt_hora,'%H:%i:%s') Hora,
+                        CASE
+                            WHEN mt.temperatura < 2 OR mt.temperatura > 8 THEN 'ALERTA'
+                            ELSE 'OK'
+                        END AS status
+                    FROM refrigerador r
+                        JOIN sensor AS s ON s.fk_refrigerador = r.id
+                        JOIN medida_temperatura AS mt ON mt.fk_sensor = s.id
+                        join unidade AS u ON u.id = r.fk_unidade
+                    WHERE mt.dt_hora = (
+                        SELECT MAX(mt2.dt_hora)
+                        FROM medida_temperatura AS mt2
+                        JOIN sensor AS s2
+                            ON s2.id = mt2.fk_sensor
+                        WHERE s2.fk_refrigerador = r.id);
