@@ -3,7 +3,7 @@ var router = express.Router();
 
 var medidaController = require("../controllers/medidaController");
 
-router.get("/ultimas/:idRefrigerador/:idUnidade", function (req, res) {
+router.get("/ultimas/:idUnidade/:idRefrigerador", function (req, res) {
     medidaController.buscarUltimasMedidas(req, res);
 });
 
