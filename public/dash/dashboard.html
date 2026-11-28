@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
-  <body>
+  <body onload="atualizarRefrigeradores()">
     <div id="page-container">
       <div id="main-dash">
         <div id="user-area">
@@ -125,12 +125,12 @@
               </button>
             </div>
             <div>
-              <select name="" id="slc_unidade" onchange="gerar_graficos()">
-                <option value="unidade_1">Unidade 1</option>
-                <option value="unidade_2">Unidade 2</option>
-                <option value="unidade_3">Unidade 3</option>
-                <option value="unidade_4">Unidade 4</option>
-                <option value="unidade_5">Unidade 5</option>
+              <select name="" id="slc_unidade">
+                <option value="1">Unidade 1</option>
+                <option value="2">Unidade 2</option>
+                <option value="3">Unidade 3</option>
+                <option value="4">Unidade 4</option>
+                <option value="5">Unidade 5</option>
               </select>
             </div>
             <div>
@@ -221,6 +221,7 @@
           if (response.ok) {
             response.json().then(function (resposta) {
               console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+              return Math.random() * 6 + 2
             });
           } else {
             console.error(
@@ -252,26 +253,24 @@
     function atualizarRefrigeradores() {
       let refrigeradores = []
       refrigeradores = [
-        [1, 2],
-        [1, 2],
-        [5, 6],
+        [1, 2, 3]
       ];
+      let idUnidade = document.getElementById('slc_unidade').value
 
-      for (let i = 0; i <= refrigeradores[0].length - 1; i++) {
-        document.getElementById("div_exibir_grafico").innerHTML =
+      for (let i = 1; i <= refrigeradores[0].length; i++) {
+        document.getElementById("div_exibir_grafico").innerHTML +=
           `<div class="refrigerador">
         <div class='titulo-card'>
           <div style='margin-left: 6px;'>
-            Refrigerador - ${i + 1}
+            Refrigerador - ${i}
           </div>
-          <div style='margin-right: 6px;' class="badge --${ultimo_valor < 8 && ultimo_valor > 2 && ultimo_valor != null ? "ideal" : ultimo_valor == null ? "semReg" : "critical"}">
-            ${ultimo_valor < 8 && ultimo_valor > 2 && ultimo_valor != null ? "Ideal" : ultimo_valor == null ? "Sem Registro" : "Crítico"}
-          </div>
+          <div style='margin-right: 6px;'></div>
         </div>
           <canvas class="refrigerador" id="refrigerador-${i}"></canvas>
         </div>`;
 
-        obterDadosGrafico(select.value, i);
+        obterDadosGrafico(idUnidade, i);
+
       }
     }
 
@@ -282,7 +281,7 @@
 
       fetch(`/medidas/ultimas/${idUnidade}/${idRefrigerador}`, { cache: "no-store" })
         .then(function (response) {
-          if (response.ok) {
+          if (response.status == 200) {
             response.json().then(function (resposta) {
               console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
               resposta.reverse();
@@ -419,6 +418,7 @@
         });
     }
 
+/*
     obterDadosGrafico(1, 1);
 
     let message = "";
@@ -627,5 +627,6 @@
         graficos.push(historico_temp);
       }
     }
+*/
   </script>
 </html>
